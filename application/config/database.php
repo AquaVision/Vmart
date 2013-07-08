@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
-$db['default']['database'] = '';
+$db['default']['hostname'] = 'sql3.freemysqlhosting.net';
+$db['default']['username'] = 'sql313480';
+$db['default']['password'] = 'yM4%kW5*';
+$db['default']['database'] = 'sql313480';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
