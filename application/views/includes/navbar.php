@@ -41,7 +41,7 @@
                             </ul>
                         </div>
                     </li>            
-                    <li id="join_with_us"><a href="">Join Us</a></li>
+                    <li id="join_with_us"><a href="#signup_tag" data-toggle="modal">Join Us</a></li>
                     <li id="logout"><a href="" style="display:none;">logout</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
@@ -79,6 +79,45 @@
 
     <div class="modal-footer">
         <button id="btnModalSignIn" class="btn btn-primary" data-dismiss="modal" aria-hidden="ture">Sign In</button>
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
+    </div>
+    <?php
+    echo form_close();
+    ?>
+</div>
+<div id="signup_tag" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 400px;top: 25%;left: 60%;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="modalLabel" style="text-align:center;">Set up your profile </h3>
+    </div>
+    <?php
+    echo form_open('Auth/SignUp');
+    ?>
+    <div class="modal-body">
+
+        
+
+        <div class="controls">
+            <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
+            
+            <?php
+            echo form_input('full_name', set_value('full_name', 'First Name'));
+            echo form_input('username', set_value('username', 'User Name'));
+            echo form_input('email', set_value('email_address','Email Address'));
+            echo form_password('password', set_value('password', 'Password'));
+            echo form_password('password2', set_value('username', 'User Name'));
+            
+            
+            
+            ?>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <?php
+        echo form_submit('submit', 'Create Acccount');
+        ?>
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
     <?php

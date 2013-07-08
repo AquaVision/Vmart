@@ -1,10 +1,10 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Vmart extends CI_Controller {
 
     public function index() {
         
-        $this->load->view('index');
+        $this->load->view('landingpage');
     }
 
 }
@@ -30,6 +30,10 @@ function validate_credentials()
 		}
 	}
         
-        
+        function create_member()
+	{
+		
+		
+	}
         
 ?>
