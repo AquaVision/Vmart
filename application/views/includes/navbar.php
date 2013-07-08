@@ -64,26 +64,31 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
         <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
     </div>
-
+     <?php 
+	echo form_open('login/validate_credentials');
+        ?>
     <div class="modal-body">
 
         <div class="span2">
             <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 100%;margin-bottom: 10px;margin-left: 20px;"></a>
         </div>
 
-        <form>
-            <div class="controls">
-                <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
-                <input type="text" class="span3" placeholder="username" id="inputinfo"><br>
 
-                <!--<div class="span2" style="text-align:center;padding-top:6px;">Password :</div>-->
-                <input type="text" class="span3" placeholder="password" id="inputinfo">
-            </div>
-        </form>
+        <div class="controls">
+            <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
+            <input type="text" class="span3" placeholder="username" id="inputinfo"><br>
+
+            <!--<div class="span2" style="text-align:center;padding-top:6px;">Password :</div>-->
+            <input type="text" class="span3" placeholder="password" id="inputinfo">
+        </div>
+
     </div>
 
     <div class="modal-footer">
         <button id="btnModalSignIn" class="btn btn-primary" data-dismiss="modal" aria-hidden="ture">Sign In</button>
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
+   <?php
+   echo form_close();
+	?>
 </div>

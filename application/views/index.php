@@ -16,23 +16,12 @@
         </script>
     </head>
     <body class="">
-
-
+        
 
         <div id="header">
             <?php $this->load->view('includes/navbar'); ?>
             <div class="headerimglk" ></div>
         </div>
-
-
-
-
-
-
-
-
-
-
         <div id="main" class="">
             <div class="span12 ">
                 <div class="span12">
