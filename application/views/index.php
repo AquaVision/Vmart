@@ -16,7 +16,7 @@
         </script>
     </head>
     <body class="">
-        
+
 
         <div id="header">
             <?php $this->load->view('includes/navbar'); ?>
@@ -457,6 +457,19 @@
                                                                                                                         direction   :   'up',
                                                                                                                     });
                                                                                                                 });
+                                                                                                                
+                                                                                                                
+                                                                                                                $('#btnModalSignIn').on('click',function(){
+                                                                                                                    $('#usrSignInLi').css({display:'none'});
+                                                                                                                    $('#usrLgdInLi').css({display:'block'});
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                });
+                                                                                                                
+                                                                                                               
+
+
                                                                                                             </script>
 
 

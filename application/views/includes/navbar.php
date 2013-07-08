@@ -18,7 +18,7 @@
                         <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
-                                UserName
+                                username
                             </a>
                             <span class="caret"></span>
                             <ul class="dropdown-menu" role="menu" style="margin-top: 6px;">
@@ -41,22 +41,15 @@
                             </ul>
                         </div>
                     </li>            
-                    <li><a href="">Join Us</a></li>
+                    <li id="join_with_us"><a href="">Join Us</a></li>
+                    <li id="logout"><a href="" style="display:none;">logout</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
     </div><!-- /navbar-inner -->
 </div>
 
-<script type="text/javascript">
 
-    $('#btnModalSignIn').on('click',function(){
-        $('#usrSignInLi').css({display:'none'});
-        $('#usrLgdInLi').css({display:'block'});
-    });
-
-
-</script>
 
 
 <div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 292px;top: 5%;left: 96%;">
@@ -64,9 +57,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
         <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
     </div>
-     <?php 
-	echo form_open('login/validate_credentials');
-        ?>
+    <?php
+    echo form_open('login/validate_credentials');
+    ?>
     <div class="modal-body">
 
         <div class="span2">
@@ -88,7 +81,7 @@
         <button id="btnModalSignIn" class="btn btn-primary" data-dismiss="modal" aria-hidden="ture">Sign In</button>
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
-   <?php
-   echo form_close();
-	?>
+    <?php
+    echo form_close();
+    ?>
 </div>
