@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteRule ^css/([^\\]*)application/views/css/$1
+RewriteRule ^css/([^\\]*) application/views/css/$1
 RewriteRule ^js/([^\\]*) application/views/js/$1
 RewriteRule ^bootstrap/([^\\]*) application/views/bootstrap/$1
 RewriteRule ^images/([^\\]*) application/views/images/$1
