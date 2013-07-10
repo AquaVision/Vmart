@@ -1,0 +1,266 @@
+.db-container {
+background:#fafafa url(../images/fixed_images/backgrounds/background.png) repeat top left;
+padding-bottom:60px;
+}
+
+.db-container>.row-fluid {
+max-width:1072px;
+margin:0 auto;
+}
+
+.db-container>.row [class*="span"],.db-container>.row-fluid [class*="span"] {
+position:relative;
+}
+
+.db-content {
+background-color:#fff;
+min-height:600px;
+margin-right:220px;
+margin-top:30px;
+position:relative;
+border:1px #ddd solid;
+-webkit-border-radius:5px;
+-moz-border-radius:5px;
+border-radius:5px;
+}
+
+
+
+.db-content.db-content-nobg {
+border:0;
+background-color:transparent;
+}
+
+.db-content.db-content-hideoverflow {
+overflow:hidden;
+}
+
+.db-sidebar .db-nav ul {
+margin-left: 1px;
+list-style-type: none; 
+}
+
+.db-content .db-content-inner {
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+padding:30px;
+}
+
+.db-content .db-content-inner.empty-buyer,.db-content .db-content-inner.empty-seller {
+overflow:hidden;
+min-height:44px;
+padding:15px 12px;
+}
+
+.db-content .db-content-inner.empty-buyer .empty-db-img,.db-content .db-content-inner.empty-seller .empty-db-img {
+display:block;
+width:100%;
+}
+
+
+.db-sidebar {
+position:absolute;
+z-index:1;
+top:0;
+right:0;
+display:block;
+width:190px;
+margin-top:30px;
+}
+
+.db-sidebar .db-sidebar-inner {
+padding-left:0;
+}
+
+
+
+.db-sidebar .db-nav {
+font-size:13px;
+line-height:16px;
+font-weight:700;
+letter-spacing:.05em;
+}
+
+.db-sidebar .db-nav ul {
+border-bottom:1px #ddd solid;
+padding-bottom:13px;
+margin-bottom:11px;
+}
+
+.db-sidebar .db-nav ul:last-child {
+border-bottom:0;
+}
+
+.db-sidebar .db-nav li {
+padding:4px 0;
+}
+
+.db-sidebar .db-nav li h5 {
+font-size:10px;
+font-style:normal;
+text-transform:uppercase;
+color:#999;
+}
+
+.db-sidebar .db-nav li textarea {
+width:100%;
+}
+
+.db-sidebar .db-nav li .unread-count {
+background-color:#00b22d;
+color:#fff;
+margin-left:4px;
+line-height:19px;
+font-style:normal;
+font-size:12px;
+-webkit-border-radius:4px;
+-moz-border-radius:4px;
+border-radius:4px;
+padding:0 6px 0 5px;
+}
+
+
+
+
+.db-order-stats {
+display: table;
+}
+
+
+.db-summary {
+display: block;
+padding: 0;
+}
+
+
+.db-order-stats {
+overflow: visible;
+padding: 20px 0;
+}
+
+
+
+.db-summary {
+background-color: #fff;
+overflow: hidden;
+margin-bottom: 30px;
+display: table;
+width: 100%;
+border: 1px #ddd solid;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+padding: 20px 10px;
+}
+
+
+
+.db-order-stats a:first-child, .db-order-stats span:first-child, .db-todo table tr:first-child td {
+border: none;
+}
+
+
+
+.db-header h1 a:hover, .db-main-table table tr.unread a:hover, .db-main-table table td.edit-dd .fake-dropdown .fake-check-grey:hover, .db-main-table table td.amount .money-in, .db-order-stats a:hover, .conv-message.faded a:hover, .todos-filters .todos-dropdown .fake-dropdown .fake-check-grey:hover, .popup-requests .popup-content .popup-selected-gig .btn-requests-trigger:hover {
+color: #00b22d;
+}
+
+
+
+.db-order-stats a, .db-edit-gig .gig-edit-tags-wrap .gig-tag a:hover {
+text-decoration: none;
+}
+
+
+.db-order-stats a, .db-order-stats span {
+display: table-cell;
+color: #777;
+font-size: 34px;
+line-height: 34px;
+font-weight: 400;
+text-align: center;
+vertical-align: top;
+border-left: 1px solid #ddd;
+padding: 13px 5px;
+}
+
+
+a:hover {
+-webkit-transition: color .2s;
+-moz-transition: color .2s;
+-o-transition: color .2s;
+transition: color .2s;
+color: #00b22d;
+text-decoration: underline;
+}
+
+
+a:hover, a:active, a:focus {
+outline: none;
+}
+
+
+.db-order-stats a, .db-order-stats span {
+color: #777;
+font-size: 34px;
+line-height: 34px;
+font-weight: 400;
+text-align: center;
+}
+
+.db-order-stats a small, .db-order-stats span small {
+display: block;
+font-size: 11px;
+line-height: 120%;
+font-weight: 700;
+text-align: center;
+text-transform: uppercase;
+padding-top: 3px;
+}
+
+
+#editor {overflow:scroll; max-height:300px}
+
+
+
+.profile_pic{
+
+	width: 100px;
+	height: 100px;
+
+}
+
+
+#voiceBtn{
+
+	top:2000px;
+}
+
+#inboxcontent tr > td{
+
+vertical-align: middle;
+font-size: 12px;
+}
+
+
+#inboxcontent tr {
+
+cursor: pointer;
+}
+
+#inboxcontent tr  td .avatar{
+
+width: 30px !important;
+height: 30px !important;
+
+}
+
+#sales_data_tbl tr{
+
+	cursor: pointer;
+}
+
