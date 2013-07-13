@@ -3,7 +3,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <base href="<?=base_url()."assets/";?>">
+        <base href="<?= base_url() . "assets/"; ?>">
         <title>Aqua Vision</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
@@ -45,7 +45,7 @@
     </head>
     <body style="">
         <div id="header">
-            <?php include_once "includes/navbar.php" ?>
+            <?php $this->load->view('includes/navbar'); ?>
         </div>
 
         <!--Modal for Sign IN-->
@@ -572,7 +572,7 @@
 
 
             <footer class="footer ">
-                <?php include_once "includes/footer.php" ?>
+                <?php $this->load->view('includes/footer.php'); ?>
             </footer>
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
             <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>

@@ -1,99 +1,99 @@
 .accordian-child{
 
-	background-color: #f5f5f5 !important;
+    background-color: #f5f5f5 !important;
 }
 
 .activex{
 
-	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-	background-color: #0088cc;
-	z-index: 2 !important;
-	border-color: #0088cc !important;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #0088cc;
+    z-index: 2 !important;
+    border-color: #0088cc !important;
 
 }
 
 .activex:hover{
 
 
-	background-color: #0088cc !important;
-	color: #ffffff !important;
-	z-index: 2 !important;
-	border-color: #0088cc !important;
+    background-color: #0088cc !important;
+    color: #ffffff !important;
+    z-index: 2 !important;
+    border-color: #0088cc !important;
 }
 
 .accordion-group {
- 
-  border-top: none !important;
-  margin-bottom:none !important;
 
-  border-bottom: none !important;
-  -webkit-border-radius: none !important;
-     -moz-border-radius: none !important;
-          border-radius: none !important;
+    border-top: none !important;
+    margin-bottom:none !important;
+
+    border-bottom: none !important;
+    -webkit-border-radius: none !important;
+    -moz-border-radius: none !important;
+    border-radius: none !important;
 }
 
 
 .ulstyle li a i{
-		opacity: .25 !important;
+    opacity: .25 !important;
 }
 
 .ratingx{
 
-	width: 200px !important;
-	height: 29px !important;
-	vertical-align: middle;
-	display: table;
-	margin-left: 0px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+    width: 200px !important;
+    height: 29px !important;
+    vertical-align: middle;
+    display: table;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .ratingx .full{
 
-display: table-cell;
-background: url(../images/fixed_images/ratingstars/st1.png); 
-background-repeat: no-repeat;
-width: 32px !important;
-height: 29px !important;
+    display: table-cell;
+    background: url(../images/fixed_images/ratingstars/st1.png); 
+    background-repeat: no-repeat;
+    width: 32px !important;
+    height: 29px !important;
 
 }
 
 .ratingx .empty{
 
-display: table-cell;
-background: url(../images/fixed_images/ratingstars/st0.png); 
-background-repeat: no-repeat;
-width: 32px !important;
-height: 29px !important;
+    display: table-cell;
+    background: url(../images/fixed_images/ratingstars/st0.png); 
+    background-repeat: no-repeat;
+    width: 32px !important;
+    height: 29px !important;
 
 }
 
 
 
 .roolingitem{
-	min-height: 0px;
-	padding: 5px 5px 5px 5px;
-	margin-bottom: 5px;
+    min-height: 0px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 5px;
 
 }
 
 .roolingitem img{
-	float: left;
-	margin-right: 7px;
-	margin-bottom: 1px;
-	line-height: 0.5px;
+    float: left;
+    margin-right: 7px;
+    margin-bottom: 1px;
+    line-height: 0.5px;
 }
 
 .roolingitem p{
-	margin: 0px;
-	font-size: 11px;
+    margin: 0px;
+    font-size: 11px;
 }
 
 #voiceBtn{
 
-   margin-top: 5px;
- 
+    margin-top: 5px;
+
 }
 
 

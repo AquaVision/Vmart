@@ -1,85 +1,85 @@
 <html>
-<head>
-	<title></title>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<style type="text/css">
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
 
 
-	#wraptocenter {
-		display: table-cell;
-		text-align: center;
-		vertical-align: middle;
-		border: 1px black solid;
-	}
-	#wraptocenter * {
-		vertical-align: middle;
-	}
+            #wraptocenter {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                border: 1px black solid;
+            }
+            #wraptocenter * {
+                vertical-align: middle;
+            }
 
-	#mainloader{
-		position: absolute;
-		display: none;
-	}
-
-	
-
-	</style>
-
-</head>
-<body>
+            #mainloader{
+                position: absolute;
+                display: none;
+            }
 
 
 
+        </style>
 
-<div style="width:300px; height:300px; background-color:blue;" id="form">
-
-
-</div>
-
-</body>
-
-<script type="text/javascript">
-
-
-showLoading("#form");
-//hideLoading();
-
-
-function showLoading(parentEle){
-
-var height = $(parentEle).height();
-var width =  $(parentEle).width();
-var position = $(parentEle).position();
-
-$("#wraptocenter").css("width",width+"px");
-$("#wraptocenter").css("height",height+"px");
-
-$("#mainloader").css("width",width+"px");
-$("#mainloader").css("height",height+"px");
-$("#mainloader").css("top",position.top);
-$("#mainloader").css("left",position.left);
-$('#mainloader').show();
-}
-
-function hideLoading(){
-	$('#mainloader').hide();
-}
-
-$("body").append("<div id='mainloader'>"+
-						"<div>"+
-							"<div id ='wraptocenter'>"+
-									"<img src='images/assets/load.gif' width='36' height='36' id='loading-indicator' />"+
-							"</div>"+
-						"</div>"+
-						"</div>"
-);
+    </head>
+    <body>
 
 
 
-showLoading("#form");
-</script>
+
+        <div style="width:300px; height:300px; background-color:blue;" id="form">
 
 
-<script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
-<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+
+
+        showLoading("#form");
+        //hideLoading();
+
+
+        function showLoading(parentEle){
+
+            var height = $(parentEle).height();
+            var width =  $(parentEle).width();
+            var position = $(parentEle).position();
+
+            $("#wraptocenter").css("width",width+"px");
+            $("#wraptocenter").css("height",height+"px");
+
+            $("#mainloader").css("width",width+"px");
+            $("#mainloader").css("height",height+"px");
+            $("#mainloader").css("top",position.top);
+            $("#mainloader").css("left",position.left);
+            $('#mainloader').show();
+        }
+
+        function hideLoading(){
+            $('#mainloader').hide();
+        }
+
+        $("body").append("<div id='mainloader'>"+
+            "<div>"+
+            "<div id ='wraptocenter'>"+
+            "<img src='images/assets/load.gif' width='36' height='36' id='loading-indicator' />"+
+            "</div>"+
+            "</div>"+
+            "</div>"
+    );
+
+
+
+        showLoading("#form");
+    </script>
+
+
+    <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
 </html>

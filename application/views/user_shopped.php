@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <base href="<?=base_url()."assets/";?>">
+        <base href="<?= base_url() . "assets/"; ?>">
         <title></title>      
         <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
         <link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
@@ -16,15 +16,15 @@
 
     <body class="body-db" data-twttr-rendered="true">
 
-            <div id="header">
-            <?php include_once "includes/navbar.php" ?>
+        <div id="header">
+            <?php $this->load->view('includes/navbar'); ?>
         </div>
         <div id="main-wrapper" style="padding-top: 47px;">
             <div class="main-content">
                 <div class="db-container container-fluid">
                     <div class="row-fluid">
                         <div class="span12">
-                           <?php include_once "includes/settings_rightbar.php" ?>
+                            <?php $this->load->view('includes/settings_rightbar.php'); ?>
                             <section class="db-content">
                                 <div class="db-content-inner">
                                     <header class="db-header cf">
@@ -33,7 +33,7 @@
                                         </h3>
                                     </header>
                                     <div class="profile-form">
-                                        
+
                                         <div class="db-summary db-order-stats">
                                             <a href="#/new">0<small>InProgress</small></a>
                                             <a href="#/active">0<small>Purchased</small></a>
@@ -43,12 +43,12 @@
 
                                         <table class="table table-striped table-hover table-bordered table-condensed" id="sales_data_tbl" >
                                             <thead>
-                                                <th>Seller</th>
-                                                <th>Sales Item</th>
-                                                <th>Quantity</th>
-                                                <th>Price</th>
-                                                <th>Due In</th>
-                                                <th>Status</th>
+                                            <th>Seller</th>
+                                            <th>Sales Item</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Due In</th>
+                                            <th>Status</th>
                                             </thead>
                                             <tbody>
                                                 <tr>
@@ -111,15 +111,15 @@
                                             </tbody>
                                         </table>
 
-                                        
+
 
 
                                         <!--<a class="btn btn-info" href="#register" role="button" data-toggle="modal">View Order Details</a>-->
 
-        
-                                       
-                                            <div class="pagination" style="text-align:center">
-                                              <ul>
+
+
+                                        <div class="pagination" style="text-align:center">
+                                            <ul>
                                                 <li><a href="#">Prev</a></li>
                                                 <li><a href="#">1</a></li>
                                                 <li><a href="#">2</a></li>
@@ -127,13 +127,13 @@
                                                 <li><a href="#">4</a></li>
                                                 <li><a href="#">5</a></li>
                                                 <li><a href="#">Next</a></li>
-                                              </ul>
-                                            </div>
+                                            </ul>
+                                        </div>
 
-                                            </div>
-                                            <div class="form-divi"></div>
-                                        </form>
-                                    
+                                    </div>
+                                    <div class="form-divi"></div>
+                                    </form>
+
                                 </div>
                             </section>
                         </div>
@@ -146,34 +146,34 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
                     <h3 id="modalLabel">Order Details</h3>
                 </div>
-                
+
                 <div class="modal-body">
-                
+
                     <form>
-                        
+
                     </form>
-                
+
                 </div>
-                
+
                 <div class="modal-footer">
                     <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
                 </div>
             </div>
 
-           <footer class="footer ">
-       <?php include_once "includes/footer.php" ?>
-    </footer>
+            <footer class="footer ">
+                <?php $this->load->view('includes/footer.php'); ?>
+            </footer>
         </div>
     </body>
     <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <script type="text/javascript">
-      $('#sales_data_tbl').on('click', 'tbody tr', function(event) {
+        $('#sales_data_tbl').on('click', 'tbody tr', function(event) {
             //var cells = cells = this.getElementsByTagName('td');
             //$('#register').modal('show');
             //alert($(this).text());
             window.location.replace("http://stackoverflow.com");
         }
-        );
+    );
     </script>
 </html>
