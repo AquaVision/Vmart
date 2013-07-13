@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
   <meta charset="utf-8">
   <title></title>      
+  <base href="<?=base_url()."assets/";?>">
   <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
   <link href="css/sellerfrontstyle.css" rel="stylesheet">

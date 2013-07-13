@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <base href="<?=base_url()."assets/";?>">
         <title></title>      
         <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
         <link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">

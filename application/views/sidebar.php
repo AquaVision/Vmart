@@ -3,6 +3,7 @@
   <head>
     <title>Bootstrap 101 Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?=base_url()."assets/";?>">
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/MainStyleForAllpages.css" rel="stylesheet" media="screen">

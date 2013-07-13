@@ -1,10 +1,4 @@
 RewriteEngine on
-RewriteRule ^css/([^\\]*) application/views/css/$1
-RewriteRule ^js/([^\\]*) application/views/js/$1
-RewriteRule ^bootstrap/([^\\]*) application/views/bootstrap/$1
-RewriteRule ^images/([^\\]*) application/views/images/$1
-RewriteRule ^includes/([^\\]*) application/views/includes/$1
-RewriteRule ^jquerylib/([^\\]*) application/views/jquerylib/$1
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php/$0 [PT,L] 

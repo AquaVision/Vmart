@@ -9,7 +9,4 @@ class Vmart extends CI_Controller{
 
 }
 
-
-
-
 ?>
