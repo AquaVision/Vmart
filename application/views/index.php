@@ -18,21 +18,10 @@
     <body class="">
 
 
-
         <div id="header">
             <?php $this->load->view('includes/navbar'); ?>
             <div class="headerimglk" ></div>
         </div>
-
-
-
-
-
-
-
-
-
-
         <div id="main" class="">
             <div class="span12 ">
                 <div class="span12">
@@ -468,6 +457,19 @@
                                                                                                                         direction   :   'up',
                                                                                                                     });
                                                                                                                 });
+                                                                                                                
+                                                                                                                
+                                                                                                                $('#btnModalSignIn').on('click',function(){
+                                                                                                                    $('#usrSignInLi').css({display:'none'});
+                                                                                                                    $('#usrLgdInLi').css({display:'block'});
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                });
+                                                                                                                
+                                                                                                               
+
+
                                                                                                             </script>
 
 
