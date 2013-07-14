@@ -1,7 +1,7 @@
 <?php  if(!islogedUser($this->session)){  ?>
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
-        <div class="container" style="width: 1260px;">
+        <div class="container" >   <!-- style="width: 1260px;" -->
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -15,6 +15,9 @@
                     <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
                     <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
                     <li id="usrLgdInLi" style="display:none;">
+                        
+                        
+                        
                         <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
@@ -40,6 +43,9 @@
                                 </li> 
                             </ul>
                         </div>
+                        
+                        
+                        
                     </li>            
                     <li id="join_with_us"><a href="#signup_tag" data-toggle="modal">Join Us</a></li>
                     <li id="logout"><a href="" style="display:none;">logout</a></li>
@@ -107,7 +113,7 @@
 
 
 <?php  if(!islogedUser($this->session)){  ?>
-<div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 292px;top: 5%;left: 96%;">
+<div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 292px;">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
         <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
@@ -115,34 +121,38 @@
     <?php
     echo form_open('Auth/SignIn');
     ?>
-    <div class="modal-body">
+    <div class="modal-body" style="text-align: center">
 
         <div class="span2">
-            <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 100%;margin-bottom: 10px;margin-left: 20px;"></a>
+            <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 100%;margin-bottom: 10px;"></a>
         </div>
 
 
-        <div class="controls">
+        <div class="controls"  >
             <?php
             echo form_open('login/validate_credentials');
-            echo form_input('username', 'Username');
-            echo form_password('password', 'Password');
-            echo form_submit('submit', 'Login');
-            echo anchor('login/signup', 'Create Account');
+            
+            
+            
+            //echo anchor('login/signup', 'Create Account');
             
             ?>
+            <input type ="text" name ="username" placeholder="User name" />
+            <input type ="password" name ="password" placeholder="Password" />
         </div>
 
     </div>
 
     <div class="modal-footer">
-        <button id="btnModalSignIn" class="btn btn-primary" data-dismiss="modal" aria-hidden="ture">Sign In</button>
+        <button  type="submit" class="btn btn-primary" >Sign In</button>
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
     <?php
     echo form_close();
     ?>
 </div>
+
+
 <div id="signup_tag" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 400px;top: 25%;left: 60%;">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
@@ -160,8 +170,10 @@
 
             <?php
             echo form_input('full_name', set_value('full_name', 'First Name'));
-            echo form_input('username', set_value('username', 'User Name'));
-            echo form_input('email_address', set_value('email_address', 'Email Address'));
+            ?>
+            <input type="text" value="" name ="username" placeholder="User name" id="usernamex" />
+            <?php
+            echo form_input('email', set_value('email_address', 'Email Address'));
             echo form_password('password', set_value('password', 'Password'));
             echo form_password('password2', set_value('username', 'User Name'));
             ?>

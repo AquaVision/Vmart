@@ -1250,25 +1250,25 @@
                         tp = {
                             top: pos.top + pos.height, 
                             left: pos.left + pos.width / 2 - actualWidth / 2
-                            }
+                        }
                         break
                     case 'top':
                         tp = {
                             top: pos.top - actualHeight, 
                             left: pos.left + pos.width / 2 - actualWidth / 2
-                            }
+                        }
                         break
                     case 'left':
                         tp = {
                             top: pos.top + pos.height / 2 - actualHeight / 2, 
                             left: pos.left - actualWidth
-                            }
+                        }
                         break
                     case 'right':
                         tp = {
                             top: pos.top + pos.height / 2 - actualHeight / 2, 
                             left: pos.left + pos.width
-                            }
+                        }
                         break
                 }
 
@@ -2416,23 +2416,43 @@
 
 
 
+// By Vmart--------------------
+
+
+
+
+
+
 $(function(){
 
 
     $("body").append("<div id='mainloader'>"+
         "<div>"+
         "<div id ='wraptocenter'>"+
-        "<img src='images/assets/load.gif' width='36' height='36' id='loading-indicator' />"+
+        "<img src='images/assets/load.gif' style='width:36px height:36px' id='loading-indicator' />"+
         "</div>"+
         "</div>"+
         "</div>"
         );
+            
+    $("body").append("<div id='messagevmart' class='modal hide fade'>"+
+            "<div class='modal-header'>"+
+                "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>"+
+                "<span id='messageheadx'></span>"+
+            "</div>"+
+            "<div class='modal-body'>"+
+                "<p id='messagebodyx'></p>"+
+            "</div>"+
+            "<div class='modal-footer'>"+
+                "<button class='btn' data-dismiss='modal' aria-hidden='true'>Close</button>"+
+            "</div>"+
+        "</div>");        
 
 });
 
 var adjt = 0;
 var adjl = 0;
-function showLoading(parentEle){
+function showLoading(parentEle,size){
 
     var height = $(parentEle).height();
     var width =  $(parentEle).width();
@@ -2441,11 +2461,17 @@ function showLoading(parentEle){
 
     $("#wraptocenter").css("width",width+"px");
     $("#wraptocenter").css("height",height+"px");
+    
 
     $("#mainloader").css("width",width+"px");
     $("#mainloader").css("height",height+"px");
     $("#mainloader").css("top",(position.top+adjt)+"px");
     $("#mainloader").css("left",(position.left+adjl)+"px");
+    $("#mainloader").css("z-index", "100000");
+    
+    $("#loading-indicator").css("width",size);
+    $("#loading-indicator").css("height",size);
+    
     $('#mainloader').show();
     adjt = 0;
     adjl = 0;
@@ -2463,3 +2489,41 @@ function adjL(left){
 
     adjl = left;
 }
+
+
+function relativeLeft(leftval,parent){
+    bodyposl = $(parent).offset();
+    
+    return   leftval -bodyposl.top;
+}
+
+function relativeTop(topval,parent){
+    bodyposl = $(parent).offset();
+    
+    return   topval -bodyposl.top;
+}
+
+function abimage(image,width,height,top,left,id,Parent){
+    if($("#"+id).length == 0){
+        $(Parent).append("<img id='"+id+"' src='images/assets/"+image+"' style='width:"+width+"; height:"+height+"; top:"+top+";  left:"+left+"; z-index:100000; position: absolute'  />");
+    }else{
+        $(id).css({
+            'width' : width, 
+            'height':height, 
+            'top':top,  
+            'left':left, 
+            'z-index':'100000', 
+            'position': 'absolute'      
+            });
+    }
+   
+}
+
+function showMessage(headerMessageHtml,bodyMessageHtml){
+    $("#messageheadx").append(headerMessageHtml);
+    $("#messagebodyx").append(bodyMessageHtml);
+    $('#messagevmart').modal('show');
+}
+
+
+

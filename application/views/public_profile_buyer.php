@@ -134,4 +134,5 @@
 <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
 <script src="bootstrap/file-upload/bootstrap-fileupload.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/Common.js"></script>
 </html>

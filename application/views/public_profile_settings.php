@@ -37,11 +37,7 @@
                                         </h3>
                                     </header>
                                     <div class="profile-form">
-
-
                                         <hr/>
-
-
                                         <ul id="tabsxz" class="nav nav-tabs" class="nav nav-tabs" data-tabs="tabs">
                                             <li class="active"><a href="#general" data-toggle="tab">General</a></li>
                                             <li><a href="#seller" data-toggle="tab">Seller</a></li>
@@ -54,15 +50,15 @@
                                             <div class="tab-pane active" id="general">
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Full Name</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span12" /></div>
+                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span12" value="<?php echo $user->full_name  ?>" /></div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Email</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="myemail" disabled /></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" name="myemail" value="<?php echo $user->email  ?>" disabled /></div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>User Name</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="username" disabled /></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" name="username" disabled value="<?php echo $user->username  ?>" /></div>
                                                 </div>
 
                                                 <div class="controls controls-row">
@@ -75,7 +71,7 @@
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6></h6></div>
-                                                    <div class="span4" style="margin-left:0px"><textarea name="aboutu" style="width:300px; height:100px; "></textarea></div>
+                                                    <div class="span4" style="margin-left:0px"><textarea name="aboutu" style="width:300px; height:100px; "><?php echo $user->address  ?></textarea></div>
                                                 </div>
                                                 <div class="form-actions">
                                                     <button type="submit" class="btn btn-success" style="float:right" onclick="showx()">Save changes</button>
@@ -226,6 +222,7 @@
         <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
         <script src="bootstrap/file-upload/bootstrap-fileupload.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/Common.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 $('#tabsxz').tab();
@@ -255,7 +252,7 @@
             function showx(){
                 if(i==0){
                     adjT(-40);
-                    showLoading('#general');
+                    showLoading('#general','32px');
                     ++i;
                 }else{
                     hideLoading();

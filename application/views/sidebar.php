@@ -171,6 +171,7 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/accordianMenu.js"></script>
+        <script type="text/javascript" src="js/Common.js"></script>
         <script type="text/javascript">
 
 

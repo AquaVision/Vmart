@@ -51,7 +51,7 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'sql3.freemysqlhosting.net';
+$db['default']['hostname'] = 'www.db4free.net';
 $db['default']['username'] = 'sql313480';
 $db['default']['password'] = 'yM4%kW5*';
 $db['default']['database'] = 'sql313480';
