@@ -173,12 +173,20 @@ $(function(){
     });
 
 
+    $(".add-to-cart").on("click",function(e){
+        var id = $(this).data("itemid");
+        $.post("../Web_cart/add",{"itemid" :id}, function(data){
+            alert(data);
+        });
+        
+    });
+
     
     $("#continuexnextpage").on("click",function(e){
         var page = $(this).data("active");
         if(page == "page1"){
             
-            $.post("../Wizardseller/VerifySellerInWizard", $('#sellerverificationdata').serialize() , function(data){
+            $.post("../Wizardseller/stepOneInWizard", $('#sellerverificationdata').serialize() , function(data){
                
             });  
         }else if(page == "page2"){

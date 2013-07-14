@@ -17,8 +17,6 @@ class Web_cart extends CI_Controller{
         $this->cart->insert($data);
         redirect('Vmart');
 
-    
-    
     }
     function total(){
         
