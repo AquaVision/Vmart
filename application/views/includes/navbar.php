@@ -58,7 +58,7 @@
         <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
     </div>
     <?php
-    echo form_open('login/validate_credentials');
+    echo form_open('Auth/SignIn');
     ?>
     <div class="modal-body">
 
@@ -68,11 +68,14 @@
 
 
         <div class="controls">
-            <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
-            <input type="text" class="span3" placeholder="username" id="inputinfo"><br>
-
-            <!--<div class="span2" style="text-align:center;padding-top:6px;">Password :</div>-->
-            <input type="text" class="span3" placeholder="password" id="inputinfo">
+            <?php
+            echo form_open('login/validate_credentials');
+            echo form_input('username', 'Username');
+            echo form_password('password', 'Password');
+            echo form_submit('submit', 'Login');
+            echo anchor('login/signup', 'Create Account');
+            
+            ?>
         </div>
 
     </div>
