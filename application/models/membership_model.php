@@ -11,12 +11,12 @@ class Membership_model extends CI_Model {
 		{
 			return true;
 		}
-		
+		return false;
 	}
 	
 	function create_member()
 	{
-		
+		$joined_date = get_date_time();
 		$new_member_insert_data = array(
 			
 			'full_name' => $this->input->post('full_name'),
@@ -24,7 +24,7 @@ class Membership_model extends CI_Model {
 			'username' => $this->input->post('username'),
 			'password' => md5($this->input->post('password')),
                         'status' => "created",
-                        'joined_date' => mdate('%d/%m/%Y %h:%i'),
+                        'joined_date' => $joined_date,
                         'is_seller' => 0,
                         
 		);
