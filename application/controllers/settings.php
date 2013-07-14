@@ -20,7 +20,7 @@ class settings extends CI_Controller {
     function generalSettings() {
         
         if(islogedUser($this->session)){
-            echo "aiyyo";
+            
         }else{
             redirect('Vmart', 'refresh');
         }
