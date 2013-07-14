@@ -164,6 +164,7 @@
     </body>
     <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/Common.js"></script>
     <script type="text/javascript">
         $('#sales_data_tbl').on('click', 'tbody tr', function(event) {
             //var cells = cells = this.getElementsByTagName('td');

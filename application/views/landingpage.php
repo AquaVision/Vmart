@@ -187,187 +187,187 @@
                                             <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
                                                 <div class="caption" style="padding-top:0px; padding-bottom:0px;">
                                                     <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                    <span class="description">hello<span>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                                <div class="span6 ratex fivestars_4_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p > <span class="label label-info price">10.00000/=</span></p>
-
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                            </li>
-                                                            <li >
-                                                                <div class="thumbnail row" style="margin-left:0px;">
-                                                                    <div class="span3" style="margin-left:0px; width:140px; height:98px;">
-                                                                        <img alt="" src="./images/fixed_images/14.png" >
-                                                                    </div>
-                                                                    <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
-                                                                        <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                            <span class="description">hello<span>
-                                                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                                                        <div class="span6 ratex fivestars_4_5" style="margin-left:0px;"></div>
-                                                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                                                    </div>
-
-                                                                                    <p > <span class="label label-info price">10.00000/=</span></p>
-
-                                                                                    </div>
-                                                                                    </div>
-                                                                                    </div>
-                                                                                    </li>
-                                                                                    <li >
-                                                                                        <div class="thumbnail row" style="margin-left:0px;">
-                                                                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
-                                                                                                <img alt="" src="./images/fixed_images/15.png" >
-                                                                                            </div>
-                                                                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
-                                                                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                    <span class="description">hello<span>
-                                                                                                            <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                                                                                <div class="span6 ratex fivestars_5_0" style="margin-left:0px;"></div>
-                                                                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                                                                            </div>
+                                                    <span class="description">hello</span>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
+                                                        <div class="span6 ratex fivestars_4_0" style="margin-left:0px;"></div>
+                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                    </div>
+
+                                                    <p > <span class="label label-info price">10.00000/=</span></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li >
+                                        <div class="thumbnail row" style="margin-left:0px;">
+                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
+                                                <img alt="" src="./images/fixed_images/14.png" >
+                                            </div>
+                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
+                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <span class="description">hello</span>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
+                                                        <div class="span6 ratex fivestars_4_5" style="margin-left:0px;"></div>
+                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                    </div>
+
+                                                    <p > <span class="label label-info price">10.00000/=</span></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li >
+                                        <div class="thumbnail row" style="margin-left:0px;">
+                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
+                                                <img alt="" src="./images/fixed_images/15.png" >
+                                            </div>
+                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
+                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <span class="description">hello</span>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
+                                                        <div class="span6 ratex fivestars_5_0" style="margin-left:0px;"></div>
+                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                    </div>
 
-                                                                                                            <p > <span class="label label-info price">10.00000/=</span></p>
+                                                    <p > <span class="label label-info price">10.00000/=</span></p>
 
-                                                                                                            </div>
-                                                                                                            </div>
-                                                                                                            </div>
-                                                                                                            </li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
 
-
+
 
-                                                                                                            </ul>
+                                </ul>
 
 
-                                                                                                            </div>
+                            </div>
 
 
 
-                                                                                                            <div class="span8" style="margin-left:0px; width:620px;">
-                                                                                                                <div  style="margin-left:10px; padding-top:0px;">
-                                                                                                                    <h5 class="muted">Our top sellers</h5>
-                                                                                                                    <ul class="thumbnails masonry" style="position: relative; " id="topsellers">
+                            <div class="span8" style="margin-left:0px; width:620px;">
+                                <div  style="margin-left:10px; padding-top:0px;">
+                                    <h5 class="muted">Our top sellers</h5>
+                                    <ul class="thumbnails masonry" style="position: relative; " id="topsellers">
 
 
 
-                                                                                                                        <li class="span3 masonry-brick">
-                                                                                                                            <div class="thumbnail" >
-                                                                                                                                <img alt="" src="./images/uploaded/users/user1.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                        <li class="span3 masonry-brick">
+                                            <div class="thumbnail" >
+                                                <img alt="" src="./images/uploaded/users/user1.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                                                                                                        <li class="span3 masonry-brick">
-                                                                                                                            <div class="thumbnail" style="margin-right:0px;">
-                                                                                                                                <img alt="" src="./images/uploaded/users/user2.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                        <li class="span3 masonry-brick">
+                                            <div class="thumbnail" style="margin-right:0px;">
+                                                <img alt="" src="./images/uploaded/users/user2.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
-                                                                                                                        <li class="span3 masonry-brick" >
-                                                                                                                            <div class="thumbnail" >
-                                                                                                                                <img alt="" src="./images/uploaded/users/user3.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="span3 masonry-brick" >
+                                            <div class="thumbnail" >
+                                                <img alt="" src="./images/uploaded/users/user3.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                                                                                                        <li class="span3 masonry-brick" >
-                                                                                                                            <div class="thumbnail" >
-                                                                                                                                <img alt="" src="./images/uploaded/users/user4.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                        <li class="span3 masonry-brick" >
+                                            <div class="thumbnail" >
+                                                <img alt="" src="./images/uploaded/users/user4.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                                                                                                        <li class="span3 masonry-brick" >
-                                                                                                                            <div class="thumbnail" >
-                                                                                                                                <img alt="" src="./images/uploaded/users/user1.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                        <li class="span3 masonry-brick" >
+                                            <div class="thumbnail" >
+                                                <img alt="" src="./images/uploaded/users/user1.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
+                                                </div>
+                                            </div>
+                                        </li>
 
 
-                                                                                                                        <li class="span3 masonry-brick" >
-                                                                                                                            <div class="thumbnail" >
-                                                                                                                                <img alt="" src="./images/uploaded/users/user3.jpg">
-                                                                                                                                <div class="caption">
-                                                                                                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                                                                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                                                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
+                                        <li class="span3 masonry-brick" >
+                                            <div class="thumbnail" >
+                                                <img alt="" src="./images/uploaded/users/user3.jpg">
+                                                <div class="caption">
+                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                    <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                                        <div class="span6 fivestars_0" style="margin-left:0px;"></div>
 
-                                                                                                                                    </div>
+                                                    </div>
 
 
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </li>
+                                                </div>
+                                            </div>
+                                        </li>
 
 
-                                                                                                                    </ul>
+                                    </ul>
 
 
-                                                                                                                    <div class="pagination">
-                                                                                                                        <ul>
-                                                                                                                            <li><a href="#">Prev</a></li>
-                                                                                                                            <li class="active">
-                                                                                                                                <a href="#">1</a>
-                                                                                                                            </li>
-                                                                                                                            <li><a href="#">2</a></li>
-                                                                                                                            <li><a href="#">3</a></li>
-                                                                                                                            <li><a href="#">Next</a></li>
-                                                                                                                        </ul>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
+                                    <div class="pagination">
+                                        <ul>
+                                            <li><a href="#">Prev</a></li>
+                                            <li class="active">
+                                                <a href="#">1</a>
+                                            </li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
-                                                                                                            </div>
-                                                                                                            </div>
-                                                                                                            </div>
-                                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -386,7 +386,7 @@
 
 
 
-                                                                                                            </div>
+        </div>
 
 
 
@@ -401,78 +401,79 @@
 
 
 
-                                                                                                            <footer class="footer ">
-                                                                                                                <?php $this->load->view('includes/footer.php'); ?>
-                                                                                                            </footer>
-                                                                                                            <!-- popin -->
-                                                                                                            <div id="modal" class="" style="display: none;">
-                                                                                                                <div class="modal">
+        <footer class="footer ">
+            <?php $this->load->view('includes/footer.php'); ?>
+        </footer>
+        <!-- popin -->
+        <div id="modal" class="" style="display: none;">
+            <div class="modal">
 
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div id="modalCart" class="" style="display: none;">
-                                                                                                                <div class="modal">
-                                                                                                                    <div class="modal-header">
-                                                                                                                        <a class="close" data-dismiss="modal">×</a>
-                                                                                                                        <h3>My Cart</h3>
-                                                                                                                    </div>
-                                                                                                                    <div class="modal-body">
-                                                                                                                        <table class="table cartTab">
-                                                                                                                            <thead>
-                                                                                                                                <tr>
-                                                                                                                                    <th>Items</th>
-                                                                                                                                    <th>Price</th>
-                                                                                                                                    <th></th>
-                                                                                                                                </tr>
-                                                                                                                            </thead>
-                                                                                                                            <tbody>
-                                                                                                                            </tbody>
-                                                                                                                        </table>
-                                                                                                                    </div>
-                                                                                                                    <div class="modal-footer">
-                                                                                                                        <span class="label label-info price">Total : $ <span id="amount">0</span></span>
-                                                                                                                        <a class="btn buyNow" href="http://paypal.com/" target="blank">Buy Now <i class="icon-ok"></i></a>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="span4 alertAdd">
-                                                                                                                <div class="alert alert-info">
-                                                                                                                    Added to your cart
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <!-- popin -->
+            </div>
+        </div>
+        <div id="modalCart" class="" style="display: none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">×</a>
+                    <h3>My Cart</h3>
+                </div>
+                <div class="modal-body">
+                    <table class="table cartTab">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <span class="label label-info price">Total : $ <span id="amount">0</span></span>
+                    <a class="btn buyNow" href="http://paypal.com/" target="blank">Buy Now <i class="icon-ok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="span4 alertAdd">
+            <div class="alert alert-info">
+                Added to your cart
+            </div>
+        </div>
+        <!-- popin -->
 
-                                                                                                            <script src="jquerylib/jquery-1.10.1.min.js"></script>
-                                                                                                            <script src="js/jquery.masonry.min.js"></script>
-                                                                                                            <script src="bootstrap/js/bootstrap.js"></script>
-                                                                                                            <script src="js/sellerfront.js"></script>
-                                                                                                            <script type="text/javascript" src="js/jquery.totemticker.js"></script>
-                                                                                                            <script type="text/javascript">
-                                                                                                                $(function(){
-                                                                                                                    $('#vertical-ticker').totemticker({
-                                                                                                                        row_height  :   '109px',
-                                                                                                                        speed       :   2000,
-                                                                                                                        interval    :   4000,
-                                                                                                                        mousestop   :   true,
-                                                                                                                        direction   :   'up'
-                                                                                                                    });
-                                                                                                                });
+        <script src="jquerylib/jquery-1.10.1.min.js"></script>
+        <script src="js/jquery.masonry.min.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="js/sellerfront.js"></script>
+        <script type="text/javascript" src="js/jquery.totemticker.js"></script>
+        <script type="text/javascript" src="js/Common.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('#vertical-ticker').totemticker({
+                    row_height  :   '109px',
+                    speed       :   2000,
+                    interval    :   4000,
+                    mousestop   :   true,
+                    direction   :   'up'
+                });
+            });
                                                                                                                 
                                                                                                                 
-                                                                                                                $('#btnModalSignIn').on('click',function(){
-                                                                                                                    $('#usrSignInLi').css({display:'none'});
+            $('#btnModalSignIn').on('click',function(){
+                $('#usrSignInLi').css({display:'none'});
     
-                                                                                                                    $('#usrLgdInLi').css({display:'block'});
+                $('#usrLgdInLi').css({display:'block'});
                                                                                                                     
                                                                                                                     
                                                                                                                     
-                                                                                                                });
+            });
                                                                                                                 
                                                                                                                
 
 
-                                                                                                            </script>
+        </script>
 
 
 
-                                                                                                            </body></html>
+    </body></html>

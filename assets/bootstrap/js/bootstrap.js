@@ -2422,7 +2422,7 @@ $(function(){
     $("body").append("<div id='mainloader'>"+
         "<div>"+
         "<div id ='wraptocenter'>"+
-        "<img src='images/assets/load.gif' width='36' height='36' id='loading-indicator' />"+
+        "<img src='images/assets/load.gif' style='width:36px height:36px' id='loading-indicator' />"+
         "</div>"+
         "</div>"+
         "</div>"
@@ -2432,7 +2432,7 @@ $(function(){
 
 var adjt = 0;
 var adjl = 0;
-function showLoading(parentEle){
+function showLoading(parentEle,size){
 
     var height = $(parentEle).height();
     var width =  $(parentEle).width();
@@ -2441,11 +2441,17 @@ function showLoading(parentEle){
 
     $("#wraptocenter").css("width",width+"px");
     $("#wraptocenter").css("height",height+"px");
+    
 
     $("#mainloader").css("width",width+"px");
     $("#mainloader").css("height",height+"px");
     $("#mainloader").css("top",(position.top+adjt)+"px");
     $("#mainloader").css("left",(position.left+adjl)+"px");
+    $("#mainloader").css("z-index", "100000");
+    
+    $("#loading-indicator").css("width",size);
+    $("#loading-indicator").css("height",size);
+    
     $('#mainloader').show();
     adjt = 0;
     adjl = 0;
@@ -2463,3 +2469,9 @@ function adjL(left){
 
     adjl = left;
 }
+
+function abimage(image,width,height,top,left,id){
+    
+   $("body").append("<img id='"+id+"' src='images/assets/"+image+"' style='width:"+width+"; height:"+height+"; top:"+top+";  left:"+left+"; z-index:100000; position: absolute'  />");
+}
+
