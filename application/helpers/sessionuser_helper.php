@@ -14,3 +14,8 @@ if ( ! function_exists('islogedUser'))
     
      
 }
+
+function getUserID(){
+    
+    return 2;
+}

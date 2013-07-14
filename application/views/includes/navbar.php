@@ -95,32 +95,29 @@
     ?>
     <div class="modal-body">
 
-        
+
 
         <div class="controls">
             <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
-            
+
             <?php
             echo form_input('full_name', set_value('full_name', 'First Name'));
             echo form_input('username', set_value('username', 'User Name'));
-            echo form_input('email', set_value('email_address','Email Address'));
+            echo form_input('email', set_value('email_address', 'Email Address'));
             echo form_password('password', set_value('password', 'Password'));
             echo form_password('password2', set_value('username', 'User Name'));
-            
-            
-            
             ?>
         </div>
 
     </div>
 
     <div class="modal-footer">
-        <?php
-        echo form_submit('submit', 'Create Acccount');
-        ?>
+<?php
+echo form_submit('submit', 'Create Acccount');
+?>
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
-    <?php
-    echo form_close();
-    ?>
+        <?php
+        echo form_close();
+        ?>
 </div>

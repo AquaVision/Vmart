@@ -20,7 +20,8 @@ class settings extends CI_Controller {
     function generalSettings() {
         
         if(islogedUser($this->session)){
-            
+            $this->load->model("settings_model");
+            $this->load->view("public_profile_settings", $this->settings_model->getSettings());
         }else{
             redirect('Vmart', 'refresh');
         }
