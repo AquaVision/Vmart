@@ -28,7 +28,7 @@ class Auth extends CI_Controller{
     }
     
     function SignUp(){
-        
+         
         $this->load->model('membership_model');
         $this->membership_model->create_member();
        

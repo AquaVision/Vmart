@@ -161,7 +161,7 @@
             <?php
             echo form_input('full_name', set_value('full_name', 'First Name'));
             echo form_input('username', set_value('username', 'User Name'));
-            echo form_input('email', set_value('email_address', 'Email Address'));
+            echo form_input('email_address', set_value('email_address', 'Email Address'));
             echo form_password('password', set_value('password', 'Password'));
             echo form_password('password2', set_value('username', 'User Name'));
             ?>
