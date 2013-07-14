@@ -76,7 +76,7 @@ class Membership_model extends CI_Model {
             'email' => $email,
             'is_logged_in' => FALSE
         );
-        $this->activation_code = md5((string) $row->joined_date);
+        $this->activation_code = md5((string)($row->userid.$row->joined_date));
         $this->session->set_userdata($sess_data);
     }
 
@@ -85,7 +85,7 @@ class Membership_model extends CI_Model {
         $result = $this->db->query($sql);
         $row = $result->row();
         if ($result->num_rows() === 1 && $row->$fulname) {
-            if (md5((string) $row->joined_date) === $activation_code)
+            if (md5((string)($row->userid.$row->joined_date)) === $activation_code)
                 $result = $this->activate_account($email);
             if ($result === TRUE) {
                 echo getMessageJson("", "Activation done!", "SUCCESS");
