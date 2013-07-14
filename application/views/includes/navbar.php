@@ -168,15 +168,15 @@
         <div class="controls">
             <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
 
-            <?php
-            echo form_input('full_name', set_value('full_name', 'First Name'));
-            ?>
-            <input type="text" value="" name ="username" placeholder="User name" id="usernamex" />
-            <?php
-            echo form_input('email', set_value('email_address', 'Email Address'));
-            echo form_password('password', set_value('password', 'Password'));
-            echo form_password('password2', set_value('username', 'User Name'));
-            ?>
+            
+            <input type="text" value="" name ="full_name" placeholder="Ful Name" id="fulnamex" />
+            <input type="text" value="" name ="username" placeholder="User Name" id="usernamex" />
+            <input type="text" value="" name ="email" placeholder="Email" id="emailx" />
+            <input type="password" value="" name ="password" placeholder="Password" id="passwordx" />
+            <input type="password" value="" name ="password2" placeholder="Confirm Password" id="passwordx" />
+            
+            
+            
         </div>
 
     </div>
@@ -185,8 +185,10 @@
 <?php
 echo form_submit('submit', 'Create Acccount');
 ?>
+      
         <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
     </div>
+        
         <?php
         echo form_close();
         ?>
