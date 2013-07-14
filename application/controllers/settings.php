@@ -176,10 +176,10 @@ class settings extends CI_Controller {
                 $randnuber = rand(1000, 9999);
                 $this->settings_model->addVerificationkey($randnuber, $phone);
 
-                // $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
-                // $status = $info->messages[0]->status;
-                $status = 0;
-                if ($status != 0) {
+                 $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
+                 $status = $info->messages[0]->status;
+                
+                if ($status == 0) {
                     echo "Verification Code has been sent";
                 } else {
                     echo "Unable to send the Verification code!!";
