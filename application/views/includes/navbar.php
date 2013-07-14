@@ -12,8 +12,7 @@
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
-                        <li><a href="setup-notes.html">inbox<span class="badge">9</span></a></li>
-                        <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
+                        
                         <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
                         <li id="usrLgdInLi" style="display:none; position: absolute">
 
@@ -70,8 +69,8 @@
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
-                        <li><a href="setup-notes.html">inbox<span class="badge">9</span></a></li>
-                        <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
+                        <li><a href="setup-notes.html">Inbox<span class="badge">9</span></a></li>
+                        <li ><a href="navbar-examples.html">Orders<span class="badge" id="ordercount"></span></a></li>
 
                         <li id="usrLgdInLi" >
                             <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
@@ -88,7 +87,7 @@
                                         <a href=""><i class="icon-envelope"></i>&nbsp;&emsp;Inbox</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Sales</a>
+                                        <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Orders</a>
                                     </li>
                                     <li>
                                         <a href="<?= site_url('settings/generalSettings'); ?>"><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>

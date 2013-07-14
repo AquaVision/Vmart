@@ -72,7 +72,7 @@ $(function(){
         $("#wrongimage").remove();
     })
 
-
+    
 
 
     
@@ -268,7 +268,7 @@ $(function(){
     
     
     
-    
+ check_order_count();
     
 
 });
@@ -292,3 +292,14 @@ function addaboutus(){
         return true;
     }
 
+function check_order_count(){
+            	$.get('../Vmart/get_orders', function(data) {
+                    if(data == -1){
+                        $('#ordercount').hide();
+                    }else{
+                        $('#ordercount').html(data);
+                    }
+                             
+                });
+            
+            }
