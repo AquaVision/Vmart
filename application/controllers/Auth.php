@@ -43,6 +43,7 @@ class Auth extends CI_Controller {
     }
     function validate_email($email, $activation_code){
         $activation_code = trim($activation_code);
+        $this->load->model('membership_model');
         $validated = $this->membership_model->validate_email($email,$activation_code);
         
         if ($validated === TRUE){
