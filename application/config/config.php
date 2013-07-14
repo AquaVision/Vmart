@@ -383,8 +383,8 @@ $config['admin_email'] = 'imaa95@gmail.com';
 
 
 $config['smsconfig'] = array(
-    "nx_key" => "6cd95b6e",
-    "nx_secret" => "f1dbb4d8",
+    "nx_key" => "a9749092",
+    "nx_secret" => "0d944681",
 );
 
 

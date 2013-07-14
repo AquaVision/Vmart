@@ -78,7 +78,7 @@
                                                 <?php if($active1 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
 
                                                 <div class="form-actions">
-                                                    <button type="submit" class="btn btn-success" id="mysubmitsett" style="float:right" onclick="showx()">Save changes</button>
+                                                    <button type="submit" class="btn btn-success" id="mysubmitsett" style="float:right" onclick="showx('mysubmitsett')">Save changes</button>
                                                 </div>
 
 
@@ -135,9 +135,13 @@
 
                                                 <div class="alert alert-success">
                                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                    <h4>Well done You just become a vmart seller!</h4>
-                                                    <p>Lets finish your   <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>.</p>
-                                                    "One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <small>--Elbert Hubbard</small>
+                                                    <h4>Well done! You just become a vmart seller!</h4>     
+                                                    <br/>
+                                                    <ul>
+                                                            <li>You are few clicks away of creating your own <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>.</li>
+                                                    </ul>
+                                                    <em>"One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <br/><small> - Elbert Hubbard -</small></em>
+                                                    
                                                 </div>
 
                                                 <?php } ?>
@@ -162,7 +166,9 @@
 
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Your Seller mobile Number</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" value="<?php echo $seller->seller_mobile ?>"  class="span3" disabled/></div>
+                                                    <div class="span6" style="margin-left:0px">
+                                                        <input type="text" value="<?php echo $seller->seller_mobile ?>"   disabled/>
+                                                    </div>
                                                 </div>
 
                                                 <?php } ?>
@@ -256,7 +262,7 @@
                                                 </div>
                                                    <?php if($active2 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
                                                 <div class="form-actions">
-                                                    <button type="submit" class="btn btn-success" style="float:right">Save changes</button>
+                                                    <button type="submit" class="btn btn-success" class="savechanges" id="mysdfdfd" onclick="showx('mysdfdfd')" style="float:right">Save changes</button>
                                                 </div>
                                                 <?php
                                                 echo form_close();

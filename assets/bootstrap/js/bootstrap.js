@@ -2556,7 +2556,7 @@ function showTextAb(left,top,id,type, message){
     if(type =="W"){
         classs = "text-error";
     }
-    var message = "<p class='"+classs+"' id='"+id+"' style='font-size:11px; position: absolute; left:"+left+"; top: "+top+"; '>"+message+"</p>"
+    var message = "<p class='"+classs+"' id='"+id+"' style='font-size:11px; position: absolute; left:"+left+"; top: "+top+"; '>"+message+"</p>";
     $("body").append(message);
     
 }

@@ -163,8 +163,26 @@ class settings extends CI_Controller {
 
     //------------------------------- save seller settings  END----------------------------------------
 
+    function SaveBuyerBasicSettings(){
+        
+        
+        
+        
+    }
+    
+    
+    //------------------------------- buyer settings  --------------------------------------------------
+    
+    
+    //--------------------------------buyer END --------------------------------------------------------
+    
+    
+    
 
-
+    
+    
+    
+    // -------------------------- verification functions --------------------------------------
     function sendVerificationNub() {
         $isverified = $this->settings_model->isVerifiedSeller();
         if (!$isverified) {
@@ -176,7 +194,7 @@ class settings extends CI_Controller {
                 $randnuber = rand(1000, 9999);
                 $this->settings_model->addVerificationkey($randnuber, $phone);
 
-                 $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
+                 $info = $this->nexmomessage->sendText($phone, 'Vmart Avision', $randnuber);
                  $status = $info->messages[0]->status;
                 
                 if ($status == 0) {
@@ -193,11 +211,13 @@ class settings extends CI_Controller {
     function verifySellerId() {
         if ($this->settings_model->verifysellerid()) {
             echo "ok";
+            return true;
         } else {
             echo "notok";
+            return false;
         }
     }
-
+// -------------------------- verification functions  END--------------------------------------
 }
 
 ?>

@@ -19,9 +19,7 @@
         <div class="main-content">
             <div class="db-container container-fluid">
                 <div class="row-fluid">
-                    <div class="span12">
-                        
-
+                    <div class="span12">                    
 
                         <aside class="db-sidebar">
                             <div class="db-sidebar-inner">
@@ -67,9 +65,10 @@
 
 
                                 <div class="tab-content" style="">
-
+                                    
+                                    <!-- This is the items tab -->
                                     <div class="tab-pane active" id="items">
-                                        <!-- This is the first tab -->
+                                        
                                         <div id="container" style="min-width: 400px; height: 500px; margin: 0 auto">
 
                                             <!--Current Items Div-->
@@ -147,7 +146,8 @@
                                                 </table>
 
 
-                                            </div><!--End Current Items Div-->
+                                            </div>
+                                            <!--End Current Items Div-->
 
                                         </div>
 
@@ -168,29 +168,29 @@
                                     <!--Create Item Div-->
                                     <div class="tab-pane" id="create-item" style="min-width: 400px; margin: 0 auto">
 
-                                        <form class="form-horizontal" onsubmit="return false;">
+                                        <form class="form-horizontal" method="post" action="<?php echo site_url('My_items/add_item') ?>">
                                             <fieldset>
 
                                               <div class="control-group">
-                                                <label class="control-label" for="input01">Title</label>
+                                                <label class="control-label" for="title">Title</label>
                                                 <div class="controls">
-                                                  <input type="text" class="input-xxlarge trololo" id="input01">
+                                                  <input type="text" class="input-xxlarge trololo" id="title" name="title">
                                                 </div>
                                               </div>
 
                                               <div class="control-group">
-                                                <label class="control-label" for="input01">Similar</label>
+                                                <label class="control-label" for="similar">Similar</label>
                                                 <div class="controls">
-                                                  <input type="text" class="input-xxlarge trololo" id="input01">
+                                                  <input type="text" class="input-xxlarge trololo" id="similar" name="similar">
                                                 </div>
                                               </div>   
 
 
                                               <div class="control-group">
-                                                <label class="control-label" for="input01">Price</label>
+                                                <label class="control-label" for="price_no">Price</label>
                                                 <div class="controls">
-                                                  <input type="number" class="input-xxlarge trololo span5" id="input01">
-                                                  <select id="select01" class="trololo span6">
+                                                  <input type="number" class="input-xxlarge trololo span5" id="price_no" name="price_no">
+                                                  <select id="price_currency" class="trololo span6" name="price_currency">
                                                     <option>-Currency-</option>
                                                     <option>LKR</option>
                                                     <option>USD</option>
@@ -202,38 +202,46 @@
                                               </div>        
 
                                               <div class="control-group">
-                                                <label class="control-label" for="input01">Quantity</label>
+                                                <label class="control-label" for="quantity">Quantity</label>
                                                 <div class="controls">
-                                                  <input type="number" class="input-large trololo" id="input01">
+                                                  <input type="number" class="input-large trololo" id="quantity" name="quantity">
                                                 </div>
                                               </div> 
 
                                               <div class="control-group">
-                                                <label class="control-label" for="select01">Category</label>
+                                                <label class="control-label" for="sel_category">Seller Category</label>
                                                 <div class="controls">
-                                                  <select id="select01" class="trololo">
-                                                    <option>-None-</option>
-                                                    <option>Jewellery</option>
-                                                    <option>Ornaments</option>
-                                                    <option>Handicrafts</option>
-                                                    <option>Miscellaneous</option>
+                                                  <select id="sel_category" class="trololo" name="category">
+                                                    <?php foreach($seller_categories as $option): ?>
+                                                      <option><?php echo $option->cat_name; ?></option>
+                                                    <?php endforeach; ?>                                                       
                                                   </select>
                                                 </div>
                                               </div>
 
                                               <div class="control-group">
-                                                <label class="control-label" for="textarea">Description</label>
+                                                <label class="control-label" for="vmart_category">Vmart Category</label>
                                                 <div class="controls">
-                                                  <textarea class="input-xxlarge trololo" id="textarea" rows="3"></textarea>
+                                                    
+                                                  <select id="vmart_category" class="trololo" name="vcategory">
+                                                    <?php foreach($vmart_categories as $option): ?>
+                                                      <option><?php echo $option->catname; ?></option>
+                                                    <?php endforeach; ?>                                                     
+                                                  </select>
+                                                    
                                                 </div>
                                               </div>
 
+                                              <div class="control-group">
+                                                <label class="control-label" for="description">Description</label>
+                                                <div class="controls">
+                                                  <textarea class="input-xxlarge trololo" id="description" rows="3" name="description" ></textarea>
+                                                </div>
+                                              </div>
+
+                                              <!--Image Upload Div-->  
                                               <div class="controls" style="">
-
-
-
                                                 <table>
-                                                    
                                                     <tr>
                                                         <td style="width:30%" >
                                                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -252,7 +260,7 @@
                                                                     <span class="fileupload-exists">
                                                                         <i class="icon-pencil"></i>
                                                                     </span>
-                                                                    <input type="file" />
+                                                                    <input type="file" id="image_up_1" name="image_up_1"/>
                                                                 </span>
                                                                 <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
                                                                     <i class="icon-remove"></i>
@@ -262,6 +270,7 @@
                                                         </td>
 
                                                         <td style="width:5.15%" ></td>
+                                                        
                                                         <td style="width:30%" >
                                                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                                               <div class="fileupload-new thumbnail" style="width:150px;height:95px;">
@@ -279,7 +288,7 @@
                                                                     <span class="fileupload-exists">
                                                                         <i class="icon-pencil"></i>
                                                                     </span>
-                                                                    <input type="file" />
+                                                                    <input type="file" id="image_up_2" name="image_up_2"/>
                                                                 </span>
                                                                 <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
                                                                     <i class="icon-remove"></i>
@@ -307,7 +316,7 @@
                                                                     <span class="fileupload-exists">
                                                                         <i class="icon-pencil"></i>
                                                                     </span>
-                                                                    <input type="file" />
+                                                                    <input type="file" id="image_up_3" name="image_up_3"/>
                                                                 </span>
                                                                 <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
                                                                     <i class="icon-remove"></i>
@@ -316,14 +325,15 @@
                                                             </div>
                                                         </td>
                                                 </table>
-
                                               </div>
+                                              <!--End Image Upload Div-->  
+                                              
 
                                               <!--Start Text Editor-->
                                               <div class="control-group">
-                                                <label class="control-label" for="textarea">More Information</label>
+                                                <label class="control-label" for="more_info">More Information</label>
                                                 <div class="controls">
-                                                  <textarea class="input-xxlarge trololo" id="textarea" rows="3"></textarea>
+                                                    <textarea class="input-xxlarge trololo" id="more_info" rows="3" name="more_info" ></textarea>
                                                 </div>
                                               </div>
                                               <!--End Text Editor-->                                              
