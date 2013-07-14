@@ -13,6 +13,7 @@ class Web_cart extends CI_Controller{
                 'name'    => $product->title,
                 'price'   => $product->price,
                 'qty'     => 1,
+                'aval_qty'=> $product->Qty
                 
             );
         
@@ -45,7 +46,14 @@ class Web_cart extends CI_Controller{
         
     }
 
-
+    function update_qty($rowid,$qty){
+       $data = array(
+           'rowid' => $rowid,
+           'qty'   => $qty
+           
+       ); 
+       $this->cart->update($data);
+    }
     
 
     function destroy(){

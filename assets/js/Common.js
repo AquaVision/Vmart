@@ -149,9 +149,6 @@ $(function(){
             $.post("../settings/verifysellerid",{
                 "identity" : ($(this).val())
             },function(data){
-               
-            
-            
                 hideLoading();
                 if(data == "ok"){
                     $("#okimage11").remove();
@@ -189,6 +186,15 @@ $(function(){
         });
     });
 
+    $(".change_qty").change(function(){
+        var rowid=$(this).data("rowid");
+        var qty = $(this).find(":selected").text();
+        
+        $.post("../Web_cart/update_qty/"+rowid+"/"+qty, function(data){
+            window.location="../Web_cart/show";
+        });
+       
+    });
     
     $("#continuexnextpage").on("click",function(e){
         var page = $(this).data("active");
