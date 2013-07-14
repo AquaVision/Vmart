@@ -37,7 +37,6 @@ class Membership_model extends CI_Model {
             'password' => md5($this->input->post('password')),
             'joined_date' => $joined_date,
             'is_seller' => 0,
-            
         );
 
         $this->db->insert('user', $new_member_insert_data);
@@ -50,17 +49,17 @@ class Membership_model extends CI_Model {
             'userid' => $id,
         );
         $this->db->insert('buyer', $new_buyer_additional_data);
-        
+
         //creating a folder for this user. 
         $path_dir = "assets/images/userdata/";
         $foldername=create_folder($path_dir, $id);
         $sql ="UPDATE user SET userfolder='".$foldername."' WHERE userid=".$id." LIMIT 1";
         $this->db->query($sql);
-        
-        
+
+
         if ($this->db->affected_rows() === 1) {
             $this->set_session($fulname, $username, $email);
-            $this->send_verification_email();
+            $this->send_verification_email($email);
             return $fulname;
         }
     }
@@ -102,13 +101,23 @@ class Membership_model extends CI_Model {
         }
     }
 
-    function send_verification_email() {
-        $this->load->library('email');
-        $email = $this->session->set_userdata('email');
+    function send_verification_email($email) {
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'testmail.pearson@gmail.com',
+            'smtp_pass' => 'testmailpearson',
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1'
+        );
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+
         $activation_code = $this->activation_code;
 
         $this->email->set_mailtype('html');
-        $this->email->from($this->config->item('bot_email', 'VMART'));
+        $this->email->from("testmail.pearson@gmail.com");
         $this->email->to($email);
         $this->email->subject('Please activate your account at VMART');
 
