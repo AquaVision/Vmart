@@ -84,7 +84,7 @@ class Membership_model extends CI_Model {
         $sql = "SELECT email, joined_date FROM user WHERE email='{$email}' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
-        if ($result->num_rows() === 1 && $row->fullname) {
+        if ($result->num_rows() === 1 && $row->full_name) {
             if (md5((string)($row->userid.$row->joined_date)) === $activation_code)
                 $result = $this->activate_account($email);
             if ($result === TRUE) {
