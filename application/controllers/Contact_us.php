@@ -16,7 +16,7 @@ class Contact_us extends CI_Controller {
 //        print_r($this->seller_data['seller_phones']);
 //        echo "<br/>";
 //        die();
-        $this->load->view('contact_us',$this->seller_data);
+        $this->load->view('landingpage');
     }
     
     function get_data($seller_id)
@@ -57,17 +57,38 @@ class Contact_us extends CI_Controller {
             }
         }
         $this->seller_data['seller_phones'] = $seller_phone_data;
+        $this->seller_data['seller_id'] = $seller_id;
         
-        $this->index();    
+        $this->load->view('contact_us',$this->seller_data);  
     }
     
-    function insert_feedback()
+    function get_seller_email($seller_id)
     {
-        $user_email = $this->input->post('customer_email');
-        $user_feedback = $this->input->post('customer_feedback');
+        $sql = "SELECT email_for_meesage FROM store WHERE userid = ? ";
+        $query = $this->db->query($sql , $seller_id);
         
-//        echo $user_email."</br>";
-//        echo $user_feedback;
+        $seller_email = "";
+        
+        if($query->num_rows() == 1 )
+        {
+            $seller_email = $query->row();
+        }
+
+        return $seller_email;
+    }
+    
+    function send_feedback()
+    {
+        $user_feedback = $this->input->post('customer_email_subject')."</br></br>".$this->input->post('customer_feedback')."</br></br>From ".$this->input->post('customer_email');
+        $email_subject = "You have a New Message from VMart"; 
+        $seller_email = $this->get_seller_email($this->input->post('seller_id'));
+        
+//        echo $user_feedback."</br>";
+//        echo $email_subject."</br>";
+//        echo $this->input->post('seller_id');
+        
+        sendVmartEmail($seller_email->email_for_meesage,$email_subject,$user_feedback);
+        $this->load->view('contact_us',$this->input->post('seller_id'));
         
     }
 

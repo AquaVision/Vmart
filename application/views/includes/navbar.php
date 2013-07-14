@@ -75,7 +75,7 @@
                         <li id="usrLgdInLi" >
                             <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none">
-                                    <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
+                                    <img class="img-rounded" src="<?php echo get_assets_path().(getprofilePic()) ?>" style="width:24px;height:24px;">
                                     <?php echo getUsername(); ?>
                                 </a>
                                 <span class="caret"></span>

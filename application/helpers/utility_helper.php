@@ -6,15 +6,19 @@ function get_date_time() {
 
     return $timestamp;
 }
- function get_curret_year(){
+
+function get_curret_year() {
     return 2013;
 }
-function get_curret_month(){
+
+function get_curret_month() {
     return 7;
 }
-function get_curret_date(){
+
+function get_curret_date() {
     return 25;
 }
+
 function getMessageJson($title, $message, $type) {
 
     $messagar = array(
@@ -151,6 +155,27 @@ function get_images_path() {
     $full_path = base_url() . substr($path, 2) . "/";
 
     return $full_path;
+}
+
+function sendSms($textmessage, $to) {
+    $user = "94778195095";
+    $password = "8093";
+    $text = urlencode($textmessage);
+
+    $baseurl = "http://www.textit.biz/sendmsg";
+    $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+    $ret = file($url);
+
+
+    $res = explode(":", $ret[0]);
+
+    if (trim($res[0]) == "OK") {
+        // echo "Message Sent - ID : " . $res[1];
+        return true;
+    } else {
+        // echo "Sent Failed - Error : " . $res[1];
+        return false;
+    }
 }
 
 ?>

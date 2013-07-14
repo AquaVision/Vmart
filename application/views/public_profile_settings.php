@@ -27,7 +27,9 @@
 
 
 
-                            <?php $this->load->view('includes/settings_rightbar.php'); ?>
+                            <?php 
+                            $datax["rightbar"] = $rightbar;
+                            $this->load->view('includes/settings_rightbar.php',$datax); ?>
 
 
 
@@ -50,32 +52,85 @@
                                         <div class="tab-content">
 
                                             <div class="tab-pane <?php echo $active1 ?>" id="general">
-                                                <?php echo form_open('settings/saveGeneralSettings'); ?>
+                                               <form action="<?php echo site_url("settings/saveGeneralSettings") ?>" method="post"  enctype="multipart/form-data">
+
+
+
+
+                                            <br/>
+                                            <div class="controls controls-row">
+                                                <div class="span4">Profile Picture</div>
+                                                <div class="span4"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="span4"><h6></h6></div>
+                                                <div class="span2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-new thumbnail" style="width: 100px; height: 100px;">
+                                                            <img src="<?php echo get_assets_path().($buyer->profile_pic) ?>" />
+                                                        </div>
+                                                        <div class="fileupload-preview fileupload-exists thumbnail" style="width: 100px; height: 100px;">
+                                                        </div>
+                                                        <br/>
+                                                        <span class="btn btn-file"><span class="fileupload-new">Select image</span>
+                                                            <span class="fileupload-exists"><i class="icon-user"></i></span>
+                                                            <input type="file" name="profileimagedd"/></span>
+                                                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="span4 muted">This photo is your identity on our site and appears on your profile. Please Try to Resize your profile image 100X100 before uploading</div>
+                                            </div>
+                                            <hr/>
+
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Full Name</h6></div>
+                                                    <div class="span4">Full Name</div>
                                                     <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span12" value="<?php echo $user->full_name ?>" /></div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Email</h6></div>
+                                                    <div class="span4">Email</div>
                                                     <div class="span4" style="margin-left:0px"><input type="text" name="myemail" value="<?php echo $user->email ?>" disabled /></div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>User Name</h6></div>
+                                                    <div class="span4">User Name</div>
                                                     <div class="span4" style="margin-left:0px"><input type="text" name="username" disabled value="<?php echo $user->username ?>" /></div>
                                                 </div>
 
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Password</h6></div>
+                                                    <div class="span4">Password</div>
                                                     <div class="span4" style="margin-left:0px"><a href="" class="btn btn-link" data-toggle="modal" data-target="#changepassword">Change</a></div>
                                                 </div>
-                                                <div class="controls controls-row">
-                                                    <div class="span4"><h6>Your Address</h6></div>
-                                                    <div class="span4"></div>
-                                                </div>
-                                                <div class="controls controls-row">
-                                                    <div class="span4"><h6></h6></div>
-                                                    <div class="span4" style="margin-left:0px"><textarea name="addresssxz" style="width:300px; height:100px; "><?php echo $user->address ?></textarea></div>
-                                                </div>
+                                                
+                                               
+                                                <hr/>
+                                            <h5 class="text-info">Tell us more about you</h5>
+                                            <h5 class="muted" style="margin-left:0px; margin-bottom:30px;">The below details will not be published anywhere and will be usefull for us to reach you and help you</h5>
+                                            <div class="controls controls-row">
+                                                <div class="span4">Your Mobile</div>
+                                                <div class="span4"></div>
+                                            </div>
+                                            <div class="controls controls-row">
+                                                <div class="span4"><h6></h6></div>
+                                                <div class="span4" style="margin-left:0px"><input type="text" value="<?php  echo $buyer->mobile_reach ?>" name="usermobiledfd" /></div>
+                                            </div>
+                                            <div class="controls controls-row">
+                                                <div class="span4">Your Address</div>
+                                                <div class="span4"></div>
+                                            </div>
+                                            <div class="controls controls-row">
+                                                <div class="span4"><h6></h6></div>
+                                                <div class="span4" style="margin-left:0px"><textarea name="addresssxz" style="width:300px; height:100px; "><?php  echo $user->address ?></textarea></div>
+                                            </div>
+                                            <div class="controls controls-row">
+                                                <div class="span4">Something about you</div>
+                                                <div class="span4"></div>
+                                            </div>
+                                            
+                                            <div class="controls controls-row">
+                                                <div class="span4"><h6></h6></div>
+                                                <div class="span4" style="margin-left:0px"><textarea name="aboutupx" style="width:400px; height:100px; "><?php  echo $buyer->about_you ?></textarea></div>
+                                            </div>
+
+
                                                 <?php if($active1 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
 
                                                 <div class="form-actions">
@@ -86,7 +141,7 @@
                                                 <div class="modal hide fade passwordchange" id="changepassword">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4>Change Password</h4>
+                                                        Change Password
                                                     </div>
                                                     <div class="modal-body">
                                                         <label for="currentpas">Current Password</label>
@@ -98,7 +153,7 @@
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                        <a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</a>
+                                                        <a href="#" class="btn btn-success" data-dismiss="modal" aria-hidden="true">Hide</a>
                                                     </div>
                                                 </div>
 
@@ -164,13 +219,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Mobile Verification code</h6></div>
+                                                    <div class="span4">Mobile Verification code</div>
                                                     <div class="span4" style="margin-left:0px"><input type="text" name="verificationcode"  class="span3"/></div>
                                                 </div>
                                                 <?php }else{ ?>
 
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Your Seller mobile Number</h6></div>
+                                                    <div class="span4">Your Seller mobile Number</div>
                                                     <div class="span6" style="margin-left:0px">
                                                         <input type="text" value="<?php echo $seller->seller_mobile ?>"   disabled/>
                                                     </div>
@@ -178,7 +233,7 @@
 
                                                 <?php } ?>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Your identity (seller id)</h6></div>
+                                                    <div class="span4">Your identity (seller id)</div>
                                                     <div class="span7" style="margin-left:0px"> 
                                                         <input type="text" name="identity" value="<?php echo $seller->seller_id ?>" class="myhoverpopoever" id="yourid" rel="popover"  data-content="This word along with url will be your shop url" data-original-title="Your Identity" />
                                                     </div>
@@ -194,13 +249,13 @@
                                                 <hr/>
 
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Account holder name</h6></div>
+                                                    <div class="span4">Account holder name</div>
                                                     <div class="span8" style="margin-left:0px">
                                                         <input type="text" style="margin-right:10px;" name="accountholdername" class="span6" id="accontholdnam" value="<?php echo $seller->account_hold_name ?>"  />
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Bank name</h6></div>
+                                                    <div class="span4">Bank name</div>
                                                     <div class="span5" style="margin-left:0px">
                                                         <?php
                                                         $sellbank = $seller->bank_name;
@@ -242,7 +297,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Bank code</h6></div>
+                                                    <div class="span4">Bank code</div>
                                                     <div class="span5" style="margin-left:0px">
                                                         <input type="text" name="bankcode" style="margin-right:10px" id="banknamecode" class="span4" value ="<?php echo $seller->bank_code; ?>"/>
                                                     </div>
@@ -254,20 +309,20 @@
                                                 </div>
                                                 -->
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Branch code</h6></div>
+                                                    <div class="span4">Branch code</div>
                                                     <div class="span5" style="margin-left:0px">
                                                         <input type="text" name="branchcode" style="margin-right:10px" class="span3" value="<?php echo $seller->branch_code; ?>" />
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Account number</h6></div>
+                                                    <div class="span4">Account number</div>
                                                     <div class="span8" style="margin-left:0px">
                                                         <input type="text" name="accountnuber" style="margin-right:10px" value ="<?php echo $seller->account_number; ?>" class="span6" />
                                                     </div>
                                                 </div>
                                                    <?php if($active2 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
                                                 <div class="form-actions">
-                                                    <button type="submit" class="btn btn-success" class="savechanges" id="mysdfdfd" onclick="showx('mysdfdfd')" style="float:right">Save changes</button>
+                                                    <button type="submit" class="btn btn-success" class="savechanges" id="mysdfdfd"  style="float:right">Save changes</button>
                                                 </div>
                                                 <?php
                                                 echo form_close();

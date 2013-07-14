@@ -45,6 +45,13 @@ class Add_item_model extends CI_Model
         
     }
     
+    public function update_store_item($item_id,$image_url)
+    {
+        $update_sql = "UPDATE store_item SET MainImageUrl=? WHERE item_id=?";
+        $update_query = $this->db->query($update_sql,array(getUserFolderName()."/".$image_url,$item_id));
+        return ($this->db->affected_rows() > 0);
+    }
+    
     public function get_cat_id($category)
     {
         $sql = "SELECT cat_id FROM store_categories WHERE cat_name = ? AND userid = ? ";
@@ -104,10 +111,12 @@ class Add_item_model extends CI_Model
     
     public function view_items($user_id,$limit,$start)
     {
-        //echo $limit."  ".$start."</br>";
-        
-        //$this->db->limit($limit,$start * $limit);
-        $view_items_sql = "SELECT * FROM view_items WHERE userid = '$user_id' LIMIT $start , $limit ";
+
+        /*
+         *  ============IMPORTNAT!!!!!========
+         * Following sql previously used the view_items VIEW to get items
+         */
+        $view_items_sql = "SELECT * FROM store_item WHERE userid = '$user_id' LIMIT $start , $limit ";
         
         $view_query = $this->db->query($view_items_sql);
         
@@ -132,6 +141,8 @@ class Add_item_model extends CI_Model
         $view_query = $this->db->query($view_items_sql,$user_id);
         return $view_query->num_rows();
     }
+    
+
     
     
 }

@@ -1,22 +1,33 @@
 <aside class="db-sidebar">
     <div class="db-sidebar-inner">
         <nav class="db-nav">
-            <h5 class="muted">Public Profile Settings</h5>
-            <ul >
-                <li style="margin-left:10px;"><a href="<?php echo site_url('Wizardseller') ?>"  style="color:#060">> Seller </a></li>
-                <li style="margin-left:10px;"><a href="<?php echo site_url('settings/buyerSettings') ?>"  style="color:#060">> Buyer </a></li>
-            </ul>
-            <ul>
-                <h5 class="muted">Account Settings</h5>
-                <li style="margin-left:10px;"><a href="<?php echo site_url('settings/generalSettings') ?>" fsource="loggedin_Profile_Settings" style="color:#060">> Settings</a></li>
-                <li style="margin-left:10px;"><a href="public_profile_seller.php"  style="color:#060">> Seller </a></li>
-                <li style="margin-left:10px;"><a href="public_profile_buyer.php"  style="color:#060">> Buyer </a></li>
-            </ul>
-            <ul>
-                <h5 class="muted">Account Settings</h5>
-                <li style="margin-left:10px;"><a href="public_profile_settings.php" fsource="loggedin_Profile_Settings" style="color:#060">> Settings</a></li>
+            <?php
+            if (isset($rightbar)) {
+                if ($rightbar == "GENERALSETTINGS") {
+                    ?>
+                    <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Settings</h5>
+                    <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
+                    <ul>
+                        <li  class="rightbarx"><a href="<?php echo site_url('settings/generalSettings') ?>"  >Account Settings</a></li>
+                        <li  class="rightbarx"><a href="<?php echo site_url('settings/generalSettings') ?>"  >Shop Settings</a></li>
+                    </ul>
+                    <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Features and Upgrades</h5>
+                    <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
+                    <ul>
+                        <li class="rightbarx"><a href="public_profile_settings.php" fsource="loggedin_Profile_Settings" >Upgrades</a></li>
 
-            </ul>
+                    </ul>
+                    <?php
+                }
+            } else {
+                ?>
+
+                <ul>
+                    <h5 class="muted">Account Settings</h5>
+                    <li class="rightbarx"><a href="public_profile_settings.php" fsource="loggedin_Profile_Settings" > Settings</a></li>
+
+                </ul>
+            <?php } ?>
         </nav>
     </div>
 </aside>
