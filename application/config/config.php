@@ -380,7 +380,7 @@ $config['bot_email'] = 'iamdinidu@gmail.com';
 $config['admin_email'] = 'imaa95@gmail.com';
 /* End of file config.php */
 /* Location: ./application/config/config.php */
-
+$config["userdatafolderpath"] = "../../assets/images/userdata/";
 
 $config['smsconfig'] = array(
     "nx_key" => "a9749092",
@@ -388,6 +388,9 @@ $config['smsconfig'] = array(
 );
 
 
+
+
+//;extension=php_openssl.dll
 
 
 
