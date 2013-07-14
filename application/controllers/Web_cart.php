@@ -6,7 +6,7 @@ class Web_cart extends CI_Controller{
         $id = $this->input->post('itemid');
         $this->load->model('Product_model');
         $product = $this->Product_model->get($id);
-        echo $product->title." added to cart";
+       
         $data = array(
                 'id'         => $id,
                 'item_image' => $product->item_image,
