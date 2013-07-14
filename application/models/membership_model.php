@@ -52,7 +52,7 @@ class Membership_model extends CI_Model {
         $this->db->insert('buyer', $new_buyer_additional_data);
         
         //creating a folder for this user. 
-        $path_dir = "application/userdata/";
+        $path_dir = "assets/images/userdata/";
         $foldername=create_folder($path_dir, $id);
         $sql ="UPDATE user SET userfolder='".$foldername."' WHERE userid=".$id." LIMIT 1";
         $this->db->query($sql);

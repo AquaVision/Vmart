@@ -117,8 +117,14 @@
     <div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 500px; top: 25%;left: 55%;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-            <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
+            <div class="control-group">
+                <div class="controls" style="text-align: center">
+                    <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
 
+                </div>
+            </div>
+            <div style="text-align: center"><small>Not a member yet? <a href="#" class="js-open-popup-join">Register now</a> — it's fun and easy!</small></div>
+            
         </div>
         <div style="margin-bottom: -20px">
             <?php
@@ -127,12 +133,7 @@
             ?>
 
 
-            <div class="control-group">
-                <div class="controls" >
-                    <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
-
-                </div>
-            </div>
+            <div style="margin-top: 10px">
             <div class="control-group">
                 <label class="control-label" for="inputEmail">User Name</label>
                 <div class="controls"  >
@@ -152,8 +153,9 @@
                 </div>
             </div>
 
-
+            </div>
             <div class="modal-footer">
+                <a href="#">Forgot Password?</a>
                 <button  type="submit" class="btn btn-primary" >Sign In</button>
 
 
@@ -166,32 +168,55 @@
     </div>
 
 
-    <div id="signup_tag" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 400px;top: 25%;left: 60%;">
+    <div id="signup_tag" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 500px;top: 25%;left: 60%;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
             <h3 id="modalLabel" style="text-align:center;">Set up your profile </h3>
         </div>
         <div style="margin-bottom: -20px">
             <?php
-            echo form_open('Auth/SignUp');
+            echo form_open('Auth/SignUp', $form_attributes);
             ?>
             <div class="modal-body" style="text-align: center;">
 
 
 
-                <div class="controls">
+                
                     <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
 
-
+                    <div class="control-group">
+                    <label class="control-label" for="inputEmail">Full Name</label>
+                    <div class="controls">
                     <input type="text" value="" name ="full_name" placeholder="Ful Name" id="fulnamex" />
+                    </div>
+                    </div>
+                    <div class="control-group">
+                    <label class="control-label" for="inputEmail">User Name</label>
+                    <div class="controls">
                     <input type="text" value="" name ="username" placeholder="User Name" id="usernamex" />
+                    </div>
+                    </div>
+                    <div class="control-group">
+                    <label class="control-label" for="inputEmail">Email</label>
+                    <div class="controls">
                     <input type="text" value="" name ="email" placeholder="Email" id="emailx" />
+                    </div>
+                    </div>
+                    <div class="control-group">
+                    <label class="control-label" for="inputEmail">Password</label>
+                    <div class="controls">
                     <input type="password" value="" name ="password" placeholder="Password" id="passwordx" />
+                    </div>
+                    </div>
+                    <div class="control-group">
+                    <label class="control-label" for="inputEmail">Confirm Password  </label>
+                    <div class="controls">
                     <input type="password" value="" name ="password2" placeholder="Confirm Password" id="passwordx" />
+                    </div>
+                    </div>
 
 
-
-                </div>
+            
 
             </div>
 
