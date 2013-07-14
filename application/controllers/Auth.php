@@ -36,7 +36,7 @@ class Auth extends CI_Controller{
     function SignOut()
 	{
 		$this->session->sess_destroy();
-		$this->index();
+		redirect('Vmart');
 	}
     
 }

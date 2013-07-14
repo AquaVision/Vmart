@@ -1,4 +1,4 @@
-
+<?php  if(!islogedUser($this->session)){  ?>
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container" style="width: 1260px;">
@@ -49,9 +49,64 @@
     </div><!-- /navbar-inner -->
 </div>
 
+<?php   }else {?>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container" style="width: 1260px;">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="brand"></div>
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                    <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
+                    <li><a href="setup-notes.html">inbox<span class="badge">9</span></a></li>
+                    <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
+                    
+                    <li id="usrLgdInLi" >
+                        <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
+                                username
+                            </a>
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu" role="menu" style="margin-top: 6px;">
+                                <li>
+                                    <a href=""><i class="icon-user"></i>&nbsp;&emsp;User</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="icon-envelope"></i>&nbsp;&emsp;Inbox</a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Sales</a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url('settings/generalSettings'); ?>"><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?= site_url('Auth/SignOut'); ?>"><i class="icon-tag"></i>&nbsp;&emsp;Logout</a>
+                                </li> 
+                            </ul>
+                        </div>
+                    </li>            
+                    
+                    
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+    </div><!-- /navbar-inner -->
+</div>
+<?php } ?>
 
 
 
+
+
+<?php  if(!islogedUser($this->session)){  ?>
 <div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 292px;top: 5%;left: 96%;">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
@@ -124,3 +179,6 @@ echo form_submit('submit', 'Create Acccount');
         echo form_close();
         ?>
 </div>
+
+
+<?php    } ?>
