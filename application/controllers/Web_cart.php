@@ -27,8 +27,9 @@ class Web_cart extends CI_Controller{
     function show(){
         
         $cart = $this->cart->contents();
-        echo '<pre>';
-        print_r($cart);
+        $this->load->view('show_cart');
+        
+        
     }
     
     function remove($rowid){
