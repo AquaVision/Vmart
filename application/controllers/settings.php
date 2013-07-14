@@ -18,7 +18,13 @@ class settings extends CI_Controller {
     }
 
     function generalSettings() {
-        $this->load->view('public_profile_settings');
+        
+        if(islogedUser($this->session)){
+            echo "aiyyo";
+        }else{
+            redirect('Vmart', 'refresh');
+        }
+       // $this->load->view('public_profile_settings');
     }
 
 }

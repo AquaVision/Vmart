@@ -10,7 +10,7 @@
             <div class="brand"></div>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
-                    <li><a href="<?=site_url();?>"><i class="icon-home icon-white"></i> Home</a></li>
+                    <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
                     <li><a href="setup-notes.html">inbox<span class="badge">9</span></a></li>
                     <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
                     <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
@@ -32,7 +32,7 @@
                                     <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Sales</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>
+                                    <a href="<?= site_url('settings/generalSettings'); ?>"><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
