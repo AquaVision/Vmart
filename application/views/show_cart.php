@@ -123,7 +123,7 @@
                                                 echo '<td><h5>' . $items['price'] . '</h5></td>';
                                                 echo '<td><h5>' . $items['qty'] . '</h5></td>';
                                                 echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
-                                                echo '<td ><h5><a href="" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                                echo '<td ><h5><a href="" class="" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
                                             
                                             
                                             echo '</tr>';
