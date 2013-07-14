@@ -22,13 +22,14 @@ class Web_cart extends CI_Controller{
     }
     function total(){
         
-        echo $this->cart->total();
+        return $this->cart->total();
     }
     
 
     function show(){
-        
+        $total_amount = $this->total();
         $cart['cart_data'] = $this->cart->contents();
+        $cart['cart_total'] = $total_amount;
         $this->load->view('show_cart',$cart);
         
         
