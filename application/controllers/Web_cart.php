@@ -31,10 +31,10 @@ class Web_cart extends CI_Controller{
         print_r($cart);
     }
     
-    function remove(){
+    function remove($rowid){
         
         $data = array(
-        'rowid' => 'd0c00b4e4b747d8475d1c93ff8067138',
+        'rowid' => $rowid,
         'qty'   => 0
         );
         $this->cart->update($data);
@@ -42,7 +42,7 @@ class Web_cart extends CI_Controller{
     }
 
 
-
+    
 
     function destroy(){
         $this->cart->destroy();
