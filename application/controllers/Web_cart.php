@@ -36,6 +36,22 @@ class Web_cart extends CI_Controller{
         
     }
     
+    function checkout(){
+        
+        if (!islogedUser()) {
+            echo getMessageJson("", "You are not logged in, please log in before checkout!!", "ERROR");    
+        } 
+        else {
+        
+        $userId = getUserID();
+        $cart['userId'] = $userId;
+        $cart['checkout_data'] = $this->cart->contents();
+        $this->load->model('product_model');
+        $this->product_model->do_checkout($cart);
+        }
+        
+    }
+    
     function remove($rowid){
         
         $data = array(
