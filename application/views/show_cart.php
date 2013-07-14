@@ -116,12 +116,16 @@
                                         foreach ($cart_data as $items) {
 
                                             echo '<tr>';
-                                            echo '<td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>';
-                                            echo '<td><h5>Stone Necklace</h5></td>';
-                                            foreach ($items as $item) {
-                                                echo '<td><h5>' . $item . '</h5></td>';
-                                            }
-                                            echo '<td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                           
+                                           
+                                                echo '<td class="sc-td-image"><img src="'.get_assets_path(). $items['item_image'] .'" ></td>';
+                                                echo '<td><h5>' . $items['name'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['price'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['qty'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
+                                                echo '<td ><h5><a href="" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                            
+                                            
                                             echo '</tr>';
                                         }
                                         echo '</tbody>

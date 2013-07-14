@@ -262,19 +262,9 @@
         <div id="main" class="">
 
             <?php
-            echo '<table class="table table-hover show-cart-table">';
-            echo '<thead><th>Item</th><th>Item id</th><th>Name</th><th>Price</th></thead><tbody>';
-            foreach ($cart_data as $items) {
-
-                echo '<tr>';
-                echo '<td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>';
-                foreach ($items as $item) {
-                    echo '<td>' . $item . '</td>';
-                }
-                echo '<td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table>';
+         
+                        print_r($cart_data);
+            
             ?>
 
 
