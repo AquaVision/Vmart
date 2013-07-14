@@ -34,18 +34,24 @@
                                 <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer">
 
                                     <div class="thumbnail">
-                                        <img alt="" src="<?php echo get_assets_path().$item->item_image; ?>">
+                                        <img alt=""  src="<?php echo get_assets_path().$item->item_image; ?>">
                                         <div class="caption">
-                                            <h6 class="itemtitle"><?php echo $item->title; ?></h6>
+                                            <h6 class="itemtitle" ><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
                                                 <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
                                                 <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->num_of_sales; ?></div>
                                             </div>
 
                                             <p>
-                                                <a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> 
+                                                <a class="btn primary details show_magnifier_modal" 
+                                                    data-itemid="<?php echo $item->item_id; ?>"
+                                                    data-imgurl="<?php echo get_assets_path().$item->item_image; ?>"
+                                                    data-itemtitle="<?php echo $item->title; ?>"
+                                                    data-itemprice="<?php echo $item->price ;?>"
+                                                    ><i class="icon-zoom-in"></i>
+                                                </a> 
                                                 <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
-                                                <span class="label label-info price"><?php echo $item->price ;?></span>
+                                                <span class="label label-info price" ><?php echo $item->price ;?></span>
                                             </p>
 
                                         </div>
@@ -272,78 +278,31 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <footer class="footer ">
             <?php $this->load->view('includes/footer.php'); ?>
         </footer>
-        <!-- popin -->
-        <div id="modal" class="" style="display: none;">
-            <div class="modal">
+        
 
+        <!--Modal for Item Magnifier-->
+        <div id="item_magnifier" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h3 id="mag-itemtitle"></h3>
+            </div>
+            <div class="modal-body">
+                <div class="thumbnail img">
+                    <img alt="" id="mag-itemimg">
+                </div>
+                <p id="mag-itemdesc"></p>
+            </div>
+            <div class="modal-footer">
+                <span class="label label-info price" id="mag-itemprice"></span>
+                <a class="btn addto add-to-cart" data-itemid = ""  id="mngitemid" href="#" rel="1">Add to <i class="icon-shopping-cart"></i></a>
             </div>
         </div>
-        <div id="modalCart" class="" style="display: none;">
-            <div class="modal">
-                <div class="modal-header">
-                    <a class="close" data-dismiss="modal">×</a>
-                    <h3>My Cart</h3>
-                </div>
-                <div class="modal-body">
-                    <table class="table cartTab">
-                        <thead>
-                            <tr>
-                                <th>Items</th>
-                                <th>Price</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <span class="label label-info price">Total : $ <span id="amount">0</span></span>
-                    <a class="btn buyNow" href="http://paypal.com/" target="blank">Buy Now <i class="icon-ok"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="span4 alertAdd">
-            <div class="alert alert-info">
-                Added to your cart
-            </div>
-        </div>
-        <!-- popin -->
+        <!--End Modal for Item Magnifier-->
 
         <script src="jquerylib/jquery-1.10.1.min.js"></script>
         <script src="js/jquery.masonry.min.js"></script>
@@ -374,9 +333,28 @@
             });
                                                                                                                 
                                                                                                                
-            $(function(){
             
-                showMessage("im imal"," ok macho");
+
+
+            //Script for Magnifier Model
+            $(".show_magnifier_modal").on('click',function(e)
+            {
+                var item_id= $(this).data("itemid");
+                var item_image = $(this).data("imgurl");
+                var item_title = $(this).data("itemtitle");
+                var item_price = $(this).data("itemprice");
+
+
+                var url = "../Vmart_alt/get_item_details/"+item_id;
+                $.get(url, function(data) {
+                    $('#mag-itemtitle').html(data);
+                    $('#mag-itemimg').attr('src',item_image);
+                    $('#mag-itemdesc').html(item_title);
+                    $('#mag-itemprice').html(item_price);
+                    $("#mngitemid").data("itemid",item_id);
+                }).success(function() {
+                    $('#item_magnifier').modal({show:true});
+                });
             });
 
         </script>
