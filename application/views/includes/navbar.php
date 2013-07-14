@@ -80,7 +80,7 @@
                                 <?php echo getUsername(); ?>
                             </a>
                             <span class="caret"></span>
-                            <ul class="dropdown-menu" role="menu" style="margin-top: 6px;">
+                            <ul class="dropdown-menu" role="menu" style="margin-top: 6px; margin-left:-40px">
                                 <li>
                                     <a href=""><i class="icon-user"></i>&nbsp;&emsp;User</a>
                                 </li>

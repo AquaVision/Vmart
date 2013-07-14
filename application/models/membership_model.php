@@ -37,6 +37,7 @@ class Membership_model extends CI_Model {
             'password' => md5($this->input->post('password')),
             'joined_date' => $joined_date,
             'is_seller' => 0,
+            
         );
 
         $this->db->insert('user', $new_member_insert_data);
@@ -49,7 +50,14 @@ class Membership_model extends CI_Model {
             'userid' => $id,
         );
         $this->db->insert('buyer', $new_buyer_additional_data);
-
+        
+        //creating a folder for this user. 
+        $path_dir = "application/userdata/";
+        $foldername=create_folder($path_dir, $id);
+        $sql ="UPDATE user SET userfolder='".$foldername."' WHERE userid=".$id." LIMIT 1";
+        $this->db->query($sql);
+        
+        
         if ($this->db->affected_rows() === 1) {
             $this->set_session($fulname, $username, $email);
             $this->send_verification_email();

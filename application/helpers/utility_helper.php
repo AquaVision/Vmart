@@ -16,5 +16,14 @@ function getMessageJson($title, $message, $type) {
     );
     return json_encode($messagar);
 }
+function create_folder($path,$id){
+        $folder_name = md5($id.get_date_time());
+        //create the folder if it's not already exists
+        if(!is_dir($path.$folder_name)) 
+        {    
+        mkdir($path.$folder_name,0755,TRUE);
+        } 
+        return $folder_name;
+}
 
 ?>

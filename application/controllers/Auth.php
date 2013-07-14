@@ -38,6 +38,7 @@ class Auth extends CI_Controller {
         echo getMessageJson("", "Registration Successfull!!", "SUCCESS");
         $this->load->model('membership_model');
         $this->membership_model->create_member();
+        
         }
     }
     function validate_email($email, $activation_code){
