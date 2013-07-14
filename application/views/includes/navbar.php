@@ -114,45 +114,54 @@
 
 
 <?php if (!islogedUser($this->session)) { ?>
-    <div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 292px; top: 25%;left: 60%;">
+    <div id="modalSignIn" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true" style="width: 500px; top: 25%;left: 55%;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
             <h3 id="modalLabel" style="text-align:center;">Sign In</h3>
+
         </div>
         <div style="margin-bottom: -20px">
-        <?php
-        echo form_open('Auth/SignIn');
-        ?>
-        <div class="modal-body" style="text-align: center">
-
-            <div class="span2">
-                <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 100%;margin-bottom: 10px;"></a>
-            </div>
-
-
-            <div class="controls"  >
-                
-                <?php
-                echo form_open('login/validate_credentials');
-
-
-
-                //echo anchor('login/signup', 'Create Account');
-                ?>
-                <input type ="text" name ="username" placeholder="User name" />
-                <input type ="password" name ="password" placeholder="Password" />
-            </div>
-
-        </div>
-        <div class="modal-footer">
-            <button  type="submit" class="btn btn-primary" >Sign In</button>
-
-
-
             <?php
-            echo form_close();
+            $form_attributes = array('class' => 'form-horizontal');
+            echo form_open('Auth/SignIn', $form_attributes);
             ?>
-        </div>
+
+
+            <div class="control-group">
+                <div class="controls" >
+                    <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
+
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">User Name</label>
+                <div class="controls"  >
+                    <input type ="text" name ="username" placeholder="User name" /> 
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Password</label>
+                <div class="controls"  >
+                    <input type ="password" name ="password" placeholder="Password" />
+                </div>
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <button  type="submit" class="btn btn-primary" >Sign In</button>
+
+
+
+                <?php
+                echo form_close();
+                ?>
+            </div>
         </div>
     </div>
 
@@ -163,39 +172,39 @@
             <h3 id="modalLabel" style="text-align:center;">Set up your profile </h3>
         </div>
         <div style="margin-bottom: -20px">
-        <?php
-        echo form_open('Auth/SignUp');
-        ?>
+            <?php
+            echo form_open('Auth/SignUp');
+            ?>
             <div class="modal-body" style="text-align: center;">
 
 
 
-            <div class="controls">
-                <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
+                <div class="controls">
+                    <!--<div class="span2" style="text-align:center;padding-top:6px;">Username :</div>-->
 
 
-                <input type="text" value="" name ="full_name" placeholder="Ful Name" id="fulnamex" />
-                <input type="text" value="" name ="username" placeholder="User Name" id="usernamex" />
-                <input type="text" value="" name ="email" placeholder="Email" id="emailx" />
-                <input type="password" value="" name ="password" placeholder="Password" id="passwordx" />
-                <input type="password" value="" name ="password2" placeholder="Confirm Password" id="passwordx" />
+                    <input type="text" value="" name ="full_name" placeholder="Ful Name" id="fulnamex" />
+                    <input type="text" value="" name ="username" placeholder="User Name" id="usernamex" />
+                    <input type="text" value="" name ="email" placeholder="Email" id="emailx" />
+                    <input type="password" value="" name ="password" placeholder="Password" id="passwordx" />
+                    <input type="password" value="" name ="password2" placeholder="Confirm Password" id="passwordx" />
 
 
+
+                </div>
 
             </div>
 
-        </div>
 
 
 
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Join Us</button>
 
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Join Us</button>
-            
-            <?php
-            echo form_close();
-            ?>
-        </div>
+                <?php
+                echo form_close();
+                ?>
+            </div>
         </div>
     </div>
 
