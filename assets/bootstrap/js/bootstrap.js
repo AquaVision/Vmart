@@ -1250,25 +1250,25 @@
                         tp = {
                             top: pos.top + pos.height, 
                             left: pos.left + pos.width / 2 - actualWidth / 2
-                            }
+                        }
                         break
                     case 'top':
                         tp = {
                             top: pos.top - actualHeight, 
                             left: pos.left + pos.width / 2 - actualWidth / 2
-                            }
+                        }
                         break
                     case 'left':
                         tp = {
                             top: pos.top + pos.height / 2 - actualHeight / 2, 
                             left: pos.left - actualWidth
-                            }
+                        }
                         break
                     case 'right':
                         tp = {
                             top: pos.top + pos.height / 2 - actualHeight / 2, 
                             left: pos.left + pos.width
-                            }
+                        }
                         break
                 }
 
@@ -2416,6 +2416,13 @@
 
 
 
+// By Vmart--------------------
+
+
+
+
+
+
 $(function(){
 
 
@@ -2427,6 +2434,19 @@ $(function(){
         "</div>"+
         "</div>"
         );
+            
+    $("body").append("<div id='messagevmart' class='modal hide fade'>"+
+            "<div class='modal-header'>"+
+                "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>"+
+                "<span id='messageheadx'></span>"+
+            "</div>"+
+            "<div class='modal-body'>"+
+                "<p id='messagebodyx'></p>"+
+            "</div>"+
+            "<div class='modal-footer'>"+
+                "<button class='btn' data-dismiss='modal' aria-hidden='true'>Close</button>"+
+            "</div>"+
+        "</div>");        
 
 });
 
@@ -2470,8 +2490,40 @@ function adjL(left){
     adjl = left;
 }
 
-function abimage(image,width,height,top,left,id){
+
+function relativeLeft(leftval,parent){
+    bodyposl = $(parent).offset();
     
-   $("body").append("<img id='"+id+"' src='images/assets/"+image+"' style='width:"+width+"; height:"+height+"; top:"+top+";  left:"+left+"; z-index:100000; position: absolute'  />");
+    return   leftval -bodyposl.top;
 }
+
+function relativeTop(topval,parent){
+    bodyposl = $(parent).offset();
+    
+    return   topval -bodyposl.top;
+}
+
+function abimage(image,width,height,top,left,id,Parent){
+    if($("#"+id).length == 0){
+        $(Parent).append("<img id='"+id+"' src='images/assets/"+image+"' style='width:"+width+"; height:"+height+"; top:"+top+";  left:"+left+"; z-index:100000; position: absolute'  />");
+    }else{
+        $(id).css({
+            'width' : width, 
+            'height':height, 
+            'top':top,  
+            'left':left, 
+            'z-index':'100000', 
+            'position': 'absolute'      
+            });
+    }
+   
+}
+
+function showMessage(headerMessageHtml,bodyMessageHtml){
+    $("#messageheadx").append(headerMessageHtml);
+    $("#messagebodyx").append(bodyMessageHtml);
+    $('#messagevmart').modal('show');
+}
+
+
 

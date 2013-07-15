@@ -154,6 +154,10 @@
                 <?php $this->load->view('includes/footer.php'); ?>
             </footer>
         </div>
+
+       
+
+
     </body>
     <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
@@ -171,5 +175,7 @@
 
             window.location = "Inbox_message_discussion.htm";
         });
+        
+       
     </script>
 </html>

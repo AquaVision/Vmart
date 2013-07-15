@@ -28,34 +28,41 @@ $(function(){
 
     $("#usernamex").keyup(function(e){
         var typed = $(this).val();
-        adjT(3);
-        adjL(140);
         $("#okimage1").remove();
         $("#wrongimage").remove();
-        showLoading("#usernamex", "20px");
         
+        
+       
         //starting request
         userchekst = false;
-        $.post("../Auth/CheckUserName", {
-            "username" : typed
-        },
-        function(data){
+        if(typed.match(/^[a-zA-Z0-9]*$/)){
+            adjT(3);
+            adjL(140);
+            showLoading("#usernamex", "20px");
+            $.post("../Auth/CheckUserName", {
+                "username" : typed
+            },
+            function(data){
+                hideLoading();
+                if(data == "true"){
+                    $("#okimage1").remove();
+                    $("#wrongimage").remove();
+                    abimage("right.png", "16px", "16px","109px", "250px", "okimage1","#signup_tag");
+                    userchekst = true;
+                }else{
+                    $("#okimage1").remove();
+                    $("#wrongimage").remove();
+                    abimage("wrong.png", "16px", "16px", "109px", "250px", "wrongimage","#signup_tag");
+                }
             
-            
-            var position = $("#loading-indicator").offset();
-            var topx = position.top;
-            var leftx = position.left;
-            
-            hideLoading();
-            if(data == "true"){
-                abimage("right.png", "16px", "16px", topx+"px", leftx+"px", "okimage1");
-                userchekst = true;
-            }else{
-                abimage("wrong.png", "16px", "16px", topx+"px", leftx+"px", "wrongimage");
-            }
-            
-        });
-    
+            });
+        }else{
+            userchekst = false; 
+            $("#okimage1").remove();
+            $("#wrongimage").remove();
+            abimage("wrong.png", "16px", "16px", "109px", "250px", "wrongimage","#signup_tag");
+        }
+        
         
     });
 
@@ -64,8 +71,44 @@ $(function(){
         $("#wrongimage").remove();
     })
 
-
-
+    
+    function validateEmail(email) { 
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 });
 

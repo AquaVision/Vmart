@@ -470,10 +470,13 @@
             });
                                                                                                                 
                                                                                                                
-
+            $(function(){
+            
+                showMessage("im imal"," ok macho");
+            });
 
         </script>
 
-
+        
 
     </body></html>
