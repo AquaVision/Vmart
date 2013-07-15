@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
         <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
         <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/MainStyleForAllpages.css" rel="stylesheet">
     </head>
 
     <body class="body-db" data-twttr-rendered="true">

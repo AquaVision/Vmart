@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/Tickersellerfront.css">
-
+        <link href="css/MainStyleForAllpages.css" rel="stylesheet">
 
         <link rel="shortcut icon" href="http://wbpreview.com/previews/WB00H3A42/images/favicon.ico">
         <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;1.7.1&quot;,&quot;Bootstrap&quot;:-1}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script><script>window["_GOOG_TRANS_EXT_VER"] = "1";

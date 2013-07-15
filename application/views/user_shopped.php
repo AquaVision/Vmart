@@ -7,6 +7,7 @@
         <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
         <link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
+        <link href="css/MainStyleForAllpages.css" rel="stylesheet">
 
         <style type="text/css">
 

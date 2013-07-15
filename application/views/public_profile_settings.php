@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
         <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
         <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/MainStyleForAllpages.css" rel="stylesheet">
     </head>
 
     <body class="body-db" data-twttr-rendered="true">
@@ -48,22 +49,23 @@
                                         <div class="tab-content">
 
                                             <div class="tab-pane active" id="general">
+                                                <?php echo form_open('settings/saveGeneralSettings'); ?>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Full Name</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span12" value="<?php echo $user->full_name  ?>" /></div>
+                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span12" value="<?php echo $user->full_name ?>" /></div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Email</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="myemail" value="<?php echo $user->email  ?>" disabled /></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" name="myemail" value="<?php echo $user->email ?>" disabled /></div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>User Name</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="username" disabled value="<?php echo $user->username  ?>" /></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" name="username" disabled value="<?php echo $user->username ?>" /></div>
                                                 </div>
 
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Password</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><a href="" class="btn btn-link">Change</a></div>
+                                                    <div class="span4" style="margin-left:0px"><a href="" class="btn btn-link" data-toggle="modal" data-target="#changepassword">Change</a></div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Your Address</h6></div>
@@ -71,11 +73,39 @@
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6></h6></div>
-                                                    <div class="span4" style="margin-left:0px"><textarea name="aboutu" style="width:300px; height:100px; "><?php echo $user->address  ?></textarea></div>
+                                                    <div class="span4" style="margin-left:0px"><textarea name="addresssxz" style="width:300px; height:100px; "><?php echo $user->address ?></textarea></div>
                                                 </div>
+                                                <?php echo validation_errors('<p class="alert alert-error vmarterror">'); ?>
+
                                                 <div class="form-actions">
-                                                    <button type="submit" class="btn btn-success" style="float:right" onclick="showx()">Save changes</button>
+                                                    <button type="submit" class="btn btn-success" id="mysubmitsett" style="float:right" onclick="showx()">Save changes</button>
                                                 </div>
+
+
+                                                <div class="modal hide fade passwordchange" id="changepassword">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4>Change Password</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <label for="currentpas">Current Password</label>
+                                                        <input type="password" name ="currentpass" id="currentpas" />
+                                                        <label for="newpass">New Password</label>
+                                                        <input type="password" name ="newpassx" id="newpass" />
+                                                        <label for="confirmpass">Confirm New Password</label>
+                                                        <input type="password" name ="confirmnewpass" id="confirmpass" />
+                                                    </div>
+                                                    
+                                                    <div class="modal-footer">
+                                                        <a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</a>
+                                                    </div>
+                                                </div>
+
+
+                                                <?php
+                                                echo form_close();
+                                                
+                                                ?>
                                             </div>
 
                                             <div class="tab-pane" id="seller">
@@ -195,29 +225,14 @@
                 </div>
             </div>
 
-            <div id="register" class="modal hide fade" aria-labelledby="modalLable" aria-hidden="true">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-                    <h3 id="modalLabel">Order Details</h3>
-                </div>
 
-                <div class="modal-body">
-
-                    <form>
-
-                    </form>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
-                </div>
-            </div>
 
             <footer class="footer ">
-                <?php $this->load->view('includes/footer.php'); ?>
+<?php $this->load->view('includes/footer.php'); ?>
             </footer>
         </div>
+
+
 
         <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
@@ -248,17 +263,8 @@
                 });
             });
 
-            var i =0
-            function showx(){
-                if(i==0){
-                    adjT(-40);
-                    showLoading('#general','32px');
-                    ++i;
-                }else{
-                    hideLoading();
-                    i=0;
-                }
-            }
+           
+            
 
         </script>    
     </body>

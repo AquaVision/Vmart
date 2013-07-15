@@ -22,3 +22,14 @@
     position: absolute;
     display: none;
 }
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.vmarterror{
+    padding: 0px !important;
+    padding-left: 5px !important;
+    margin: 0px !important;
+   margin-top: 2px !important;
+}

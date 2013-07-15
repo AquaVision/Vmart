@@ -12,7 +12,7 @@
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="bootstrap/MetronicExtracted/css/style.css" rel="stylesheet" />
-
+        <link href="css/MainStyleForAllpages.css" rel="stylesheet">
 
 
     </head>
