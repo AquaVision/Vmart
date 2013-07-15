@@ -129,7 +129,7 @@ $config['subclass_prefix'] = 'MY_';
   | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
   |
  */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@';
 
 
 /*
@@ -358,8 +358,25 @@ $config['rewrite_short_tags'] = FALSE;
   | Comma-delimited, e.g. '10.0.1.200,10.0.1.201'
   |
  */
+
 $config['proxy_ips'] = '';
 
+/*
+ *|--------------------------------------------------------------------------
+  | BOT_EMAIL
+  |--------------------------------------------------------------------------
+  | email address that sends the email verification code
+  
+ */
+$config['bot_email'] = 'iamdinidu@gmail.com';
 
+/**
+  |--------------------------------------------------------------------------
+  | ADMIN_EMAIL
+  |--------------------------------------------------------------------------
+  | email address that recieves complains :p
+  
+ */
+$config['admin_email'] = 'imaa95@gmail.com';
 /* End of file config.php */
 /* Location: ./application/config/config.php */
