@@ -380,3 +380,14 @@ $config['bot_email'] = 'iamdinidu@gmail.com';
 $config['admin_email'] = 'imaa95@gmail.com';
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+
+$config['smsconfig'] = array(
+    "nx_key" => "6cd95b6e",
+    "nx_secret" => "f1dbb4d8",
+);
+
+
+
+
+

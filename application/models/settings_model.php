@@ -13,7 +13,7 @@ class settings_model extends CI_Model {
         if ($buyer->num_rows() > 0) {
             $data["buyer"] = $buyer->row();
         }
-        $seller = $this->db->query("SELECT seller_mobile, mob_verification_nub, seller_id, enable_ussd, becm_seller, seller.status AS sellerstatus,account_hold_name, bank_name, branch_code,account_number   FROM seller LEFT JOIN seller_bank ON seller.userid = seller_bank.userid where seller.userid = '$userid'");
+        $seller = $this->db->query("SELECT seller_mobile, mob_verification_nub, seller_id,  becm_seller,mobverified, seller.status AS sellerstatus,account_hold_name, bank_name, branch_code,bank_code,account_number   FROM seller LEFT JOIN seller_bank ON seller.userid = seller_bank.userid where seller.userid = '$userid'");
         if ($seller->num_rows() > 0) {
             $data["seller"] = $seller->row();
         }
@@ -35,12 +35,33 @@ class settings_model extends CI_Model {
     }
     
     function checkpassword($password){
-        $username = getUsername();
-        $user = $this->db->query("select  username from user where  userid = '$userid' && username ='$username' ");
+        $password = md5($password);
+        $email = getUserEmail();
+        $userid = getUserID();
+        $user = $this->db->query("select  username from user where  userid = '$userid' && email ='$email' && password = '$password' ");
         if ($user->num_rows() > 0) {
-            $data["user"] = $user->row();
+            return true;
+        }
+        return false;
+    }
+    
+    
+    function isVerifiedSeller(){
+        $userid = getUserID();
+        $user = $this->db->query("select  userid from seller where userid ='$userid' && mobverified = '1' ");
+        if($user->num_rows() > 0){
+           return true;
+        }else{
+            echo false;
         }
     }
+    
+    function addVerificationkey($key){
+        $userid = getUserID();
+        $user = $this->db->query("update seller set mob_verification_nub = '$key' where userid = '$userid' ");
+    }
+    
+    
 
 }
 

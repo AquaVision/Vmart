@@ -1,4 +1,4 @@
-<?php  if(!islogedUser($this->session)){  ?>
+<?php  if(!islogedUser()){  ?>
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container" >   <!-- style="width: 1260px;" -->
@@ -6,6 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <p class="muted" style="font-size:9px;">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
             </a>
             <div class="brand"></div>
             <div class="nav-collapse">

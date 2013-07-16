@@ -72,7 +72,22 @@ $(function(){
     })
 
     
-    
+    $("#sendverification").on("click",function(e){
+        adjT(3);
+        adjL(80);
+        showLoading("#sendverification", "20px");
+        $.post("../settings/sendVerificationNub",{ "sellerphone" : $("#sellerphonenuber").val() },function(data){
+             
+           
+         var posi =  $("#loading-indicator").offset();
+         hideLoading();
+         var status = data.substring(0,1);
+         
+         showTextAb(posi.left+"px", posi.top+"px", "justandid", (((status == "W") || status == "U") ? "W" : ""), data);
+           
+        });
+        
+    });
     
    
     

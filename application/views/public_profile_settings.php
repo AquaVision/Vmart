@@ -39,7 +39,7 @@
                                     </header>
                                     <div class="profile-form">
                                         <hr/>
-                                        <ul id="tabsxz" class="nav nav-tabs" class="nav nav-tabs" data-tabs="tabs">
+                                        <ul id="tabsxz"  class="nav nav-tabs" data-tabs="tabs">
                                             <li class="active"><a href="#general" data-toggle="tab">General</a></li>
                                             <li><a href="#seller" data-toggle="tab">Seller</a></li>
 
@@ -95,7 +95,7 @@
                                                         <label for="confirmpass">Confirm New Password</label>
                                                         <input type="password" name ="confirmnewpass" id="confirmpass" />
                                                     </div>
-                                                    
+
                                                     <div class="modal-footer">
                                                         <a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</a>
                                                     </div>
@@ -104,12 +104,11 @@
 
                                                 <?php
                                                 echo form_close();
-                                                
                                                 ?>
                                             </div>
 
                                             <div class="tab-pane" id="seller">
-
+                                                <?php echo form_open('settings/SaveSellerSettings'); ?>
                                                 <div class="alert alert-error">
                                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                                                     <h4>Take Note!</h4>
@@ -120,79 +119,87 @@
                                                 <hr/>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Mobile</h6></div>
-                                                    <div class="span4" style="margin-left:0px">
+                                                    <div class="span7" style="margin-left:0px">
                                                         <div class="input-append">
-                                                            <input class="span7"  type="text">
-                                                            <button class="btn" type="button">Send Code</button>
+                                                            <input class="span7 myhoverpopoever"  type="text" name="mobileseller" id="sellerphonenuber" value ="<?php echo $seller->seller_mobile ?>"  rel="popover"  data-content="your nuber should start with +94 ex:- +94XXX XXX XXX"  data-original-title="                 " />
+                                                            <button class="btn" id="sendverification" type="button">Send Code</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Mobile Verification number</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="verificationnuber"  class="span3"/></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" name="verificationcode"  class="span3"/></div>
                                                 </div>
 
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Your identity</h6></div>
-                                                    <div class="span4" style="margin-left:0px"><input type="text" name="identity"   /></div>
+                                                    <div class="span7" style="margin-left:0px">
+                                                        <input type="text" name="identity" value="<?php echo $seller->seller_id ?>" class="myhoverpopoever"  rel="popover"  data-content="This word along with url will be your shop url" data-original-title="Your Identity" />
+                                                    </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6></h6></div>
-                                                    <div class="span6" style="margin-left:0px"><input type="text"  class="span12" disabled/></div>
+                                                    <div class="span6" style="margin-left:0px"><input type="text" name="fullurl"  class="span12" disabled/></div>
                                                 </div>
-                                                <div class="controls controls-row">
-                                                    <div class="span4"><h6>Enable Ussd Channel</h6></div>
-                                                    <div class="span7" style="margin-left:0px"><input type="checkbox"  id="howussd" rel="popover" 
-                                                                                                      data-content="Wow you just enabled Dialog Ussd channel for your store this will allow users to get your latest product info via sms if they have subscribed to you more info on charging please contact customer support" 
-                                                                                                      data-original-title="Ussd Channel" />
-                                                    </div>
-                                                </div>
+                                               
                                                 <br/>
                                                 <h5 class="text-info">Seller Bank Account</h5>
                                                 <hr/>
 
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Account holder name</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span9" /></div>
+                                                    <div class="span5" style="margin-left:0px">
+                                                        <input type="text" name="fullname" class="span9" value="<?php echo $seller->account_hold_name ?>"  />
+                                                    </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Bank name</h6></div>
                                                     <div class="span5" style="margin-left:0px">
+                                                        <?php
+                                                        $sellbank = $seller->bank_name;
+                                                        if (trim($sellbank) != "") {
+                                                            $selected = "selected:'selected'";
+                                                        } else {
+                                                            $selected = "";
+                                                        }
+                                                        ?>
                                                         <select name="bank" id="bankselector">
                                                             <option value="">Select</option>
-                                                            <option value="7010">Bank of Ceylon</option>
-                                                            <option value="7038">Standard Chartered Bank</option>
-                                                            <option value="7047">Citi Bank</option>
-                                                            <option value="7056">Commercial Bank PLC</option>
-                                                            <option value="7074">Habib Bank Ltd</option>
-                                                            <option value="7083">Hatton National Bank PLC</option>
-                                                            <option value="7092">Hongkong Shanghai Bank</option>
-                                                            <option value="7108">Indian Bank</option>
-                                                            <option value="7117">Indian Overseas Bank</option>
-                                                            <option value="7135">Peoples Bank</option>
-                                                            <option value="7144">State Bank of India</option>
-                                                            <option value="7162">Nations Trust Bank PLC</option>
-                                                            <option value="7205">Deutsche Bank</option>
-                                                            <option value="7214">National Development Bank PLC</option>
-                                                            <option value="7269">MCB Bank Ltd</option>
-                                                            <option value="7278">Sampath Bank PLC</option>
-                                                            <option value="7287">Seylan Bank PLC</option>
-                                                            <option value="7296">Public Bank</option>
-                                                            <option value="7302">Union Bank of Colombo PLC</option>
-                                                            <option value="7311">Pan Asia Banking Corporation PLC</option>
-                                                            <option value="7384">ICICI Bank Ltd</option>
-                                                            <option value="7454">DFCC Vardhana Bank Ltd</option>
-                                                            <option value="7463">Amana Bank Limited</option>
-                                                            <option value="7719">National Savings Bank</option>
-                                                            <option value="7728">Sanasa Development Bank</option>
-                                                            <option value="7737">HDFC Bank</option>
+                                                            <option value="7010" <?php echo($sellbank == "Bank of Ceylon" ? $selected :"")  ?> >Bank of Ceylon</option>
+                                                            <option value="7038" <?php echo($sellbank == "Standard Chartered Bank" ? $selected :"")  ?>>Standard Chartered Bank</option>
+                                                            <option value="7047" <?php echo($sellbank == "Citi Bank" ? $selected :"")  ?>>Citi Bank</option>
+                                                            <option value="7056" <?php echo($sellbank == "Commercial Bank PLC" ? $selected :"")  ?>>Commercial Bank PLC</option>
+                                                            <option value="7074" <?php echo($sellbank == "Habib Bank Ltd" ? $selected :"")  ?>>Habib Bank Ltd</option>
+                                                            <option value="7083" <?php echo($sellbank == "Hatton National Bank PLC" ? $selected :"")  ?>>Hatton National Bank PLC</option>
+                                                            <option value="7092" <?php echo($sellbank == "Hongkong Shanghai Bank" ? $selected :"")  ?>>Hongkong Shanghai Bank</option>
+                                                            <option value="7108" <?php echo($sellbank == "Indian Bank" ? $selected :"")  ?>>Indian Bank</option>
+                                                            <option value="7117" <?php echo($sellbank == "Indian Overseas Bank" ? $selected :"")  ?>>Indian Overseas Bank</option>
+                                                            <option value="7135" <?php echo($sellbank == "Peoples Bank" ? $selected :"")  ?>>Peoples Bank</option>
+                                                            <option value="7144" <?php echo($sellbank == "State Bank of India" ? $selected :"")  ?>>State Bank of India</option>
+                                                            <option value="7162" <?php echo($sellbank == "Nations Trust Bank PLC" ? $selected :"")  ?>>Nations Trust Bank PLC</option>
+                                                            <option value="7205" <?php echo($sellbank == "Deutsche Bank" ? $selected :"")  ?>>Deutsche Bank</option>
+                                                            <option value="7214" <?php echo($sellbank == "National Development Bank PLC" ? $selected :"")  ?>>National Development Bank PLC</option>
+                                                            <option value="7269" <?php echo($sellbank == "MCB Bank Ltd" ? $selected :"")  ?>>MCB Bank Ltd</option>
+                                                            <option value="7278" <?php echo($sellbank == "Sampath Bank PLC" ? $selected :"")  ?>>Sampath Bank PLC</option>
+                                                            <option value="7287" <?php echo($sellbank == "Seylan Bank PLC" ? $selected :"")  ?>>Seylan Bank PLC</option>
+                                                            <option value="7296" <?php echo($sellbank == "Public Bank" ? $selected :"")  ?>>Public Bank</option>
+                                                            <option value="7302" <?php echo($sellbank == "Union Bank of Colombo PLC" ? $selected :"")  ?>>Union Bank of Colombo PLC</option>
+                                                            <option value="7311" <?php echo($sellbank == "Pan Asia Banking Corporation PLC" ? $selected :"")  ?>>Pan Asia Banking Corporation PLC</option>
+                                                            <option value="7384" <?php echo($sellbank == "ICICI Bank Ltd" ? $selected :"")  ?>>ICICI Bank Ltd</option>
+                                                            <option value="7454" <?php echo($sellbank == "DFCC Vardhana Bank Ltd" ? $selected :"")  ?>>DFCC Vardhana Bank Ltd</option>
+                                                            <option value="7463" <?php echo($sellbank == "Amana Bank Limited" ? $selected :"")  ?>>Amana Bank Limited</option>
+                                                            <option value="7719" <?php echo($sellbank == "National Savings Bank" ? $selected :"")  ?>>National Savings Bank</option>
+                                                            <option value="7728" <?php echo($sellbank == "Sanasa Development Bank" ? $selected :"")  ?>>Sanasa Development Bank</option>
+                                                            <option value="7737" <?php echo($sellbank == "HDFC Bank" ? $selected :"")  ?>>HDFC Bank</option>
                                                         </select>
                                                         <input type ="hidden" vale="" name="bankname" />
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Bank code</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="bankcode" id="banknamecode" class="span4" /></div>
+                                                    <div class="span5" style="margin-left:0px">
+                                                        <input type="text" name="bankcode" id="banknamecode" class="span4" value ="<?php echo $seller->bank_code; ?>"/>
+                                                    </div>
                                                 </div>
                                                 <!--
                                                 <div class="controls controls-row">
@@ -202,15 +209,22 @@
                                                 -->
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Branch code</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span3" /></div>
+                                                    <div class="span5" style="margin-left:0px">
+                                                        <input type="text" name="branchcode" class="span3" value="<?php echo $seller->branch_code; ?>" />
+                                                    </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Account number</h6></div>
-                                                    <div class="span5" style="margin-left:0px"><input type="text" name="accountnuber" class="span10" /></div>
+                                                    <div class="span5" style="margin-left:0px">
+                                                        <input type="text" name="accountnuber" value ="<?php echo $seller->account_number; ?>" class="span10" />
+                                                    </div>
                                                 </div>
                                                 <div class="form-actions">
                                                     <button type="submit" class="btn btn-success" style="float:right">Save changes</button>
                                                 </div>
+                                                <?php
+                                                echo form_close();
+                                                ?>
                                             </div>
                                         </div>
 
@@ -228,7 +242,7 @@
 
 
             <footer class="footer ">
-<?php $this->load->view('includes/footer.php'); ?>
+                <?php $this->load->view('includes/footer.php'); ?>
             </footer>
         </div>
 
@@ -261,6 +275,10 @@
                     $("#banknamecode").val(conceptval);
         
                 });
+
+
+
+                $(".myhoverpopoever").popover({ trigger: "hover" });
             });
 
            
