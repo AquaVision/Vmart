@@ -447,6 +447,7 @@
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="js/sellerfront.js"></script>
         <script type="text/javascript" src="js/jquery.totemticker.js"></script>
+        <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/Common.js"></script>
         <script type="text/javascript">
             $(function(){

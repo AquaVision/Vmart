@@ -56,10 +56,22 @@ class settings_model extends CI_Model {
         }
     }
     
-    function addVerificationkey($key){
+    function addVerificationkey($key,$sellermobile){
         $userid = getUserID();
-        $user = $this->db->query("update seller set mob_verification_nub = '$key' where userid = '$userid' ");
+        $user = $this->db->query("update seller set mob_verification_nub = '$key', seller_mobile='$sellermobile' where userid = '$userid' ");
     }
+    
+   function checkVerificationKey($key){
+       $userid = getUserID();
+       $user = $this->db->query("SELECT userid FROM seller WHERE userid = '$userid' && mob_verification_nub = '$key'");
+       if($user->num_rows() > 0){
+           $dattime = get_date_time();
+           $this->db->query("UPDATE seller SET STATUS = 'ACTIVE_VERIFIED' , mobverified = '1' , becm_seller = '$dattime'  WHERE userid = '$userid' ");
+           return true;
+        }else{
+            echo false;
+        }
+   }
     
     
 

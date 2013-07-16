@@ -5,6 +5,8 @@ class settings extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('settings_model');
+        $this->load->library('form_validation');
+        
         // Your own constructor code
     }
 
@@ -38,7 +40,7 @@ class settings extends CI_Controller {
     function saveGeneralSettings() {
 
         //   if (isset($this->input->post('fullname'))) {
-        $this->load->library('form_validation');
+        
         $this->form_validation->set_rules('currentpass', 'Current Password', 'callback_passwordchange');
 
         if ($this->form_validation->run() == FALSE) {
@@ -86,23 +88,43 @@ class settings extends CI_Controller {
 
     function SaveSellerSettings() {
 
-        $mobilenumber = $this->input->post();
-        $verifynub = $this->input->post();
-        if ($mobilenumber || $verifynub) {
+        
+      
+        $this->form_validation->set_rules('verificationcode', 'Verification code', 'callback_veficationchecker');
+        if ($this->form_validation->run() == FALSE) {
+           // $this->gene
+        }else{
             
+        }
+    }
+    
+    
+    function veficationchecker($str){
+        if(strlen(trim($str)) > 0){
+            $isverifiedNow = $this->settings_model->checkVerificationKey(trim($str));
+            if($isverifiedNow){
+               return true; 
+            }
+            $this->form_validation->set_message('veficationchecker', 'Verification nuber you enterd is wrong, please do not fill it if you want other fields to saved');
+            return false;
+        }else{
+            return true;
         }
     }
 
     function sendVerificationNub() {
         $isverified = $this->settings_model->isVerifiedSeller();
         if (!$isverified) {
-            $randnuber = rand(1000, 9999);
-            $this->settings_model->addVerificationkey($randnuber);
-            
+
+
             $phone = $this->input->post("sellerphone");
             if ((strlen($phone) == 12) && (substr($phone, 0, 3) == "+94")) {
-               // $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
-               // $status = $info->messages[0]->status;
+
+                $randnuber = rand(1000, 9999);
+                $this->settings_model->addVerificationkey($randnuber,$phone);
+
+                // $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
+                // $status = $info->messages[0]->status;
                 $status = 0;
                 if ($status != 0) {
                     echo "Verification Code has been sent";

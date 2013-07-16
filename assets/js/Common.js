@@ -90,6 +90,69 @@ $(function(){
     });
     
    
+
+
+
+
+ $('#sellerdata').validate({
+        rules: {
+            identity: {
+                minlength: 3,
+                required: true
+            },
+            accountholdername: {
+                required: true
+            },
+            bankcode: {
+                minlength: 2,
+                required: true
+            },
+            accountnuber: {
+                minlength: 2,
+                required: true
+            },
+            branchcode :{
+                minlength: 2,
+                required : true
+            }
+        },
+        highlight: function(element) {
+            $(element).closest('div').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element
+            .text('OK!').addClass('valid')
+            .closest('.controls-row').removeClass('error').addClass('success');
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     //important functions  Area--------------- 

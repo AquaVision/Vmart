@@ -6,8 +6,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <p class="muted" style="font-size:9px;">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-            </a>
+                
+            </a> 
             <div class="brand"></div>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
@@ -15,7 +15,7 @@
                     <li><a href="setup-notes.html">inbox<span class="badge">9</span></a></li>
                     <li ><a href="navbar-examples.html">Sales<span class="badge">9</span></a></li>
                     <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
-                    <li id="usrLgdInLi" style="display:none;">
+                    <li id="usrLgdInLi" style="display:none; position: absolute">
                         
                         
                         

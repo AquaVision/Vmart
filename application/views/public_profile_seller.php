@@ -282,6 +282,7 @@
 <script src="bootstrap/file-upload/bootstrap-fileupload.js" type="text/javascript"></script>
 <script src="bootstrap/js/bootstrap.file-input.js"></script>
 <script src="js/imal/public_profile.js" ></script>
+<script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/Common.js"></script>
 
 <script type="text/javascript">

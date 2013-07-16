@@ -245,5 +245,6 @@
     </body>
     <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
     <script src="js/Common.js"></script>
 </html>
