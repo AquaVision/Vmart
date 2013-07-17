@@ -15,6 +15,7 @@ class Auth extends CI_Controller {
             $userdata = array();
             $userdata["udata"] = $this->membership_model->loginSessionArray($userid);
             $userdata["is_loged_in"] = true;
+            
             $this->session->set_userdata($userdata);
             redirect('Vmart');
         } else { // incorrect username or password

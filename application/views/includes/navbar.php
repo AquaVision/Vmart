@@ -77,7 +77,7 @@
                         <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
-                                username
+                                <?php echo getUsername(); ?>
                             </a>
                             <span class="caret"></span>
                             <ul class="dropdown-menu" role="menu" style="margin-top: 6px;">
