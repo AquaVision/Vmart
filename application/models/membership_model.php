@@ -59,7 +59,7 @@ class Membership_model extends CI_Model {
 
         if ($this->db->affected_rows() === 1) {
             $this->set_session($fulname, $username, $email);
-            $this->send_verification_email($email);
+            $this->_send_verification_email($email);
             return $fulname;
         }
     }
@@ -76,16 +76,16 @@ class Membership_model extends CI_Model {
             'email' => $email,
             'is_logged_in' => FALSE
         );
-        $this->activation_code = md5((string) $row->joined_date);
+        $this->activation_code = md5((string)($row->userid.$row->joined_date));
         $this->session->set_userdata($sess_data);
     }
 
     function validate_email($email, $activation_code) {
-        $sql = "SELECT email, joined_date FROM user WHERE email='{$email}' LIMIT 1";
+        $sql = "SELECT email,userid,full_name, joined_date FROM user WHERE email='{$email}' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
-        if ($result->num_rows() === 1 && $row->$fulname) {
-            if (md5((string) $row->joined_date) === $activation_code)
+        if ($result->num_rows() === 1 && $row->full_name) {
+            if (md5((string)($row->userid.$row->joined_date)) === $activation_code)
                 $result = $this->activate_account($email);
             if ($result === TRUE) {
                 echo getMessageJson("", "Activation done!", "SUCCESS");
@@ -101,34 +101,18 @@ class Membership_model extends CI_Model {
         }
     }
 
-    function send_verification_email($email) {
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_port' => 465,
-            'smtp_user' => 'testmail.pearson@gmail.com',
-            'smtp_pass' => 'testmailpearson',
-            'mailtype' => 'html',
-            'charset' => 'iso-8859-1'
-        );
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
+    function _send_verification_email($email) {
+
 
         $activation_code = $this->activation_code;
-
-        $this->email->set_mailtype('html');
-        $this->email->from("testmail.pearson@gmail.com");
-        $this->email->to($email);
-        $this->email->subject('Please activate your account at VMART');
-
         $message = '<!DOCTYPE html><html></head></body>';
         $message .='<p>Dear ' . $this->session->userdata('fulname') . ',</p>';
         $message .='<p>Thank you for registering on VMART! Please <strong><a href="' . base_url() . 'Auth/validate_email/' . $email . '/' . $activation_code . '">click here</a></strong> to activate your account. you will be able to log in to VMART and start doing your business!</p>';
         $message .='<p>Thank you!</p>';
         $message .='<p>The team at VMART</p>';
         $message .='</body></html>';
-        $this->email->message($message);
-        $this->email->send();
+//"testmail.pearson@gmail.com"
+        sendVmartEmail($email, 'Please activate your account at VMART', $message);
     }
 
     function activate_account($email) {

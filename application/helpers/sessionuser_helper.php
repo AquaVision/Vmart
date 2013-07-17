@@ -27,27 +27,28 @@ function getUsername() {
     return getcurrentSession()->userdata('udata')->username;
 }
 
-function getUserStatus(){
-    
+function getUserStatus() {
+
     return getcurrentSession()->userdata('udata')->userstatus;
 }
 
-function getIs_user_seller(){
-    
+function getIs_user_seller() {
+
     return getcurrentSession()->userdata('udata')->is_seller;
 }
 
-function getseller_status(){
-    
+function getseller_status() {
+
     return getcurrentSession()->userdata('udata')->sellerstatus;
 }
 
-function getprofilePic(){
+function getprofilePic() {
     return getcurrentSession()->userdata('udata')->profile_pic;
 }
 
-function getUserFolder(){
-        
-   return "./assets/images/userdata/".(getcurrentSession()->userdata('udata')->userfolder);
+function getUserFolder() {
+    $CI = & get_instance();
+    $path = $CI->config->item('userdatafolderpath');
+    return $path . (getcurrentSession()->userdata('udata')->userfolder);
 }
 

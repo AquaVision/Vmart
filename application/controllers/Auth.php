@@ -1,6 +1,11 @@
 <?php
 
 class Auth extends CI_Controller {
+    
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('membership_model');
+    }
 
     function index() {
         
@@ -8,9 +13,8 @@ class Auth extends CI_Controller {
 
     function SignIn() {
         $this->load->helper('url');
-        $this->load->model('membership_model');
-        $userid = $this->membership_model->validate();
         
+        $userid = $this->membership_model->validate();     
         if ($userid != -1) { // if the user's credentials validated...
             $userdata = array();
             $userdata["udata"] = $this->membership_model->loginSessionArray($userid);
@@ -36,7 +40,6 @@ class Auth extends CI_Controller {
         echo getMessageJson("", validation_errors('<p class="error">'), "ERROR");
         }else{
         echo getMessageJson("", "Registration Successfull!!", "SUCCESS");
-        $this->load->model('membership_model');
         $this->membership_model->create_member();
         
         }
