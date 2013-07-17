@@ -27,10 +27,12 @@ p{font-family: Arial}
 }
 .mainContent ul> li{
 
-    margin-left: 5px !important;
+   
     margin-bottom: 5px !important;
 }
-
+.muted{
+    margin-left: 20px;
+}
 .mainContent ul{
 
     margin-left: 0px !important;
