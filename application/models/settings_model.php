@@ -108,9 +108,9 @@ class settings_model extends CI_Model {
    
    
    function verifysellerid(){
-       
+       $userid = getUserID();
        $sellerid = $this->input->post("identity");
-       $sellerids = $this->db->query("select userid from seller where seller_id ='$sellerid' ");
+       $sellerids = $this->db->query("select userid from seller where seller_id ='$sellerid' && userid != '$userid' ");
        if($sellerids->num_rows() > 0){
           return false; 
        }else{

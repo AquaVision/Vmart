@@ -136,16 +136,15 @@
                                                 <div class="alert alert-success">
                                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                                                     <h4>Well done You just become a vmart seller!</h4>
-                                                    <p>Lets finish your   <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>. Remember</p>
+                                                    <p>Lets finish your   <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>.</p>
                                                     "One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <small>--Elbert Hubbard</small>
-
-
                                                 </div>
 
                                                 <?php } ?>
 
                                                 <h5 class="text-info">Seller Basic</h5>
                                                 <hr/>
+                                                <?php if(!$tx){  ?>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Mobile</h6></div>
                                                     <div class="span7" style="margin-left:0px">
@@ -159,7 +158,14 @@
                                                     <div class="span4"><h6>Mobile Verification code</h6></div>
                                                     <div class="span4" style="margin-left:0px"><input type="text" name="verificationcode"  class="span3"/></div>
                                                 </div>
+                                                <?php }else{ ?>
 
+                                                <div class="controls controls-row">
+                                                    <div class="span4"><h6>Your Seller mobile Number</h6></div>
+                                                    <div class="span4" style="margin-left:0px"><input type="text" value="<?php echo $seller->seller_mobile ?>"  class="span3" disabled/></div>
+                                                </div>
+
+                                                <?php } ?>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Your identity (seller id)</h6></div>
                                                     <div class="span7" style="margin-left:0px"> 
