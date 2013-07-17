@@ -10,13 +10,17 @@ class Add_item_model extends CI_Model
     
     public function get_cat_id($category)
     {
-        $sql = "SELECT cat_id FROM store_categories WHERE cat_name = ?";
-        $query = $this->db->query($sql,$category);
+        $sql = "SELECT cat_id FROM store_categories WHERE cat_name = ? AND userid = ? ";
+        $query = $this->db->query($sql,array($category,getUserID()));
 
         if($query->num_rows() == 1)
         {
             $data['cat_id']= $query->row();
             return $data;
+        }
+        else
+        {
+            echo "No Records Found";
         }
     }
     

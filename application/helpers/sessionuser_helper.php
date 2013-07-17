@@ -48,6 +48,6 @@ function getprofilePic(){
 
 function getUserFolder(){
         
-   return "../../assets/images/userdata/".(getcurrentSession()->userdata('udata')->userfolder);
+   return "./assets/images/userdata/".(getcurrentSession()->userdata('udata')->userfolder);
 }
 

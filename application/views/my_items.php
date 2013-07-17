@@ -168,7 +168,7 @@
                                     <!--Create Item Div-->
                                     <div class="tab-pane" id="create-item" style="min-width: 400px; margin: 0 auto">
 
-                                        <form class="form-horizontal" method="post" action="<?php echo site_url('My_items/add_item') ?>">
+                                        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo site_url('My_items/add_item') ?>">
                                             <fieldset>
 
                                               <div class="control-group">
@@ -211,11 +211,13 @@
                                               <div class="control-group">
                                                 <label class="control-label" for="sel_category">Seller Category</label>
                                                 <div class="controls">
+                                                  
                                                   <select id="sel_category" class="trololo" name="category">
                                                     <?php foreach($seller_categories as $option): ?>
                                                       <option><?php echo $option->cat_name; ?></option>
                                                     <?php endforeach; ?>                                                       
                                                   </select>
+                                                  
                                                 </div>
                                               </div>
 

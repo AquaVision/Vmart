@@ -13,7 +13,7 @@ class My_items extends CI_Controller
         
         $this->select_data['seller_categories'] = $this->Add_item_model->get_seller_categories(getUserID(),'ACTIVE');
         $this->select_data['vmart_categories'] = $this->Add_item_model->get_vmart_categories();
-
+        
     }
     
     public function index() 
@@ -25,6 +25,7 @@ class My_items extends CI_Controller
     {
         $cat_id = $this->Add_item_model->get_cat_id($this->input->post('category'));
         $vmart_cat_id = $this->Add_item_model->get_vcat_id($this->input->post('vcategory'));
+        
         
         $newitemdata = array(
             'cat_id'        => $cat_id['cat_id']->cat_id,
@@ -42,9 +43,9 @@ class My_items extends CI_Controller
             'vmartCatcatid' => $vmart_cat_id['catid']->catid , 
         );
         $this->Add_item_model->add_item($newitemdata);
+        do_image_upload(getUserFolder());
+        redirect('My_items');
         
-    }
+    }     
 }
-
-
 ?>
