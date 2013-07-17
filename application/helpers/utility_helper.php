@@ -51,8 +51,8 @@ function sendVmartEmail($to, $subject, $messagebody) {
 }
 
 function do_image_upload($upload_path)
-{
-    
+{   
+    $filenames = array();
     //$file_name = md5(getUserID().get_date_time());
     $CI = & get_instance();
     $CI->load->library('upload');
@@ -69,6 +69,7 @@ function do_image_upload($upload_path)
         ++$image_count;
         $filename = md5(getUserID().get_date_time().$image_count);
         $config['file_name'] = $filename;
+        array_push($filenames, $filename);
         $CI->upload->initialize($config);
         // No problems with the file
         if($file['error'] == 0)
@@ -89,6 +90,8 @@ function do_image_upload($upload_path)
             echo 'There are some erros</br>';
         }
     }
+    
+    return $filenames;
 }
 
 ?>

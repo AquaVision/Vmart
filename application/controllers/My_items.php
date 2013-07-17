@@ -42,8 +42,13 @@ class My_items extends CI_Controller
             'status'        => 'ACTIVE',
             'vmartCatcatid' => $vmart_cat_id['catid']->catid , 
         );
-        $this->Add_item_model->add_item($newitemdata);
-        do_image_upload(getUserFolder());
+        
+        $last_insert = $this->Add_item_model->add_item($newitemdata);
+        $folder_path = getUserFolder();
+        $filenames = do_image_upload($folder_path);
+        
+        $this->Add_item_model->add_item_images($last_insert,$filenames,$folder_path);
+        
         redirect('My_items');
         
     }     

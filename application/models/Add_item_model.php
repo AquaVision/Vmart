@@ -5,7 +5,43 @@ class Add_item_model extends CI_Model
     public function add_item($item_data)
     {
         $insert = $this->db->insert('store_item', $item_data);
-	return $insert;
+	return $this->db->insert_id();
+    }
+    
+    public function add_item_images($last_insert,$filenames,$folder_path)
+    {
+        $sql = "SELECT item_id,cat_id,userid FROM store_item WHERE item_id = ?";
+        $query = $this->db->query($sql,$last_insert);
+
+        if($query->num_rows() == 1)
+        {
+            $data['last_insert']= $query->row();
+        }
+        else
+        {
+            echo "No Records Found";
+        }
+        
+        //echo $data['last_insert']->item_id;
+        foreach($filenames as $filename)
+        {
+            $file_url = $folder_path."/".$filename;
+            
+            $item_image_data = array(
+            'iitem_id'=>$data['last_insert']->item_id,
+            'item_image'=>$file_url,
+            'store_itemcat_id'=>$data['last_insert']->cat_id,
+            'store_itemuserid'=>$data['last_insert']->userid,
+            );
+            
+            $insert = $this->db->insert('item_images', $item_image_data);
+            if($insert!=1)
+            {
+                echo "Error saving image url";    
+            }
+        }
+        
+        
     }
     
     public function get_cat_id($category)
@@ -63,6 +99,9 @@ class Add_item_model extends CI_Model
             return $data;
         }        
     }
+    
+    
+    
 }
 
 ?>
