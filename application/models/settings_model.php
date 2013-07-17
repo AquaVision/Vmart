@@ -18,7 +18,7 @@ class settings_model extends CI_Model {
             $data["seller"] = $seller->row();
         }
         
-        if($data->mobverified == 1){
+        if($data["seller"]->mobverified == 1){
             $data["savurlform2"] = "SaveSellerSetings";
         }else{
              $data["savurlform2"] = "SaveSellerSettings";
