@@ -6,7 +6,7 @@ class settings extends CI_Controller {
         parent::__construct();
         $this->load->model('settings_model');
         $this->load->library('form_validation');
-        
+
         // Your own constructor code
     }
 
@@ -28,11 +28,27 @@ class settings extends CI_Controller {
     function generalSettings() {
 
         if (islogedUser()) {
-            $this->load->view("public_profile_settings", $this->settings_model->getSettings());
+            $data = $this->settings_model->getSettings();
+            $data["active1"] = "active";
+            $data["active2"] = "";
+            $this->load->view("public_profile_settings", $data);
         } else {
             redirect('Vmart', 'refresh');
         }
         // $this->load->view('public_profile_settings');
+    }
+
+    function generalSellerSet() {
+
+        if (islogedUser()) {
+            $data = $this->settings_model->getSettings();
+            $data["active1"] = "";
+            $data["active2"] = "active";
+
+            $this->load->view("public_profile_settings", $data);
+        } else {
+            redirect('Vmart', 'refresh');
+        }
     }
 
     private $changepass = false;
@@ -40,7 +56,7 @@ class settings extends CI_Controller {
     function saveGeneralSettings() {
 
         //   if (isset($this->input->post('fullname'))) {
-        
+
         $this->form_validation->set_rules('currentpass', 'Current Password', 'callback_passwordchange');
 
         if ($this->form_validation->run() == FALSE) {
@@ -86,31 +102,68 @@ class settings extends CI_Controller {
         return false;
     }
 
+    //------------------------------- save seller settings ----------------------------------------
     function SaveSellerSettings() {
 
-        
-      
         $this->form_validation->set_rules('verificationcode', 'Verification code', 'callback_veficationchecker');
+        $this->form_validation->set_rules('banknamezzz', 'Bank name', 'trim|callback_bankname');
+        $this->form_validation->set_rules("identity", "Identity check", "callback_selleridCallback");
         if ($this->form_validation->run() == FALSE) {
-           // $this->gene
-        }else{
-            
+            $this->generalSellerSet();
+        } else {
+            $this->settings_model->addGeneralSellerSettings();
+            redirect('settings/generalSellerSet');
         }
     }
-    
-    
-    function veficationchecker($str){
-        if(strlen(trim($str)) > 0){
+
+    function bankname($str) {
+        if ((trim($str) != "Select") && ($str != "")) {
+            return true;
+        } else {
+            $this->form_validation->set_message('bankname', 'bank name should be selected');
+        }
+    }
+
+    function veficationchecker($str) {
+        if (strlen(trim($str)) > 0) {
             $isverifiedNow = $this->settings_model->checkVerificationKey(trim($str));
-            if($isverifiedNow){
-               return true; 
+            if ($isverifiedNow) {
+                return true;
             }
             $this->form_validation->set_message('veficationchecker', 'Verification nuber you enterd is wrong, please do not fill it if you want other fields to saved');
             return false;
-        }else{
+        } else {
             return true;
         }
     }
+
+    function selleridCallback($str) {
+        if ((trim($str) != "") && (preg_match("/^[a-zA-Z0-9]*$/", $str))) {
+            if ($this->verifySellerId() == "ok") {
+                return true;
+            }
+            $this->form_validation->set_message('selleridCallback', 'The seller id already exists');
+            return false;
+        } else {
+            $this->form_validation->set_message('selleridCallback', 'The seller id can not be empty or it can only cantain alphaumaric words without spaces ');
+            return false;
+        }
+    }
+
+    function SaveSellerSetings() {
+        $this->form_validation->set_rules('banknamezzz', 'Bank name', 'trim|callback_bankname');
+        $this->form_validation->set_rules("identity", "Identity check", "callback_selleridCallback");
+        if ($this->form_validation->run() == FALSE) {
+            $this->generalSellerSet();
+        } else {
+            $this->settings_model->addGeneralSellerSettings();
+            redirect('settings/generalSellerSet');
+        }
+    }
+
+    //------------------------------- save seller settings  END----------------------------------------
+
+
 
     function sendVerificationNub() {
         $isverified = $this->settings_model->isVerifiedSeller();
@@ -121,7 +174,7 @@ class settings extends CI_Controller {
             if ((strlen($phone) == 12) && (substr($phone, 0, 3) == "+94")) {
 
                 $randnuber = rand(1000, 9999);
-                $this->settings_model->addVerificationkey($randnuber,$phone);
+                $this->settings_model->addVerificationkey($randnuber, $phone);
 
                 // $info = $this->nexmomessage->sendText('+9471573585', 'Vmart', $randnuber);
                 // $status = $info->messages[0]->status;
@@ -134,6 +187,14 @@ class settings extends CI_Controller {
             } else {
                 echo "Wrong number format!!";
             }
+        }
+    }
+
+    function verifySellerId() {
+        if ($this->settings_model->verifysellerid()) {
+            echo "ok";
+        } else {
+            echo "notok";
         }
     }
 

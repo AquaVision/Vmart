@@ -26,13 +26,12 @@ $(function(){
 
     });
 
+
+
     $("#usernamex").keyup(function(e){
         var typed = $(this).val();
         $("#okimage1").remove();
-        $("#wrongimage").remove();
-        
-        
-       
+        $("#wrongimage").remove(); 
         //starting request
         userchekst = false;
         if(typed.match(/^[a-zA-Z0-9]*$/)){
@@ -61,29 +60,33 @@ $(function(){
             $("#okimage1").remove();
             $("#wrongimage").remove();
             abimage("wrong.png", "16px", "16px", "109px", "250px", "wrongimage","#signup_tag");
-        }
-        
-        
+        } 
     });
+
+
+
+
 
     $('#signup_tag').on('hide', function () {
         $("#okimage1").remove();
         $("#wrongimage").remove();
     })
 
+
+
+
     
     $("#sendverification").on("click",function(e){
         adjT(3);
         adjL(80);
         showLoading("#sendverification", "20px");
-        $.post("../settings/sendVerificationNub",{ "sellerphone" : $("#sellerphonenuber").val() },function(data){
-             
-           
-         var posi =  $("#loading-indicator").offset();
-         hideLoading();
-         var status = data.substring(0,1);
-         
-         showTextAb(posi.left+"px", posi.top+"px", "justandid", (((status == "W") || status == "U") ? "W" : ""), data);
+        $.post("../settings/sendVerificationNub",{
+            "sellerphone" : $("#sellerphonenuber").val()
+        },function(data){  
+            var posi =  $("#loading-indicator").offset();
+            hideLoading();
+            var status = data.substring(0,1);
+            showTextAb(posi.left+"px", posi.top+"px", "justandid", (((status == "W") || status == "U") ? "W" : ""), data);
            
         });
         
@@ -94,7 +97,7 @@ $(function(){
 
 
 
- $('#sellerdata').validate({
+    $('#sellerdata').validate({
         rules: {
             identity: {
                 minlength: 3,
@@ -127,8 +130,46 @@ $(function(){
     });
 
 
+    var urlx = $("#baseurl").val();
+    var posi = "x";
 
-
+    $("#yourid").keyup(function(e){
+        $("#fullurlll").val(urlx+$(this).val());
+        $("#okimage11").remove();
+        $("#wrongimage2").remove();
+        $("#showstate").remove();
+        adjT(3);
+        adjL(140);
+        showLoading("#yourid", "20px");
+        if(posi == "x"){    
+            posi  =  $("#loading-indicator").offset();
+        }
+        if($(this).val().match(/^[a-zA-Z0-9]*$/) && ($(this).val() != "")){
+            $.post("../settings/verifysellerid",{
+                "identity" : ($(this).val())
+            },function(data){
+                
+            
+            
+                hideLoading();
+                if(data == "ok"){
+                    $("#okimage11").remove();
+                    $("#wrongimage2").remove();
+                
+                    abimage("right.png", "16px", "16px", posi.top+"px", posi.left+"px", "okimage11","body");
+                
+                }else{
+                    $("#okimage11").remove();
+                    $("#wrongimage2").remove();
+                    abimage("wrong.png", "16px", "16px", posi.top+"px", posi.left+"px", "wrongimage2","body");
+                }
+            });
+        
+        }else{
+            hideLoading();
+            showTextAb(posi.left+"px", posi.top+"px", "showstate", "W", "This can only be a alpha numaric word without spaces");
+        }
+    });
 
 
 
@@ -199,12 +240,12 @@ $(function(){
 
 
 
- function showx(){
+function showx(){
                
-        adjL(-65);
-        adjT(3);
-        showLoading('#mysubmitsett','20px');
-        ++i;
+    adjL(-65);
+    adjT(3);
+    showLoading('#mysubmitsett','20px');
+    ++i;
                 
-    }
+}
 

@@ -40,15 +40,15 @@
                                     <div class="profile-form">
                                         <hr/>
                                         <ul id="tabsxz"  class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="active"><a href="#general" data-toggle="tab">General</a></li>
-                                            <li><a href="#seller" data-toggle="tab">Seller</a></li>
+                                            <li class='<?php echo $active1 ?>'><a href="#general" data-toggle="tab">General</a></li>
+                                            <li class='<?php echo $active2 ?>' ><a href="#seller" data-toggle="tab">Seller</a></li>
 
                                         </ul>
 
 
                                         <div class="tab-content">
 
-                                            <div class="tab-pane active" id="general">
+                                            <div class="tab-pane <?php echo $active1 ?>" id="general">
                                                 <?php echo form_open('settings/saveGeneralSettings'); ?>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6>Full Name</h6></div>
@@ -75,7 +75,7 @@
                                                     <div class="span4"><h6></h6></div>
                                                     <div class="span4" style="margin-left:0px"><textarea name="addresssxz" style="width:300px; height:100px; "><?php echo $user->address ?></textarea></div>
                                                 </div>
-                                                <?php echo validation_errors('<p class="alert alert-error vmarterror">'); ?>
+                                                <?php if($active1 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
 
                                                 <div class="form-actions">
                                                     <button type="submit" class="btn btn-success" id="mysubmitsett" style="float:right" onclick="showx()">Save changes</button>
@@ -107,7 +107,7 @@
                                                 ?>
                                             </div>
 
-                                            <div class="tab-pane" id="seller">
+                                            <div class="tab-pane <?php echo $active2 ?>" id="seller">
 
 
 
@@ -115,14 +115,35 @@
 
                                                 <?php
                                                 $attributes = array('id' => 'sellerdata');
-                                                echo form_open('settings/SaveSellerSettings', $attributes);
+                                                echo form_open("settings/$savurlform2", $attributes);
+
+                                                $tx = false;
+                                                if($savurlform2 == "SaveSellerSetings"){
+                                                    $tx = true;
+                                                }
+
                                                 ?>
+
+                                                <?php if(!$tx){ ?>
                                                 <div class="alert alert-error">
                                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                                                     <h4>Take Note!</h4>
                                                     Please note that untill you add and verify your mobile nuber you will not be able to get started as a seller 
 
                                                 </div>
+                                                <?php }else{ ?>
+
+                                                <div class="alert alert-success">
+                                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                    <h4>Well done You just become a vmart seller!</h4>
+                                                    <p>Lets finish your   <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>. Remember</p>
+                                                    "One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <small>--Elbert Hubbard</small>
+
+
+                                                </div>
+
+                                                <?php } ?>
+
                                                 <h5 class="text-info">Seller Basic</h5>
                                                 <hr/>
                                                 <div class="controls controls-row">
@@ -140,14 +161,15 @@
                                                 </div>
 
                                                 <div class="controls controls-row">
-                                                    <div class="span4"><h6>Your identity</h6></div>
-                                                    <div class="span7" style="margin-left:0px">
+                                                    <div class="span4"><h6>Your identity (seller id)</h6></div>
+                                                    <div class="span7" style="margin-left:0px"> 
                                                         <input type="text" name="identity" value="<?php echo $seller->seller_id ?>" class="myhoverpopoever" id="yourid" rel="popover"  data-content="This word along with url will be your shop url" data-original-title="Your Identity" />
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
                                                     <div class="span4"><h6></h6></div>
-                                                    <div class="span6" style="margin-left:0px"><input type="text" name="fullurl"  class="span12" disabled/></div>
+                                                    <input type="hidden" id="baseurl" value ="<?php echo base_url() ?>" />
+                                                    <div class="span6" style="margin-left:0px"><input type="text" name="fullurl" id="fullurlll" value="<?php echo base_url().($seller->seller_id) ?>" class="span12" disabled/></div>
                                                 </div>
 
                                                 <br/>
@@ -165,13 +187,12 @@
                                                     <div class="span5" style="margin-left:0px">
                                                         <?php
                                                         $sellbank = $seller->bank_name;
+                                                        $selected = "";
                                                         if (trim($sellbank) != "") {
-                                                            $selected = "selected:'selected'";
-                                                        } else {
-                                                            $selected = "";
-                                                        }
+                                                            $selected = "selected";
+                                                        }                                            
                                                         ?>
-                                                        <select name="bank" id="bankselector">
+                                                        <select name="banknamex" id="bankselector">
                                                             <option value="">Select</option>
                                                             <option value="7010" <?php echo($sellbank == "Bank of Ceylon" ? $selected : "") ?> >Bank of Ceylon</option>
                                                             <option value="7038" <?php echo($sellbank == "Standard Chartered Bank" ? $selected : "") ?>>Standard Chartered Bank</option>
@@ -200,7 +221,7 @@
                                                             <option value="7728" <?php echo($sellbank == "Sanasa Development Bank" ? $selected : "") ?>>Sanasa Development Bank</option>
                                                             <option value="7737" <?php echo($sellbank == "HDFC Bank" ? $selected : "") ?>>HDFC Bank</option>
                                                         </select>
-                                                        <input type ="hidden" vale="" name="bankname" />
+                                                        <input type ="hidden"  name="bankname123" id ="bankname" />
                                                     </div>
                                                 </div>
                                                 <div class="controls controls-row">
@@ -227,7 +248,7 @@
                                                         <input type="text" name="accountnuber" style="margin-right:10px" value ="<?php echo $seller->account_number; ?>" class="span6" />
                                                     </div>
                                                 </div>
-<?php echo validation_errors('<p class="alert alert-error vmarterror">'); ?>
+                                                   <?php if($active2 != ""){ echo validation_errors('<p class="alert alert-error vmarterror">'); } ?>
                                                 <div class="form-actions">
                                                     <button type="submit" class="btn btn-success" style="float:right">Save changes</button>
                                                 </div>
@@ -303,11 +324,11 @@
                 });
                 
 
-                
+                */
             });
 
            
-            */
+            
 
         </script>    
     </body>

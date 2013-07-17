@@ -17,6 +17,12 @@ class settings_model extends CI_Model {
         if ($seller->num_rows() > 0) {
             $data["seller"] = $seller->row();
         }
+        
+        if($data->mobverified == 1){
+            $data["savurlform2"] = "SaveSellerSetings";
+        }else{
+             $data["savurlform2"] = "SaveSellerSettings";
+        }
 
         return $data;
     }
@@ -71,6 +77,46 @@ class settings_model extends CI_Model {
         }else{
             echo false;
         }
+   }
+   
+   
+   function addGeneralSellerSettings(){
+       $usrid = getUserID();
+       $identity = $this->input->post("identity");
+       $accholdername = $this->input->post("accountholdername");
+       $bankname = $this->input->post("bankname123");
+       $bankcode = $this->input->post("banknamecode");
+       $branchcode = $this->input->post("branchcode");
+       $accountnumber = $this->input->post("accountnuber");
+       
+       $this->db->query("UPDATE seller SET seller_id ='$identity'  WHERE userid = '$usrid' ");
+       $selerbank  = $this->db->query("SELECT userid FROM seller_bank WHERE userid = '$usrid'");
+       if($selerbank->num_rows() > 0){
+           $this->db->query("UPDATE seller_bank 
+                                SET 
+                                account_hold_name = '$accholdername' , 
+                                bank_name = '$bankname' , 
+                                branch_code = '$branchcode' , 
+                                account_number = '$accountnumber' , 
+                                bank_code = '$accountnumber'
+                                WHERE
+                                userid = '$usrid'");
+       }else{
+           $this->db->query("INSERT INTO seller_bank (userid, account_hold_name, bank_name, branch_code, account_number, bank_code) VALUES ('$usrid', '$accholdername', '$bankname', '$branchcode', '$accountnumber', '$bankcode')");
+       }
+   }
+   
+   
+   function verifysellerid(){
+       
+       $sellerid = $this->input->post("identity");
+       $sellerids = $this->db->query("select userid from seller where seller_id ='$sellerid' ");
+       if($sellerids->num_rows() > 0){
+          return false; 
+       }else{
+           return true;
+       }
+       
    }
     
     
