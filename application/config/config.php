@@ -390,4 +390,7 @@ $config['smsconfig'] = array(
 
 
 
+//;extension=php_openssl.dll
+
+
 
