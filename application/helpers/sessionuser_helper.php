@@ -46,3 +46,8 @@ function getprofilePic(){
     return getcurrentSession()->userdata('udata')->profile_pic;
 }
 
+function getUserFolder(){
+        
+   return getcurrentSession()->userdata('udata')->userfolder;
+}
+
