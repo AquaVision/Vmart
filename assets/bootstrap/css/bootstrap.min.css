@@ -23,9 +23,7 @@
     display: none;
 }
 
-body.modal-open {
-    overflow: hidden;
-}
+
 
 .vmarterror{
     padding: 0px !important;

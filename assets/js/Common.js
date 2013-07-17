@@ -77,6 +77,7 @@ $(function(){
 
     
     $("#sendverification").on("click",function(e){
+        $("#justandid").remove();
         adjT(3);
         adjL(80);
         showLoading("#sendverification", "20px");
@@ -148,7 +149,7 @@ $(function(){
             $.post("../settings/verifysellerid",{
                 "identity" : ($(this).val())
             },function(data){
-                
+               
             
             
                 hideLoading();
@@ -172,9 +173,7 @@ $(function(){
     });
 
 
-
-
-
+    
 
 
 
@@ -240,12 +239,13 @@ $(function(){
 
 
 
-function showx(){
+function showx(mysubmitsett){
                
     adjL(-65);
     adjT(3);
-    showLoading('#mysubmitsett','20px');
-    ++i;
+    
+    showLoading('#'+mysubmitsett,'20px');
+    
                 
 }
 

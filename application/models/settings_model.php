@@ -26,6 +26,13 @@ class settings_model extends CI_Model {
 
         return $data;
     }
+    
+    
+    function saveBuyerSettings(){
+        
+        
+        
+    }
 
     function saveGeneralSettings($changpass) {
         $userid = getUserID();
@@ -58,13 +65,13 @@ class settings_model extends CI_Model {
         if($user->num_rows() > 0){
            return true;
         }else{
-            echo false;
+           return false;
         }
     }
     
     function addVerificationkey($key,$sellermobile){
         $userid = getUserID();
-        $user = $this->db->query("update seller set mob_verification_nub = '$key', seller_mobile='$sellermobile' where userid = '$userid' ");
+        $this->db->query("update seller set mob_verification_nub = '$key', seller_mobile='$sellermobile' where userid = '$userid' ");
     }
     
    function checkVerificationKey($key){
@@ -75,7 +82,7 @@ class settings_model extends CI_Model {
            $this->db->query("UPDATE seller SET STATUS = 'ACTIVE_VERIFIED' , mobverified = '1' , becm_seller = '$dattime'  WHERE userid = '$userid' ");
            return true;
         }else{
-            echo false;
+            return false;
         }
    }
    
@@ -85,7 +92,7 @@ class settings_model extends CI_Model {
        $identity = $this->input->post("identity");
        $accholdername = $this->input->post("accountholdername");
        $bankname = $this->input->post("bankname123");
-       $bankcode = $this->input->post("banknamecode");
+       $bankcode = $this->input->post("bankcode");
        $branchcode = $this->input->post("branchcode");
        $accountnumber = $this->input->post("accountnuber");
        
@@ -98,7 +105,7 @@ class settings_model extends CI_Model {
                                 bank_name = '$bankname' , 
                                 branch_code = '$branchcode' , 
                                 account_number = '$accountnumber' , 
-                                bank_code = '$accountnumber'
+                                bank_code = '$bankcode'
                                 WHERE
                                 userid = '$usrid'");
        }else{
@@ -111,16 +118,21 @@ class settings_model extends CI_Model {
        $userid = getUserID();
        $sellerid = $this->input->post("identity");
        $sellerids = $this->db->query("select userid from seller where seller_id ='$sellerid'  ");
+       
        if($sellerids->num_rows() > 0){
-           $dbuserid  = $user->row()->userid;
+           $dbuserid  = $sellerids->row()->userid;
            if($dbuserid == $userid){
+               
                return true;
            }else{
                return false;
+                
            }
           return false; 
+           
        }else{
            return true;
+            
        }
        
    }

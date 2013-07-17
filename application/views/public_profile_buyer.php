@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title></title>      
         <base href="<?= base_url() . "assets/"; ?>">
+        <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
         <link id="callCss" rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
@@ -40,7 +41,7 @@
                                     </header>
                                     <div class="profile-form">
 
-                                        <form accept-charset="UTF-8" action="#" class="edit_user" enctype="multipart/form-data"  method="post">
+                                        <form accept-charset="UTF-8" action="<?php echo site_url("settings/SaveBuyerBasicSettings") ?>" class="edit_user" enctype="multipart/form-data"  method="post">
                                             <hr/>
                                             <br/>
                                             <div class="controls controls-row">
@@ -94,7 +95,7 @@
                                                 <div class="span4" style="margin-left:0px"><textarea name="aboutu" style="width:300px; height:100px; "></textarea></div>
                                             </div>
                                             <div class="form-actions">
-                                                <button type="submit" class="btn btn-success" style="float:right">Save changes</button>
+                                                <button type="submit" onclick ="showx('mysavebutton')" id="mysavebutton" class="btn btn-success" style="float:right">Save changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -114,22 +115,16 @@
                 <h3 id="modalLabel">Order Details</h3>
             </div>
 
-            <div class="modal-body">
-
-                <form>
-
-                </form>
-
-            </div>
+          
 
             <div class="modal-footer">
                 <button class="btn btn-danger" data-dismiss="modal" aria-hidden="ture">Cancel</button>
             </div>
         </div>
 
-        <footer class="footer ">
-            <?php $this->load->view('includes/footer.php'); ?>
-        </footer>
+           <footer class="footer ">
+                <?php $this->load->view('includes/footer.php'); ?>
+            </footer>
     </div>
 </body>
 <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
