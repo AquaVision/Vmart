@@ -19,33 +19,18 @@ grey: #555555;
 Reset and overrides  
 ***/
 /* general body settings */
-body { 
-    color: #000; 
-    font-family: 'Open Sans';
-    padding: 0px !important;
-    margin: 0px !important;
-    font-size:13px; 
-}
+
 
 /***
 General typography 
 ***/
-h3 small, h4 small, h5 small {
-    color: #444;
-}
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
-}
 
-h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
-    padding-bottom: 10px;
-}
 
-a {
-    text-shadow: none !important;
-    color: #0d638f;
-}
+
+
+
+
 
 /***
 Apply fix for font awesome icons.
@@ -60,15 +45,7 @@ Apply fix for font awesome icons.
 /***
 Close icon
 ***/
-.close {
-    display: inline-block;
-    margin-top: 0px;
-    margin-right: 0px;
-    width: 9px;
-    height: 9px;
-    background-repeat: no-repeat !important;
-    background-image: url("../img/remove-icon-small.png") !important;
-}
+
 
 /***
 Default button
@@ -106,18 +83,7 @@ Fix grid offset
 /***
 Page loader
 ***/
-.page-overlay {
-    background: #eee;
-    position: fixed;
-    z-index: 99999;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    background-image: url("../img/page-loader.gif");
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
+
 
 /***
 Header and header elements.
@@ -281,12 +247,11 @@ Page sidebar
     border: 0px;
     padding: 10px 15px;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 300;
+   
 }
 
 .page-sidebar > ul > li a i {
-    color:#eaeaea;
+   
     font-size: 16px;
     margin-right: 5px;
     text-shadow:none; 
@@ -313,8 +278,7 @@ Page sidebar
     margin-top: 1px;
     margin-right: 5px;
     display: inline;
-    font-size: 16px;
-    font-family: FontAwesome;
+    
     height: auto;
     content: "\f104";
     font-weight: 300;
@@ -326,11 +290,12 @@ Page sidebar
     margin-top: 1px;
     margin-right: 5px;
     display: inline;
-    font-family: FontAwesome;
+  
     height: auto;
-    font-size: 16px;
+   
     content: "\f107";
-    font-weight: 300;
+    
+
     text-shadow:none;
 }
 
@@ -360,13 +325,12 @@ Page sidebar
     color: #ccc;
     text-decoration: none;
     text-shadow: 0 1px 1px #000;
-    font-size: 14px;
-    font-weight: 300;
+   
     background: none;
 }
 
 .page-sidebar > ul > li > ul.sub > li > a > i {
-    font-size: 13px;
+   
 }
 
 .page-sidebar .sidebar-search {
@@ -389,14 +353,14 @@ Page sidebar
     padding-left: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
-    font-size: 14px ;
+  
     box-shadow: none;
 
 }
 
 .page-sidebar .sidebar-search i { 
     display: inline-block;
-    font-size: 18px;
+  
     line-height: 0;
     cursor: pointer;
 }
@@ -437,13 +401,13 @@ Page title
 ***/
 .page-title {
     padding: 0px;
-    font-size: 30px;
+   
     letter-spacing: -1px;
     display: block;
     color: #666;
     margin: 20px 0px 15px 0px;
     font-weight: 300;
-    font-family: 'Open Sans';
+  
 }
 
 .page-title small {
@@ -1226,7 +1190,7 @@ Custom icon buttons
 }
 
 .icon-btn div {
-    font-family: 'Open Sans';
+  
     margin-top: 5px;
     margin-bottom: 20px;  
     color: #000;
@@ -1236,7 +1200,7 @@ Custom icon buttons
 
 .icon-btn .badge {
     position: absolute;
-    font-family: 'Open Sans';
+   
     font-size: 11px !important;
     font-weight: 300;
     top: -5px;
@@ -1481,7 +1445,7 @@ Star rating
 }
 .rating span.star,
 .rating span.star {
-    font-family: FontAwesome;
+   
     font-weight: normal;
     font-style: normal;
     display: inline-block;
@@ -1651,7 +1615,7 @@ Calendar with full calendar
 
 .portlet.calendar .fc-button-prev, 
 .portlet.calendar .fc-button-next {
-    font-family: Arial !important;  
+   
 }
 
 .portlet.calendar .fc-header-title h2 {

@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
         <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
         <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="bootstrap/MetronicExtracted/css/style.css" rel="stylesheet" />
         <link href="css/MainStyleForAllpages.css" rel="stylesheet">
     </head>
 
@@ -109,20 +110,67 @@
 
                                             <div class="tab-pane <?php echo $active2 ?>" id="seller">
 
-
-
-
-
                                                 <?php
                                                 $attributes = array('id' => 'sellerdata');
                                                 echo form_open("settings/$savurlform2", $attributes);
 
+                                                $progressbr = 25;
+                                                $accountcreated = "active";
+                                                $vmartseller = "";
+
                                                 $tx = false;
                                                 if($savurlform2 == "SaveSellerSetings"){
                                                     $tx = true;
+                                                    $vmartseller = "active";
+                                                    $progressbr += 25;
                                                 }
 
                                                 ?>
+
+
+
+
+
+                                                      <div class="form-wizard" >
+                                <div class="navbar steps" style="margin-left:  0px; margin-right: 0px;  border: 0 !important;">
+                                 <div class="navbar-inner">
+                                    <ul class="row-fluid nav nav-pills">
+                                       <li class="span3  <?php echo $accountcreated ?>">
+                                          <a href="#tab1" data-toggle="tab" class="step active">
+                                          <span class="number">1</span>
+                                          <span class="desc" style="font-size:11px;"><i class="icon-ok" ></i> Account Created</span>   
+                                          </a>
+                                       </li>
+                                       <li class="span3 <?php echo $vmartseller ?> ">
+                                          <a href="#tab2" data-toggle="tab" class="step">
+                                          <span class="number">2</span>
+                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Vmart Seller</span>   
+                                          </a>
+                                       </li>
+                                       <li class="span3">
+                                          <a href="<?php echo site_url('settings/sellerSettings') ?>" class="step">
+                                          <span class="number">3</span>
+                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Store Created</span>   
+                                          </a>
+                                       </li>
+                                       <li class="span3">
+                                          <a href="#tab4" data-toggle="tab" class="step">
+                                          <span class="number">4</span>
+                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Store items added</span>   
+                                          </a> 
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              </div>
+
+                              <div class="row" style="margin-top:-10px;" >
+                                    <div class="progress  progress-striped active">
+                                        <div class="bar bar-success" style="width: <?php echo $progressbr ?>%;"></div>
+                                    </div>
+                                </div>
+                                <hr  style="margin:0px; margin-bottom:20px; margin-top:-3px;" />
+                                              
 
                                                 <?php if(!$tx){ ?>
                                                 <div class="alert alert-error">
