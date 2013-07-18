@@ -9,11 +9,14 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
     <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
     <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
-
+    
+    <link href="css/sellerfrontstyle.css" rel="stylesheet">
 </head>
 
 <body class="body-db" data-twttr-rendered="true">
-
+    <div id="header">
+        <?php $this->load->view('includes/navbar'); ?>
+    </div>
 
     <div id="main-wrapper" style="padding-top: 47px;">
         <div class="main-content">
@@ -49,10 +52,10 @@
                             <div class="profile-form">
 
                                             <div class="db-summary db-order-stats">
-                                                <a>4<small>All Items</small></a>
-                                                <a href="#/active">0<small>Suspended</small></a>
-                                                <a href="#/completed">1<small>Deleted</small></a>
-                                                <a href="#/delivered">3<small>Popular</small></a>
+                                                <a><?php echo $item_summary[0] ; ?><small>All Items</small></a>
+                                                <a href="#/active"><?php echo $item_summary[1] ; ?><small>Suspended</small></a>
+                                                <a href="#/completed"><?php echo $item_summary[2] ; ?><small>Deleted</small></a>
+                                                <a href="#/delivered"><?php echo $item_summary[3] ; ?><small>Popular</small></a>
                                             </div>
                                 
 
@@ -69,90 +72,47 @@
                                     <!-- This is the items tab -->
                                     <div class="tab-pane active" id="items">
                                         
-                                        <div id="container" style="min-width: 400px; height: 500px; margin: 0 auto">
+                                        <div id="container" style="min-width: 400px; margin: 0 auto">
 
                                             <!--Current Items Div-->
                                             <div id="items-div">
 
                                                 <table class="table">
-
-                                                    <tr>
-                                                        <td style="width:30%">
-                                                            <a href="" class="thumbnail">
-                                                                <img src="./images/fixed_images/15.png" style="width:212px;height:135px;">
-                                                            </a>
-                                                        </td>
-                                                        <td class="span6">
-                                                            <h5>Earings : </h5>
-                                                            <div style="margin: 1px 1px 1px 1px; font-size:11px">
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                            </div>                                                            
-                                                        </td>
-                                                        <td class="span3">
-                                                            <div style="margin: 15px 1px 1px 1px;">
-                                                                <p>Price : 3500/- Rs</p>
-                                                                <p><a href=""> <i class="icon-trash"></i> Remove</a></p>
-                                                                <p><a href=""> <i class="icon-pause"></i> Suspend</a></p>
-                                                                <p><a href=""> <i class="icon-edit"></i> Edit</a></p>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td style="width:30%">
-                                                            <a href="" class="thumbnail">
-                                                                <img src="./images/fixed_images/12.png" style="width:212px;height:135px;">
-                                                            </a>
-                                                        </td>
-                                                        <td class="span6">
-                                                            <h5>Pendent : </h5>
-                                                            <div style="margin: 1px 1px 1px 1px; font-size:11px">
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                            </div>                                                            
-                                                        </td>
-                                                        <td class="span3">
-                                                            <div style="margin: 15px 1px 1px 1px;">
-                                                                <p>Price : 2500/- Rs</p>
-                                                                <p><a href=""> <i class="icon-trash"></i> Remove</a></p>
-                                                                <p><a href=""> <i class="icon-pause"></i> Suspend</a></p>
-                                                                <p><a href=""> <i class="icon-edit"></i> Edit</a></p>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                     <tr>
-                                                        <td style="width:30%">
-                                                            <a href="" class="thumbnail">
-                                                                <img src="./images/fixed_images/14.png" style="width:212px;height:135px;">
-                                                            </a>
-                                                        </td>
-                                                        <td class="span6">
-                                                            <h5>Necklace : </h5>
-                                                            <div style="margin: 1px 1px 1px 1px; font-size:11px">
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                            </div>                                                            
-                                                        </td>
-                                                        <td class="span3">
-                                                            <div style="margin: 15px 1px 1px 1px;">
-                                                                <p>Price : 5500/- Rs</p>
-                                                                <p><a href=""> <i class="icon-trash"></i> Remove</a></p>
-                                                                <p><a href=""> <i class="icon-pause"></i> Suspend</a></p>
-                                                                <p><a href=""> <i class="icon-edit"></i> Edit</a></p>
-                                                            </div>
-                                                        </td>
-                                                    </tr>                                   
-
                                                     
+                                                    <?php foreach ($view_items_data as $item):?>
+                                                    <tr>
+                                                        <td style="width:30%">
+                                                            <a href="" class="thumbnail">
+                                                                <img src="<?php echo  get_assets_path().$item->item_image; ?>" style="width:212px;height:135px;">
+                                                            </a>
+                                                        </td>
+                                                        <td class="span6">
+                                                            <h5><?php echo $item->title; ?></h5>
+                                                            <div style="margin: 1px 1px 1px 1px; font-size:11px">
+                                                                <?php echo $item->breif_description; ?>
+                                                            </div>                                                            
+                                                        </td>
+                                                        <td class="span3">
+                                                            <div style="margin: 15px 1px 1px 1px;">
+                                                                <p><?php echo $item->price."  ".$item->price_currancy; ?></p>
+                                                                <p><a href=""> <i class="icon-trash"></i> Remove</a></p>
+                                                                <p><a href=""> <i class="icon-pause"></i> Suspend</a></p>
+                                                                <p><a href=""> <i class="icon-edit"></i> Edit</a></p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <?php endforeach; ?>
+
                                                 </table>
-
-
+                                                
                                             </div>
                                             <!--End Current Items Div-->
 
                                         </div>
 
                                         <!--Start Pager-->
-                                        <div style="margin: 1px 12px 1px 12px;">
+                                        <p><?php echo $pag_links; ?></p>
+<!--                                        <div style="margin: 1px 12px 1px 12px;">
                                             <ul class="pager">
                                               <li class="previous">
                                                 <a href="#">&larr; Previous</a>
@@ -161,7 +121,7 @@
                                                 <a href="#">&nbsp;Next &nbsp;&rarr; &nbsp;</a>
                                               </li>
                                             </ul>
-                                        </div>
+                                        </div>-->
                                         <!--End Pager-->
                                     </div><!--End First Tab Pane--> 
 
@@ -359,8 +319,9 @@
 
 
 
-<footer class="main-footer"></footer>
-</div>
+<footer class="footer ">
+            <?php $this->load->view('includes/footer.php'); ?>
+</footer>
 
 <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>

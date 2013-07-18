@@ -94,4 +94,15 @@ function do_image_upload($upload_path)
     return $filenames;
 }
 
+function get_assets_path()
+{
+    $CI = & get_instance();
+    $path = $CI->config->item('userdatafolderpath');
+    
+    $full_path = base_url().substr($path, 2)."/";
+    
+    return $full_path;
+    
+}
+
 ?>

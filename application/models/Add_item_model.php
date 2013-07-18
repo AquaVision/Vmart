@@ -8,7 +8,7 @@ class Add_item_model extends CI_Model
 	return $this->db->insert_id();
     }
     
-    public function add_item_images($last_insert,$filenames,$folder_path)
+    public function add_item_images($last_insert,$filenames)
     {
         $sql = "SELECT item_id,cat_id,userid FROM store_item WHERE item_id = ?";
         $query = $this->db->query($sql,$last_insert);
@@ -25,7 +25,8 @@ class Add_item_model extends CI_Model
         //echo $data['last_insert']->item_id;
         foreach($filenames as $filename)
         {
-            $file_url = base_url().  substr($folder_path, 2)."/".$filename;
+            //$file_url = base_url().  substr($folder_path, 2)."/".$filename;
+            $file_url = getUserFolderName()."/".$filename;
             
             $item_image_data = array(
             'iitem_id'=>$data['last_insert']->item_id,
@@ -100,6 +101,35 @@ class Add_item_model extends CI_Model
         }        
     }
     
+    
+    public function view_items($user_id,$limit,$start)
+    {
+        //echo $limit."  ".$start."</br>";
+        
+        //$this->db->limit($limit,$start * $limit);
+        $view_items_sql = "SELECT * FROM view_items WHERE userid = '$user_id' LIMIT $start , $limit ";
+        
+        $view_query = $this->db->query($view_items_sql);
+        
+        if($view_query->num_rows() > 0)
+        {
+            foreach ($view_query->result() as $row)
+            {
+                $view_items_data[] = $row;    
+            }
+            return $view_items_data;
+        }
+        
+        
+        
+    }
+    
+    public function view_items_count($user_id)
+    {
+        $view_items_sql = "SELECT * FROM view_items WHERE userid = ?";
+        $view_query = $this->db->query($view_items_sql,$user_id);
+        return $view_query->num_rows();
+    }
     
     
 }

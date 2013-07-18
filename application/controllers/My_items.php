@@ -10,14 +10,57 @@ class My_items extends CI_Controller
         parent::__construct();
         $this->load->model('Add_item_model');
         $this->load->library('form_validation');
+        $this->load->library("pagination");
+
         
         $this->select_data['seller_categories'] = $this->Add_item_model->get_seller_categories(getUserID(),'ACTIVE');
         $this->select_data['vmart_categories'] = $this->Add_item_model->get_vmart_categories();
-        
+
     }
     
     public function index() 
     {   
+        $items_summary = array();
+        
+        $config = array();
+        $config["base_url"] = base_url() . "My_items/index";
+        $config["total_rows"] = $this->Add_item_model->view_items_count(getUserID());
+        $config["per_page"] = 2;
+        $config["uri_segment"] = 3;
+        
+        $config['full_tag_open'] = '<div class="pagination pagination-small pagination-centered"><ul>';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['prev_link'] = '&lt; Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next &gt;';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['first_link'] = FALSE;
+        $config['last_link'] = FALSE;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $this->select_data["view_items_data"] = $this->Add_item_model->view_items(getUserID(),$config["per_page"],$page);
+        $this->select_data["pag_links"] = $this->pagination->create_links();
+        
+        //$this->load->view("pagination_view", $data);
+        $suspended_items = 0;
+        $deleted_items = 0;
+        $popular_items = 0;
+        array_push($items_summary,$config["total_rows"]);
+        array_push($items_summary,$suspended_items);
+        array_push($items_summary,$deleted_items);
+        array_push($items_summary,$popular_items);
+        
+        
+        $this->select_data["item_summary"] = $items_summary;
+
         $this->load->view('my_items',$this->select_data);
     }
     
@@ -25,7 +68,6 @@ class My_items extends CI_Controller
     {
         $cat_id = $this->Add_item_model->get_cat_id($this->input->post('category'));
         $vmart_cat_id = $this->Add_item_model->get_vcat_id($this->input->post('vcategory'));
-        
         
         $newitemdata = array(
             'cat_id'        => $cat_id['cat_id']->cat_id,
@@ -47,10 +89,28 @@ class My_items extends CI_Controller
         $folder_path = getUserFolder();
         $filenames = do_image_upload($folder_path);
         
-        $this->Add_item_model->add_item_images($last_insert,$filenames,$folder_path);
+        $this->Add_item_model->add_item_images($last_insert,$filenames);
         
         redirect('My_items');
         
-    }     
+    }
+    
+    public function view_items()
+    {
+        $config = array();
+        $config["base_url"] = base_url() . "My_items/view_items";
+        $config["total_rows"] = $this->Add_item_model->view_items_count(getUserID());
+        $config["per_page"] = 2;
+        $config["uri_segment"] = 3;
+
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data["results"] = $this->Add_item_model->view_items(getUserID(),$config["per_page"],$page);
+        $data["links"] = $this->pagination->create_links();
+
+        $this->load->view("pagination_view", $data);
+    }
+    
 }
 ?>
