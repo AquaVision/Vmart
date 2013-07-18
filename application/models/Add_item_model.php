@@ -25,7 +25,7 @@ class Add_item_model extends CI_Model
         //echo $data['last_insert']->item_id;
         foreach($filenames as $filename)
         {
-            $file_url = $folder_path."/".$filename;
+            $file_url = base_url().  substr($folder_path, 2)."/".$filename;
             
             $item_image_data = array(
             'iitem_id'=>$data['last_insert']->item_id,

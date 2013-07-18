@@ -69,7 +69,6 @@ function do_image_upload($upload_path)
         ++$image_count;
         $filename = md5(getUserID().get_date_time().$image_count);
         $config['file_name'] = $filename;
-        array_push($filenames, $filename);
         $CI->upload->initialize($config);
         // No problems with the file
         if($file['error'] == 0)
@@ -78,6 +77,7 @@ function do_image_upload($upload_path)
             if ($CI->upload->do_upload($field))
             {
                 $data = $CI->upload->data();
+                array_push($filenames, $data['file_name']);
             }
             else
             {
