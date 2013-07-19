@@ -52,3 +52,7 @@ function getUserFolder() {
     return $path . (getcurrentSession()->userdata('udata')->userfolder);
 }
 
+function getUserFolderName() {
+    return (getcurrentSession()->userdata('udata')->userfolder);
+}
+
