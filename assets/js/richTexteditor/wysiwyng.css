@@ -2,41 +2,41 @@
  * of the key things about the widget is that it allows you to do your own styling!
 */
 
-#editor {
-    max-height: 250px;
-    height: 250px;
-    background-color: white;
-    border-collapse: separate; 
-    border: 1px solid rgb(204, 204, 204); 
-    padding: 4px; 
-    box-sizing: content-box; 
-    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; 
-    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
-    border-top-right-radius: 3px; border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+.editorcc {
+    max-height: 250px !important;
+    height: 250px !important;
+    background-color: white !important;
+    border-collapse: separate !important; 
+    border: 1px solid rgb(204, 204, 204) !important; 
+    padding: 4px !important; 
+    box-sizing: content-box !important; 
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset !important; 
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset !important;
+    border-top-right-radius: 3px; border-bottom-right-radius: 3px !important;
+    border-bottom-left-radius: 3px; border-top-left-radius: 3px !important;
     overflow: scroll;
     outline: none;
 }
 #voiceBtn {
-    width: 20px;
-    color: transparent;
-    background-color: transparent;
-    transform: scale(2.0, 2.0);
-    -webkit-transform: scale(2.0, 2.0);
-    -moz-transform: scale(2.0, 2.0);
-    border: transparent;
-    cursor: pointer;
-    box-shadow: none;
-    -webkit-box-shadow: none;
+    width: 20px !important;
+    color: transparent !important;
+    background-color: transparent !important;
+    transform: scale(2.0, 2.0) !important;
+    -webkit-transform: scale(2.0, 2.0) !important;
+    -moz-transform: scale(2.0, 2.0) !important;
+    border: transparent !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
 }
 
 div[data-role="editor-toolbar"] {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 .dropdown-menu a {
-    cursor: pointer;
+    cursor: pointer !important;
 }

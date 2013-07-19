@@ -83,6 +83,29 @@ $(function(){
 
 
 
+    $("#soialsellerP").on("change",function(e){
+        var selectedop = $(this).find(":selected").text();
+        var selected = $(this).val();
+        var found = false;
+        $("#socialmedai li").each(function(index){
+            if($(this).data("what") == selectedop){
+                found =  true;
+            }
+        });
+        
+        if(!found){
+            var elementx = "<li style='margin-top: 10px;' data-what='"+selectedop+"'>"
+            +"<div class='row'>"
+            +"<div class='span2' style='width:39px;'><img src='images/fixed_images/socialmediaicons/Icons/32/"+selected+"' /></div>"
+            +"<div class='span7'> <input type='text'  style='width: 170px;' name ='stitle[]' /></div>"
+            +"<div class='span2' style='margin-left: 0px;'><a class='btn removephone'>X</a></div>"
+            +"</div>"   
+            +"</li>";
+    
+            $("#socialmedai").append(elementx);
+        }
+    });
+
 
 
 

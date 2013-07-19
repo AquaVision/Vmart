@@ -9,16 +9,16 @@ $(function(){
         if(text){
 
             var chatx = "<li class='in'>"+
-            "<img class='avatar' alt='' src='images/uploaded/users/avatar2.jpg' />"+
-            "<div class='message'>"+
-            "<span class='arrow'></span>"+
-            "<a href='#' class='name'>Richard Doe</a>"+
-            "<span class='datetime'>at Jul 25, 2012 11:09</span>"+
-            "<span class='body'>"
-            +text+
-            "</span>"+
-            "</div>"+
-            "</li>";
+                "<img class='avatar' alt='' src='images/uploaded/users/avatar2.jpg' />"+
+                "<div class='message'>"+
+                "<span class='arrow'></span>"+
+                "<a href='#' class='name'>Richard Doe</a>"+
+                "<span class='datetime'>at Jul 25, 2012 11:09</span>"+
+                "<span class='body'>"
+                +text+
+                "</span>"+
+                "</div>"+
+                "</li>";
 
 
             $("#chatparent").append(chatx);
@@ -174,7 +174,21 @@ $(function(){
 
 
     
-
+    $("#continuexnextpage").on("click",function(e){
+        var page = $(this).data("active");
+        if(page == "page1"){
+            
+            $.post("../Wizardseller/VerifySellerInWizard", $('#sellerverificationdata').serialize() , function(data){
+               
+            });  
+        }else if(page == "page2"){
+            
+        }else if(page == "page3"){
+            
+        }else if(page == "page3"){
+            
+        }
+    });
 
 
 

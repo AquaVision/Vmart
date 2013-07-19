@@ -126,51 +126,7 @@
                                                 }
 
                                                 ?>
-
-
-
-
-
-                                                      <div class="form-wizard" >
-                                <div class="navbar steps" style="margin-left:  0px; margin-right: 0px;  border: 0 !important;">
-                                 <div class="navbar-inner">
-                                    <ul class="row-fluid nav nav-pills">
-                                       <li class="span3  <?php echo $accountcreated ?>">
-                                          <a href="#tab1" data-toggle="tab" class="step active">
-                                          <span class="number">1</span>
-                                          <span class="desc" style="font-size:11px;"><i class="icon-ok" ></i> Account Created</span>   
-                                          </a>
-                                       </li>
-                                       <li class="span3 <?php echo $vmartseller ?> ">
-                                          <a href="#tab2" data-toggle="tab" class="step">
-                                          <span class="number">2</span>
-                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Vmart Seller</span>   
-                                          </a>
-                                       </li>
-                                       <li class="span3">
-                                          <a href="<?php echo site_url('settings/sellerSettings') ?>" class="step">
-                                          <span class="number">3</span>
-                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Store Created</span>   
-                                          </a>
-                                       </li>
-                                       <li class="span3">
-                                          <a href="#tab4" data-toggle="tab" class="step">
-                                          <span class="number">4</span>
-                                          <span class="desc" style="font-size:11px;"><i class="icon-ok"></i>Store items added</span>   
-                                          </a> 
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                              </div>
-
-                              <div class="row" style="margin-top:-10px;" >
-                                    <div class="progress  progress-striped active">
-                                        <div class="bar bar-success" style="width: <?php echo $progressbr ?>%;"></div>
-                                    </div>
-                                </div>
-                                <hr  style="margin:0px; margin-bottom:20px; margin-top:-3px;" />
-                                              
+                                       
 
                                                 <?php if(!$tx){ ?>
                                                 <div class="alert alert-error">
@@ -188,8 +144,9 @@
                                                     <ul>
                                                             <li>You are few clicks away of creating your own <a href="<?php echo site_url('settings/sellerSettings') ?>">store page</a>.</li>
                                                     </ul>
-                                                    <em>"One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <br/><small> - Elbert Hubbard -</small></em>
-                                                    
+                                                    <div class="row">
+                                                    <blockquote class="pull-right">"One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man." <small> - Elbert Hubbard - </small></blockquote>
+                                                    </div>
                                                 </div>
 
                                                 <?php } ?>

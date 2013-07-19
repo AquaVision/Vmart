@@ -17,9 +17,7 @@ class settings extends CI_Controller {
 
     //-------------------- for profile settings
 
-    function sellerSettings() {
-        $this->load->view('public_profile_seller');
-    }
+    
 
     function buyerSettings() {
         $this->load->view('public_profile_buyer');
@@ -106,7 +104,6 @@ class settings extends CI_Controller {
     function SaveSellerSettings() {
 
         $this->form_validation->set_rules('verificationcode', 'Verification code', 'callback_veficationchecker');
-        $this->form_validation->set_rules('banknamezzz', 'Bank name', 'trim|callback_bankname');
         $this->form_validation->set_rules("identity", "Identity check", "callback_selleridCallback");
         if ($this->form_validation->run() == FALSE) {
             $this->generalSellerSet();
@@ -116,13 +113,7 @@ class settings extends CI_Controller {
         }
     }
 
-    function bankname($str) {
-        if ((trim($str) != "Select") && ($str != "")) {
-            return true;
-        } else {
-            $this->form_validation->set_message('bankname', 'bank name should be selected');
-        }
-    }
+    
 
     function veficationchecker($str) {
         if (strlen(trim($str)) > 0) {
@@ -151,7 +142,6 @@ class settings extends CI_Controller {
     }
 
     function SaveSellerSetings() {
-        $this->form_validation->set_rules('banknamezzz', 'Bank name', 'trim|callback_bankname');
         $this->form_validation->set_rules("identity", "Identity check", "callback_selleridCallback");
         if ($this->form_validation->run() == FALSE) {
             $this->generalSellerSet();
