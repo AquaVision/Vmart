@@ -180,6 +180,14 @@ $(function(){
         });
         
     });
+    
+    
+    $(".removefromcart").on("click",function(e){
+        var id = $(this).data("rowid");
+        $.post("../Web_cart/remove/"+id , function(data){
+            window.location = "../Web_cart/show";
+        });
+    });
 
     
     $("#continuexnextpage").on("click",function(e){
@@ -270,4 +278,11 @@ function showx(mysubmitsett){
     
                 
 }
+
+
+function addaboutus(){
+       
+        $("#editordataxy").val($("#editor").html());
+        return true;
+    }
 

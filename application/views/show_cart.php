@@ -86,7 +86,7 @@
                                     </header>
                                     <div class="profile-form">
 
-                                        <div class="db-summary db-order-stats"><a href="#/new">0<small>Items</small></a><a href="#/active">0<small>Total Price</small></a><a href="#/delivered">0<small>Status</small></a></div>
+                                        <div class="db-summary db-order-stats"><a href="#/new"><?php echo count($cart_data); ?><small>Items</small></a><a href="#/active"><?php echo $cart_total; ?><small>Total Price</small></a><a href="#/delivered">0<small>Status</small></a></div>
 
                                         <!--Show cart details in a table-->
                                         <?php
@@ -103,25 +103,20 @@
                                             </thead>
                                             
                                             <tbody> ';
-                                        ?>
-                                        <tr>
-                                            <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>
-                                            <td><h5>Stone Necklace</h5></td>
-                                            <td><h5>1500</h5</td>
-                                            <td><h5>10</h5</td>
-                                            <td><h5>15000</h5</td>
-                                            <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
-                                        </tr>
-                                        <?php
+                                        
                                         foreach ($cart_data as $items) {
 
                                             echo '<tr>';
-                                            echo '<td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>';
-                                            echo '<td><h5>Stone Necklace</h5></td>';
-                                            foreach ($items as $item) {
-                                                echo '<td><h5>' . $item . '</h5></td>';
-                                            }
-                                            echo '<td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                           
+                                           
+                                                echo '<td class="sc-td-image"><img src="'.get_assets_path(). $items['item_image'] .'" ></td>';
+                                                echo '<td><h5>' . $items['name'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['price'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['qty'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
+                                                echo '<td ><h5><a class="removefromcart" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                            
+                                            
                                             echo '</tr>';
                                         }
                                         echo '</tbody>
@@ -129,13 +124,13 @@
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td colspan="1" ><h3>Grand Total</h3></td>
-                                                <td colspan="1" ><h3 style="color:red;">Rs 45000</h3></td>
+                                                <td colspan="1" ><h3 style="color:red;">'.$cart_total.'</h3></td>
                                             </tr>
 
                                             <tr>
                                                 <td colspan="3"></td>
-                                                <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
-                                                <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
+                                                <td colspan="1" ><img href="'.base_url().'" src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
+                                                <td colspan="1" ><img href="'.base_url().'" src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
                                             </tr>
 
                                         </tfoot>

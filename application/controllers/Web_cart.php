@@ -2,11 +2,13 @@
 class Web_cart extends CI_Controller{
     
     function add(){
-    
+        
+        $id = $this->input->post('itemid');
         $this->load->model('Product_model');
-        $product = $this->Product_model->get($this->input->post('id'));
+        $product = $this->Product_model->get($id);
+        echo $product->title." added to cart";
         $data = array(
-               'id'      => $this->input-post('id'),
+                'id'         => $id,
                 'item_image' => $product->item_image,
                 'name'    => $product->title,
                 'price'   => $product->price,
@@ -15,18 +17,19 @@ class Web_cart extends CI_Controller{
             );
         
         $this->cart->insert($data);
-        redirect('Vmart');
+        
 
     }
     function total(){
         
-        echo $this->cart->total();
+        return $this->cart->total();
     }
     
 
     function show(){
-        
+        $total_amount = $this->total();
         $cart['cart_data'] = $this->cart->contents();
+        $cart['cart_total'] = $total_amount;
         $this->load->view('show_cart',$cart);
         
         
@@ -39,7 +42,7 @@ class Web_cart extends CI_Controller{
         'qty'   => 0
         );
         $this->cart->update($data);
-        echo 'item removed';
+        
     }
 
 
