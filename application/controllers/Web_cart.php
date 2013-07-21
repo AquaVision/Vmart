@@ -7,9 +7,11 @@ class Web_cart extends CI_Controller{
         $product = $this->Product_model->get($this->input->post('id'));
         $data = array(
                'id'      => $this->input-post('id'),
-               'qty'     => 1, 
-               'price'   => $product->price,
-               'name'    => $product->title
+                'item_image' => $product->item_image,
+                'name'    => $product->title,
+                'price'   => $product->price,
+                'qty'     => 1,
+                
             );
         
         $this->cart->insert($data);
@@ -24,8 +26,8 @@ class Web_cart extends CI_Controller{
 
     function show(){
         
-        $cart[] = $this->cart->contents();
-        $this->load->view('show_cart');
+        $cart['cart_data'] = $this->cart->contents();
+        $this->load->view('show_cart',$cart);
         
         
     }
