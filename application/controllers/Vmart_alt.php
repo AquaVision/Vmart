@@ -2,20 +2,21 @@
 
 class Vmart_alt extends CI_Controller {
 
+    public function __construct() 
+    {
+        parent::__construct();
+        $this->load->model('Land_model');
+        
+    }
+    
     public function index() {
-     $data['cart_data'] = array(
-            'abc' => array(
-                        'id' => 1,
-                        'name' => 'dinidu',
-                        'price' => 50,
-                    ),
-            'pqr' => array(
-                        'id' => 2,
-                        'name' => 'kinath',
-                        'price' => 100,
-                    )
-        );
-        $this->load->view('show_cart',$data);
+        //$this->load->view('vmart_alt');
+    }
+    
+    public function get_item_details($item_id)
+    {
+        $item = $this->Land_model->get_item_details($item_id);
+        echo $item['item']->breif_description;
     }
 
 }
