@@ -1,7 +1,7 @@
 <?php if (!islogedUser()) { ?>
     <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
-            <div class="container" >   <!-- style="width: 1260px;" -->
+            <div class="container" style="width: 100%">   <!-- style="width: 1260px;" -->
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

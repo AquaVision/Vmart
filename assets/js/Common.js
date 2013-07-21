@@ -176,7 +176,7 @@ $(function(){
     $(".add-to-cart").on("click",function(e){
         var id = $(this).data("itemid");
         $.post("../Web_cart/add",{"itemid" :id}, function(data){
-            alert(data);
+            
         });
         
     });

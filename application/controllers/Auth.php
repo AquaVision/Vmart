@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
             $userdata["is_loged_in"] = true;
             
             $this->session->set_userdata($userdata);
-            redirect('Vmart');
+            redirect('');
         } else { // incorrect username or password
             return "incorrect password";
         }
@@ -62,7 +62,7 @@ class Auth extends CI_Controller {
     }
     function SignOut() {
         $this->session->sess_destroy();
-        redirect('Vmart');
+        redirect('');
     }
     
     function CheckUserName() {
