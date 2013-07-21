@@ -87,11 +87,16 @@ class My_items extends CI_Controller
         
         $last_insert = $this->Add_item_model->add_item($newitemdata);
         $folder_path = getUserFolder();
+        
+        if($last_insert!=0){
+        //$imagefilearray = array();
+        //$imagefilearray[0] = $_FILES['image_up_1'];
+        //$imagefilearray[1] = $_FILES['image_up_2'];
+        //$imagefilearray[2] = $_FILES['image_up_3'];
         $filenames = do_image_upload($folder_path);
-        
         $this->Add_item_model->add_item_images($last_insert,$filenames);
-        
-        redirect('My_items');
+        }
+       // redirect('My_items');
         
     }
     

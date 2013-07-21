@@ -44,27 +44,22 @@
                                                     <div class="navbar steps" style="border-bottom: 0 !important; margin-bottom: 2px !important;">
                                                         <div class="navbar-inner">
                                                             <ul class="row-fluid">
-                                                                <li class="span3">
+                                                                <li class="span4">
                                                                     <a href="#tab1" data-toggle="tab"  class="step active">
                                                                         <span class="number">1</span>
                                                                         <span class="desc"  ><i class="icon-ok"></i> Verify you self</span>   
                                                                     </a>
                                                                 </li>
-                                                                <li class="span3">
+                                                                <li class="span4">
                                                                     <a href="#tab2" data-toggle="tab"  class="step">
                                                                         <span class="number">2</span>
                                                                         <span class="desc" ><i class="icon-ok"></i> SetUp Store</span>   
                                                                     </a>
                                                                 </li>
-                                                                <li class="span3">
-                                                                    <a href="#tab3" data-toggle="tab"  class="step">
-                                                                        <span class="number">3</span>
-                                                                        <span class="desc" ><i class="icon-ok"></i> Add items</span>   
-                                                                    </a>
-                                                                </li>
-                                                                <li class="span3">
+                                                                
+                                                                <li class="span4">
                                                                     <a href="#tab4" data-toggle="tab" class="step">
-                                                                        <span class="number">4</span>
+                                                                        <span class="number">3</span>
                                                                         <span class="desc" ><i class="icon-ok"></i>Start Selling</span>   
                                                                     </a> 
                                                                 </li>
@@ -214,9 +209,9 @@
                                                                         <div class="span12" style="margin-top:20px; pagination-centered">
                                                                             <div class="span1" style="width:55px;"></div>
                                                                             <div class="span2"></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 1" name="cover[]" class="modernfile" ></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 2" name="cover[]" class="modernfile" ></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 3" name="cover[]"  class="modernfile" ></div>
+                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 1" name="cover1" class="modernfile" ></div>
+                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 2" name="cover2" class="modernfile" ></div>
+                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 3" name="cover3"  class="modernfile" ></div>
                                                                             <div class="span2"></div>
                                                                         </div>
                                                                     </div>
@@ -391,191 +386,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="tab-pane" id="tab3">
-
-                                                            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo site_url('My_items/add_item') ?>">
-                                                                <fieldset>
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="title">Title</label>
-                                                                        <div class="controls">
-                                                                            <input type="text" class="input-xxlarge trololo" id="title" name="title">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="similar">Similar</label>
-                                                                        <div class="controls">
-                                                                            <input type="text" class="input-xxlarge trololo" id="similar" name="similar">
-                                                                        </div>
-                                                                    </div>   
-
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="price_no">Price</label>
-                                                                        <div class="controls">
-                                                                            <input type="number" class="input-xxlarge trololo span2" id="price_no" name="price_no">
-                                                                            <select id="price_currency" class="trololo span2" name="price_currency">
-                                                                                
-                                                                                <option>LKR</option>
-                                                                                <option>USD</option>
-                                                                                <option>AUD</option>
-                                                                                <option>UAD</option>
-                                                                                <option>KUR</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>        
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="quantity">Quantity</label>
-                                                                        <div class="controls">
-                                                                            <input type="number" class="input-large trololo" id="quantity" name="quantity">
-                                                                        </div>
-                                                                    </div> 
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="sel_category">Seller Category</label>
-                                                                        <div class="controls">
-
-                                                                            <select id="sel_category" class="trololo" name="category">
-                                                                                <?php
-                                                                                $seller_categories = array();
-                                                                                foreach ($seller_categories as $option): ?>
-                                                                                    <option><?php echo $option->cat_name; ?></option>
-                                                                                <?php endforeach; ?>                                                       
-                                                                            </select>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="vmart_category">Vmart Category</label>
-                                                                        <div class="controls">
-
-                                                                            <select id="vmart_category" class="trololo" name="vcategory">
-                                                                                <?php foreach ($vmart_categories as $option): ?>
-                                                                                    <option><?php echo $option->catname; ?></option>
-                                                                                <?php endforeach; ?>                                                     
-                                                                            </select>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="description">Description</label>
-                                                                        <div class="controls">
-                                                                            <textarea class="input-xxlarge trololo" id="description" rows="3" name="description" ></textarea>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!--Image Upload Div-->  
-                                                                    <div class="controls" style="">
-                                                                        <table>
-                                                                            <tr>
-                                                                                <td style="width:30%" >
-                                                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                                                        <div class="fileupload-new thumbnail" style="width:150px;height:95px;">
-                                                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"  
-                                                                                                 style="width:150px;height:95px;"/>
-                                                                                        </div>
-                                                                                        <div class="fileupload-preview fileupload-exists thumbnail" 
-                                                                                             style="width: 150px; height: 95px; line-height: 20px;">
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <span class="btn btn-file">
-                                                                                                <span class="fileupload-new">
-                                                                                                    <i class="icon-folder-open"></i>
-                                                                                                </span>
-                                                                                                <span class="fileupload-exists">
-                                                                                                    <i class="icon-pencil"></i>
-                                                                                                </span>
-                                                                                                <input type="file" id="image_up_1" name="image_up_1"/>
-                                                                                            </span>
-                                                                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
-                                                                                                <i class="icon-remove"></i>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-
-                                                                                <td style="width:5.15%" ></td>
-
-                                                                                <td style="width:30%" >
-                                                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                                                        <div class="fileupload-new thumbnail" style="width:150px;height:95px;">
-                                                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"  
-                                                                                                 style="width:150px;height:95px;"/>
-                                                                                        </div>
-                                                                                        <div class="fileupload-preview fileupload-exists thumbnail" 
-                                                                                             style="width: 150px; height: 95px; line-height: 20px;">
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <span class="btn btn-file">
-                                                                                                <span class="fileupload-new">
-                                                                                                    <i class="icon-folder-open"></i>
-                                                                                                </span>
-                                                                                                <span class="fileupload-exists">
-                                                                                                    <i class="icon-pencil"></i>
-                                                                                                </span>
-                                                                                                <input type="file" id="image_up_2" name="image_up_2"/>
-                                                                                            </span>
-                                                                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
-                                                                                                <i class="icon-remove"></i>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-
-                                                                                <td style="width:5.15%" ></td>
-
-                                                                                <td style="width:30%" >
-                                                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                                                        <div class="fileupload-new thumbnail" style="width:150px;height:95px;">
-                                                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"  
-                                                                                                 style="width:150px;height:95px;"/>
-                                                                                        </div>
-                                                                                        <div class="fileupload-preview fileupload-exists thumbnail" 
-                                                                                             style="width: 150px; height: 95px; line-height: 20px;">
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <span class="btn btn-file">
-                                                                                                <span class="fileupload-new">
-                                                                                                    <i class="icon-folder-open"></i>
-                                                                                                </span>
-                                                                                                <span class="fileupload-exists">
-                                                                                                    <i class="icon-pencil"></i>
-                                                                                                </span>
-                                                                                                <input type="file" id="image_up_3" name="image_up_3"/>
-                                                                                            </span>
-                                                                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" style="margin-left: 80px;">
-                                                                                                <i class="icon-remove"></i>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!--End Image Upload Div-->  
-
-
-                                                                    <!--Start Text Editor-->
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="more_info">More Information</label>
-                                                                        <div class="controls">
-                                                                            <textarea class="input-xxlarge trololo" id="more_info" rows="3" name="more_info" ></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--End Text Editor-->                                              
-
-                                                                    <div class="controls">
-                                                                        <button type="submit" class="btn btn-primary">Add Item</button>
-                                                                        <button class="btn">Cancel</button>
-                                                                    </div>
-
-                                                                </fieldset>
-                                                            </form>
-
-                                                        </div>                                                                      
+                                                                                                                          
                                                         <div class="tab-pane" id="tab4">
                                                             <div class="row" style="margin: 0px;">
                                                                 <h3>You are just a one Click Away to finish!! </h3>

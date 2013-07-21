@@ -41,18 +41,18 @@ class Wizardseller extends CI_Controller {
     function stepTwoInWizard() {
         $meuindexes = array();
         $menuindx = $this->input->post("indexesz");
-        if($menuindx){
-          $meuindexes = $menuindx; 
+        if ($menuindx) {
+            $meuindexes = $menuindx;
         }
-        
+
 
         $totalmenu = array();
-        
-        
+
+
         for ($i = 0; $i < count($meuindexes); ++$i) {
             $menuinx = $meuindexes[$i];
             $navmenuitem = $this->input->post("hd$menuinx");
-            
+
             $menuitem = $this->input->post("hd{$menuinx}it{$menuinx}");
             $menuitemxArray = array();
             for ($y = 0; $y < count($menuitem); ++$y) {
@@ -65,14 +65,9 @@ class Wizardseller extends CI_Controller {
         }
 
         $this->settings_model->createStore($totalmenu);
-
-        foreach ($totalmenu as $key => $value) {
-            echo "<h1>$key</h1><br/>";
-            for ($y = 0; $y < count($value); ++$y) {
-                echo "&nbsp;&nbsp;&nbsp;<h3>{$value[$y]}<h3/>";
-            }
-        }
     }
+
+    
 
 }
 

@@ -50,8 +50,7 @@ function sendVmartEmail($to, $subject, $messagebody) {
     return $CI->email->send();
 }
 
-function do_image_upload($upload_path)
-{   
+function do_image_upload($upload_path) {
     $filenames = array();
     //$file_name = md5(getUserID().get_date_time());
     $CI = & get_instance();
@@ -59,50 +58,82 @@ function do_image_upload($upload_path)
     $config['upload_path'] = $upload_path;
     $config['allowed_types'] = 'gif|jpg|png';
     $config['max_size'] = '100';
-    $config['max_width']  = '1024';
-    $config['max_height']  = '768';
+    $config['max_width'] = '1024';
+    $config['max_height'] = '768';
 
     //$this->upload->initialize($config);
     $image_count = 0;
-    foreach($_FILES as $field => $file)
-    {
+    foreach ($_FILES as $field => $file) {
+
         ++$image_count;
-        $filename = md5(getUserID().get_date_time().$image_count);
+        $filename = md5(getUserID() . get_date_time() . $image_count);
         $config['file_name'] = $filename;
         $CI->upload->initialize($config);
         // No problems with the file
-        if($file['error'] == 0)
-        {
+        if ($file['error'] == 0) {
             // So lets upload
-            if ($CI->upload->do_upload($field))
-            {
+            if ($CI->upload->do_upload($field)) {
                 $data = $CI->upload->data();
                 array_push($filenames, $data['file_name']);
-            }
-            else
-            {
+            } else {
                 $errors = $CI->upload->display_errors();
-                print_r($errors);
             }
-        }
-        else
-        {
+        } else {
             echo 'There are some erros</br>';
         }
     }
-    
+
     return $filenames;
 }
 
-function get_assets_path()
-{
+// how to use
+//$arraar["a"] = $_FILES["a"];
+//$arraar["b"] = $_FILES["b"];
+//do_image_uploadByFileName($path . "/abc", $arraar);
+
+function do_image_uploadByFileName($upload_path, $imageArray) {
+    $filenames = array();
+    //$file_name = md5(getUserID().get_date_time());
+    $CI = & get_instance();
+    $CI->load->library('upload');
+    $config['upload_path'] = $upload_path;
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['max_size'] = '100';
+    $config['max_width'] = '1024';
+    $config['max_height'] = '768';
+
+    //$this->upload->initialize($config);
+    $image_count = 0;
+    print_r($imageArray);
+    foreach ($imageArray as $field => $file) {
+
+        ++$image_count;
+        $filename = md5(getUserID() . get_date_time() . $image_count);
+        $config['file_name'] = $filename;
+        $CI->upload->initialize($config);
+        // No problems with the file
+        if ($file['error'] == 0) {
+            // So lets upload
+            if ($CI->upload->do_upload($field)) {
+                $data = $CI->upload->data();
+                array_push($filenames, $data['file_name']);
+            } else {
+                $errors = $CI->upload->display_errors();
+            }
+        } else {
+            echo 'There are some erros</br>';
+        }
+    }
+    return $filenames;
+}
+
+function get_assets_path() {
     $CI = & get_instance();
     $path = $CI->config->item('userdatafolderpath');
-    
-    $full_path = base_url().substr($path, 2)."/";
-    
+
+    $full_path = base_url() . substr($path, 2) . "/";
+
     return $full_path;
-    
 }
 
 ?>
