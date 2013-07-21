@@ -2,9 +2,19 @@
 
 class Vmart extends CI_Controller {
 
+    private $data = array();
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Land_model');
+    } 
+    
     public function index() {
-        
-        $this->load->view('landingpage');
+        $this->data['top_items'] = $this->Land_model->get_top_items();
+//        print_r($this->data['top_items']);
+//        die();
+        $this->load->view('landingpage',$this->data);
     }
 
 }
