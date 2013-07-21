@@ -33,6 +33,6 @@
                 <a href="http://bootstrapshoppingcart.com/preview/bootstrapshop/product_details.html#"><img width="60" height="60" src="images/fixed_images/youtube.png" title="youtube" alt="youtube"></a>
             </div> 
         </div>
-        <div class="span8" style="padding-left:700px;">VMART Shopping Cart Design © 2013 By Aquavision <a href="#" title="Buy the best Shopping Cart Template made with Bootstrap">Aquavision.com</a></div>
+        <div class="span8" >VMART Shopping Cart Design © 2013 By Aquavision <a href="#" title="Buy the best Shopping Cart Template made with Bootstrap">Aquavision.com</a></div>
     </div><!-- Container End -->
 </div>

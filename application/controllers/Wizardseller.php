@@ -10,12 +10,11 @@ class Wizardseller extends CI_Controller {
     }
 
     function index() {
-
         $select_data['vmart_categories'] = $this->Add_item_model->get_vmart_categories();
         $this->load->view('public_profile_seller', $select_data);
     }
 
-    function VerifySellerInWizard() {
+    function stepOneInWizard() {
         $this->form_validation->set_rules('verificationcode', 'Verification code', 'callback_veficationchecker');
         $this->form_validation->set_rules("identity", "Identity check", "callback_selleridCallback");
         if ($this->form_validation->run() == FALSE) {
@@ -24,19 +23,7 @@ class Wizardseller extends CI_Controller {
             $this->settings_model->addGeneralSellerSettings();
             redirect('settings/generalSellerSet');
         }
-
-
-
-
-
-
-        if (true) {
-            echo 'done';
-        } else {
-            echo 'failed';
-        }
     }
-
 
     function veficationchecker($str) {
         if (strlen(trim($str)) > 0) {
@@ -48,6 +35,42 @@ class Wizardseller extends CI_Controller {
             return false;
         } else {
             return true;
+        }
+    }
+
+    function stepTwoInWizard() {
+        $meuindexes = array();
+        $menuindx = $this->input->post("indexesz");
+        if($menuindx){
+          $meuindexes = $menuindx; 
+        }
+        
+
+        $totalmenu = array();
+        
+        
+        for ($i = 0; $i < count($meuindexes); ++$i) {
+            $menuinx = $meuindexes[$i];
+            $navmenuitem = $this->input->post("hd$menuinx");
+            
+            $menuitem = $this->input->post("hd{$menuinx}it{$menuinx}");
+            $menuitemxArray = array();
+            for ($y = 0; $y < count($menuitem); ++$y) {
+                $trimmedmneu = trim($menuitem[$y]);
+                if ($trimmedmneu != '') {
+                    $menuitemxArray[] = $menuitem[$y];
+                }
+            }
+            $totalmenu[$navmenuitem] = $menuitemxArray;
+        }
+
+        $this->settings_model->createStore($totalmenu);
+
+        foreach ($totalmenu as $key => $value) {
+            echo "<h1>$key</h1><br/>";
+            for ($y = 0; $y < count($value); ++$y) {
+                echo "&nbsp;&nbsp;&nbsp;<h3>{$value[$y]}<h3/>";
+            }
         }
     }
 

@@ -83,7 +83,7 @@
 
 
                                                         <div class="tab-pane" id="tab1">
-                                                            <form action ="<?php site_url("Wizardseller/VerifySellerInWizard") ?>" method="post" id="sellerverificationdata">
+                                                            <form action ="<?php  echo site_url("Wizardseller/VerifySellerInWizard") ?>" method="post" id="sellerverificationdata">
                                                             <div class="tab-pane" id="seller">
                                                                 <h5 class="text-info">Seller Basic</h5>
                                                                 <hr/> 
@@ -200,7 +200,7 @@
 
                                                         <div class="tab-pane active" id="tab2">
                                                             <div class="profile-form">
-                                                                <form accept-charset="UTF-8" action="#" class="edit_user" enctype="multipart/form-data" id="edit_user_1421605" method="post">
+                                                                <form accept-charset="UTF-8" action="<?php  echo site_url("Wizardseller/stepTwoInWizard") ?>" class="edit_user" enctype="multipart/form-data" id="edit_user_1421605" method="post">
                                                                     <br/>
                                                                     <h4 class="text-info">Your "Store"</h4>
                                                                     <hr/>
@@ -221,20 +221,28 @@
                                                                         </div>
                                                                     </div>
                                                                     <br/>
-                                                                    <h6>Add or Remove your Item Categories</h6>
-                                                                    <div class="input-append">
-                                                                        <input class="span2" id="appendedInputButtoncategory" type="text" style="width:200px;" placeholder="Item Category">
-                                                                        <button class="btn" type="button" id="addNavhead"><i class="icon-plus"></i></button> 
-                                                                        <button class="btn" type="button" id="removeNavhead"><i class="icon-minus"></i></button> 
-                                                                    </div>
-                                                                    <br/>
-                                                                    <div class="row" style="margin-left:0px;">
-                                                                        <div style="width:274px;" id="naveditparent">
-                                                                            <ul  id="sidenav01set" class="accordion nav nav-department  nav-tabs nav-stacked ulstyle">
-                                                                            </ul>
+
+                                                                    <div class="row">
+                                                                        <div class="span6" style="padding-left:30px;">
+                                                                            <h6>Add or Remove your Item Categories</h6>
+                                                                            <div class="input-append">
+                                                                                <input class="span2" id="appendedInputButtoncategory" type="text" style="width:200px;" placeholder="Item Category">
+                                                                                <button class="btn" type="button" id="addNavhead"><i class="icon-plus"></i></button> 
+                                                                                <button class="btn" type="button" id="removeNavhead"><i class="icon-minus"></i></button> 
+                                                                            </div>
+                                                                            <br/>
+                                                                            <div class="row" style="margin-left:0px; margin-top:20px;">
+                                                                                <div style="width:274px;" id="naveditparent">
+                                                                                    <ul  id="sidenav01set" class="accordion nav nav-department  nav-tabs nav-stacked ulstyle">
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="span4" style="padding-left:20px;">
+                                                                            <h6>Company Logo</h6>
+                                                                            <input style="display:table-cell" type="file" title="Your Logo" name="companylogo" class="modernfile" >
                                                                         </div>
                                                                     </div>
-
                                                                     <h4 class="text-info" style="margin-top:60px">Your "Contact Us" Page</h4>
                                                                     <hr/>
                                                                     <div class="row" style="margin-left:0px; margin-bottom: 30px; margin-top: 50px ">
@@ -242,7 +250,7 @@
                                                                             <div class="control-group">
                                                                                 <label class="control-label" type="text" for="inputIcon1">Recive messages to</label>
                                                                                 <div class="controls">
-                                                                                    <input  id="inputIcon1" placeholder="randika@gmail.com" type="text"  />
+                                                                                    <input  id="inputIcon1" placeholder="randika@gmail.com" type="text" name="recivetoemail"  />
                                                                                 </div>
                                                                             </div>
                                                                             <div class="control-group" >
@@ -303,14 +311,14 @@
                                                                     <div class="control-group" style="margin-top:5px;">
                                                                         <label class="control-label" for="location"></label>
                                                                         <div class="controls">
-                                                                            <textarea rows="3"  id="location" class="span8"></textarea>
+                                                                            <textarea rows="3"  id="location" name="locationyour" class="span8"></textarea>
                                                                         </div>
                                                                     </div>
                                                                     More on "Contact Us"  
                                                                     <div class="control-group" style="margin-top:5px;">
                                                                         <label class="control-label" for="morecontact"></label>
                                                                         <div class="controls">
-                                                                            <textarea rows="3"  id="morecontact" class="span8"></textarea>
+                                                                            <textarea rows="3"  id="morecontact" name="contactus" class="span8"></textarea>
                                                                         </div>
                                                                     </div>
 
@@ -378,7 +386,7 @@
                                                                         We recommend you to create your about us page in Word and then paste the content here :)
                                                                     </div>
 
-
+                                                                        <input type="submit" class="btn" />
                                                                 </form>
                                                             </div>
                                                         </div>

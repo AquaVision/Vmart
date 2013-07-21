@@ -7,21 +7,23 @@ $(function(){
         var text1	= $("#appendedInputButtoncategory").val();
         if(text1){
             var hds = $('.hds').length+1;
-            var itemhead = "<li  class='accordion-group hds' id='hd"+hds+"' >"+
-            "<a  data-toggle='collapse' data-target='#subnavhd"+hds+"' data-parent='#sidenav01set' class='accordion-toggle collapsed'>"+
-            "<i class='icon-chevron-right pull-right'></i><span id='sphd"+hds+"'>"+text1+"</span>"+
-            "<input type='hidden' name='hd"+hds+"' value='' />"+
-            "</a>"+
-            "<ul id='subnavhd"+hds+"' class='nav nav-list collapse accordian-child' >"+
-            "<li id='hd"+hds+"it1'>"+
-            "<a>"+
-            "<div class='input-append' style='margin-top:5px;'>"+
-            "<input class='span2' name='hd"+hds+"it1' type='text' style='width:200px;' placeholder='Item Category'>"+
-            "<button class='btn additem' type='button' data-hdcount = "+hds+" data-ulid='subnavhd"+hds+"'><i class='icon-plus'></i></button> "+
-            "</div> "+
-            "</a>"+
-            "</li>"+
-            "</ul>"+
+            var itemhead = 
+             "<li  class='accordion-group hds' id='hd"+hds+"' >"+
+                    "<a  data-toggle='collapse' data-target='#subnavhd"+hds+"' data-parent='#sidenav01set' class='accordion-toggle collapsed'>"+
+                        "<i class='icon-chevron-right pull-right'></i><span id='sphd"+hds+"'>"+text1+"</span>"+
+                        "<input type='hidden' name='hd"+hds+"' value='"+text1+"' />"+
+                        "<input type='hidden' name='indexesz[]'  value='"+hds+"' />"+
+                    "</a>"+
+                "<ul id='subnavhd"+hds+"' class='nav nav-list collapse accordian-child' >"+
+                    "<li id='hd"+hds+"it1'>"+
+                        "<a>"+
+                            "<div class='input-append' style='margin-top:5px;'>"+
+                                "<input class='span2' name='hd"+hds+"it"+hds+"[]' type='text' style='width:200px;' placeholder='Item Category'>"+
+                                "<button class='btn additem' type='button' data-hdcount = "+hds+" data-ulid='subnavhd"+hds+"'><i class='icon-plus'></i></button> "+
+                            "</div> "+
+                        "</a>"+
+                    "</li>"+
+                "</ul>"+
             "</li>";
 			
 
@@ -52,7 +54,7 @@ $(function(){
         var item = "<li id='hd"+hds+"it"+itc+"'>"+
         "<a>"+
         "<div class='input-append' style='margin-top:5px;'>"+
-        "<input class='span2' name='hd"+hds+"it"+itc+"' type='text' style='width:200px;' placeholder='Item Category'>"+
+        "<input class='span2' name='hd"+hds+"it"+hds+"[]' type='text' style='width:200px;' placeholder='Item Category'>"+
         "<button class='btn additem' type='button' data-hdcount = "+hds+" data-ulid='subnavhd"+hds+"'><i class='icon-plus'></i></button> "+
         "</div> "+
         "</a>"+
@@ -63,7 +65,7 @@ $(function(){
     $("#addphonenuber").click(function(){
         var phonenuber = $("#appendedInputButtophone").val();
         if(phonenuber){
-            var phone = "<li style='height:30px;'><i class='icon-phone'></i> "+phonenuber+" <button class='btn btn-small removephone' style='float:right' type='button'>X</button><input type='hidden' name='phonenubers' value='"+phonenuber+"'/></li>"
+            var phone = "<li style='height:30px;'><i class='icon-phone'></i> "+phonenuber+" <button class='btn btn-small removephone' style='float:right' type='button'>X</button><input type='hidden' name='phonenubers[]' value='"+phonenuber+"'/></li>"
             $("#phonenubersul").append(phone);
         }
     });
@@ -97,7 +99,7 @@ $(function(){
             var elementx = "<li style='margin-top: 10px;' data-what='"+selectedop+"'>"
             +"<div class='row'>"
             +"<div class='span2' style='width:39px;'><img src='images/fixed_images/socialmediaicons/Icons/32/"+selected+"' /></div>"
-            +"<div class='span7'> <input type='text'  style='width: 170px;' name ='stitle[]' /></div>"
+            +"<div class='span7'><input type='hidden' name='socialmediaicon[]' value='"+selected+"'> <input type='text'  style='width: 170px;' name ='stitle[]' /></div>"
             +"<div class='span2' style='margin-left: 0px;'><a class='btn removephone'>X</a></div>"
             +"</div>"   
             +"</li>";
