@@ -8,7 +8,54 @@
         <link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link href="css/MainStyleForAllpages.css" rel="stylesheet">
+        
         <style type="text/css">
+
+        .show-cart-table thead
+        {
+            background-color: black;
+            color: white;
+
+        }
+
+        .show-cart-table thead th
+        {
+            text-align: center;  
+        }
+
+        .show-cart-table tfoot td
+        {
+            text-align: center;  
+        }
+
+
+        .show-cart-table tbody tr
+        {
+            height: 100px;
+        }
+
+        .show-cart-table tbody td
+        {
+            height: 50px;
+            padding: 37px 20px 0px 20px; 
+            text-align: center;
+        }
+
+        .show-cart-table tbody td img
+        {
+            height: 60px;
+        }
+
+        .show-cart-table tbody td img.rm-cart-i
+        {
+            height: 100%;
+        }        
+
+        .show-cart-table tbody td.sc-td-image
+        {
+            padding: 18px 0px 0px 17px;
+        }
+
 
         </style>
 
@@ -25,94 +72,94 @@
                     <div class="row-fluid">
                         <div class="span12">
 
-                            <?php $this->load->view('includes/settings_rightbar.php'); ?>
+                            <!--<?php $this->load->view('includes/settings_rightbar.php'); ?>-->
 
-                            <section class="db-content">
+                            <section class="db-content" style="margin-right: 0;">
                                 <div class="db-content-inner">
                                     <header class="db-header cf">
+
                                         <h3>
-                                            Public Profile Settings
+                                            <img src="http://localhost/Vmart/assets/images/fixed_images/shopping_cart.png">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            Shopping Cart
                                         </h3>
                                     </header>
                                     <div class="profile-form">
 
                                         <div class="db-summary db-order-stats"><a href="#/new">0<small>Items</small></a><a href="#/active">0<small>Total Price</small></a><a href="#/delivered">0<small>Status</small></a></div>
 
-                                        <table class="table table-striped table-hover table-bordered table-condensed" id="sales_data_tbl" >
+                                        <!--Show cart details in a table-->
+
+                                        <table class="table table-hover show-cart-table ">
+
+                                            <!--
+                                            <colgroup>
+                                                <col width="17%">
+                                                <col width="30%">
+                                                <col width="13%">
+                                                <col width="19%">
+                                                <col width="19%">
+                                                <col width="8%">
+                                            </colgroup>
+                                            -->
+
                                             <thead>
-                                            
-                                            <th>Item Name</th>
-                                            <th>Description</th>
-                                            <th>Price</th>
-                                            <th>Qty</th>
-                                            <th>Total</th>
+                                                <th>Item</th>
+                                                <th></th>
+                                                <th>Unit Price</th>
+                                                <th>Quantiy</th>
+                                                <th>Sub Total</th>
+                                                <th></th>
                                             </thead>
+
                                             <tbody>
                                                 <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Lakmal55
-                                                        </div>
-                                                    </td>
-                                                    <td>Necklace</td>
-                                                    <td>2</td>
-                                                    <td>2500</td>
-                                                    <td>05<sup>th</sup>July 2013</td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Imaa95
-                                                        </div>
-                                                    </td>
-                                                    <td>Dongle</td>
-                                                    <td>1</td>
-                                                    <td>3500</td>
-                                                    <td>02<sup>th</sup>June 2013</td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Vat69
-                                                        </div>
-                                                    </td>
-                                                    <td>Cocunet</td>
-                                                    <td>2</td>
-                                                    <td>1500</td>
-                                                    <td>20<sup>th</sup>August 2013</td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Anu89
-                                                        </div>
-                                                    </td>
-                                                    <td>Bangle</td>
-                                                    <td>4</td>
-                                                    <td>5500</td>
-                                                    <td>15<sup>th</sup>Sep 2013</td>
-                                                    
+                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>
+                                                    <td><h5>Stone Necklace</h5></td>
+                                                    <td><h5>1500</h5</td>
+                                                    <td><h5>10</h5</td>
+                                                    <td><h5>15000</h5</td>
+                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
                                                 </tr>
 
+                                                <tr>
+                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/13.png" ></td>
+                                                    <td><h5>Stone Necklace</h5></td>
+                                                    <td><h5>1500</h5</td>
+                                                    <td><h5>10</h5</td>
+                                                    <td><h5>15000</h5</td>
+                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/15.png" ></td>
+                                                    <td><h5>Stone Necklace</h5></td>
+                                                    <td><h5>1500</h5</td>
+                                                    <td><h5>10</h5</td>
+                                                    <td><h5>15000</h5</td>
+                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
+                                                </tr>
                                             </tbody>
+
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="1" ><h3>Grand Total</h3></td>
+                                                    <td colspan="1" ><h3 style="color:red;">Rs 45000</h3></td>
+                                                </tr>
+
+                                                 <tr>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
+                                                    <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
+                                                </tr>
+
+                                            </tfoot>
+
+
                                         </table>
 
-
-
-
-                                        <!--<a class="btn btn-info" href="#register" role="button" data-toggle="modal">View Order Details</a>-->
-
+                                        <!--EndShow cart details in a table-->
 
 
                                         <div class="pagination" style="text-align:center">
