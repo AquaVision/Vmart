@@ -24,7 +24,7 @@ class Web_cart extends CI_Controller{
 
     function show(){
         
-        $cart = $this->cart->contents();
+        $cart[] = $this->cart->contents();
         $this->load->view('show_cart');
         
         
