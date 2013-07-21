@@ -200,7 +200,7 @@
 
                                                         <div class="tab-pane active" id="tab2">
                                                             <div class="profile-form">
-                                                                <form accept-charset="UTF-8" action="<?php  echo site_url("Wizardseller/stepTwoInWizard") ?>" class="edit_user" enctype="multipart/form-data" id="edit_user_1421605" method="post">
+                                                                <form accept-charset="UTF-8"  onSubmit ="return addaboutus()" action="<?php  echo site_url("Wizardseller/stepTwoInWizard") ?>" class="edit_user" enctype="multipart/form-data" id="edit_user_1421605" method="post">
                                                                     <br/>
                                                                     <h4 class="text-info">Your "Store"</h4>
                                                                     <hr/>
@@ -385,7 +385,7 @@
                                                                         <br/>
                                                                         We recommend you to create your about us page in Word and then paste the content here :)
                                                                     </div>
-
+                                                                    <input type="hidden" value="" name="editordataxy" id="editordataxy" /> 
                                                                         <input type="submit" class="btn" />
                                                                 </form>
                                                             </div>

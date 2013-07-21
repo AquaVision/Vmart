@@ -133,13 +133,41 @@ class settings_model extends CI_Model {
         $reciveemailsTo = $this->input->post("recivetoemail");
         $showingEmail = $this->input->post("recivetoemail");
 
+
+
+        $totphoneQuerypart = "";
+        $phonenubers = $this->input->post("phonenubers");
+        if ($phonenubers) {
+            $comma = "";
+            foreach ($phonenubers as $value) {
+                $totphoneQuerypart .= "$comma('$usrid', '$value')";
+                $comma = ",";
+            }
+        }
+
+        $totalSocialMediaQuerypart = "";
         $socialmediaURL = $this->input->post("stitle");
         $socialmediaName = $this->input->post("socialmediaicon");
+        if ($socialmediaURL) {
+            $idx = 0;
+            $comma = "";
+            foreach ($socialmediaName as $value) {
+                if ($value != '') {
+                    $socialMedName = $socialmediaURL[$idx];
+                    echo $socialMedName." ".$idx;
+                    $socialMedName = substr($socialMedName, 0, strlen($socialMedName) - 4);
+                    $totalSocialMediaQuerypart .= "$comma( '$usrid', '$socialMedName', '', '$value')";
+                    $comma = ",";
+                }
+                ++$idx;
+            }
+        }
+        
+        
 
-        $phonenubers = $this->input->post("phonenubers");
         $location = $this->input->post("locationyour");
         $contactUs = $this->input->post("contactus");
-        $aboutUs = $this->input->post("editordata");
+        $aboutUs = $this->input->post("editordataxy");
 
 
         foreach ($menuitems as $key => $value) {
@@ -151,7 +179,6 @@ class settings_model extends CI_Model {
 
 
         $exists = $this->db->query("select userid from store where userid = '$usrid'");
-        echo "abc";
         if ($exists->num_rows() > 0) {
             $qinsert = "update store set  
                         email_for_meesage = ?, 
@@ -163,11 +190,8 @@ class settings_model extends CI_Model {
                         companylogo = ?, 
                         status = ?
                         where userid = ? ";
-            
             $this->db->query($qinsert, array($reciveemailsTo, $showingEmail, $location, $aboutUs, $contactUs, '5', 'companylogo', 'ACTIVE', $usrid));
-            
         } else {
-            echo "im here in inset";
             $qinsert = "INSERT INTO store 
                         (userid, 
                         email_for_meesage, 
@@ -183,6 +207,19 @@ class settings_model extends CI_Model {
                         (?,  ?, ?, ?,  ?, ?, ?, ?, ?)";
             $this->db->query($qinsert, array($usrid, $reciveemailsTo, $showingEmail, $location, $aboutUs, $contactUs, '5', 'companylogo', 'ACTIVE'));
         }
+
+        //adding phonnubers 
+        if ($phonenubers) {
+            $this->db->query("DELETE FROM seller_phones  WHERE  userid = '$usrid'");
+            $this->db->query("INSERT INTO seller_phones (userid, phone_number) VALUES $totphoneQuerypart");
+        }
+        //end adding phonenubers
+        //adding socialmedia
+        if($socialmediaURL){
+        $this->db->query("DELETE FROM seller_socialmedia_data WHERE userid = '$usrid' ");
+        $this->db->query("INSERT INTO seller_socialmedia_data (userid, socialmediaImg, socialmediaName, socialmediaURL) VALUES  $totalSocialMediaQuerypart");
+        }
+        //end adding socialmedia
     }
 
     //Wizardseller ----------------------------------------------------------------- 
