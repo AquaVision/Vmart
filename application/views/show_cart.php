@@ -8,53 +8,53 @@
         <link  rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link href="css/MainStyleForAllpages.css" rel="stylesheet">
-        
+
         <style type="text/css">
 
-        .show-cart-table thead
-        {
-            background-color: black;
-            color: white;
+            .show-cart-table thead
+            {
+                background-color: black;
+                color: white;
 
-        }
+            }
 
-        .show-cart-table thead th
-        {
-            text-align: center;  
-        }
+            .show-cart-table thead th
+            {
+                text-align: center;  
+            }
 
-        .show-cart-table tfoot td
-        {
-            text-align: center;  
-        }
+            .show-cart-table tfoot td
+            {
+                text-align: center;  
+            }
 
 
-        .show-cart-table tbody tr
-        {
-            height: 100px;
-        }
+            .show-cart-table tbody tr
+            {
+                height: 100px;
+            }
 
-        .show-cart-table tbody td
-        {
-            height: 50px;
-            padding: 37px 20px 0px 20px; 
-            text-align: center;
-        }
+            .show-cart-table tbody td
+            {
+                height: 50px;
+                padding: 37px 20px 0px 20px; 
+                text-align: center;
+            }
 
-        .show-cart-table tbody td img
-        {
-            height: 60px;
-        }
+            .show-cart-table tbody td img
+            {
+                height: 60px;
+            }
 
-        .show-cart-table tbody td img.rm-cart-i
-        {
-            height: 100%;
-        }        
+            .show-cart-table tbody td img.rm-cart-i
+            {
+                height: 100%;
+            }        
 
-        .show-cart-table tbody td.sc-td-image
-        {
-            padding: 18px 0px 0px 17px;
-        }
+            .show-cart-table tbody td.sc-td-image
+            {
+                padding: 18px 0px 0px 17px;
+            }
 
 
         </style>
@@ -89,20 +89,10 @@
                                         <div class="db-summary db-order-stats"><a href="#/new">0<small>Items</small></a><a href="#/active">0<small>Total Price</small></a><a href="#/delivered">0<small>Status</small></a></div>
 
                                         <!--Show cart details in a table-->
-
-                                        <table class="table table-hover show-cart-table ">
-
-                                            <!--
-                                            <colgroup>
-                                                <col width="17%">
-                                                <col width="30%">
-                                                <col width="13%">
-                                                <col width="19%">
-                                                <col width="19%">
-                                                <col width="8%">
-                                            </colgroup>
-                                            -->
-
+                                        <?php
+                                        echo '<table class="table table-hover show-cart-table "> 
+                                       
+                                          
                                             <thead>
                                                 <th>Item</th>
                                                 <th></th>
@@ -111,53 +101,52 @@
                                                 <th>Sub Total</th>
                                                 <th></th>
                                             </thead>
+                                            
+                                            <tbody> ';
+                                        ?>
+                                        <tr>
+                                            <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>
+                                            <td><h5>Stone Necklace</h5></td>
+                                            <td><h5>1500</h5</td>
+                                            <td><h5>10</h5</td>
+                                            <td><h5>15000</h5</td>
+                                            <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
+                                        </tr>
+                                        <?php
+                                        foreach ($cart_data as $items) {
 
-                                            <tbody>
-                                                <tr>
-                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/12.png" ></td>
-                                                    <td><h5>Stone Necklace</h5></td>
-                                                    <td><h5>1500</h5</td>
-                                                    <td><h5>10</h5</td>
-                                                    <td><h5>15000</h5</td>
-                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/13.png" ></td>
-                                                    <td><h5>Stone Necklace</h5></td>
-                                                    <td><h5>1500</h5</td>
-                                                    <td><h5>10</h5</td>
-                                                    <td><h5>15000</h5</td>
-                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="sc-td-image"><img src="http://localhost/Vmart/assets/images/fixed_images/15.png" ></td>
-                                                    <td><h5>Stone Necklace</h5></td>
-                                                    <td><h5>1500</h5</td>
-                                                    <td><h5>10</h5</td>
-                                                    <td><h5>15000</h5</td>
-                                                    <td ><h5><a href=""><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>
-                                                </tr>
-                                            </tbody>
-
+                                            echo '<tr>';
+                                           
+                                           
+                                                echo '<td class="sc-td-image"><img src="'.get_assets_path(). $items['item_image'] .'" ></td>';
+                                                echo '<td><h5>' . $items['name'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['price'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['qty'] . '</h5></td>';
+                                                echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
+                                                echo '<td ><h5><a href="" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                            
+                                            
+                                            echo '</tr>';
+                                        }
+                                        echo '</tbody>
                                             <tfoot>
-                                                <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="1" ><h3>Grand Total</h3></td>
-                                                    <td colspan="1" ><h3 style="color:red;">Rs 45000</h3></td>
-                                                </tr>
+                                            <tr>
+                                                <td colspan="3"></td>
+                                                <td colspan="1" ><h3>Grand Total</h3></td>
+                                                <td colspan="1" ><h3 style="color:red;">Rs 45000</h3></td>
+                                            </tr>
 
-                                                 <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
-                                                    <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
-                                                </tr>
+                                            <tr>
+                                                <td colspan="3"></td>
+                                                <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
+                                                <td colspan="1" ><img src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
+                                            </tr>
 
-                                            </tfoot>
+                                        </tfoot>
+                                                </table>';
+                                        ?>                                
 
 
-                                        </table>
 
                                         <!--EndShow cart details in a table-->
 

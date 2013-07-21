@@ -44,7 +44,7 @@
 
                                             <p>
                                                 <a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> 
-                                                <a class="btn addto" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
+                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
                                                 <span class="label label-info price"><?php echo $item->price ;?></span>
                                             </p>
 
