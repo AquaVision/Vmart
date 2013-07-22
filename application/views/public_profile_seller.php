@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         <meta charset="utf-8">
         <title></title>      
         <base href="<?= base_url() . "assets/"; ?>">
         <link href="css/settings_page.css" media="all" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
-
         <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
         <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
         <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
         <link href="css/MainStyleForAllpages.css" rel="stylesheet">
         <link href="js/richTexteditor/wysiwyng.css" rel="stylesheet">
+        <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/style.css">
+        <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/jquery.fileupload-ui.css">
         <link href="bootstrap/MetronicExtracted/css/style.css" rel="stylesheet">
-
     </head>
 
     <body class="body-db" data-twttr-rendered="true">
@@ -23,7 +22,7 @@
             <?php $this->load->view('includes/navbar'); ?>
         </div>
 
-        <div id="main-wrapper" style="padding-top: 47px;">
+        <div id="main-wrapper" >
             <div class="main-content">
                 <div class="db-container container-fluid">
                     <div class="row-fluid">
@@ -56,7 +55,7 @@
                                                                         <span class="desc" ><i class="icon-ok"></i> SetUp Store</span>   
                                                                     </a>
                                                                 </li>
-                                                                
+
                                                                 <li class="span4">
                                                                     <a href="#tab4" data-toggle="tab" class="step">
                                                                         <span class="number">3</span>
@@ -78,116 +77,116 @@
 
 
                                                         <div class="tab-pane" id="tab1">
-                                                            <form action ="<?php  echo site_url("Wizardseller/VerifySellerInWizard") ?>" method="post" id="sellerverificationdata">
-                                                            <div class="tab-pane" id="seller">
-                                                                <h5 class="text-info">Seller Basic</h5>
-                                                                <hr/> 
+                                                            <form action ="<?php echo site_url("Wizardseller/VerifySellerInWizard") ?>" method="post" id="sellerverificationdata">
+                                                                <div class="tab-pane" id="seller">
+                                                                    <h5 class="text-info">Seller Basic</h5>
+                                                                    <hr/> 
 
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="sellerphonenuber">Mobile</label>
-                                                                    <div class="controls">
-                                                                        <div class="input-append">
-                                                                            <input class="span7 myhoverpopoever" id="sellerphonenuber"  type="text" name="mobileseller"  value =""  rel="popover"  data-content="your nuber should start with +94 ex:- +94XXX XXX XXX"  data-original-title="" />
-                                                                            <button class="btn" id="sendverification" type="button">Send Code</button>
-                                                                        </div>  
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="sellerphonenuber">Mobile</label>
+                                                                        <div class="controls">
+                                                                            <div class="input-append">
+                                                                                <input class="span7 myhoverpopoever" id="sellerphonenuber"  type="text" name="mobileseller"  value =""  rel="popover"  data-content="your nuber should start with +94 ex:- +94XXX XXX XXX"  data-original-title="" />
+                                                                                <button class="btn" id="sendverification" type="button">Send Code</button>
+                                                                            </div>  
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="mobivery">Mobile Verification code</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" id="mobivery" name="verificationcode"  class="span2"/>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="yourid">Your identity (seller id)</label>
+                                                                        <div class="controls" > 
+                                                                            <input type="text" name="identity" value="" class="myhoverpopoever" id="yourid" rel="popover"  data-content="This word along with url will be your shop url" data-original-title="Your Identity" />
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="baseurl"></label>
+                                                                        <div class="controls">
+                                                                            <input type="hidden" id="baseurl" value ="<?php echo base_url() ?>" />
+                                                                            <div class="span6" style="margin-left:0px"><input type="text" name="fullurl" id="fullurlll" value="" class="span12" disabled/></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br/>
+                                                                    <h5 class="text-info">Seller Bank Account</h5>
+                                                                    <hr/>
+
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="accontholdnam">Account holder name</label>
+                                                                        <div class="controls" >
+                                                                            <input type="text" style="margin-right:10px;" name="accountholdername" class="span6" id="accontholdnam" value=""  />
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="bankselector">Bank name</label>
+                                                                        <div class="controls" >
+                                                                            <select name="banknamex" id="bankselector">
+                                                                                <option value="7010"  >Bank of Ceylon</option>
+                                                                                <option value="7038" >Standard Chartered Bank</option>
+                                                                                <option value="7047" >Citi Bank</option>
+                                                                                <option value="7056" >Commercial Bank PLC</option>
+                                                                                <option value="7074" >Habib Bank Ltd</option>
+                                                                                <option value="7083" >Hatton National Bank PLC</option>
+                                                                                <option value="7092" >Hongkong Shanghai Bank</option>
+                                                                                <option value="7108" >Indian Bank</option>
+                                                                                <option value="7117" >Indian Overseas Bank</option>
+                                                                                <option value="7135" >Peoples Bank</option>
+                                                                                <option value="7144" >State Bank of India</option>
+                                                                                <option value="7162" >Nations Trust Bank PLC</option>
+                                                                                <option value="7205" >Deutsche Bank</option>
+                                                                                <option value="7214" >National Development Bank PLC</option>
+                                                                                <option value="7269" >MCB Bank Ltd</option>
+                                                                                <option value="7278" >Sampath Bank PLC</option>
+                                                                                <option value="7287" >Seylan Bank PLC</option>
+                                                                                <option value="7296" >Public Bank</option>
+                                                                                <option value="7302" >Union Bank of Colombo PLC</option>
+                                                                                <option value="7311" >Pan Asia Banking Corporation PLC</option>
+                                                                                <option value="7384" >ICICI Bank Ltd</option>
+                                                                                <option value="7454" >DFCC Vardhana Bank Ltd</option>
+                                                                                <option value="7463" >Amana Bank Limited</option>
+                                                                                <option value="7719" >National Savings Bank</option>
+                                                                                <option value="7728" >Sanasa Development Bank</option>
+                                                                                <option value="7737" >HDFC Bank</option>
+                                                                            </select>
+                                                                            <input type ="hidden"  name="bankname123" id ="bankname" />
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="banknamecode">Bank code</label>
+                                                                        <div class="controls" >
+                                                                            <input type="text" name="bankcode" style="margin-right:10px" id="banknamecode" class="span4" value =""/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--
+                                                                    <div class="controls controls-row">
+                                                                                <div class="span4"><h6>SWIFT code</h6></div>
+                                                                                <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span6" /></div>
+                                                                    </div>
+                                                                    -->
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="banknamesxcode">Branch code</label>
+                                                                        <div class="controls" >
+                                                                            <input type="text" name="branchcode" style="margin-right:10px" id="banknamesxcode" class="span3" value="" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="acounternumber">Account number</label>
+                                                                        <div class="controls" >
+                                                                            <input type="text" id="acounternumber" name="accountnuber" style="margin-right:10px" value ="" class="span6" />
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="mobivery">Mobile Verification code</label>
-                                                                    <div class="controls">
-                                                                        <input type="text" id="mobivery" name="verificationcode"  class="span2"/>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="yourid">Your identity (seller id)</label>
-                                                                    <div class="controls" > 
-                                                                        <input type="text" name="identity" value="" class="myhoverpopoever" id="yourid" rel="popover"  data-content="This word along with url will be your shop url" data-original-title="Your Identity" />
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="baseurl"></label>
-                                                                    <div class="controls">
-                                                                        <input type="hidden" id="baseurl" value ="<?php echo base_url() ?>" />
-                                                                        <div class="span6" style="margin-left:0px"><input type="text" name="fullurl" id="fullurlll" value="" class="span12" disabled/></div>
-                                                                    </div>
-                                                                </div>
-                                                                <br/>
-                                                                <h5 class="text-info">Seller Bank Account</h5>
-                                                                <hr/>
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="accontholdnam">Account holder name</label>
-                                                                    <div class="controls" >
-                                                                        <input type="text" style="margin-right:10px;" name="accountholdername" class="span6" id="accontholdnam" value=""  />
-                                                                    </div>
-                                                                </div>
-
-
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="bankselector">Bank name</label>
-                                                                    <div class="controls" >
-                                                                        <select name="banknamex" id="bankselector">
-                                                                            <option value="7010"  >Bank of Ceylon</option>
-                                                                            <option value="7038" >Standard Chartered Bank</option>
-                                                                            <option value="7047" >Citi Bank</option>
-                                                                            <option value="7056" >Commercial Bank PLC</option>
-                                                                            <option value="7074" >Habib Bank Ltd</option>
-                                                                            <option value="7083" >Hatton National Bank PLC</option>
-                                                                            <option value="7092" >Hongkong Shanghai Bank</option>
-                                                                            <option value="7108" >Indian Bank</option>
-                                                                            <option value="7117" >Indian Overseas Bank</option>
-                                                                            <option value="7135" >Peoples Bank</option>
-                                                                            <option value="7144" >State Bank of India</option>
-                                                                            <option value="7162" >Nations Trust Bank PLC</option>
-                                                                            <option value="7205" >Deutsche Bank</option>
-                                                                            <option value="7214" >National Development Bank PLC</option>
-                                                                            <option value="7269" >MCB Bank Ltd</option>
-                                                                            <option value="7278" >Sampath Bank PLC</option>
-                                                                            <option value="7287" >Seylan Bank PLC</option>
-                                                                            <option value="7296" >Public Bank</option>
-                                                                            <option value="7302" >Union Bank of Colombo PLC</option>
-                                                                            <option value="7311" >Pan Asia Banking Corporation PLC</option>
-                                                                            <option value="7384" >ICICI Bank Ltd</option>
-                                                                            <option value="7454" >DFCC Vardhana Bank Ltd</option>
-                                                                            <option value="7463" >Amana Bank Limited</option>
-                                                                            <option value="7719" >National Savings Bank</option>
-                                                                            <option value="7728" >Sanasa Development Bank</option>
-                                                                            <option value="7737" >HDFC Bank</option>
-                                                                        </select>
-                                                                        <input type ="hidden"  name="bankname123" id ="bankname" />
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="banknamecode">Bank code</label>
-                                                                    <div class="controls" >
-                                                                        <input type="text" name="bankcode" style="margin-right:10px" id="banknamecode" class="span4" value =""/>
-                                                                    </div>
-                                                                </div>
-                                                                <!--
-                                                                <div class="controls controls-row">
-                                                                            <div class="span4"><h6>SWIFT code</h6></div>
-                                                                            <div class="span5" style="margin-left:0px"><input type="text" name="fullname" class="span6" /></div>
-                                                                </div>
-                                                                -->
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="banknamesxcode">Branch code</label>
-                                                                    <div class="controls" >
-                                                                        <input type="text" name="branchcode" style="margin-right:10px" id="banknamesxcode" class="span3" value="" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="acounternumber">Account number</label>
-                                                                    <div class="controls" >
-                                                                        <input type="text" id="acounternumber" name="accountnuber" style="margin-right:10px" value ="" class="span6" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                             </form>
                                                         </div>    
 
@@ -195,26 +194,57 @@
 
                                                         <div class="tab-pane active" id="tab2">
                                                             <div class="profile-form">
-                                                                <form accept-charset="UTF-8"  onSubmit ="return addaboutus()" action="<?php  echo site_url("Wizardseller/stepTwoInWizard") ?>" class="edit_user" enctype="multipart/form-data" id="edit_user_1421605" method="post">
+                                                                <form accept-charset="UTF-8"  onSubmit ="return addaboutus()" action="<?php echo site_url("Wizardseller/stepTwoInWizard") ?>" class="edit_user" enctype="multipart/form-data" id="createstore" method="post">
                                                                     <br/>
                                                                     <h4 class="text-info">Your "Store"</h4>
                                                                     <hr/>
-                                                                    <a href="#" class="thumbnail">
+                                                                    <a href="#" class="thumbnail" id="diasplaythubnail">
                                                                         <img src="images/fixed_images/backgrounds/thumbnailFront.png" style="width:100%; height:300px;">
                                                                     </a>
-                                                                    <div class="row" style="margin-top:5px; margin-left:5px;">
-                                                                        <div class="span4"><h6>Upload your cover images : </h6></div>
+
+                                                                    <div>
+                                                                        <div id="displaycarasol" class="carousel slide" style="display:none">
+                                                                            <ol class="carousel-indicators">   
+                                                                            </ol>
+                                                                            <!-- Carousel items -->
+                                                                            <div class="carousel-inner">
+
+                                                                            </div>
+                                                                            <!-- Carousel nav -->
+                                                                            <a class="carousel-control left" href="#displaycarasol" data-slide="prev">&lsaquo;</a>
+                                                                            <a class="carousel-control right" href="#displaycarasol" data-slide="next">&rsaquo;</a>
+                                                                        </div>
+                                                                    </div>  
+
+                                                                    <div class="row" style="margin-top:5px; margin-left:5px; margin-bottom:20px;">
+                                                                        <div class="span4"><h6>Upload your cover images : </h6>
+                                                                            <span class="muted">Select your cover Photos (Maximum 10)</span>
+                                                                        </div> 
                                                                     </div>
                                                                     <div class="row" >
-                                                                        <div class="span12" style="margin-top:20px; pagination-centered">
-                                                                            <div class="span1" style="width:55px;"></div>
-                                                                            <div class="span2"></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 1" name="cover1" class="modernfile" ></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 2" name="cover2" class="modernfile" ></div>
-                                                                            <div class="span2"><input style="display:table-cell" type="file" title="Cover Photo 3" name="cover3"  class="modernfile" ></div>
-                                                                            <div class="span2"></div>
+                                                                        <div class="span12" style="padding-left:30px;">
+                                                                            <!-- The fileinput-button span is used to style the file input field as button -->
+                                                                            <span class="btn btn-success fileinput-button">
+                                                                                <i class="icon-plus icon-white"></i>
+                                                                                <span>Select files...</span>
+                                                                                <!-- The file input field used as target for the file upload widget -->
+                                                                                <input id="fileupload" type="file" name="files[]" multiple>
+                                                                            </span>
+                                                                            <br>
+                                                                            <br>
+                                                                            <!-- The global progress bar -->
+                                                                            <div id="progress" class="progress progress-success progress-striped">
+                                                                                <div class="bar"></div>
+                                                                            </div>
+                                                                            <!-- The container for the uploaded files -->
+                                                                            <div id="files" class="files"></div>
+                                                                            <div class="row" style="margin-left:0px;">
+                                                                                <a  id="removeimages" style="display:none" class="btn btn-link">Remove All</a>
+                                                                            </div>
+
                                                                         </div>
                                                                     </div>
+                                                                    <hr/>
                                                                     <br/>
 
                                                                     <div class="row">
@@ -234,8 +264,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="span4" style="padding-left:20px;">
-                                                                            <h6>Company Logo</h6>
-                                                                            <input style="display:table-cell" type="file" title="Your Logo" name="companylogo" class="modernfile" >
+                                                                            <!--     <h6>Company Logo</h6> -->
+                                                                           <!--      <input style="display:table-cell" type="file" title="Your Logo" name="companylogo" class="modernfile" > -->
                                                                         </div>
                                                                     </div>
                                                                     <h4 class="text-info" style="margin-top:60px">Your "Contact Us" Page</h4>
@@ -277,14 +307,12 @@
                                                                                         <option value="blogger.png">Blogger</option>
                                                                                         <option value="facebook.png">Facebook</option>
                                                                                         <option value="flickr.png">Flickr</option>
-                                                                                        <option value="forrst.png">Forrst</option>
                                                                                         <option value="googleplus.png">Google Plus</option>
                                                                                         <option value="linkedin.png">Linkedin</option>
                                                                                         <option value="picasa.png">Picasa</option>
                                                                                         <option value="rss.png">RSS</option>
                                                                                         <option value="skype.png">Skype</option>
                                                                                         <option value="twitter.png">Twitter</option>
-                                                                                        <option value="vimeo.png" >Vimeo</option>
                                                                                         <option value="youtube.png">Youtube</option>
                                                                                     </select>
                                                                                 </div>
@@ -381,60 +409,63 @@
                                                                         We recommend you to create your about us page in Word and then paste the content here :)
                                                                     </div>
                                                                     <input type="hidden" value="" name="editordataxy" id="editordataxy" /> 
-                                                                        <input type="submit" class="btn" />
+                                                                    <!--  <input type="submit" class="btn" /> -->
                                                                 </form>
                                                             </div>
                                                         </div>
 
-                                                                                                                          
+
                                                         <div class="tab-pane" id="tab4">
                                                             <div class="row" style="margin: 0px;">
                                                                 <h3>You are just a one Click Away to finish!! </h3>
-                                                                <p>Below you find what are the steps you passed, check them and do changes if you want before proceeding. </p>
+                                                                <p>Below you find the steps you passed, check them and do changes if you want before proceeding. </p>
                                                             </div>
-                                                           <div class="row span12" >
-                                                           <div class="span2"></div>
-                                                            <div class="span9">
-                                                            <table width="56%" border="4" cellpadding="5px" cellspacing="10" style="margin-top:50px; margin-bottom:50px;">
-  <tr style="padding-bottom:10px;">
-    <td width="11%" height="49">&nbsp;</td>
-    <td width="36%">Verify Your Self</td>
-    <td width="8%" style="text-align: center">&nbsp;</td>
-    <td width="34%" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
-    <td width="11%" style="text-align: center">&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="11%" height="47">&nbsp;</td>
-    <td width="36%">SetUp Store</td>
-    <td width="8%" style="text-align: center">&nbsp;</td>
-    <td width="34%" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
-    <td width="11%" style="text-align: center">&nbsp;</td>
-  </tr>
-   <tr>
-    <td width="11%" height="47">&nbsp;</td>
-    <td width="36%">Add items</td>
-    <td width="8%" style="text-align: center">&nbsp;</td>
-    <td width="34%" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
-    <td width="11%" style="text-align: center">&nbsp;</td>
-  </tr>
-   <tr>
-    <td width="11%" height="51">&nbsp;</td>
-    <td width="36%">Start Selling</td>
-    <td width="8%" style="text-align: center">&nbsp;</td>
-    <td width="34%" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
-    <td width="11%" style="text-align: center">&nbsp;</td>
-  </tr>
-</table>
-</div>
+                                                            <div class="row span12" >
+                                                                <div class="span2"></div>
+                                                                <div class="span12" style="margin-left:-25px;">
+                                                                    <table width="42%"  id="fixstusut" style="margin-top:50px; margin-bottom:50px; margin-left:auto; margin-right:auto">
+                                                                        <tr style="padding-bottom:10px;">
+                                                                            <td width="31%" height="49">Verify Your Self</td>
+                                                                            <td width="7%" style="text-align: center">&nbsp;</td>
+                                                                            <td width="49%" id="verifyyourslef" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
+                                                                            <td width="13%" style="text-align: center"><img src="images/assets/load.gif" alt="loading" name="verifyyourslef1" width="28" height="28" id="verifyyourslef1" style="display:none"/>
+                                                                            </td>
+                                                                            <td width="15%" style="text-align: center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="31%" height="47">SetUp Store</td>
+                                                                            <td width="7%" style="text-align: center">&nbsp;</td>
+                                                                            <td width="49%" id="setupyourstore" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">Commited</td>
+                                                                            <td width="13%" style="text-align: center">
+                                                                                <img src="images/assets/load.gif" alt="loading" name="setupyourstore" width="28" height="28" id="setupyourstore1"  style="display:none"/>
+                                                                            </td>
+                                                                            <td width="15%" style="text-align: center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="31%" height="51">Complete..</td>
+                                                                            <td width="7%" style="text-align: center">&nbsp;</td>
+                                                                            <td width="49%" id="completeprofile" bgcolor="#f2ae43" style="text-align: center;  color: #fff;">&nbsp;</td>
+                                                                            <td width="13%" style="text-align: center">
+                                                                                <img src="images/assets/load.gif"  alt="loading" name="completeprofile" width="28" height="28" id="completeprofile1" style="display:none"/>
+                                                                            </td>
+                                                                            <td width="15%" style="text-align: center">&nbsp;</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
 
-                                                           </div>
-
-                                                      </div>                                            
+                                                            </div>
+                                                            <div class="row span12" id="finishwizard" style="marin-bottom:30px; opacity : 0" >
+                                                                <div class="span1"><img src="images/fixed_images/success.jpg" style="margin-top:-18px; height:50px; " /></div>
+                                                                <div class="span8" style="margin-left:0px;">
+                                                                    <p style="font-size:20px; "  >Way to go <?php echo getUsername() ?>!!!, You just created your own store now lets  <a class="link" href="<?php echo site_url("my_items") ?> ">fill it up</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                            
                                                     </div>
                                                     <div class="form-actions clearfix" style="margin-top:40px !important; height: 20px;">
                                                         <a href="javascript:;"  class="btn button-previous btn-success"><i class="m-icon-swapleft"></i> Back </a>
                                                         <a href="javascript:;" data-active="page1" id="continuexnextpage" class="btn blue button-next btn-success">Continue <i class="m-icon-swapright m-icon-white"></i></a> 
-                                                        <a href="javascript:;" class="btn green button-submit btn-success">Submit <i class="m-icon-swapright m-icon-white"></i></a>       
+                                                        <a  id="submitaiyox" class="btn green button-submit btn-success">Complete <i class="m-icon-swapright m-icon-white"></i></a>       
                                                     </div>
                                                 </div>
                                                 </form>
@@ -456,6 +487,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="userfold" value="<?php echo getUserFolderName() ?>" />
             </div>
             <footer class="footer ">
                 <?php $this->load->view('includes/footer.php'); ?>
@@ -522,6 +554,10 @@
     <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/Common.js"></script>
 
+    <script src="bootstrap/jqfileuploadRealtime/js/vendor/jquery.ui.widget.js"></script>
+    <script src="bootstrap/jqfileuploadRealtime/js/jquery.iframe-transport.js"></script>
+    <script src="bootstrap/jqfileuploadRealtime/js/jquery.fileupload.js"></script>
+
     <script src="bootstrap/MetronicExtracted/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
     <script src="bootstrap/MetronicExtracted/app.js"></script>
 
@@ -542,35 +578,35 @@
     </script>
 
     <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $('#tabsxz').tab();
-                $("#howussd").popover();
-                $("html").click(function(){
+        jQuery(document).ready(function ($) {
+            $('#tabsxz').tab();
+            $("#howussd").popover();
+            $("html").click(function(){
 
-                    $('#howussd').popover('hide');
-                });
-                $('#howussd').click(function(event){
-                    event.stopPropagation();
-                });
+                $('#howussd').popover('hide');
+            });
+            $('#howussd').click(function(event){
+                event.stopPropagation();
+            });
 
 
 
-                $("#bankselector").on("change",function(){
+            $("#bankselector").on("change",function(){
 
-                    var conceptName = $('#bankselector').find(":selected").text();
-                    var conceptval = $('#bankselector').find(":selected").val();
+                var conceptName = $('#bankselector').find(":selected").text();
+                var conceptval = $('#bankselector').find(":selected").val();
 
-                    $("#bankname").val(conceptName);
-                    $("#banknamecode").val(conceptval);
+                $("#bankname").val(conceptName);
+                $("#banknamecode").val(conceptval);
         
-                });
+            });
 
 
 
-                $(".myhoverpopoever").popover({ trigger: "hover" });
+            $(".myhoverpopoever").popover({ trigger: "hover" });
 
 
-/*
+            /*
                 var hash = window.location.hash;
                 hash && $('ul.nav a[href="' + hash + '"]').tab('show');
 
@@ -582,12 +618,75 @@
                 });
                 
 
-                */
-            });
+             */
+        });
 
            
             
 
-        </script>    
+    </script>    
+
+    <script>
+        /*jslint unparam: true */
+        /*global window, $ */
+        $(function () {
+            'use strict';
+            // Change this to the location of your server-side upload handler:
+            var url = "../Wizardseller/upload";
+            $('#fileupload').fileupload({
+                url: url,
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        
+                            $("#removeimages").show();
+                        
+                        $('<p/>').text(file.name).appendTo('#files');
+                        $("#files").append("<input type='hidden' name='imagenamescover[]' value='"+(file.name)+"' /> ");
+                        showCarasol($("#userfold").val()+"/"+file.name);
+                    });
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .bar').css(
+                    'width',
+                    progress + '%'
+                );
+                }
+            }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+            
+            
+            
+            $("#removeimages").on("click",function(e){
+                carosalid = 0;
+                $("#displaycarasol").hide();
+                $("#diasplaythubnail").show();
+                $("#files").empty();
+                $("#displaycarasol .carousel-indicators").empty();
+                $("#displaycarasol .carousel-inner").empty();
+            });
+            
+            
+        });
+        
+        
+        var carosalid = 0;
+        function showCarasol(imageurl){
+            $("#diasplaythubnail").hide();
+            $("#displaycarasol").show();
+            var clas = ""
+            var cala = "";
+            if(carosalid == 0){
+                clas = "class=\"active\""; 
+                cala = "active ";
+            }
+            $("#displaycarasol .carousel-indicators").append("<li data-target=\"#displaycarasol\" data-slide-to=\""+carosalid+"\"  "+clas+"></li>");
+            $("#displaycarasol .carousel-inner").append("<div class=\""+cala+"item\"><img src=\"images/userdata/"+imageurl+"\" style=\"width:100%; height:300px;\"></div>");
+        
+            $('.carousel').carousel();
+            ++carosalid;
+        }
+    </script>
 
 </html>

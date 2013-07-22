@@ -16,7 +16,7 @@ class Vmart extends CI_Controller {
 //        die();
         $this->load->view('landingpage',$this->data);
     }
-
+   
 }
 
         

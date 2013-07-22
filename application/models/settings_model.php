@@ -75,6 +75,7 @@ class settings_model extends CI_Model {
         $user = $this->db->query("SELECT userid FROM seller WHERE userid = '$userid' && mob_verification_nub = '$key'");
         if ($user->num_rows() > 0) {
             $dattime = get_date_time();
+            $this->db->query("UPDATE USER SET is_seller = '1'  WHERE userid = '$userid' ");
             $this->db->query("UPDATE seller SET STATUS = 'ACTIVE_VERIFIED' , mobverified = '1' , becm_seller = '$dattime'  WHERE userid = '$userid' ");
             return true;
         } else {
@@ -225,7 +226,7 @@ class settings_model extends CI_Model {
             foreach ($menuitems as $key => $value) {
                 $this->db->query("INSERT INTO store_categories (userid, cat_name) VALUES  ('$usrid','$key') ");
                 $generatedid = $this->db->insert_id();
-                foreach ($value as $value1 ) {
+                foreach ($value as $value1) {
                     if ($value1 != "") {
                         $this->db->query("INSERT INTO store_item (cat_id, userid, title) VALUES('$generatedid', '$usrid', '$value1' )");
                     }
@@ -234,12 +235,24 @@ class settings_model extends CI_Model {
         }
         
         $imagearray = array();
-        $imagearray["companylogo"] = $_FILES["companylogo"];
-        $imagearray["cover1"] = $_FILES["cover1"];
-        $imagearray["cover2"] = $_FILES["cover2"];
-        $imagearray["cover3"] = $_FILES["cover3"];
-        $filenames = do_image_uploadByFileName(getUserFolder(), $imagearray);
-       
+        $imagesz = $this->input->post("imagenamescover");
+        if ($imagesz) {
+            $imagearray = $imagesz;
+        }
+
+        if (count($imagearray) > 0) {
+            $querypart = "";
+            $comma = "";
+            foreach ($imagearray as $imaname) {
+                $imaname = getUserFolderName() . "/$imaname";
+                $querypart .= "$comma('" . $usrid . "', '$imaname')";
+                $comma = ",";
+            }
+            echo "INSERT INTO cover_images (userid, cover_image) VALUES $querypart"; 
+            $this->db->query("DELETE FROM cover_images WHERE  userid = '$usrid'");
+            $this->db->query("INSERT INTO cover_images (userid, cover_image) VALUES $querypart ");
+             echo "INSERT INTO cover_images (userid, cover_image) VALUES $querypart"; 
+        }
     }
 
     //Wizardseller ----------------------------------------------------------------- 

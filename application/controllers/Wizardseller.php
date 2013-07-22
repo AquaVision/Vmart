@@ -67,7 +67,25 @@ class Wizardseller extends CI_Controller {
         $this->settings_model->createStore($totalmenu);
     }
 
-    
+    function uploadfiles() {
+        $arrayax["files"] = $this->input->post("files");
+        do_image_uploadByFileName(getUserFolder(), $arrayax);
+    }
+
+    function loadTest() {
+        $this->load->view("basic");
+    }
+
+    public function upload() {
+        error_reporting(E_ALL | E_STRICT);
+
+        $this->load->helper("UploadHandler");
+        $usrfolder = getUserFolderName();
+        UploadHandler::$PathUrl= "assets/images/userdata/$usrfolder/";
+        $upload_handler = new UploadHandler();
+        
+
+    }
 
 }
 

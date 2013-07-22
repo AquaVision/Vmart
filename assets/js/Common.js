@@ -1,3 +1,4 @@
+var timmerveraible;
 $(function(){
 
     var userchekst = "";
@@ -9,16 +10,16 @@ $(function(){
         if(text){
 
             var chatx = "<li class='in'>"+
-                "<img class='avatar' alt='' src='images/uploaded/users/avatar2.jpg' />"+
-                "<div class='message'>"+
-                "<span class='arrow'></span>"+
-                "<a href='#' class='name'>Richard Doe</a>"+
-                "<span class='datetime'>at Jul 25, 2012 11:09</span>"+
-                "<span class='body'>"
-                +text+
-                "</span>"+
-                "</div>"+
-                "</li>";
+            "<img class='avatar' alt='' src='images/uploaded/users/avatar2.jpg' />"+
+            "<div class='message'>"+
+            "<span class='arrow'></span>"+
+            "<a href='#' class='name'>Richard Doe</a>"+
+            "<span class='datetime'>at Jul 25, 2012 11:09</span>"+
+            "<span class='body'>"
+            +text+
+            "</span>"+
+            "</div>"+
+            "</li>";
 
 
             $("#chatparent").append(chatx);
@@ -175,9 +176,11 @@ $(function(){
 
     $(".add-to-cart").on("click",function(e){
         var id = $(this).data("itemid");
-        $.post("../Web_cart/add",{"itemid" :id}, function(data){
+        $.post("../Web_cart/add",{
+            "itemid" :id
+        }, function(data){
             
-        });
+            });
         
     });
     
@@ -193,21 +196,35 @@ $(function(){
     $("#continuexnextpage").on("click",function(e){
         var page = $(this).data("active");
         if(page == "page1"){
-            
+            $("#verifyyourslef1").show();
             $.post("../Wizardseller/stepOneInWizard", $('#sellerverificationdata').serialize() , function(data){
+                $("#verifyyourslef1").hide();
+                $("#verifyyourslef").html("Completed");
+                $("#verifyyourslef").css("background-color","#51a351");
                
             });  
         }else if(page == "page2"){
-            
-        }else if(page == "page3"){
-            
-        }else if(page == "page3"){
+            $("#setupyourstore1").show();
+            addaboutus();
+            $.post("../Wizardseller/stepTwoInWizard", $('#createstore').serialize() , function(data){
+                $("#setupyourstore1").hide();
+                $("#setupyourstore").html("Completed");
+                $("#setupyourstore").css("background-color","#51a351");
+                $("#continuexnextpage").data("active","page3");
+            }); 
             
         }
     });
 
 
-
+    $("#submitaiyox").on("click",function(e){
+       
+        $("#completeprofile1").show();
+        $("#completeprofile").html("0%");
+        timmerveraible =setInterval(function(){
+            showalert()
+        },400);
+    });
 
 
 
@@ -279,10 +296,29 @@ function showx(mysubmitsett){
                 
 }
 
+var change = 0;
+function showalert(){
+    $("#completeprofile").html(change+"%");
+    if(change < 30){
+        change += 10;
+    }else if(change <60){
+        change += 30;
+    }else if(change < 100){
+         change += 40;
+    }else if(change == 100){
+        $("#completeprofile1").hide();
+        $("#completeprofile").css("background-color","#51a351");
+        $("#finishwizard").animate( { 'opacity': 1 }, 1000, function(){ });
+
+        clearInterval($timmerveraible);
+        //$("#finishwizard").show();
+        
+    }
+}
 
 function addaboutus(){
        
-        $("#editordataxy").val($("#editor").html());
-        return true;
-    }
+    $("#editordataxy").val($.trim($("#editor").html()));
+    return true;
+}
 
