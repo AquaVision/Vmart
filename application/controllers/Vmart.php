@@ -16,9 +16,6 @@ class Vmart extends CI_Controller {
 //        die();
         $this->load->view('landingpage',$this->data);
     }
-<<<<<<< HEAD
-   
-=======
     
     public function get_orders(){
         if (!islogedUser()){
@@ -37,7 +34,6 @@ class Vmart extends CI_Controller {
         
        }
 
->>>>>>> c7a6110dbf414cd12a459bfd2434be7bd1f9e9de
 }
 
         
