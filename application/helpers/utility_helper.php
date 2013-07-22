@@ -6,7 +6,15 @@ function get_date_time() {
 
     return $timestamp;
 }
-
+ function get_curret_year(){
+    return 2013;
+}
+function get_curret_month(){
+    return 7;
+}
+function get_curret_date(){
+    return 25;
+}
 function getMessageJson($title, $message, $type) {
 
     $messagar = array(

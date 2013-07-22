@@ -95,7 +95,7 @@
                                           
                                             <thead>
                                                 <th>Item</th>
-                                                <th></th>
+                                                <th>Description</th>
                                                 <th>Unit Price</th>
                                                 <th>Quantiy</th>
                                                 <th>Sub Total</th>
@@ -112,12 +112,21 @@
                                                 echo '<td class="sc-td-image"><img src="'.get_assets_path(). $items['item_image'] .'" ></td>';
                                                 echo '<td><h5>' . $items['name'] . '</h5></td>';
                                                 echo '<td><h5>' . $items['price'] . '</h5></td>';
-                                                echo '<td><h5>' . $items['qty'] . '</h5></td>';
+                                                
+                                                $selectedqty = $items["qty"];
+                                                
+                                                echo '<td><h5><select class="change_qty" name="qty" style="width:60px" data-rowid='.$items['rowid'].'>';
+                                                   for($i=1; $i<=$items['aval_qty']; $i++){
+                                                     $variable  = ($selectedqty == $i ? "selected" : "");
+                                                    echo '<option '.$variable.'  >'.$i.'</option>';
+                                                   }
+                                                    echo '</select></h5></td>'; 
                                                 echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
-                                                echo '<td ><h5><a class="removefromcart" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+                                                echo '<td ><h5><a class="removefromcart" style="cursor:hand;" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
                                             
                                             
                                             echo '</tr>';
+                                            
                                         }
                                         echo '</tbody>
                                             <tfoot>
@@ -135,6 +144,7 @@
 
                                         </tfoot>
                                                 </table>';
+                                       
                                         ?>                                
 
 
