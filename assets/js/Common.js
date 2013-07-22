@@ -233,6 +233,27 @@ $(function(){
     } 
     
     
+    //Function for loading Maginifier Modal
+    $(".show_magnifier_modal").on('click',function(e)
+            {
+                var item_id= $(this).data("itemid");
+                var item_image = $(this).data("imgurl");
+                var item_title = $(this).data("itemtitle");
+                var item_price = $(this).data("itemprice");
+
+
+                var url = "../Vmart/get_item_details/"+item_id;
+                $.get(url, function(data) {
+                    $('#mag-itemtitle').html(data);
+                    $('#mag-itemimg').attr('src',item_image);
+                    $('#mag-itemdesc').html(item_title);
+                    $('#mag-itemprice').html(item_price);
+                    $("#mngitemid").data("itemid",item_id);
+                }).success(function() {
+                    $('#item_magnifier').modal({show:true});
+                });
+            });
+
     
     
     
@@ -285,4 +306,7 @@ function addaboutus(){
         $("#editordataxy").val($("#editor").html());
         return true;
     }
+    
+
+
 

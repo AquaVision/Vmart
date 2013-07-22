@@ -150,9 +150,10 @@
                                     <div class="nav-collapse collapse navbar-inverse-collapse">
                                         <ul class="nav pull-right">
 
-                                            <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
-                                            <li><a href="#">About us</a></li>
-                                            <li><a href="navbar-examples.html">Contact us</a></li>
+                                            <li class="active"><a href="<?php echo site_url().'User_store'?>"><i class="icon-home icon-white"></i> Home</a></li>
+                                            <li><a href="<?php echo site_url().'About_us/get_data/21'?>">About us</a></li>
+                                            <li><a href="<?php echo site_url().'Contact_us/get_data/21'?>">Contact us</a></li>
+                                            
                                         </ul>
                                         <form class="navbar-search pull-right" style="margin-top=0px">
                                             <input type="text" class="search-query" placeholder="Search">

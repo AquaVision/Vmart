@@ -4,7 +4,7 @@ class Land_model extends CI_Model {
     
     function get_top_items()
     {
-         $sql = "SELECT * FROM view_top_items";
+         $sql = "SELECT * FROM view_top_items WHERE status='ACTIVE'";
          $query = $this->db->query($sql);
          
          if($query->num_rows() > 1)
@@ -20,7 +20,7 @@ class Land_model extends CI_Model {
     
     function get_item_details($item_id)
     {
-        $sql = "SELECT * FROM view_top_items WHERE item_id = ?";
+        $sql = "SELECT * FROM view_top_items WHERE item_id = ? WHERE status='ACTIVE'";
         $query = $this->db->query($sql,$item_id);
          
         if($query->num_rows() == 1)
