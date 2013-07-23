@@ -34,18 +34,18 @@
                                 <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer">
 
                                     <div class="thumbnail">
-                                        <img alt=""  src="<?php echo get_assets_path().$item->item_image; ?>">
+                                        <img alt=""  src="<?php echo get_assets_path().$item->MainImageUrl; ?>">
                                         <div class="caption">
                                             <h6 class="itemtitle" ><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
                                                 <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->num_of_sales; ?></div>
+                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating; ?></div>
                                             </div>
 
                                             <p>
                                                 <a class="btn primary details show_magnifier_modal" 
                                                     data-itemid="<?php echo $item->item_id; ?>"
-                                                    data-imgurl="<?php echo get_assets_path().$item->item_image; ?>"
+                                                    data-imgurl="<?php echo get_assets_path().$item->MainImageUrl; ?>"
                                                     data-itemtitle="<?php echo $item->title; ?>"
                                                     data-itemprice="<?php echo $item->price ;?>"
                                                     ><i class="icon-zoom-in"></i>

@@ -83,7 +83,7 @@
                                                     <tr>
                                                         <td style="width:30%">
                                                             <a href="" class="thumbnail">
-                                                                <img src="<?php echo  get_assets_path().$item->item_image; ?>" style="width:212px;height:135px;">
+                                                                <img src="<?php echo  get_assets_path().$item->MainImageUrl; ?>" style="width:212px;height:135px;">
                                                             </a>
                                                         </td>
                                                         <td class="span6">
