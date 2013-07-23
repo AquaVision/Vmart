@@ -140,6 +140,7 @@
                                                     <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
                                                         <div class="span6 ratex fivestars_5_0" style="margin-left:0px;"></div>
                                                         <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                        
                                                     </div>
 
                                                     <p > <span class="label label-info price">10.00000/=</span></p>
@@ -327,36 +328,12 @@
                 $('#usrSignInLi').css({display:'none'});
     
                 $('#usrLgdInLi').css({display:'block'});
-                                                                                                                    
-                                                                                                                    
-                                                                                                                    
+                                                                                                    
             });
-                                                                                                                
-                                                                                                               
-            
-
+                           
 
             //Script for Magnifier Model
-            $(".show_magnifier_modal").on('click',function(e)
-            {
-                var item_id= $(this).data("itemid");
-                var item_image = $(this).data("imgurl");
-                var item_title = $(this).data("itemtitle");
-                var item_price = $(this).data("itemprice");
-
-
-                var url = "../Vmart_alt/get_item_details/"+item_id;
-                $.get(url, function(data) {
-                    $('#mag-itemtitle').html(data);
-                    $('#mag-itemimg').attr('src',item_image);
-                    $('#mag-itemdesc').html(item_title);
-                    $('#mag-itemprice').html(item_price);
-                    $("#mngitemid").data("itemid",item_id);
-                }).success(function() {
-                    $('#item_magnifier').modal({show:true});
-                });
-            });
-
+            
         </script>
 
 

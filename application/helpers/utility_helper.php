@@ -144,4 +144,13 @@ function get_assets_path() {
     return $full_path;
 }
 
+function get_images_path() {
+    $CI = & get_instance();
+    $path = $CI->config->item('imagefolderpath');
+
+    $full_path = base_url() . substr($path, 2) . "/";
+
+    return $full_path;
+}
+
 ?>

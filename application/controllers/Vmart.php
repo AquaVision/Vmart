@@ -18,9 +18,17 @@ class Vmart extends CI_Controller {
 //        die();
         $this->load->view('landingpage', $this->data);
     }
+    
 
-    public function get_orders() {
-        if (!islogedUser()) {
+    public function get_item_details($item_id)
+    {
+        $item = $this->Land_model->get_item_details($item_id);
+        echo $item['item']->breif_description;
+    }
+
+    public function get_orders(){
+        if (!islogedUser()){
+            
             echo 'not logged in';
         } else {
             $userid = getUserID();
@@ -29,6 +37,7 @@ class Vmart extends CI_Controller {
             echo $orders;
         }
     }
+
 
 }
 

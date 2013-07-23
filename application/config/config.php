@@ -381,6 +381,7 @@ $config['admin_email'] = 'imaa95@gmail.com';
 /* End of file config.php */
 /* Location: ./application/config/config.php */
 $config["userdatafolderpath"] = "./assets/images/userdata/";
+$config["imagefolderpath"] = "./assets/images/";
 
 $config['smsconfig'] = array(
     "nx_key" => "a9749092",
