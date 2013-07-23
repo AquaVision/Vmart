@@ -73,7 +73,11 @@ class Wizardseller extends CI_Controller {
     }
 
     function loadTest() {
-        $this->load->view("basic");
+        $this->load->view("TEST/Test");
+    }
+    
+    function testcc(){
+        echo $this->input->post("locationhidde",false);
     }
 
     public function upload() {

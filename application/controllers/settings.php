@@ -24,11 +24,12 @@ class settings extends CI_Controller {
     }
 
     function generalSettings() {
-
+        
         if (islogedUser()) {
             $data = $this->settings_model->getSettings();
             $data["active1"] = "active";
             $data["active2"] = "";
+            $data["rightbar"] = "GENERALSETTINGS";
             $this->load->view("public_profile_settings", $data);
         } else {
             redirect('Vmart', 'refresh');
@@ -60,7 +61,15 @@ class settings extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->generalSettings();
         } else {
-            $this->settings_model->saveGeneralSettings($this->changepass);
+            $imageArray["profileimagedd"] = $this->input->post("profileimagedd");
+            $files = do_image_uploadByFileName(getUserFolder(), $imageArray);
+            $querypart = "";
+            if(count($files) > 0){
+                $imagname = getUserFolderName()."/".$files[0];                
+                $querypart = "profile_pic = '$imagname' , ";
+            }
+            
+            $this->settings_model->saveGeneralSettings($this->changepass,$querypart);
             redirect('settings/generalSettings');
         }
     }
@@ -153,12 +162,7 @@ class settings extends CI_Controller {
 
     //------------------------------- save seller settings  END----------------------------------------
 
-    function SaveBuyerBasicSettings(){
-        
-        
-        
-        
-    }
+    
     
     
     //------------------------------- buyer settings  --------------------------------------------------
@@ -184,10 +188,11 @@ class settings extends CI_Controller {
                 $randnuber = rand(1000, 9999);
                 $this->settings_model->addVerificationkey($randnuber, $phone);
 
-                 $info = $this->nexmomessage->sendText($phone, 'Vmart Avision', $randnuber);
-                 $status = $info->messages[0]->status;
-                
-                if ($status == 0) {
+                // $info = $this->nexmomessage->sendText($phone, 'Vmart Avision', $randnuber);
+                // $status = $info->messages[0]->status;
+                $textmessage ="Thank you For Registering with Vmart.lk Your Verification Code is : $randnuber";
+                $status = sendSms($textmessage, $phone);
+                if ($status) {
                     echo "Verification Code has been sent";
                 } else {
                     echo "Unable to send the Verification code!!";
