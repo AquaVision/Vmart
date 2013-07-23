@@ -54,6 +54,25 @@
             {
                 -webkit-border-radius: 20px;
             }
+            
+            img.media-imgs
+            {
+                -webkit-border-radius: 20px;
+            }
+            
+            img.media-imgs:hover
+            {
+                   
+                    -webkit-animation-name: greenPulse;
+                    -webkit-animation-duration: 2s;
+                    -webkit-animation-iteration-count: 1;
+                    -webkit-box-shadow: 0 0 18px #0088cc;
+            }
+            
+            a.media-links:hover,a.media-links:focus
+            {
+                    text-decoration: none;
+            }
 
 
         </style>
@@ -204,10 +223,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            
                                                             <?php foreach ($seller_media as $media):?>
-                                                                <a href="<?php echo $media->socialmediaURL; ?>">
-                                                                    <img src="<?php echo get_images_path()."fixed_images/socialmediaicons/Icons/32/".$media->socialmediaImg ;?>">
+                                                                <a class="media-links" href="<?php echo $media->socialmediaURL; ?>">
+                                                                    <img class="media-imgs" src="<?php echo get_images_path()."fixed_images/socialmediaicons/Icons/32/".$media->socialmediaImg ;?>">
                                                                 </a>
                                                             <?php endforeach;?>
                                                         </td>    
@@ -336,6 +354,9 @@
 
             <span id="themesBtn"></span>
 
+            <a class="media-links" href="">
+                <img class="media-imgs" src="">
+            </a>
 
 
     </body></html>

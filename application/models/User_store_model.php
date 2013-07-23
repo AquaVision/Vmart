@@ -36,6 +36,7 @@ class User_store_model extends CI_Model {
         return $items;
     }
     
+    
     function get_featured_products($seller_id,$status)
     {
         $sql = "SELECT selleruserid,item_id,item_order_count FROM sales_counts_view WHERE selleruserid = ? && status = ? ORDER BY item_order_count DESC LIMIT 30";
@@ -56,7 +57,7 @@ class User_store_model extends CI_Model {
     
     function get_new_arrivals($seller_id,$status)
     {
-        $sql = "SELECT item_id,userid,item_created FROM `sql313480`.`view_all_seller_items` WHERE userid = ? AND status = ? ORDER BY item_created DESC LIMIT 30";
+        $sql = "SELECT item_id,userid,item_created FROM view_all_seller_items WHERE userid = ? AND status = ? ORDER BY item_created DESC LIMIT 30";
         $query = $this->db->query($sql,array($seller_id,$status));
         
         $new_items = array();
