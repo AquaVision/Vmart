@@ -48,10 +48,10 @@
             {
                 padding: 10px 10px 10px 10px;
             }
-
-
-            #seller-loc-map
+            
+            #seller-map-div iframe
             {
+                width: 100%;
                 -webkit-border-radius: 20px;
             }
             
@@ -275,29 +275,22 @@
                                                     </tr>
                                                     <!--End Seller Phones-->
 
-                                                    <!--
-                                                    <tr>
-                                                        <td>
-                                                            <h5>Our Location : </h5>
-                                                            <div class="seller-loc-map">
-                                                                <img src="" height="100px" width="100px">
-                                                            </div>
-                                                        </td>
-                                                    </tr>-->
                                                 </table>
 
                                             </div>
                                         </td>
 
-                                        <td>
-                                            <div class="contact-form-div">
-                                                <form method="post" action="<?php echo site_url('Contact_us/insert_feedback') ; ?>">
+                                        <td style="vertical-align: top;">
+                                            <div class="contact-form-div" >
+                                                <form method="post" action="<?php echo site_url('Contact_us/send_feedback') ; ?>">
                                                     <label><h5>Feel free to contact us : </h5></label>
                                                     <div class="controls control-group">
-                                                        <input type="text" class="span4" placeholder="Email" name="customer_email">
-                                                        <textarea class="span4" rows="10" name="customer_feedback" ></textarea>
+                                                        <input type="text" class="span4" placeholder="Your Email" name="customer_email">
+                                                        <input type="text" class="span4" placeholder="Subject" name="customer_email_subject">
+                                                        <textarea class="span4" rows="10" placeholder="Your Feedback" name="customer_feedback" ></textarea>
+                                                        <input type="hidden" name="seller_id" value="<?php echo $seller_id ;?>">
                                                     </div>
-                                                    <button type="submit" class="btn">Submit</button>
+                                                    <button type="submit" class="btn">Send Mail</button>
                                                 </form>
                                             </div>
                                         </td>
@@ -311,7 +304,7 @@
                             </table>
 
                             <div id="seller-map-div" style= "padding: 10px 10px 10px 1px;">
-                                <iframe id="seller-loc-map" width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Colombo,+Sri+Lanka&amp;aq=0&amp;oq=colom&amp;sll=37.0625,-95.677068&amp;sspn=49.310476,68.818359&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Colombo,+Western+Province,+Sri+Lanka&amp;ll=6.927079,79.861243&amp;spn=0.243348,0.268822&amp;t=m&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Colombo,+Sri+Lanka&amp;aq=0&amp;oq=colom&amp;sll=37.0625,-95.677068&amp;sspn=49.310476,68.818359&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Colombo,+Western+Province,+Sri+Lanka&amp;ll=6.927079,79.861243&amp;spn=0.243348,0.268822&amp;t=m&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+                                <?php echo htmlspecialchars_decode($seller_contacts->location); ?>
                             </div>
                             
                         </div>
