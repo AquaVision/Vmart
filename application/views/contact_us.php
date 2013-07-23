@@ -207,8 +207,7 @@
                                                             
                                                             <?php foreach ($seller_media as $media):?>
                                                                 <a href="<?php echo $media->socialmediaURL; ?>">
-                                                                    sth
-                                                                    <img src="<?php echo get_assets_path.$media->socialmediaImg ;?>">
+                                                                    <img src="<?php echo get_images_path()."fixed_images/socialmediaicons/Icons/32/".$media->socialmediaImg ;?>">
                                                                 </a>
                                                             <?php endforeach;?>
                                                         </td>    
@@ -236,8 +235,8 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <?php echo "" ; ?>
+                                                        <td style="text-align:justify;">
+                                                            <?php echo $seller_contacts->contactus ; ?>
                                                         </td>
                                                     </tr>
                                                     <!--End Data BLOB-->
@@ -274,11 +273,11 @@
 
                                         <td>
                                             <div class="contact-form-div">
-                                                <form>
+                                                <form method="post" action="<?php echo site_url('Contact_us/insert_feedback') ; ?>">
                                                     <label><h5>Feel free to contact us : </h5></label>
                                                     <div class="controls control-group">
-                                                        <input type="text" class="span4" placeholder="Email" id="customer_email">
-                                                        <textarea class="span4" rows="10" id="customer_feedback" ></textarea>
+                                                        <input type="text" class="span4" placeholder="Email" name="customer_email">
+                                                        <textarea class="span4" rows="10" name="customer_feedback" ></textarea>
                                                     </div>
                                                     <button type="submit" class="btn">Submit</button>
                                                 </form>

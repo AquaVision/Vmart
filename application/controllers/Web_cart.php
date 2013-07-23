@@ -6,13 +6,14 @@ class Web_cart extends CI_Controller{
         $id = $this->input->post('itemid');
         $this->load->model('Product_model');
         $product = $this->Product_model->get($id);
-        echo $product->title." added to cart";
+       
         $data = array(
                 'id'         => $id,
                 'item_image' => $product->item_image,
                 'name'    => $product->title,
                 'price'   => $product->price,
                 'qty'     => 1,
+                'aval_qty'=> $product->Qty
                 
             );
         
@@ -35,6 +36,22 @@ class Web_cart extends CI_Controller{
         
     }
     
+    function checkout(){
+        
+        if (!islogedUser()) {
+            echo getMessageJson("", "You are not logged in, please log in before checkout!!", "ERROR");    
+        } 
+        else {
+        
+        $userId = getUserID();
+        $cart['userId'] = $userId;
+        $cart['checkout_data'] = $this->cart->contents();
+        $this->load->model('product_model');
+        $this->product_model->do_checkout($cart);
+        }
+        
+    }
+    
     function remove($rowid){
         
         $data = array(
@@ -45,7 +62,14 @@ class Web_cart extends CI_Controller{
         
     }
 
-
+    function update_qty($rowid,$qty){
+       $data = array(
+           'rowid' => $rowid,
+           'qty'   => $qty
+           
+       ); 
+       $this->cart->update($data);
+    }
     
 
     function destroy(){

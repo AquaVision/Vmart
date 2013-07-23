@@ -2220,6 +2220,12 @@ var App = function () {
                     jQuery(li_list[i]).addClass("done");
                 }
 
+                if(current ==2){
+                     $("#continuexnextpage").data("active","page2");
+                }else if(current ==3){
+                   $("#continuexnextpage").data("active","page3");
+                }
+
                 if (current == 1) {
                     $('#form_wizard_1').find('.button-previous').hide();
                 } else {
@@ -2267,7 +2273,7 @@ var App = function () {
                 var total = navigation.find('li').length;
                 var current = index + 1;
                 var $percent = (current / total) * 100;
-                $('#form_wizard_1').find('.bar').css({
+                $('#bar .bar').css({
                     width: $percent + '%'
                 });
             }
@@ -2275,7 +2281,7 @@ var App = function () {
 
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-            alert('Finished! Hope you like it :)');
+           
         }).hide();
     }
 

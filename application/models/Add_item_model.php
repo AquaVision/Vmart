@@ -111,16 +111,18 @@ class Add_item_model extends CI_Model
         
         $view_query = $this->db->query($view_items_sql);
         
+        $view_items_data = array();
+        
         if($view_query->num_rows() > 0)
         {
             foreach ($view_query->result() as $row)
             {
                 $view_items_data[] = $row;    
             }
-            return $view_items_data;
+            
         }
         
-        
+        return $view_items_data;
         
     }
     

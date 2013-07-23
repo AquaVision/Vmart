@@ -60,6 +60,16 @@ class Contact_us extends CI_Controller {
         
         $this->index();    
     }
+    
+    function insert_feedback()
+    {
+        $user_email = $this->input->post('customer_email');
+        $user_feedback = $this->input->post('customer_feedback');
+        
+//        echo $user_email."</br>";
+//        echo $user_feedback;
+        
+    }
 
 }
 

@@ -75,6 +75,7 @@ class settings_model extends CI_Model {
         $user = $this->db->query("SELECT userid FROM seller WHERE userid = '$userid' && mob_verification_nub = '$key'");
         if ($user->num_rows() > 0) {
             $dattime = get_date_time();
+            $this->db->query("UPDATE USER SET is_seller = '1'  WHERE userid = '$userid' ");
             $this->db->query("UPDATE seller SET STATUS = 'ACTIVE_VERIFIED' , mobverified = '1' , becm_seller = '$dattime'  WHERE userid = '$userid' ");
             return true;
         } else {
@@ -133,8 +134,6 @@ class settings_model extends CI_Model {
         $reciveemailsTo = $this->input->post("recivetoemail");
         $showingEmail = $this->input->post("recivetoemail");
 
-
-
         $totphoneQuerypart = "";
         $phonenubers = $this->input->post("phonenubers");
         if ($phonenubers) {
@@ -153,29 +152,22 @@ class settings_model extends CI_Model {
             $comma = "";
             foreach ($socialmediaName as $value) {
                 if ($value != '') {
-                    $socialMedName = $socialmediaURL[$idx];
-                    echo $socialMedName." ".$idx;
-                    $socialMedName = substr($socialMedName, 0, strlen($socialMedName) - 4);
-                    $totalSocialMediaQuerypart .= "$comma( '$usrid', '$socialMedName', '', '$value')";
+                    $socialMedURl = $socialmediaURL[$idx];
+                    $socialMedName = substr($value, 0, strlen($value) - 4);
+                    $totalSocialMediaQuerypart .= "$comma( '$usrid', '$value', '$socialMedName', '$socialMedURl')";
                     $comma = ",";
                 }
                 ++$idx;
             }
         }
-        
-        
+
 
         $location = $this->input->post("locationyour");
         $contactUs = $this->input->post("contactus");
         $aboutUs = $this->input->post("editordataxy");
 
 
-        foreach ($menuitems as $key => $value) {
-            echo "<h1>$key</h1><br/>";
-            for ($y = 0; $y < count($value); ++$y) {
-                echo "&nbsp;&nbsp;&nbsp;<h3>{$value[$y]}<h3/>";
-            }
-        }
+
 
 
         $exists = $this->db->query("select userid from store where userid = '$usrid'");
@@ -215,11 +207,52 @@ class settings_model extends CI_Model {
         }
         //end adding phonenubers
         //adding socialmedia
-        if($socialmediaURL){
-        $this->db->query("DELETE FROM seller_socialmedia_data WHERE userid = '$usrid' ");
-        $this->db->query("INSERT INTO seller_socialmedia_data (userid, socialmediaImg, socialmediaName, socialmediaURL) VALUES  $totalSocialMediaQuerypart");
+        if ($socialmediaURL) {
+            $this->db->query("DELETE FROM seller_socialmedia_data WHERE userid = '$usrid' ");
+            $this->db->query("INSERT INTO seller_socialmedia_data (userid, socialmediaImg, socialmediaName, socialmediaURL) VALUES  $totalSocialMediaQuerypart");
         }
         //end adding socialmedia
+
+
+
+        if (count($menuitems) > 0) {
+//            try {
+//                $this->db->delete('store_item', array('userid' => $usrid));
+//                $this->db->delete('store_categories', array('userid' => $usrid));
+//            } catch (Exception $e) {
+//                
+//            }     
+            $comma = "";
+            foreach ($menuitems as $key => $value) {
+                $this->db->query("INSERT INTO store_categories (userid, cat_name) VALUES  ('$usrid','$key') ");
+                $generatedid = $this->db->insert_id();
+                foreach ($value as $value1) {
+                    if ($value1 != "") {
+                        $this->db->query("INSERT INTO store_item (cat_id, userid, title) VALUES('$generatedid', '$usrid', '$value1' )");
+                    }
+                }
+            }
+        }
+        
+        $imagearray = array();
+        $imagesz = $this->input->post("imagenamescover");
+        if ($imagesz) {
+            $imagearray = $imagesz;
+        }
+
+        if (count($imagearray) > 0) {
+            $querypart = "";
+            $comma = "";
+            foreach ($imagearray as $imaname) {
+                $imaname = getUserFolderName() . "/$imaname";
+                $querypart .= "$comma('" . $usrid . "', '$imaname')";
+                $comma = ",";
+            }
+            echo "INSERT INTO cover_images (userid, cover_image) VALUES $querypart"; 
+            $this->db->query("DELETE FROM cover_images WHERE  userid = '$usrid'");
+            $this->db->query("INSERT INTO cover_images (userid, cover_image) VALUES $querypart ");
+             echo "INSERT INTO cover_images (userid, cover_image) VALUES $querypart"; 
+        }
     }
 
     //Wizardseller ----------------------------------------------------------------- 

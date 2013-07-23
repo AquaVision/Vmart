@@ -17,15 +17,34 @@ class Vmart extends CI_Controller {
         $this->load->view('landingpage',$this->data);
     }
     
+<<<<<<< HEAD
     public function get_item_details($item_id)
     {
         $item = $this->Land_model->get_item_details($item_id);
         echo $item['item']->breif_description;
     }
+=======
+    public function get_orders(){
+        if (!islogedUser()){
+            
+            echo 'not logged in';
+            
+        }  else {
+        
+        $userid = getUserID();
+        $this->load->model('product_model');
+        $orders = $this->product_model->get_new_orders($userid);
+        echo $orders;
+        }
+        
+       
+        
+       }
+>>>>>>> 2239e5cf5c0f5a7196eb57f069e4830b19de7a33
 
 }
 
         
-        
+       
         
 ?>
