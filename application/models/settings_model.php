@@ -9,7 +9,7 @@ class settings_model extends CI_Model {
         if ($user->num_rows() > 0) {
             $data["user"] = $user->row();
         }
-        $buyer = $this->db->query("select  profile_pic,  about_you, active_address, mobile_reach from  buyer where userid = '$userid'");
+        $buyer = $this->db->query("select  profile_pic,  about_you,  mobile_reach from  buyer where userid = '$userid'");
         if ($buyer->num_rows() > 0) {
             $data["buyer"] = $buyer->row();
         }
@@ -31,7 +31,7 @@ class settings_model extends CI_Model {
         
     }
 
-    function saveGeneralSettings($changpass) {
+    function saveGeneralSettings($changpass,$profilepic) {
         $userid = getUserID();
         $fullname = $this->input->post('fullname');
         $address = $this->input->post('addresssxz');
@@ -40,7 +40,12 @@ class settings_model extends CI_Model {
         if ($changpass) {
             $passwrd = "password = '$confirmnew',";
         }
-        $query = "UPDATE user SET  full_name = '$fullname', $passwrd  address = '$address' WHERE userid = '$userid' ;";
+        $query = "UPDATE user SET  full_name = '$fullname', $passwrd  address = '$address' WHERE userid = '$userid' ";
+        $this->db->query($query);
+        
+        $usermobile = $this->input->post("usermobiledfd");
+        $aboutu = $this->input->post("aboutupx");
+        $query = "update buyer set  $profilepic  about_you = '$aboutu'  , mobile_reach = '$usermobile' where userid = '$userid' ";
         $this->db->query($query);
     }
 
