@@ -17,10 +17,6 @@ class User_store extends CI_Controller {
     
     function get_data($seller_id)
     {
-        $this->User_store_model->get_seller_data($seller_id);
-        $this->User_store_model->get_seller_products($seller_id,'ACTIVE');
-        $this->User_store_model->get_featured_products($seller_id,'ACTIVE');
-        $this->User_store_model->get_new_arrivals($seller_id,'ACTIVE');
         
     }
 
