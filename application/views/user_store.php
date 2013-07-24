@@ -270,7 +270,7 @@
                                 <?php foreach ($new_products as $item): ?>
                                 <li class="span3 masonry-brick" >
                                     <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>">
+                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>" style="height: 145px;width: 212px;" >
                                         <div class="caption">
                                             <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
