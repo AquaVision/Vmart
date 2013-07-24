@@ -150,7 +150,7 @@
                                     <div class="nav-collapse collapse navbar-inverse-collapse">
                                         <ul class="nav pull-right">
 
-                                            <li class="active"><a href="<?php echo site_url().'User_store'?>"><i class="icon-home icon-white"></i> Home</a></li>
+                                            <li class="active"><a href="<?php echo site_url().'User_store/get_data/21'?>"><i class="icon-home icon-white"></i> Home</a></li>
                                             <li><a href="<?php echo site_url().'About_us/get_data/21'?>">About us</a></li>
                                             <li><a href="<?php echo site_url().'Contact_us/get_data/21'?>">Contact us</a></li>
                                             
@@ -170,66 +170,23 @@
 
                                         <div class="item active">
                                             <ul class="thumbnails" id="carosalproducts">
+                                                <?php foreach ($featured_products as $item): ?>
                                                 <li class="span3">
                                                     <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/12.png">
+                                                        <img alt="" src="<?php echo get_assets_path().$item->image_url ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                            <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                                <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                                             </div>
 
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
+                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span></p>
 
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/13.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/14.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/15.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                <?php endforeach; ?>                                                
                                             </ul>
                                         </div>
 
@@ -237,66 +194,21 @@
 
                                         <div class="item">
                                             <ul class="thumbnails" id="carosalproducts">
+                                                <?php foreach ($featured_products as $item): ?>
                                                 <li class="span3">
                                                     <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/12.png">
+                                                        <img alt="" src="<?php echo get_assets_path().$item->image_url; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                                            <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                                <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                                             </div>
-
                                                             <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/14.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/13.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="thumbnail" style="width:198px">
-                                                        <img alt="" src="./images/fixed_images/15.png">
-                                                        <div class="caption">
-                                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                            </div>
-
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                <?php endforeach; ?>              
                                             </ul>
                                         </div>
 
@@ -312,15 +224,17 @@
 
                         <h4 class="muted">Our Products </h4>
                         <div class="mainContent" style="padding-top:1px; padding-left:0px;">
+
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
+                                <?php foreach ($all_products as $item): ?>
                                 <li class="span3 masonry-brick" >
                                     <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/12.png">
+                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                         <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                            <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                             </div>
 
                                             <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
@@ -328,113 +242,10 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/13.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_0_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>                        
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/14.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_1_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/15.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_1_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/13.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6  ratex fivestars_2_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/12.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_2_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/13.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_3_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/14.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_3_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-
+                                <?php endforeach; ?>
+                            
                             </ul>
+                            
                             <div class="pagessho" >
                                 <div class="pagination">
                                     <ul>
@@ -455,14 +266,16 @@
                         <h4 class="muted">New Arrivales </h4>
                         <div class="mainContent" style="padding-top:1px; padding-left:0px;">
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
+                                
+                                <?php foreach ($new_products as $item): ?>
                                 <li class="span3 masonry-brick" >
                                     <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/12.png">
+                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>">
                                         <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
+                                            <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_0_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                             </div>
 
                                             <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
@@ -470,83 +283,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/13.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_0_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>                        
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/14.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_1_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/15.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_1_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/13.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6  ratex fivestars_2_0" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3 masonry-brick" >
-                                    <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="./images/fixed_images/12.png">
-                                        <div class="caption">
-                                            <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
-                                                <div class="span6 ratex fivestars_2_5" style="margin-left:0px;"></div>
-                                                <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                            </div>
-
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
-
-                                        </div>
-                                    </div>
-                                </li>
-
-
+                                <?php endforeach; ?>
+                                
                             </ul>
                             <div class="pagessho" >
                                 <div class="pagination">
