@@ -92,30 +92,25 @@
                 </ol>
                 <!-- Carousel items -->
                 <div class="carousel-inner">
-                    <div class="active item"><img style="width:100%" src="images/fixed_images/1.jpg" alt="">
+
+                    <div class="item active"><img style="width:100%" src="<?php echo get_assets_path().$cover_images[0]->cover_image; ?>" alt="">
                         <div class="carousel-caption">
                             <h4>Second Thumbnail label</h4>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                         </div>
                     </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/2.jpg" alt="">
+                    
+                    <?php foreach ($cover_images as $cover_image): ?>
+                    <div class="item"><img style="width:100%" src="<?php echo get_assets_path().$cover_image->cover_image; ?>" alt="">
                         <div class="carousel-caption">
                             <h4>Second Thumbnail label</h4>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                         </div>
                     </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/3.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
-                    </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/4.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+                    
+                    
+
                 </div>
                 <!-- Carousel nav -->
                 <a class="left carousel-control" href="http://bootstrapshoppingcart.com/preview/bootstrapshop/#myCarousel" data-slide="prev">‹</a>
@@ -270,7 +265,7 @@
                                 <?php foreach ($new_products as $item): ?>
                                 <li class="span3 masonry-brick" >
                                     <div class="thumbnail" style="width:200px">
-                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>" style="height: 145px;width: 212px;" >
+                                        <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>"style="height: 145px;width: 212px;" >
                                         <div class="caption">
                                             <h6 class="itemtitle"><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
