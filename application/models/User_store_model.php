@@ -94,6 +94,23 @@ class User_store_model extends CI_Model {
         return $new_items;
     }
     
+    function get_store_covers($seller_id)
+    {
+        $sql = "SELECT cover_image FROM cover_images WHERE userid = ?";
+        $query = $this->db->query($sql,array($seller_id));
+        
+        $store_images = array();
+        if($query->num_rows() > 0)
+        {
+            foreach($query->result() as $image)
+            {
+                $store_images[] = $image;
+            }
+        }
+        
+        return $store_images;
+    }
+    
     function get_item_images($item_id)
     {
         $sql = "SELECT item_image FROM item_images WHERE iitem_id = ?  LIMIT 1";
