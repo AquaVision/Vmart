@@ -108,6 +108,17 @@ class User_store_model extends CI_Model {
         return $item_image;
         
     }
+    
+    
+    function isSellerExistes($sellerid){
+        $sql = "select userid from forkeepinsession where seller_id = '$sellerid' and is_seller = '1' and sellerstatus = 'ACTIVE_VERIFIED'";
+        $record = $this->db->query($sql);
+        if($record->num_rows() == 1){
+            return $record->row()->userid;
+        }else{
+           return -1;
+        }
+    }
 
 
 }

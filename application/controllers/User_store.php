@@ -12,7 +12,16 @@ class User_store extends CI_Controller {
     
     function index()
     {
-        $this->load->view('landingpage');
+        redirect("Vmart");
+    }
+    
+    function seller($sellerid){
+        $userid = $this->User_store_model->isSellerExistes($sellerid);
+        if($userid > 0){
+            $this->get_data($userid);
+        }else{
+            show_404();
+        }
     }
     
     function get_data($seller_id)

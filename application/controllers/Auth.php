@@ -8,7 +8,7 @@ class Auth extends CI_Controller {
     }
 
     function index() {
-        
+        redirect("Vmart");
     }
 
     function SignIn() {
