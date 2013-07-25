@@ -11,10 +11,7 @@ class About_us extends CI_Controller {
     
     function index()
     {
-        //print_r($this->seller_data);
-        //echo $this->seller_data['aboutus']->aboutus;
-        //die();
-        $this->load->view('about_us',  $this->seller_data);
+        redirect("Vmart");
     }
     
     function get_data($seller_id)
@@ -27,7 +24,7 @@ class About_us extends CI_Controller {
             $this->seller_data['aboutus'] = $query->row();
         }
         
-        $this->index();
+        $this->load->view('about_us',  $this->seller_data);
         
     }
 

@@ -11,7 +11,10 @@ class settings extends CI_Controller {
     }
 
     function index() {
-
+        redirect("Vmart");  
+    }
+    
+    function sellersetting(){
         $this->load->view('public_profile_seller');
     }
 

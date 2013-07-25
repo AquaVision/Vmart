@@ -19,6 +19,8 @@ class Vmart extends CI_Controller {
         $this->load->view('landingpage',  $data);
     }
     
+    
+    
 
     public function get_item_details($item_id)
     {

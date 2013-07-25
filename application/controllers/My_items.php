@@ -60,7 +60,7 @@ class My_items extends CI_Controller
         
         
         $this->select_data["item_summary"] = $items_summary;
-
+        $this->select_data["rightbar"] = "SHOPSETTINGS";
         $this->load->view('my_items',$this->select_data);
     }
     

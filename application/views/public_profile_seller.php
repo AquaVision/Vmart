@@ -507,7 +507,6 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
                 <h5 id="modalLabel">What is my location</h5>
             </div>
-
             <div class="modal-body" style="max-height: 500px !important;">
                 <div class="row" style="margin-left:0px;">
                     <ul style="font-size:10px;">
@@ -520,13 +519,7 @@
                 <div class="row" style="margin-left:0px; padding-left: 10px;">
                     <img src="images/fixed_images/howto.jpg" style="width: 500px;"/>
                 </div>
-
-
             </div>
-
-
-
-
         </div>
 
 
@@ -639,7 +632,7 @@
                 done: function (e, data) {
                     $.each(data.result.files, function (index, file) {
                         
-                            $("#removeimages").show();
+                        $("#removeimages").show();
                         
                         $('<p/>').text(file.name).appendTo('#files');
                         $("#files").append("<input type='hidden' name='imagenamescover[]' value='"+(file.name)+"' /> ");

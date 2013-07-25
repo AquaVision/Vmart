@@ -10,6 +10,10 @@ class Wizardseller extends CI_Controller {
     }
 
     function index() {
+        redirect("Vmart");
+    }
+
+    function seller() {
         $select_data['vmart_categories'] = $this->Add_item_model->get_vmart_categories();
         $this->load->view('public_profile_seller', $select_data);
     }
@@ -75,9 +79,9 @@ class Wizardseller extends CI_Controller {
     function loadTest() {
         $this->load->view("TEST/Test");
     }
-    
-    function testcc(){
-        echo $this->input->post("locationhidde",false);
+
+    function testcc() {
+        echo $this->input->post("locationhidde", false);
     }
 
     public function upload() {
@@ -85,10 +89,8 @@ class Wizardseller extends CI_Controller {
 
         $this->load->helper("UploadHandler");
         $usrfolder = getUserFolderName();
-        UploadHandler::$PathUrl= "assets/images/userdata/$usrfolder/";
+        UploadHandler::$PathUrl = "assets/images/userdata/$usrfolder/";
         $upload_handler = new UploadHandler();
-        
-
     }
 
 }

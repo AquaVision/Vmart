@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/file-upload/bootstrap-fileupload.css">
     <link href="bootstrap/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
     <link href="bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+      <link href="css/MainStyleForAllpages.css" rel="stylesheet">
     
     <link href="css/sellerfrontstyle.css" rel="stylesheet">
 </head>
@@ -24,21 +25,9 @@
                 <div class="row-fluid">
                     <div class="span12">                    
 
-                        <aside class="db-sidebar">
-                            <div class="db-sidebar-inner">
-                                <nav class="db-nav">
-                                    <h5 class="muted">Public Profile Settings</h5>
-                                      <ul >
-                                        <li style="margin-left:10px;"><a href="public_profile_seller.htm"  style="color:#060">> Seller </a></li>
-                                        <li style="margin-left:10px;"><a href="public_profile_buyer.htm"  style="color:#060">> Buyer </a></li>
-                                    </ul>
-                                    <ul>
-                                        <h5 class="muted">Account Settings</h5>
-                                        <li style="margin-left:10px;"><a href="public_profile_settings.htm" fsource="loggedin_Profile_Settings" style="color:#060">> Settings</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </aside>
+                         <?php 
+                            $datax["rightbar"] = $rightbar;
+                            $this->load->view('includes/settings_rightbar.php',$datax); ?>
 
 
 

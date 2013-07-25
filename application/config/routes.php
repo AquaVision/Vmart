@@ -1,4 +1,7 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 
 /*
@@ -44,8 +47,23 @@
 
 $route['default_controller'] = "Vmart";
 $route['404_override'] = '';
-//$route['Vx'] = "Vmart";
-//$route['user/(:any)'] = "polica/ogled/$1";
+
+//$route['Auth/(:any)'] = "Auth/$1";
+//$route['About_us/(:any)'] = "About_us/$1";
+//$route['Contact_us/(:any)'] = "Contact_us/$1";
+//$route['My_items/(:any)'] = "My_items/$1";
+//$route['ShopSettings/(:any)'] = "ShopSettings/$1";
+//$route['User_store/(:any)'] = "User_store/$1";
+//$route['Vmart/(:any)'] = "Vmart/$1";
+//$route['Vmart_alt/(:any)'] = "Vmart_alt/$1";
+//$route['Web_cart/(:any)'] = "Web_cart/$1";
+//$route['Wizardseller/(:any)'] = "Wizardseller/$1";
+//$route['settings/(:any)'] = "settings/$1";
+//
+//
+//
+//$route['(:any)/(:any)'] = "$1/$2";
+$route['(^[a-zA-Z0-9_.-]+[^/]$)'] = "User_store/seller/$1";
 
 //$route['css/(:any)'] = "application/views/css/sellerfrontstyle.css";
 
