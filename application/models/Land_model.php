@@ -22,9 +22,8 @@ class Land_model extends CI_Model {
     function get_item_details($item_id)
     {
         //$sql = "SELECT * FROM view_top_items WHERE item_id = ? WHERE status='ACTIVE'";
-        $sql = "SELECT * FROM store_item WHERE item_id = ? WHERE status='ACTIVE'";
+        $sql = "SELECT * FROM store_item WHERE item_id = ? AND status='ACTIVE'";
         $query = $this->db->query($sql,$item_id);
-         
         if($query->num_rows() == 1)
         {
             $item_data['item'] = $query->row();
