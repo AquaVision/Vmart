@@ -181,9 +181,9 @@
                                     <div class="nav-collapse collapse navbar-inverse-collapse">
                                         <ul class="nav pull-right">
 
-                                            <li class="active"><a href="<?php echo site_url().'User_store/get_data/'.$seller_data['item_data']->userid;?>"><i class="icon-home icon-white"></i> Home</a></li>
-                                            <li><a href="<?php echo site_url().'About_us/get_data/'.$seller_data['item_data']->userid;?>">About us</a></li>
-                                            <li><a href="<?php echo site_url().'Contact_us/get_data/'.$seller_data['item_data']->userid;?>">Contact us</a></li>
+                                            <li class="active"><a href="<?php echo site_url().'User_store/get_data/'.$item_data['seller_data']->userid;?>"><i class="icon-home icon-white"></i> Home</a></li>
+                                            <li><a href="<?php echo site_url().'About_us/get_data/'.$item_data['seller_data']->userid;?>">About us</a></li>
+                                            <li><a href="<?php echo site_url().'Contact_us/get_data/'.$item_data['seller_data']->userid;?>">Contact us</a></li>
                                             
                                         </ul>
                                         <form class="navbar-search pull-right" >
