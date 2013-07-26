@@ -16,8 +16,20 @@ class Contact_us extends CI_Controller {
 //        print_r($this->seller_data['seller_phones']);
 //        echo "<br/>";
 //        die();
-        $this->load->view('landingpage');
+//        $this->load->view('landingpage');
+        
+         redirect("Vmart");
+        
     }
+    
+    function seller($sellerid){
+        $userid = $this->User_store_model->isSellerExistes($sellerid);
+        if($userid > 0){
+            $this->get_data($userid);
+        }else{
+            show_404();
+        }
+    }    
     
     function get_data($seller_id)
     {

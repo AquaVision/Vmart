@@ -3,10 +3,10 @@
 class User_store_model extends CI_Model {
     
     
-    function get_seller_data($seller_id)
+    function get_seller_data($seller_id,$status)
     {
-        $sql = "SELECT * FROM store WHERE userid = ? AND status = 'ACTIVE'";
-        $query = $this->db->query($sql,array($seller_id));
+        $sql = "SELECT * FROM store WHERE userid = ? AND status = ?";
+        $query = $this->db->query($sql,array($seller_id,$status));
         
         $data = array();
         

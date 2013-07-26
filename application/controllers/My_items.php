@@ -2,7 +2,7 @@
 
 class My_items extends CI_Controller 
 {
-
+    
     public $select_data = array();
     
     public function __construct() 
