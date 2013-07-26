@@ -15,6 +15,41 @@ class Item_model extends CI_Model
         return $seller_data;
     }
     
+    public function get_images($item_id)
+    {
+        $sql = "SELECT * FROM item_images WHERE iitem_id = ?";
+        $query = $this->db->query($sql,array($item_id));
+        
+        $images = array();
+        //echo $query->num_rows();
+        if($query->num_rows() > 0)
+        {
+            foreach($query->result() as $row)
+            {
+                $images[] = $row;
+            }
+        }
+        
+        return $images;
+    }
+    
+    public function get_cutomer_reviews($item_id)
+    {
+        $sql = "SELECT * FROM buyer_store_item_order WHERE item_id = ?";
+        $query = $this->db->query($sql,array($item_id));
+        
+        $item_reviews = array();
+        //echo $query->num_rows();
+        if($query->num_rows() > 0)
+        {
+            foreach($query->result() as $row)
+            {
+                $item_reviews[] = $row;
+            }
+        }
+        
+        return $item_reviews;
+    }
     
     
 }

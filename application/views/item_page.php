@@ -193,12 +193,59 @@
                                 </div>
                             </div><!-- /navbar-inner -->
                         </div>
-                        
-                        <!--Item Content-->
-                        <!--Item Content-->
-                        
-
                     </div>
+                    
+                    <!--Item Content-->
+                    <div class="span9">
+                        
+                        <div>
+                            <h3><?php echo $item_data['seller_data']->title ; ?></h3>
+                        </div>
+                        
+                        <!--Images-->
+                        <div>
+                            <?php foreach($item_images as $image): ?>
+                            <img class="media-imgs" src="<?php echo get_assets_path()."/".$image->item_image;?>">
+                            <?php endforeach; ?>
+                        </div>
+                        <!--End Images-->
+                        
+                        <div>
+                            </br>
+                            <p>Price : <?php echo $item_data['seller_data']->price."  ".$item_data['seller_data']->price_currancy ;  ?></p>
+                            <p>Quantity : <?php echo $item_data['seller_data']->Qty; ?> available</p>
+                            <div class="span6 ratex <?php echo get_formatted_rating($item_data['seller_data']->rating); ?>" style="margin-left:0px;"></div>
+                        </div>
+                        
+                        </br>
+                        <hr>
+                        
+                        <div>
+                            <p>Brief Description : <?php echo $item_data['seller_data']->breif_description; ?></p>
+                        </div>
+                        
+                        <div>
+                            <p>Complete Description : <?php echo $item_data['seller_data']->complete_description; ?></p>
+                        </div>
+                        
+                        <div>
+                            <h4>Customer Reviews : </h4>
+                            
+                            <?php foreach($item_reviews as $review): ?>
+                            
+                            <div>
+                                <h5><?php echo $review->buyer_response_type; ?></h5>
+                                <p><?php echo $review->buyer_response; ?></p>
+                                <p><?php echo $review->date_int; ?></p>
+                            </div>
+                            
+                            <?php endforeach; ?>
+                            
+                        </div>
+                        
+                    </div>
+                    <!--Item Content-->
+
                 </div>
 
             </div>
