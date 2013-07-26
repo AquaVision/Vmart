@@ -19,7 +19,7 @@ class Membership_model extends CI_Model {
 
     function loginSessionArray($userid) {
 
-        $user = $this->db->query("select userid,full_name,email,username,userstatus,is_seller,sellerstatus,profile_pic,userfolder from forkeepinsession where userid = '$userid'");
+        $user = $this->db->query("select userid,full_name,email,username,userstatus,is_seller,sellerstatus,profile_pic,userfolder,wizardseller from forkeepinsession where userid = '$userid'");
         if ($user->num_rows() > 0) {
             return $user->row();
         }
