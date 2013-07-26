@@ -7,6 +7,7 @@
         <base href="<?= base_url() . "assets/"; ?>">
         <title>Vmart.lk</title>
 
+            
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen">
         <link href="css/sellerfrontstyle.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/Tickersellerfront.css">
@@ -23,18 +24,18 @@
             <?php $this->load->view('includes/navbar'); ?>
             <div class="headerimglk" ></div>
         </div>
-        <div id="main" class="">
+        <div id="main" class="row mp-container">
             <div class="span12 ">
                 <div class="span12">
                     <div class="mainContent">
                         <h4 class="muted">Top Items</h4>
-                        <ul class="thumbnails masonry" style="position: relative; height: 1230px;">
+                        <ul class="thumbnails masonry" id="landingcontent" style="position: relative; height: 1230px;">
 
                             <?php foreach ($top_items as $item ): ?>
                                 <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer">
 
-                                    <div class="thumbnail">
-                                        <img alt=""  src="<?php echo get_assets_path().$item->MainImageUrl; ?>">
+                                    <div class="vmartthumb">
+                                        <img alt=""  class="thumbnail" src="<?php echo get_assets_path().$item->MainImageUrl; ?>">
                                         <div class="caption">
                                             <h6 class="itemtitle" ><?php echo $item->title; ?></h6>
                                             <div class="row" style="margin-left:0px; margin-bottom:5px;">
@@ -51,7 +52,7 @@
                                                     ><i class="icon-zoom-in"></i>
                                                 </a> 
                                                 <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
-                                                <span class="label label-info price" ><?php echo $item->price ;?></span>
+                                                <span style="float: right; margin-top: 0px; margin-right:4px;" class="label label-info price" ><?php echo $item->price ;?>&nbsp;<?php echo $item->price_currancy ;?></span>
                                             </p>
 
                                         </div>
@@ -77,13 +78,12 @@
                 </div>
             </div>
 
-
-            <div class="span12">
+             <div class="span12">
                 <div class="span12">
                     <div class="mainContent">
 
 
-                        <div class="span12">
+                        <div class="row">
                             <div class="span7" style="margin-left:0px; height:460px; width:530px;">
 
                                 <h4 class="muted">Latest Items</h4>
@@ -278,6 +278,7 @@
                     </div>
                 </div>
             </div>
+           
 
         </div>
 

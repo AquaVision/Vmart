@@ -46,6 +46,16 @@ function getprofilePic() {
     return getcurrentSession()->userdata('udata')->profile_pic;
 }
 
+function iswizardseller(){
+    
+    $wiz = getcurrentSession()->userdata('udata')->wizardseller;
+    if($wiz ==0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function getUserFolder() {
     $CI = & get_instance();
     $path = $CI->config->item('userdatafolderpath');

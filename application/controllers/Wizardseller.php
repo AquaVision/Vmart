@@ -14,8 +14,12 @@ class Wizardseller extends CI_Controller {
     }
 
     function seller() {
+        if(iswizardseller()){
         $select_data['vmart_categories'] = $this->Add_item_model->get_vmart_categories();
         $this->load->view('public_profile_seller', $select_data);
+        }else{
+            redirect("Vmart");
+        }
     }
 
     function stepOneInWizard() {

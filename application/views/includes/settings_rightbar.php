@@ -9,7 +9,7 @@
                     <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
                     <ul>
                         <li  class="rightbarx"><a href="<?php echo site_url('settings/generalSettings') ?>"  >Account Settings</a></li>
-                        <li  class="rightbarx"><a href="<?php echo site_url('ShopSettings') ?>"  >Shop Settings</a></li>
+                        <li  class="rightbarx"><a href="<?php echo site_url('ShopSettings/shop') ?>"  >Shop Settings</a></li>
                     </ul>
                     <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Features and Upgrades</h5>
                     <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
@@ -23,7 +23,7 @@
                     <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Shop Settings</h5>
                     <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
                     <ul>
-                        <li  class="rightbarx"><a href="<?php echo site_url('ShopSettings') ?>"  >Shop front</a></li>
+                        <li  class="rightbarx"><a href="<?php echo site_url('ShopSettings/shop') ?>"  >Shop front</a></li>
                         <li  class="rightbarx"><a href="<?php echo site_url('My_items') ?>"  >Shop Items</a></li>
                     </ul>
                     <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Features and Upgrades</h5>

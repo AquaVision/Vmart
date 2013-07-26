@@ -56,9 +56,7 @@ class Auth extends CI_Controller {
             echo getMessageJson("", "Error giving email activated confirmation, please contact, ".$this->config->item('admin_email')."", "ERROR");
             
         }
-        
-        
-        
+   
     }
     function SignOut() {
         $this->session->sess_destroy();

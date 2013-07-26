@@ -28,7 +28,7 @@ p{font-family: Arial}
 }
 .mainContent ul> li{
 
-   
+
     margin-bottom: 5px !important;
 }
 .muted{
@@ -61,7 +61,7 @@ p{font-family: Arial}
     background-size: cover;
     height: 320px; 
     width: 100%; 
-    border: 1px solid black;
+
     margin-top:10px;
 }
 
@@ -134,18 +134,70 @@ p{font-family: Arial}
 
 .itemtitle{
     padding: 0 !important;
-    line-height: 1px !important;
+    line-height: 10px !important;
     font-size: 11px;
+    font-weight: normal !important;
+    color:#706C6C;
+    font-weight: 800 !important;
+    max-height: 30px;
+    overflow: hidden;
+}
+
+.caption{
+    padding-top: 2px !important;
+    padding-left: 5px !important;
+}
+.caption .row{
+    margin-top: 2px;
+    margin-bottom: 7px !important;
+}
+
+.vmartthumb {
+    border: none !important;
+    padding: 3px;
+    cursor: pointer;
+    list-style: none;
+    width: 180px;
+    margin-top: 20px;
+}
+
+.vmartthumb .label-info{
+    background-color: #8CB2C5 !important;
+}
+.vmartthumb img{
+    width: 170px !important;
 }
 
 
-.caption .row .span6, .span1{
 
+.vmartthumb:hover .thumbnail{
+    box-shadow: 0px 0px 0px #888888;
+    border: 1px white solid;
+    
+}
+
+.vmartthumb:hover{
+    box-shadow: 2px 2px 10px #888888;
+    border-radius:5px;
+}
+
+.vmartthumb:hover .label-info{
+    background-color: #3a87ad !important;
+}
+
+.vmartthumb .thumbnail{
+    box-shadow: 0.8px 1px 1px #888888;
+}
+
+#landingcontent li{
+    max-width: 200px !important;
+}
+
+.caption .row .span6, .span1{
     height: 14px !important;
     min-height: 14px!important; 
 }
 
-.thumbnail.img{float: left;margin-right: 10px;}
 .label-info.price{font-size: 15px ; margin-top: 3px;float: left}
 .caption{
     padding-bottom:0px !important;
@@ -155,6 +207,12 @@ p{font-family: Arial}
     float: none;
     height: 20px;
     font-size: 13px;
+}
+
+.mp-container {
+    background: #fafafa url("../images/fixed_images/backgrounds/vmart.png") repeat top left;
+    padding-bottom: 60px;
+    position: relative;
 }
 
 
