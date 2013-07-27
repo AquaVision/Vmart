@@ -18,6 +18,11 @@ class Vmart_alt extends CI_Controller {
         $item = $this->Land_model->get_item_details($item_id);
         echo $item['item']->breif_description;
     }
+    
+    function user_store_item()
+    {
+        $this->load->view('user_store_item');
+    }
 
 }
 
