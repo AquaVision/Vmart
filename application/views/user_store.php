@@ -176,7 +176,17 @@
                                                                 <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                                             </div>
 
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span></p>
+                                                            <p>
+                                                                <a class="btn primary details show_magnifier_modal" 
+                                                                   data-itemid="<?php echo $item->item_id; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path() . $item->image_url; ?>"
+                                                                   data-itemtitle="<?php echo $item->title; ?>"
+                                                                   data-itemprice="<?php echo $item->price; ?>"
+                                                                   ><i class="icon-zoom-in"></i>
+                                                                </a> 
+                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                                <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span>
+                                                            </p>
 
                                                         </div>
                                                     </div>
@@ -199,7 +209,17 @@
                                                                 <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
                                                                 <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                                             </div>
-                                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
+                                                            <p>
+                                                                <a class="btn primary details show_magnifier_modal" 
+                                                                   data-itemid="<?php echo $item->item_id; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path() . $item->image_url; ?>"
+                                                                   data-itemtitle="<?php echo $item->title; ?>"
+                                                                   data-itemprice="<?php echo $item->price; ?>"
+                                                                   ><i class="icon-zoom-in"></i>
+                                                                </a> 
+                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
+                                                                <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -232,7 +252,17 @@
                                                 <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                             </div>
 
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
+                                            <p>
+                                                <a class="btn primary details show_magnifier_modal" 
+                                                                   data-itemid="<?php echo $item->item_id; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path() . $item->MainImageUrl; ?>"
+                                                                   data-itemtitle="<?php echo $item->title; ?>"
+                                                                   data-itemprice="<?php echo $item->price; ?>"
+                                                                   ><i class="icon-zoom-in"></i>
+                                                                </a> 
+                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                <span class="label label-info price"><?php echo $item->price." ".$item->price_currancy; ?></span>
+                                            </p>
 
                                         </div>
                                     </div>
@@ -258,7 +288,7 @@
                         </div>
 
 
-                        <h4 class="muted">New Arrivales </h4>
+                        <h4 class="muted">New Arrivals </h4>
                         <div class="mainContent" style="padding-top:1px; padding-left:0px;">
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 
@@ -273,7 +303,17 @@
                                                 <div class="span1 nuberofsales" style="margin-left:0px;"><?php echo $item->rating ; ?></div>
                                             </div>
 
-                                            <p><a class="btn primary details" href="#" rel="ajax/1.html"><i class="icon-zoom-in"></i></a> <a class="btn addto" href="#" rel="1"><i class="icon-shopping-cart"></i></a> <span class="label label-info price">10.00000/=</span></p>
+                                            <p>
+                                                <a class="btn primary details show_magnifier_modal" 
+                                                                   data-itemid="<?php echo $item->item_id; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path() . $item->MainImageUrl; ?>"
+                                                                   data-itemtitle="<?php echo $item->title; ?>"
+                                                                   data-itemprice="<?php echo $item->price; ?>"
+                                                                   ><i class="icon-zoom-in"></i>
+                                                </a>  
+                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                <span class="label label-info price"><?php echo $item->price." ".$item->price_currancy; ?></span>
+                                            </p>
 
                                         </div>
                                     </div>
@@ -303,30 +343,46 @@
                 </div>
 
             </div>
-
-
+            
             <footer class="footer ">
                 <?php $this->load->view('includes/footer.php'); ?>
             </footer>
+            
+            <!--Modal for Item Magnifier-->
+            <div id="item_magnifier" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">×</a>
+                    <h3 id="mag-itemtitle"></h3>
+                </div>
+                <div class="modal-body">
+                    <div class="thumbnail img">
+                        <img alt="" id="mag-itemimg">
+                    </div>
+                    <p id="mag-itemdesc"></p>
+                </div>
+                <div class="modal-footer">
+                    <span class="label label-info price" id="mag-itemprice"></span>
+                    <a class="btn addto add-to-cart" data-itemid = ""  id="mngitemid" href="#" rel="1">Add to <i class="icon-shopping-cart"></i></a>
+                </div>
+            </div>
+            <!--End Modal for Item Magnifier-->
+            
+            
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
-            <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
-            <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-            <script src="js/prettify_base.js"></script>
-            <script src="js/bootshop_base.js"></script>
-            <script src="jquerylib/jquery.lightbox-0.5.js"></script>
-
-            <script src="http://code.jquery.com/jquery.js"></script>
-            <script src="js/accordianMenu.js"></script>
+            <script src="jquerylib/jquery-1.10.1.min.js"></script>
+            <script src="js/jquery.masonry.min.js"></script>
+            <script src="bootstrap/js/bootstrap.js"></script>
             <script src="js/sellerfront.js"></script>
+            <script type="text/javascript" src="js/jquery.totemticker.js"></script>
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
             <script type="text/javascript" src="js/Common.js"></script>
+            
             <script type="text/javascript">
 
                 $('#btnModalSignIn').on('click',function(){
                     $('#usrSignInLi').css({display:'none'});
                     $('#usrLgdInLi').css({display:'block'});
                 });
-
 
             </script>
 

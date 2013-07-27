@@ -2,11 +2,11 @@ $(document).ready(function(){
     
     var $container = $('.thumbnails');
 
-    $container.imagesLoaded( function(){
-        $container.masonry({
-            itemSelector : 'li.span3'
-        });
-    });
+//    $container.imagesLoaded( function(){
+//        $container.masonry({
+//            itemSelector : 'li.span3'
+//        });
+//    });
 
 	
     $('#modal,#modalCart').modal({

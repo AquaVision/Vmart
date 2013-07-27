@@ -172,6 +172,7 @@ $(function(){
 
 
     $(".add-to-cart").on("click",function(e){
+        alert("Click kalalu");
         var id = $(this).data("itemid");
         $.post("../Web_cart/add",{
             "itemid" :id
@@ -259,6 +260,7 @@ $(function(){
     //Function for loading Maginifier Modal
     $(".show_magnifier_modal").on('click',function(e)
     {
+        //alert("Click kala");
         var item_id= $(this).data("itemid");
         var item_image = $(this).data("imgurl");
         var item_title = $(this).data("itemtitle");
@@ -267,9 +269,9 @@ $(function(){
 
         var url = "../Vmart/get_item_details/"+item_id;
         $.get(url, function(data) {
-            $('#mag-itemtitle').html(data);
+            $('#mag-itemtitle').html(item_title);
             $('#mag-itemimg').attr('src',item_image);
-            $('#mag-itemdesc').html(item_title);
+            $('#mag-itemdesc').html(data);
             $('#mag-itemprice').html(item_price);
             $("#mngitemid").data("itemid",item_id);
         }).success(function() {
@@ -311,7 +313,7 @@ $(function(){
     check_order_count();
     
 
-});
+});//End of onload
 
 
 
