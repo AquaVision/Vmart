@@ -80,6 +80,8 @@
                             <div class="span6" style="width: 50%; margin-left: auto; " >
 
                                 <h4 class="muted">Latest Items</h4>
+                                
+                                
                                 <ul class="thumbnails masonry"  id="vertical-ticker" style="margin-top: 29px;">                       
                                     <?php for($i=0; $i< 4; ++$i){ ?>
                                     <li style="cursor: pointer" >
@@ -90,7 +92,7 @@
                                             <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
                                                 <div class="caption" style="padding-top:0px; padding-bottom:0px;">
                                                     <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                    <span class="description">hello</span>
+                                                    <span class="description">day 3</span>
                                                     <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
                                                         <div class="span6 ratex fivestars_4_0" style="margin-left:0px;"></div>
                                                         <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
