@@ -96,6 +96,7 @@
                                                         <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
                                                     </div>
 
+                                                    
                                                     <p > <span class="label label-info price">10.00000/=</span></p>
 
                                                 </div>
