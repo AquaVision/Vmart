@@ -184,7 +184,7 @@
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
                                                                 </a> 
-                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>"  rel="1"><i class="icon-shopping-cart"></i></a> 
                                                                 <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span>
                                                             </p>
 
@@ -217,7 +217,7 @@
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
                                                                 </a> 
-                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a> 
+                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>"  rel="1"><i class="icon-shopping-cart"></i></a>  
                                                                 <span class="label label-info price"><?php echo $item->price." ".$item->currency ?></span>
                                                             </p>
                                                         </div>
@@ -260,7 +260,7 @@
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
                                                                 </a> 
-                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>"  rel="1"><i class="icon-shopping-cart"></i></a>  
                                                 <span class="label label-info price"><?php echo $item->price." ".$item->price_currancy; ?></span>
                                             </p>
 
@@ -288,7 +288,7 @@
                         </div>
 
 
-                        <h4 class="muted">New Arrivals </h4>
+                        <h4 class="muted">New Arrivales </h4>
                         <div class="mainContent" style="padding-top:1px; padding-left:0px;">
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 
@@ -311,7 +311,7 @@
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
                                                 </a>  
-                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>" href="#" rel="1"><i class="icon-shopping-cart"></i></a>
+                                                <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>"  rel="1"><i class="icon-shopping-cart"></i></a>  
                                                 <span class="label label-info price"><?php echo $item->price." ".$item->price_currancy; ?></span>
                                             </p>
 
@@ -362,20 +362,21 @@
                 </div>
                 <div class="modal-footer">
                     <span class="label label-info price" id="mag-itemprice"></span>
-                    <a class="btn addto add-to-cart" data-itemid = ""  id="mngitemid" href="#" rel="1">Add to <i class="icon-shopping-cart"></i></a>
+                    <a class="btn addto add-to-cart" data-itemid="<?php echo $item->item_id; ?>"  rel="1"><i class="icon-shopping-cart"></i></a> 
                 </div>
             </div>
             <!--End Modal for Item Magnifier-->
             
             
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
-            <script src="jquerylib/jquery-1.10.1.min.js"></script>
-            <script src="js/jquery.masonry.min.js"></script>
+            
+            <script src="jquerylib/jquery-1.10.1.min.js"></script>        
             <script src="bootstrap/js/bootstrap.js"></script>
             <script src="js/sellerfront.js"></script>
             <script type="text/javascript" src="js/jquery.totemticker.js"></script>
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
-            <script type="text/javascript" src="js/Common.js"></script>
+            
+            
             
             <script type="text/javascript">
 
@@ -383,6 +384,43 @@
                     $('#usrSignInLi').css({display:'none'});
                     $('#usrLgdInLi').css({display:'block'});
                 });
+                
+                //Function for loading Maginifier Modal
+                $(".show_magnifier_modal").on('click',function(e)
+                {
+                    //alert("Click kala");
+                    var item_id= $(this).data("itemid");
+                    var item_image = $(this).data("imgurl");
+                    var item_title = $(this).data("itemtitle");
+                    var item_price = $(this).data("itemprice");
+
+
+                    var url = "../Vmart/get_item_details/"+item_id;
+                    $.get(url, function(data) {
+                        $('#mag-itemtitle').html(item_title);
+                        $('#mag-itemimg').attr('src',item_image);
+                        $('#mag-itemdesc').html(data);
+                        $('#mag-itemprice').html(item_price);
+                        $("#mngitemid").data("itemid",item_id);
+                    }).success(function() {
+                        $('#item_magnifier').modal({
+                            show:true
+                        });
+                    });
+                });
+                
+                $(".add-to-cart").on("click",function(e){
+                alert("Click kalalu");
+                var id = $(this).data("itemid");
+                $.post("../Web_cart/add",{
+                    "itemid" :id
+                }, function(data){
+
+                    });
+
+            });
+
+
 
             </script>
 
