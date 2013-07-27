@@ -31,7 +31,10 @@ class Land_model extends CI_Model {
     function get_latest_Items() {
 
         //$sql = "SELECT * FROM view_top_items WHERE status='ACTIVE'";
-        $sql = "SELECT * FROM store_item WHERE STATUS='ACTIVE' AND Qty > 0 ORDER BY item_id DESC LIMIT 4";
+       $today = get_date_time();
+        $sql = "SELECT *,DATEDIFF('$today', item_created) AS daysx  FROM store_item WHERE STATUS='ACTIVE' AND Qty > 0 ORDER BY item_id DESC LIMIT 4";
+        
+       
         $query = $this->db->query($sql);
         $items = array();
         if ($query->num_rows() > 1) {
@@ -54,7 +57,8 @@ class Land_model extends CI_Model {
 	mobverified, 
 	wizardseller, 
 	total_rating, 
-	company_pic
+	shopname_pic, 
+	shopname
 	 
 	from 
 	seller where status = 'ACTIVE_VERIFIED'

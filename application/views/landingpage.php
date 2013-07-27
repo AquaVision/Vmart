@@ -81,31 +81,34 @@
 
                                 <h4 class="muted">Latest Items</h4>
                                 
-                                
+                                 
                                 <ul class="thumbnails masonry"  id="vertical-ticker" style="margin-top: 29px;">                       
-                                    <?php for($i=0; $i< 4; ++$i){ ?>
-                                    <li style="cursor: pointer" >
+                                    <?php 
+                                    foreach ($latestitems as $item):
+                                        
+                                        ?>
+                                    <li style="cursor: pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'" >
                                         <div class="thumbnail row" style="margin-left:0px;">
                                             <div class="span3" style="margin-left:0px; width:140px; height:120px;">
-                                                <img alt="" style="height: 100%" src="./images/fixed_images/13.png" >
+                                                <img alt="" style="height: 100%" src="<?php echo get_assets_path() . $item->MainImageUrl; ?>" >
                                             </div>
                                             <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
                                                 <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                    <span class="description">day 3</span>
+                                                    <h6 class="itemtitle"><?php echo $item->title; ?></h6>
+                                                    <span class="description"><?php echo $item->daysx; ?> days</span>
                                                     <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                        <div class="span6 ratex fivestars_4_0" style="margin-left:0px;"></div>
-                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
+                                                        <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(<?php echo $item->rating; ?>)</div>
                                                     </div>
 
                                                     
-                                                    <p > <span class="label label-info price">10.00000/=</span></p>
+                                                    <p > <span class="label label-info price"><?php echo $item->price; ?>&nbsp;<?php echo $item->price_currancy; ?></span></p>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                   <?php } ?>
+                                   <?php endforeach; ?>
                                    
                                 </ul>
                             </div>
@@ -115,12 +118,13 @@
                                 <ul class="thumbnails " style="position: relative; " >
 
 
-                                    <?php  for($i=0; $i<9; ++$i){ ?>
+                                    <?php  foreach ($topsellers as $seller): ?>
                                     <li style="cursor: pointer" class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
+                                        <img alt="user" class="thumbnail topsellerimg" width="100"  src="<?php echo get_assets_path()."/".$seller->shopname_pic ?>">
+                                        <div class="whoisseller" ><?php echo $seller->shopname ?></div>
                                     </li>
 
-                                   <?php } ?>
+                                  <?php endforeach; ?>
 
 
 
@@ -178,8 +182,8 @@
             $(function(){
                 $('#vertical-ticker').totemticker({
                     row_height  :   '133px',
-                    speed       :   3000,
-                    interval    :   6000,
+                    speed       :   4000,
+                    interval    :   7000,
                     mousestop   :   true,
                     direction   :   'down'
                 });
