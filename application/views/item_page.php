@@ -228,9 +228,9 @@
                                     <div class="control-group">
                                         <label class="control-label" style="text-align:left" ><h3><?php echo $item_data['seller_data']->price."  ".$item_data['seller_data']->price_currancy ;  ?></h3></label>
                                         <div class="controls" style="height:60px; text-align:right">
-                                            <input type="number" value="1"  placeholder="Qty."  style="width:60px; margin-top:20px">
+                                            <input type="number" value="0" min="0" max="<?php echo $item_data['seller_data']->Qty ?>"  placeholder="Qty."  style="width:60px; margin-top:20px" >
                                         </div><br>
-                                        <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+                                        <button type="submit" class="btn addto add-to-cart btn-large btn-primary pull-right "> Add to cart <i class=" icon-shopping-cart"></i></button>
                                     </div>
                                 </form>
 
