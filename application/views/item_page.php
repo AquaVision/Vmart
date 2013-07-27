@@ -203,7 +203,7 @@
                     <div class="row">   
                             <div id="gallery" class="span5" >
                                 <a href="" title="<?php echo $item_data['seller_data']->title ; ?>">
-                                    <img id="item_l_image" src="<?php echo get_assets_path()."/".$item_images[0]->item_image;?>" style="width:471px;height:354px;" alt="<?php echo $item_data['seller_data']->title ; ?>">
+                                    <img id="item_l_image" src="" style="width:471px;height:354px;" alt="<?php echo $item_data['seller_data']->title ; ?>">
                                 </a>
 
                                 <div class="span12 moroptions" style="width:470px; margin-left:0px;">
@@ -298,6 +298,12 @@
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
             <script type="text/javascript" src="js/Common.js"></script>
             <script type="text/javascript">
+                $(window).load(function(){
+                    //alert(":P");
+                    var s_src = $($('.item_s_image')[0]).attr("src");
+                    $("#item_l_image").attr("src",s_src);
+                });
+
 
                 $('#btnModalSignIn').on('click',function(){
                     $('#usrSignInLi').css({display:'none'});
@@ -313,6 +319,7 @@
                     var l_src = $('#item_l_image').attr('src');
                     $("#item_l_image").attr("src",s_src);
                 });
+                
                 
                 
             </script>
