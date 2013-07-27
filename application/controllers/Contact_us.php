@@ -98,9 +98,11 @@ class Contact_us extends CI_Controller {
 //        echo $user_feedback."</br>";
 //        echo $email_subject."</br>";
 //        echo $this->input->post('seller_id');
+        $this->seller_data['seller_id'] = $this->input->post('seller_id');
         
         sendVmartEmail($seller_email->email_for_meesage,$email_subject,$user_feedback);
-        $this->load->view('contact_us',$this->input->post('seller_id'));
+        $this->get_data($this->input->post('seller_id'));
+        //$this->load->view('contact_us',);
         
     }
 
