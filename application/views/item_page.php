@@ -202,7 +202,7 @@
                     <!--User Item Page-->
                     <div class="row">   
                             <div id="gallery" class="span5" >
-                                <a href="" title="<?php echo $item_data['seller_data']->title ; ?>">
+                                <a title="<?php echo $item_data['seller_data']->title ; ?>">
                                     <img id="item_l_image" src="" style="width:471px;height:354px;" alt="<?php echo $item_data['seller_data']->title ; ?>">
                                 </a>
 
