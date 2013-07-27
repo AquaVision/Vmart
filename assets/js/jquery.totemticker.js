@@ -169,7 +169,7 @@
         speed		:	800,		/* Speed of transition animation in milliseconds */
         interval	:	4000,		/* Time between change in milliseconds */
         max_items	: 	null, 		/* Integer for how many items to display at once. Resizes height accordingly (OPTIONAL) */
-        direction   :   'up',
+        
 
     };
   
