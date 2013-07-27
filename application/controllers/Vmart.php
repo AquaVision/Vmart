@@ -14,7 +14,9 @@ class Vmart extends CI_Controller {
 
     public function index() {
          $data['top_items'] = $this->Land_model->get_top_items();
-       // print_r($data['top_items']);
+         $data['latestitems'] = $this->Land_model->get_latest_Items();
+         $data['topsellers'] = $this->Land_model->get_top_sellers();
+        // print_r($data['top_items']);
        // die();
         $this->load->view('landingpage',  $data);
     }

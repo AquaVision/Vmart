@@ -4,7 +4,21 @@ class Product_model extends CI_Model {
 
     function get($id) {
 
-        $result = $this->db->query("SELECT * FROM view_all_seller_items WHERE item_id = '.$id.' LIMIT 1");
+        $result = $this->db->query("SELECT item_id, cat_id, 
+	userid, 
+	title, 
+	similar, 
+	price, 
+	price_currancy, 
+	Qty, 
+	breif_description, 
+	complete_description, 
+	item_created, 
+	rating, 
+	STATUS, 
+	vmartCatcatid, 
+	MainImageUrl AS item_image
+	FROM store_item  WHERE item_id = '.$id.' ");
         $row = $result->row();
         return $row;
     }

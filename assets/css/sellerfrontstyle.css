@@ -245,7 +245,7 @@ p{font-family: Arial}
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-#loadmore{
+.loadmore{
     
     box-shadow: 0.5px 0.5px 1px #888888;  
 }
