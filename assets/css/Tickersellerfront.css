@@ -6,6 +6,10 @@
 
 }
 
-#vertical-ticker li{
+#vertical-ticker li .thumbnail{
+  height: 120px !important;
+}
 
+#vertical-ticker li .thumbnail .span3 img{
+    
 }

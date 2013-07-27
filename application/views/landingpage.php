@@ -35,10 +35,10 @@
                                 <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer">
 
                                     <div class="vmartthumb">
-                                        <img alt=""  class="thumbnail" src="<?php echo get_assets_path() . $item->MainImageUrl; ?>">
+                                        <img alt=""   src="<?php echo get_assets_path() . $item->MainImageUrl; ?>">
                                         <div class="caption">
                                             <h6 class="itemtitle" ><?php echo $item->title; ?></h6>
-                                            <div class="row" style="margin-left:0px; margin-bottom:5px;">
+                                            <div class="row raterowma" style="margin-left:0px; margin-bottom:5px;">
                                                 <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
                                                 <div class="span1 nuberofsales" style="margin-left:0px;">(<?php echo $item->rating; ?>)</div>
                                             </div>
@@ -64,15 +64,10 @@
 
                         </ul>
                         <div class="pagination">
-                            <ul>
-                                <li><a href="#">Prev</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
+                           <div class="gig-load-more" style="display: block;">
+                                    <a  class="btn-standard-lrg btn-white">See More</a>
+                                </div>
+                            <hr id ="loadmore"/>
                         </div>
                     </div>
                 </div>
@@ -86,10 +81,11 @@
 
                                 <h4 class="muted">Latest Items</h4>
                                 <ul class="thumbnails masonry"  id="vertical-ticker" style="margin-top: 29px;">                       
+                                    <?php for($i=0; $i< 4; ++$i){ ?>
                                     <li >
                                         <div class="thumbnail row" style="margin-left:0px;">
-                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
-                                                <img alt="" src="./images/fixed_images/13.png" >
+                                            <div class="span3" style="margin-left:0px; width:140px; height:120px;">
+                                                <img alt="" style="height: 100%" src="./images/fixed_images/13.png" >
                                             </div>
                                             <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
                                                 <div class="caption" style="padding-top:0px; padding-bottom:0px;">
@@ -106,81 +102,22 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li >
-                                        <div class="thumbnail row" style="margin-left:0px;">
-                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
-                                                <img alt="" src="./images/fixed_images/14.png" >
-                                            </div>
-                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
-                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                    <span class="description">hello</span>
-                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                        <div class="span6 ratex fivestars_4_5" style="margin-left:0px;"></div>
-                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-                                                    </div>
-
-                                                    <p > <span class="label label-info price">10.00000/=</span></p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li >
-                                        <div class="thumbnail row" style="margin-left:0px;">
-                                            <div class="span3" style="margin-left:0px; width:140px; height:98px;">
-                                                <img alt="" src="./images/fixed_images/15.png" >
-                                            </div>
-                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
-                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                    <h6 class="itemtitle">Item 1 Item 1 Item 1 Item 1 Item 1</h6>
-                                                    <span class="description">hello</span>
-                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                        <div class="span6 ratex fivestars_5_0" style="margin-left:0px;"></div>
-                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(123)</div>
-
-                                                    </div>
-
-                                                    <p > <span class="label label-info price">10.00000/=</span></p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                   <?php } ?>
+                                   
                                 </ul>
                             </div>
-                            <div class="span6" style="width: 50%; margin-left: auto">
+                            <div class="span6" style="width: 50%; margin-left: auto;">
 
-                                <h5 class="muted">Our top sellers</h5>
+                                <h4 class="muted">Our top sellers</h4>
                                 <ul class="thumbnails " style="position: relative; " >
 
 
-
+                                    <?php  for($i=0; $i<9; ++$i){ ?>
                                     <li class="span3 masonry-brick topsellerx">
                                         <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
                                     </li>
 
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
-                                    <li class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
-                                    </li>
+                                   <?php } ?>
 
 
 

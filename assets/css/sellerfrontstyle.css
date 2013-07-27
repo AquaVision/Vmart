@@ -15,7 +15,7 @@ p{font-family: Arial}
     height: 40px !important;
     padding: 0px !important;
     background: url(../images/assets/logoSMALL.png) no-repeat center !important; 
-    
+
 
 }
 #header .span12 {margin: 0 auto;float: none;}
@@ -159,26 +159,98 @@ p{font-family: Arial}
     list-style: none;
     width: 180px;
     margin-top: 30px;
-    
+    box-shadow: 1px 1px 10px #888888;
+    border-radius:5px;
+
 }
 
 .vmartthumb .label-info{
     background-color: #8CB2C5 !important;
 }
 .vmartthumb img{
-    width: 170px !important;
+    width: 180px !important;
+}
+
+.raterowma{
+    
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+
+}
+
+.vmartthumb:hover .thumbnail{
+    box-shadow: 0.5px 0.5px 8px #888888;  
+}
+
+.vmartthumb:hover .raterowma{
+
+    display: block;
+    opacity: 1;
+
+
+
 }
 
 
+.gig-load-more {
+    background: transparent url("../images/fixed_images/backgrounds/formordata.png") no-repeat top center;
+    height: 160px;
+    text-align: center;
+    clear: both;
+    display: none;
+}
 
-.vmartthumb:hover .thumbnail{
-    box-shadow: 0.5px 0.5px 8px #888888;
-    
-    
+
+.gig-load-more .btn-standard-lrg {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    width: 160px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 65px;
+}
+
+.btn-standard-lrg.btn-white {
+    background-color: #fff;
+    color: #777;
+    border-color: #ccc;
+    -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.btn-standard-lrg {
+    background: #00b22d url("../images/fixed_images/backgrounds/loadfv.gif") no-repeat -2000px -2000px;
+    display: inline-block;
+    font: 700 16px/16px 'Lato', Helvetica, sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid #028a25;
+    padding: 16px 40px;
+    margin: 0;
+    -webkit-transition: color 0.2s,background-color 0.2s,box-shadow 0.2s,border 0.2s;
+    -moz-transition: color 0.2s,background-color 0.2s,box-shadow 0.2s,border 0.2s;
+    -o-transition: color 0.2s,background-color 0.2s,box-shadow 0.2s,border 0.2s;
+    transition: color 0.2s,background-color 0.2s,box-shadow 0.2s,border 0.2s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#loadmore{
+    box-shadow: 0.5px 0.5px 3px #888888;  
 }
 
 .vmartthumb:hover{
-    box-shadow: 2px 2px 10px #888888;
+    box-shadow: 0.2px 0.2px 10px #888888;
     border-radius:5px;
 }
 
@@ -187,8 +259,15 @@ p{font-family: Arial}
 }
 
 .vmartthumb .thumbnail{
+
     box-shadow: 0.8px 1px 1px #888888;
 }
+
+
+
+
+
+
 
 #landingcontent li{
     max-width: 200px !important;
@@ -201,13 +280,14 @@ p{font-family: Arial}
 
 
 .topsellerx img{
-   width: 150px;
+    width: 150px;
 }
 
 .topsellerx{
-    margin-top: 15px;
-    margin-left:9px !important;
-    
+   
+    margin-top: 34px !important;
+    margin-left:50px !important;
+    width: 130px;
 }
 
 
