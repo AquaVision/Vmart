@@ -35,7 +35,7 @@ class Item_model extends CI_Model
     
     public function get_cutomer_reviews($item_id)
     {
-        $sql = "SELECT * FROM buyer_store_item_order WHERE item_id = ?";
+        $sql = "SELECT * FROM view_reviews WHERE item_id = ?";
         $query = $this->db->query($sql,array($item_id));
         
         $item_reviews = array();

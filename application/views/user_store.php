@@ -37,7 +37,8 @@
             {
                 color:#ccc; font-size:11px; padding:0; line-height:24px; display:block;
             }
-
+            
+            
 
         </style>
 
@@ -166,7 +167,7 @@
                                         <div class="item active">
                                             <ul class="thumbnails" id="carosalproducts">
                                                 <?php foreach ($featured_products as $item): ?>
-                                                <li class="span3">
+                                                <li class="span3" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                                     <div class="thumbnail" style="width:198px">
                                                         <img alt="" src="<?php echo get_assets_path().$item->image_url ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
@@ -200,7 +201,7 @@
                                         <div class="item">
                                             <ul class="thumbnails" id="carosalproducts">
                                                 <?php foreach ($featured_products as $item): ?>
-                                                <li class="span3">
+                                                <li class="span3" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                                     <div class="thumbnail" style="width:198px">
                                                         <img alt="" src="<?php echo get_assets_path().$item->image_url; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
@@ -242,7 +243,7 @@
 
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 <?php foreach ($all_products as $item): ?>
-                                <li class="span3 masonry-brick" >
+                                <li class="span3 masonry-brick" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                     <div class="thumbnail" style="width:200px">
                                         <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                         <div class="caption">
@@ -293,7 +294,7 @@
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 
                                 <?php foreach ($new_products as $item): ?>
-                                <li class="span3 masonry-brick" >
+                                <li class="span3 masonry-brick" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                     <div class="thumbnail" style="width:200px">
                                         <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>"style="height: 145px;width: 212px;" >
                                         <div class="caption">
@@ -306,7 +307,7 @@
                                             <p>
                                                 <a class="btn primary details show_magnifier_modal" 
                                                                    data-itemid="<?php echo $item->item_id; ?>"
-                                                                   data-imgurl="<?php echo get_assets_path() . $item->MainImageUrl; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path().$item->MainImageUrl; ?>"
                                                                    data-itemtitle="<?php echo $item->title; ?>"
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
@@ -370,11 +371,13 @@
             
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
             
-            <script src="jquerylib/jquery-1.10.1.min.js"></script>        
+            <script src="jquerylib/jquery-1.10.1.min.js"></script>
+ 
             <script src="bootstrap/js/bootstrap.js"></script>
             <script src="js/sellerfront.js"></script>
             <script type="text/javascript" src="js/jquery.totemticker.js"></script>
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="js/Common.js"></script>
             
             
             
@@ -385,7 +388,17 @@
                     $('#usrLgdInLi').css({display:'block'});
                 });
                 
-                //Function for loading Maginifier Modal
+                    $(".add-to-cart").on("click",function(e){
+                    alert("Click kalalu");
+                    var id = $(this).data("itemid");
+                    $.post("../Web_cart/add",{
+                        "itemid" :id
+                    }, function(data){
+
+                        });
+
+                });
+
                 $(".show_magnifier_modal").on('click',function(e)
                 {
                     //alert("Click kala");
@@ -408,17 +421,6 @@
                         });
                     });
                 });
-                
-                $(".add-to-cart").on("click",function(e){
-                alert("Click kalalu");
-                var id = $(this).data("itemid");
-                $.post("../Web_cart/add",{
-                    "itemid" :id
-                }, function(data){
-
-                    });
-
-            });
 
 
 

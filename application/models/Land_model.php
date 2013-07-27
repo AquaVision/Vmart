@@ -4,7 +4,7 @@ class Land_model extends CI_Model {
 
     function get_top_items() {
         //$sql = "SELECT * FROM view_top_items WHERE status='ACTIVE'";
-        $sql = "SELECT * FROM store_item WHERE status='ACTIVE' AND Qty > 0 LIMIT 16";
+        $sql = "SELECT * FROM store_item WHERE status='ACTIVE' AND Qty > 0 LIMIT 15";
         $query = $this->db->query($sql);
 
         if ($query->num_rows() > 1) {

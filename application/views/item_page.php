@@ -73,6 +73,25 @@
             {
                     text-decoration: none;
             }
+            
+            div .good
+            {
+                width: 32px !important;
+                height: 32px !important;
+                padding: 0px !important;
+                background: url(images/icons/good.gif) no-repeat center !important;
+                background-size:32px 32px !important;
+            }
+            
+            div .bad
+            {
+                width: 32px !important;
+                height: 32px !important;
+                padding: 0px !important;
+                background: url(images/icons/bad.gif) no-repeat center !important;
+                background-size:32px 32px !important;
+            }
+
 
 
         </style>
@@ -228,9 +247,11 @@
                                     <div class="control-group">
                                         <label class="control-label" style="text-align:left" ><h3><?php echo $item_data['seller_data']->price."  ".$item_data['seller_data']->price_currancy ;  ?></h3></label>
                                         <div class="controls" style="height:60px; text-align:right">
-                                            <input type="number" value="0" min="0" max="<?php echo $item_data['seller_data']->Qty ?>"  placeholder="Qty."  style="width:60px; margin-top:20px" >
+                                            <input id="item_amt" type="number" value="0" min="0" max="<?php echo $item_data['seller_data']->Qty ?>"  placeholder="Qty."  style="width:60px; margin-top:20px" >
                                         </div><br>
-                                        <button type="submit" class="btn addto add-to-cart btn-large btn-primary pull-right "> Add to cart <i class=" icon-shopping-cart"></i></button>
+                                        
+                                        <button  class="btn addto add-amt-to-cart btn-large btn-primary pull-right " data-itemid="<?php echo $item_data['seller_data']->item_id; ?>"  rel="1"> Add to cart <i class=" icon-shopping-cart"></i></button>
+                                        
                                     </div>
                                 </form>
 
@@ -260,12 +281,19 @@
                                         <?php echo $item_data['seller_data']->complete_description; ?>
                                     </div>
                                     <div class="tab-pane fade  in" id="customer_reviews">
-                                        <h4>Customer Reviews</h4>
+                                        <h4 style="margin-bottom: 30px;">Customer Reviews</h4>
                                         <?php foreach($item_reviews as $review): ?>
                                         <div>
-                                            <h5><?php echo $review->buyer_response_type; ?></h5>
-                                            <p><?php echo $review->buyer_response; ?></p>
-                                            <p><?php echo $review->date_int; ?></p>
+                                            <div class="row">
+                                                <div class="span1 <?php echo $review->buyer_response_type; ?>"></div>
+                                                <div class="span6"><?php echo $review->buyer_response; ?></div>
+                                                
+                                                <div class="span2" >
+                                                    <p><?php echo $review->date_int; ?></p>
+                                                    <a><p><?php echo $review->username; ?></p></a>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                         <hr>
                                         <?php endforeach; ?>
@@ -286,17 +314,14 @@
                 <?php $this->load->view('includes/footer.php'); ?>
             </footer>
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
-            <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
-            <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-            <script src="js/prettify_base.js"></script>
-            <script src="js/bootshop_base.js"></script>
-            <script src="jquerylib/jquery.lightbox-0.5.js"></script>
-
-            <script src="http://code.jquery.com/jquery.js"></script>
-            <script src="js/accordianMenu.js"></script>
+            <script src="jquerylib/jquery-1.10.1.min.js"></script>
+            <script src="js/jquery.masonry.min.js"></script>
+            <script src="bootstrap/js/bootstrap.js"></script>
             <script src="js/sellerfront.js"></script>
+            <script type="text/javascript" src="js/jquery.totemticker.js"></script>
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
             <script type="text/javascript" src="js/Common.js"></script>
+            
             <script type="text/javascript">
                 $(window).load(function(){
                     //alert(":P");
@@ -320,6 +345,16 @@
                     $("#item_l_image").attr("src",s_src);
                 });
                 
+                $(".add-amt-to-cart").on("click",function(e){
+                alert("Click kalalu");
+                var id = $(this).data("itemid");
+                var item_amt = $('#item_amt').val();
+                $.post("../Web_cart/add_specific_amt/",{
+                    "itemid" :id,
+                    "item_amt" : item_amt
+                }, function(data){
+
+                    });});
                 
                 
             </script>
