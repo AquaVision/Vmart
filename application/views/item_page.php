@@ -196,55 +196,86 @@
                     </div>
                     
                     <!--Item Content-->
-                    <div class="span9">
-                        
-                        <div>
-                            <h3><?php echo $item_data['seller_data']->title ; ?></h3>
-                        </div>
-                        
-                        <!--Images-->
-                        <div>
-                            <?php foreach($item_images as $image): ?>
-                            <img class="media-imgs" src="<?php echo get_assets_path()."/".$image->item_image;?>">
-                            <?php endforeach; ?>
-                        </div>
-                        <!--End Images-->
-                        
-                        <div>
-                            </br>
-                            <p>Price : <?php echo $item_data['seller_data']->price."  ".$item_data['seller_data']->price_currancy ;  ?></p>
-                            <p>Quantity : <?php echo $item_data['seller_data']->Qty; ?> available</p>
-                            <div class="span6 ratex <?php echo get_formatted_rating($item_data['seller_data']->rating); ?>" style="margin-left:0px;"></div>
-                        </div>
-                        
-                        </br>
-                        <hr>
-                        
-                        <div>
-                            <p>Brief Description : <?php echo $item_data['seller_data']->breif_description; ?></p>
-                        </div>
-                        
-                        <div>
-                            <p>Complete Description : <?php echo $item_data['seller_data']->complete_description; ?></p>
-                        </div>
-                        
-                        <div>
-                            <h4>Customer Reviews : </h4>
-                            
-                            <?php foreach($item_reviews as $review): ?>
-                            
-                            <div>
-                                <h5><?php echo $review->buyer_response_type; ?></h5>
-                                <p><?php echo $review->buyer_response; ?></p>
-                                <p><?php echo $review->date_int; ?></p>
-                            </div>
-                            
-                            <?php endforeach; ?>
-                            
-                        </div>
-                        
-                    </div>
+
                     <!--Item Content-->
+                    
+                    <!--User Item Page-->
+                    <div class="row">   
+                            <div id="gallery" class="span5" >
+                                <a href="" title="<?php echo $item_data['seller_data']->title ; ?>">
+                                    <img id="item_l_image" src="<?php echo get_assets_path()."/".$item_images[0]->item_image;?>" style="width:471px;height:354px;" alt="<?php echo $item_data['seller_data']->title ; ?>">
+                                </a>
+
+                                <div class="span12 moroptions" style="width:470px; margin-left:0px;">
+                                    <div class="item">
+                                        <?php foreach($item_images as $image): ?>
+                                       
+                                            <img class="item_s_image" src="<?php echo get_assets_path()."/".$image->item_image;?>" style="width:141px;height:108px;">
+                                        
+                                        <?php endforeach; ?>
+                                        
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="span4">
+                                <h3><?php echo $item_data['seller_data']->title ; ?></h3>
+                                <small>- <?php echo $item_data['seller_data']->title ; ?></small>
+                                <hr class="soft">
+                                <form class="form-horizontal qtyFrm">
+                                    <div class="control-group">
+                                        <label class="control-label" style="text-align:left" ><h3><?php echo $item_data['seller_data']->price."  ".$item_data['seller_data']->price_currancy ;  ?></h3></label>
+                                        <div class="controls" style="height:60px; text-align:right">
+                                            <input type="number" value="0" min="0" max="<?php echo $item_data['seller_data']->Qty ?>"  placeholder="Qty."  style="width:60px; margin-top:20px" >
+                                        </div><br>
+                                        <button type="submit" class="btn addto add-to-cart btn-large btn-primary pull-right "> Add to cart <i class=" icon-shopping-cart"></i></button>
+                                    </div>
+                                </form>
+
+
+
+
+                                <hr class="soft clr">
+                                <p>
+                                    <?php echo $item_data['seller_data']->breif_description; ?>
+                                </p>
+                                <a id="item_more" class="btn btn-small pull-right" >More Details</a>
+                                <br class="clr">
+
+
+                            </div>
+
+                            <div id="item_details" class="span9" style="margin-top:50px;">
+                                
+                                <ul id="productDetail" class="nav nav-tabs">
+                                    <li class="active"><a href="#product_info" data-toggle="tab">Product Details</a></li>
+                                    <li><a href="#customer_reviews" data-toggle="tab" >Customer Reviews</a></li>
+                                </ul>
+                                
+                                <div id="myTabContent" class="tab-content">
+                                    <div class="tab-pane fade active in" id="product_info">
+                                        <h4>Product Information</h4>
+                                        <?php echo $item_data['seller_data']->complete_description; ?>
+                                    </div>
+                                    <div class="tab-pane fade  in" id="customer_reviews">
+                                        <h4>Customer Reviews</h4>
+                                        <?php foreach($item_reviews as $review): ?>
+                                        <div>
+                                            <h5><?php echo $review->buyer_response_type; ?></h5>
+                                            <p><?php echo $review->buyer_response; ?></p>
+                                            <p><?php echo $review->date_int; ?></p>
+                                        </div>
+                                        <hr>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+
+                                <br class="clr">
+                            </div>
+                        </div>
+                    <!--End User Item Page-->
 
                 </div>
 
@@ -273,7 +304,17 @@
                     $('#usrLgdInLi').css({display:'block'});
                 });
 
-
+                $('#item_more').on('click',function(){
+                    $('html,body').animate({scrollTop: $('#item_details').offset().top}, 1000);
+                });
+                
+                $('.item_s_image').on('click',function(){
+                    var s_src = $(this).attr("src");
+                    var l_src = $('#item_l_image').attr('src');
+                    $("#item_l_image").attr("src",s_src);
+                });
+                
+                
             </script>
 
 
