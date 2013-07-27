@@ -32,7 +32,7 @@
                         <ul class="thumbnails masonry" id="landingcontent" style="position: relative; height: 1230px;">
 
                             <?php foreach ($top_items as $item): ?>
-                                <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer">
+                            <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
 
                                     <div class="vmartthumb">
                                         <img alt=""   src="<?php echo get_assets_path() . $item->MainImageUrl; ?>">
@@ -65,7 +65,7 @@
                         </ul>
                         <div class="pagination">
                            <div class="gig-load-more" style="display: block;">
-                                    <a  class="btn-standard-lrg btn-white">See More</a>
+                               <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
                                 </div>
                             <hr id ="loadmore"/>
                         </div>
@@ -82,7 +82,7 @@
                                 <h4 class="muted">Latest Items</h4>
                                 <ul class="thumbnails masonry"  id="vertical-ticker" style="margin-top: 29px;">                       
                                     <?php for($i=0; $i< 4; ++$i){ ?>
-                                    <li >
+                                    <li style="cursor: pointer" >
                                         <div class="thumbnail row" style="margin-left:0px;">
                                             <div class="span3" style="margin-left:0px; width:140px; height:120px;">
                                                 <img alt="" style="height: 100%" src="./images/fixed_images/13.png" >
@@ -113,7 +113,7 @@
 
 
                                     <?php  for($i=0; $i<9; ++$i){ ?>
-                                    <li class="span3 masonry-brick topsellerx">
+                                    <li style="cursor: pointer" class="span3 masonry-brick topsellerx">
                                         <img alt="user" class="thumbnail " width="100"  src="./images/uploaded/users/user1.jpg">                                                
                                     </li>
 
@@ -168,11 +168,11 @@
         <script type="text/javascript">
             $(function(){
                 $('#vertical-ticker').totemticker({
-                    row_height  :   '109px',
-                    speed       :   2000,
-                    interval    :   4000,
+                    row_height  :   '133px',
+                    speed       :   3000,
+                    interval    :   6000,
                     mousestop   :   true,
-                    direction   :   'up'
+                    direction   :   'down'
                 });
             });
                                                                                                                 
