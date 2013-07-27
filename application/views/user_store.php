@@ -37,7 +37,8 @@
             {
                 color:#ccc; font-size:11px; padding:0; line-height:24px; display:block;
             }
-
+            
+            
 
         </style>
 
@@ -166,7 +167,7 @@
                                         <div class="item active">
                                             <ul class="thumbnails" id="carosalproducts">
                                                 <?php foreach ($featured_products as $item): ?>
-                                                <li class="span3">
+                                                <li class="span3" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                                     <div class="thumbnail" style="width:198px">
                                                         <img alt="" src="<?php echo get_assets_path().$item->image_url ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
@@ -200,7 +201,7 @@
                                         <div class="item">
                                             <ul class="thumbnails" id="carosalproducts">
                                                 <?php foreach ($featured_products as $item): ?>
-                                                <li class="span3">
+                                                <li class="span3" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                                     <div class="thumbnail" style="width:198px">
                                                         <img alt="" src="<?php echo get_assets_path().$item->image_url; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                                         <div class="caption">
@@ -242,7 +243,7 @@
 
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 <?php foreach ($all_products as $item): ?>
-                                <li class="span3 masonry-brick" >
+                                <li class="span3 masonry-brick" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                     <div class="thumbnail" style="width:200px">
                                         <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>" height="145px" width="212px" style="height: 145px;width: 212px;">
                                         <div class="caption">
@@ -293,7 +294,7 @@
                             <ul class="thumbnails" id="selleritems" style="position: relative;">
                                 
                                 <?php foreach ($new_products as $item): ?>
-                                <li class="span3 masonry-brick" >
+                                <li class="span3 masonry-brick" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
                                     <div class="thumbnail" style="width:200px">
                                         <img alt="" src="<?php echo get_assets_path().$item->MainImageUrl ; ?>"style="height: 145px;width: 212px;" >
                                         <div class="caption">

@@ -73,6 +73,25 @@
             {
                     text-decoration: none;
             }
+            
+            div .good
+            {
+                width: 32px !important;
+                height: 32px !important;
+                padding: 0px !important;
+                background: url(images/icons/good.gif) no-repeat center !important;
+                background-size:32px 32px !important;
+            }
+            
+            div .bad
+            {
+                width: 32px !important;
+                height: 32px !important;
+                padding: 0px !important;
+                background: url(images/icons/bad.gif) no-repeat center !important;
+                background-size:32px 32px !important;
+            }
+
 
 
         </style>
@@ -262,12 +281,19 @@
                                         <?php echo $item_data['seller_data']->complete_description; ?>
                                     </div>
                                     <div class="tab-pane fade  in" id="customer_reviews">
-                                        <h4>Customer Reviews</h4>
+                                        <h4 style="margin-bottom: 30px;">Customer Reviews</h4>
                                         <?php foreach($item_reviews as $review): ?>
                                         <div>
-                                            <h5><?php echo $review->buyer_response_type; ?></h5>
-                                            <p><?php echo $review->buyer_response; ?></p>
-                                            <p><?php echo $review->date_int; ?></p>
+                                            <div class="row">
+                                                <div class="span1 <?php echo $review->buyer_response_type; ?>"></div>
+                                                <div class="span6"><?php echo $review->buyer_response; ?></div>
+                                                
+                                                <div class="span2" >
+                                                    <p><?php echo $review->date_int; ?></p>
+                                                    <a><p><?php echo $review->username; ?></p></a>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                         <hr>
                                         <?php endforeach; ?>
