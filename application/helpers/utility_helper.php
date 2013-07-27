@@ -45,8 +45,8 @@ function sendVmartEmail($to, $subject, $messagebody) {
         'protocol' => 'smtp',
         'smtp_host' => 'ssl://smtp.googlemail.com',
         'smtp_port' => 465,
-        'smtp_user' => 'testmail.pearson@gmail.com',
-        'smtp_pass' => 'testmailpearson',
+        'smtp_user' => 'vmartlanka@gmail.com',
+        'smtp_pass' => 'aquavision2012',
         'mailtype' => 'html',
         'charset' => 'iso-8859-1'
     );
@@ -55,7 +55,7 @@ function sendVmartEmail($to, $subject, $messagebody) {
     $CI->email->set_newline("\r\n");
 
     $CI->email->set_mailtype('html');
-    $CI->email->from("testmail.pearson@gmail.com");
+    $CI->email->from("vmartlanka@gmail.com");
     $CI->email->to($to);
     $CI->email->subject($subject);
     $CI->email->message($messagebody);

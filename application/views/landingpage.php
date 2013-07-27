@@ -67,7 +67,7 @@
                            <div class="gig-load-more" style="display: block;">
                                <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
                                 </div>
-                            <hr id ="loadmore"/>
+                            <hr class="loadmore" />
                         </div>
                     </div>
                 </div>
@@ -129,6 +129,12 @@
                         </div>
                     </div>
                 </div>
+                 <div class="pagination">
+                           <div class="gig-load-more" style="display: block;">
+                               <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
+                                </div>
+                            <hr class="loadmore"/>
+                        </div>
             </div>
 
 
