@@ -306,7 +306,7 @@
                                             <p>
                                                 <a class="btn primary details show_magnifier_modal" 
                                                                    data-itemid="<?php echo $item->item_id; ?>"
-                                                                   data-imgurl="<?php echo get_assets_path() . $item->MainImageUrl; ?>"
+                                                                   data-imgurl="<?php echo get_assets_path().$item->MainImageUrl; ?>"
                                                                    data-itemtitle="<?php echo $item->title; ?>"
                                                                    data-itemprice="<?php echo $item->price; ?>"
                                                                    ><i class="icon-zoom-in"></i>
@@ -370,11 +370,13 @@
             
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
             
-            <script src="jquerylib/jquery-1.10.1.min.js"></script>        
+            <script src="jquerylib/jquery-1.10.1.min.js"></script>
+ 
             <script src="bootstrap/js/bootstrap.js"></script>
             <script src="js/sellerfront.js"></script>
             <script type="text/javascript" src="js/jquery.totemticker.js"></script>
             <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="js/Common.js"></script>
             
             
             
@@ -385,7 +387,17 @@
                     $('#usrLgdInLi').css({display:'block'});
                 });
                 
-                //Function for loading Maginifier Modal
+                    $(".add-to-cart").on("click",function(e){
+                    alert("Click kalalu");
+                    var id = $(this).data("itemid");
+                    $.post("../Web_cart/add",{
+                        "itemid" :id
+                    }, function(data){
+
+                        });
+
+                });
+
                 $(".show_magnifier_modal").on('click',function(e)
                 {
                     //alert("Click kala");
@@ -408,17 +420,6 @@
                         });
                     });
                 });
-                
-                $(".add-to-cart").on("click",function(e){
-                alert("Click kalalu");
-                var id = $(this).data("itemid");
-                $.post("../Web_cart/add",{
-                    "itemid" :id
-                }, function(data){
-
-                    });
-
-            });
 
 
 

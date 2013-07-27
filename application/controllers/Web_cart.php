@@ -21,6 +21,29 @@ class Web_cart extends CI_Controller{
         
 
     }
+    
+    function add_specific_amt(){
+        
+        $id = $this->input->post('itemid');
+        $amount = $this->input->post('item_amt');
+        $this->load->model('Product_model');
+        $product = $this->Product_model->get($id);
+       
+        $data = array(
+                'id'         => $id,
+                'item_image' => $product->item_image,
+                'name'    => $product->title,
+                'price'   => $product->price,
+                'qty'     => $amount,
+                'aval_qty'=> $product->Qty
+                
+            );
+        
+        $this->cart->insert($data);
+        
+
+    }
+    
     function total(){
         
         return $this->cart->total();
