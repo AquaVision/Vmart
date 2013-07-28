@@ -20,7 +20,12 @@ class My_items extends CI_Controller
     
     public function index() 
     {   
-        $items_summary = array();
+        redirect("Vmart");
+    }
+    
+    
+    public function myitems(){
+         $items_summary = array();
         
         $config = array();
         $config["base_url"] = base_url() . "My_items/index";

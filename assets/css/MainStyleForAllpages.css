@@ -106,17 +106,43 @@
 
 
 #fixstusut { 
-   
-   border-collapse:separate;
+
+    border-collapse:separate;
     border-spacing:0 5px;
 }
 
 
 .rightbarx{
-   
+
     margin-left:10px;
 }
 
 .rightbarx a{
-     color:#51a351;
+    color:#51a351;
 }
+
+
+.statusofproduct{
+    color: white;
+}
+
+.justgot{
+  background-color: #D1D11E;
+}
+
+.working{
+    background-color: #891ED1;
+}
+
+.done{
+    background-color: #468847;
+}
+
+.rejected{
+    background-color: #FF1B1B;
+}
+
+
+
+
+

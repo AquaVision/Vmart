@@ -103,48 +103,53 @@
                                             </thead>
                                             
                                             <tbody> ';
-                                        
+
+                                        $classthatchkeout = "";
+                                        if (islogedUser()) {
+                                            $classthatchkeout = "checkout";
+                                        } else {
+                                            $classthatchkeout = "showmodal";
+                                        }
+
                                         foreach ($cart_data as $items) {
 
                                             echo '<tr>';
-                                           
-                                           
-                                                echo '<td class="sc-td-image"><img src="'.get_assets_path(). $items['item_image'] .'" ></td>';
-                                                echo '<td><h5>' . $items['name'] . '</h5></td>';
-                                                echo '<td><h5>' . $items['price'] . '</h5></td>';
-                                                
-                                                $selectedqty = $items["qty"];
-                                                
-                                                echo '<td><h5><select class="change_qty" name="qty" style="width:60px" data-rowid='.$items['rowid'].'>';
-                                                   for($i=1; $i<=$items['aval_qty']; $i++){
-                                                     $variable  = ($selectedqty == $i ? "selected" : "");
-                                                    echo '<option '.$variable.'  >'.$i.'</option>';
-                                                   }
-                                                    echo '</select></h5></td>'; 
-                                                echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
-                                                echo '<td ><h5><a class="removefromcart" style="cursor:hand;" data-rowid='.$items['rowid'].'><img class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
-                                            
-                                            
+
+
+                                            echo '<td class="sc-td-image"><img src="' . get_assets_path() . $items['item_image'] . '" ></td>';
+                                            echo '<td><h5>' . $items['name'] . '</h5></td>';
+                                            echo '<td><h5>' . $items['price'] . '</h5></td>';
+
+                                            $selectedqty = $items["qty"];
+
+                                            echo '<td><h5><select class="change_qty" name="qty" style="width:60px" data-rowid=' . $items['rowid'] . '>';
+                                            for ($i = 1; $i <= $items['aval_qty']; $i++) {
+                                                $variable = ($selectedqty == $i ? "selected" : "");
+                                                echo '<option ' . $variable . '  >' . $i . '</option>';
+                                            }
+                                            echo '</select></h5></td>';
+                                            echo '<td><h5>' . $items['subtotal'] . '</h5></td>';
+                                            echo '<td ><h5><a class="removefromcart" style="cursor:hand;" data-rowid=' . $items['rowid'] . '><img  style="cursor:pointer" class="rm-cart-i" src="http://localhost/Vmart/assets/images/fixed_images/Remove-icon.png" ></a></h5></td>';
+
+
                                             echo '</tr>';
-                                            
                                         }
                                         echo '</tbody>
                                             <tfoot>
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td colspan="1" ><h3>Grand Total</h3></td>
-                                                <td colspan="1" ><h3 style="color:red;">'.$cart_total.'</h3></td>
+                                                <td colspan="1" ><h3 style="color:red;">' . $cart_total . '</h3></td>
                                             </tr>
 
                                             <tr>
                                                 <td colspan="3"></td>
-                                                <td colspan="1" ><img href="'.base_url().'" src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></td>
-                                                <td colspan="1" ><img href="'.base_url().'" src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></td>
+                                                <td colspan="1" ><a href=' . base_url() . '   ><img href="' . base_url() . '" src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></a></td>
+                                                <td colspan="1" ><a style="cursor:pointer" class=\'' . $classthatchkeout . '\'  rel="popover" data-content="You need to be logged in to Check out!! " data-original-title="Checkout Fail" - See more at: http://www.w3resource.com/twitter-bootstrap/popover-tutorial.php#sthash.GTgDs5ev.dpuf><img href="' . base_url() . '" src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></a></td>
                                             </tr>
 
                                         </tfoot>
                                                 </table>';
-                                       
                                         ?>                                
 
 
@@ -152,17 +157,7 @@
                                         <!--EndShow cart details in a table-->
 
 
-                                        <div class="pagination" style="text-align:center">
-                                            <ul>
-                                                <li><a href="#">Prev</a></li>
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li><a href="#">Next</a></li>
-                                            </ul>
-                                        </div>
+
 
                                     </div>
                                     <div class="form-divi"></div>
@@ -195,7 +190,7 @@
             </div>
 
             <footer class="footer ">
-                <?php $this->load->view('includes/footer.php'); ?>
+<?php $this->load->view('includes/footer.php'); ?>
             </footer>
         </div>
     </body>
@@ -211,5 +206,10 @@
             window.location.replace("http://stackoverflow.com");
         }
     );
+        
+        $(function ()  
+        { 
+            $(".showmodal").popover();  
+        });  
     </script>
 </html>

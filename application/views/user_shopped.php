@@ -55,8 +55,8 @@
                                                 <tr>
                                                     <td>
                                                         <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
+                                                            
+                                                            <img class="avatar"  style="height: 32px; width: 32px; padding: 2px;" alt="" src="images/uploaded/users/avatar1.jpg">
                                                             Lakmal55
                                                         </div>
                                                     </td>

@@ -2,6 +2,7 @@ var timmerveraible;
 $(function(){
 
     var userchekst = "";
+    var siteulr = $("#siteurl").val();
     
 
     $("#postdiscuss").click(function(e){
@@ -172,13 +173,18 @@ $(function(){
 
 
     $(".add-to-cart").on("click",function(e){
-        alert("Click kalalu");
         var id = $(this).data("itemid");
         $.post("../Web_cart/add",{
             "itemid" :id
         }, function(data){
             
-            });
+            if(data == -1){
+                shopalert("exist");
+            }else{
+                $("#itemcount").html($.trim(data));
+                shopalert('add');
+            }
+        });
         
     });
     
@@ -235,7 +241,30 @@ $(function(){
 
 
 
-
+    function shopalert(type){
+        $(".notificationaiy").stop();
+        if(type == 'add' ){
+            
+            $(".notificationaiy").removeClass("alert-danger");
+            if(!$(".notificationaiy").hasClass("alert-success")){
+                $(".notificationaiy").addClass("alert-success");
+            }         
+            $(".notificationaiy p").html("Item has added visit <a href=\""+siteulr+"Web_cart/show\">cart</a> for changes");
+            $(".notificationaiy").css("opacity","1");
+            
+        }else if(type == 'exist'){
+            $(".notificationaiy").removeClass("alert-success");
+            if(!$(".notificationaiy").hasClass("alert-danger")){
+                $(".notificationaiy").addClass("alert-danger");
+            } 
+            $(".notificationaiy p").html("Item is already in you cart, go to <a href=\""+siteulr+"Web_cart/show\">cart</a> for Qty Changes");
+            $(".notificationaiy").css("opacity","1");
+            
+        }
+        $(".notificationaiy").animate({
+                opacity : 0
+            }, 6000);
+    }
 
 
 
@@ -310,7 +339,7 @@ $(function(){
     
     
     
-    check_order_count();
+   
     
 
 });//End of onload

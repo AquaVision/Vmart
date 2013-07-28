@@ -31,8 +31,8 @@
                             <?php $this->load->view('includes/settings_rightbar.php'); ?>
                             <section class="db-content">
                                 <div style="margin-left: 25px;">
-                                    <h2>Order #FO4298090085</h2>
-                                    <p>Buyer :&nbsp;<a href="">Lakmal55</a>&nbsp;|&nbsp;Date : 05<sup>th</sup>June 2013</p>
+                                    <h2>Order #VM<?php echo $basic->orderid ?></h2>
+                                    <p>Buyer :&nbsp;<a href=""><?php echo $buyer->username ?></a>&nbsp;|&nbsp;Date : <?php echo $basic->date_int ?></p>
                                 </div>
 
                                 <!--Order Details Table-->
@@ -46,77 +46,94 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Necklace</td>
-                                                <td>2</td>
-                                                <td>2weeks</td>
-                                                <td>2500</td>
+                                                <td><?php echo $basic->title ?></td>
+                                                <td><?php echo $basic->Qty ?></td>
+                                                <td><?php echo $basic->duration ?> Days</td>
+                                                <td><?php echo $basic->total_amount ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <!--End Order Details Table-->
 
-
-                                <!--Order Status Viewer-->
-                                <!--
-                                <div class="row" style="margin-left: 25px; margin-right: 25px;">
-                                        <div class="span3 status-viwer">
-                                            <div style="border-radius 10px; -moz-border-radius 10px; -webkit-border-radius 10px; width: 20px; height: 20px; background: red; border: solid black 1px;">&nbsp;</div>
-                                        </div>
-
-                                        <div class="span3 status-viwer">
-
-                                        </div>
-
-                                        <div class="span3 status-viwer">
-
-                                        </div>
-
-                                        <div class="span3 status-viwer">
-
-                                        </div>                                                                                                              
-                                </div>
-                                -->
 
                                 <div class="form-wizard">
-                                    <div class="navbar steps" style="margin-left: 0px; margin-right: 0px;">
+                                    <div class="navbar steps" style="margin-left: 0px; margin-right: 0px; border-bottom: none !important;">
                                         <div class="navbar-inner">
                                             <ul class="row-fluid nav nav-pills">
-                                                <li class="span3 active">
+
+                                                <?php
+                                                $sellerid = $basic->selleruserid;
+                                                $status = $basic->status;
+                                                $progressbar = "progress-success";
+                                                $buttonmssage = "Mark this As On Delivery";
+                                                
+                                                $statuspresntage = 0;
+                                                $whichis = array("", "", "");
+                                                if ($status == "IN_PROGRESS") {
+                                                    $whichis[0] = "active";
+                                                    $statuspresntage = 33;
+                                                } else if ($status == "ON_DELIVERY") {
+                                                    $whichis[1] = "active";
+                                                    $statuspresntage = 66;
+                                                    $buttonmssage = "Change this As In Progress";
+                                                } else if ($status == "COMPLETED") {
+                                                    $whichis[2] = "active";
+                                                    $statuspresntage = 100;
+                                                }
+
+                                                if ($status == "REJECTED") {
+                                                    $progressbar = "progress-danger";
+                                                    $whichis[2] = "active";
+                                                    $statuspresntage = 100;
+                                                     $buttonmssage = "";
+                                                }
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                ?>
+
+
+                                                <li class="span4 <?php echo $whichis[0] ?>">
                                                     <a href="#tab1" data-toggle="tab" class="step active">
                                                         <span class="number">1</span>
                                                         <span class="desc"><i class="icon-ok"></i> Ordered</span>   
                                                     </a>
                                                 </li>
-                                                <li class="span3">
+                                                <li class="span4 <?php echo $whichis[1] ?>">
                                                     <a href="#tab2" data-toggle="tab" class="step">
                                                         <span class="number">2</span>
-                                                        <span class="desc"><i class="icon-ok"></i> Shipped</span>   
+                                                        <span class="desc"><i class="icon-ok"></i> On Delivery</span>   
+
                                                     </a>
                                                 </li>
-                                                <li class="span3">
+                                                <li class="span4 <?php echo $whichis[2] ?>">
                                                     <a href="#tab3" data-toggle="tab" class="step">
                                                         <span class="number">3</span>
-                                                        <span class="desc"><i class="icon-ok"></i> Shipping</span>   
+                                                        <span class="desc"><i class="icon-ok"></i> Completed</span>   
                                                     </a>
                                                 </li>
-                                                <li class="span3">
-                                                    <a href="#tab4" data-toggle="tab" class="step">
-                                                        <span class="number">4</span>
-                                                        <span class="desc"><i class="icon-ok"></i> Delivered</span>   
-                                                    </a> 
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row" style="margin-left: 25px; margin-right: 25px;">
-                                    <div class="progress progress-striped active">
-                                        <div class="bar" style="width: 20%;"></div>
+                                    <div class="progress <?php echo $progressbar ?> progress-striped active">
+                                        <div class="bar" style="width: <?php echo $statuspresntage; ?>%;"></div>
                                     </div>
                                 </div>
-
+                                
+                                <?php if( $buttonmssage != ""){ ?>
+                                <form class="form-horizontal" action="<?php echo site_url() ?>Orders/chnageState" method="post">
+                                    <input type="hidden" value="<?php echo $basic->orderid ?>" name="oderid" />
+                                    <button type="submit" class="btn" style="margin-left: 25px;"><?php echo $buttonmssage ?></button>
+                                    
+                                </form>
+                                <?php } ?>
                                 <!--End Order Status Viewer-->
 
                                 <!--Start Conversation-->
@@ -125,94 +142,79 @@
                                     <div class="portlet-body" id="chats">
                                         <div class="scroller" data-height="343px" data-always-visible="1" data-rail-visible1="1">
                                             <ul class="chats" id="chatparent">
-                                                <li class="in">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar1.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Bob Nilson</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="out">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar2.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Lisa Wong</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="in">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar1.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Bob Nilson</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="out">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar1.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Richard Doe</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="in">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar1.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Richard Doe</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="out">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar1.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Bob Nilson</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="in">
-                                                    <img class="avatar" alt="" src="images/uploaded/users/avatar2.jpg" />
-                                                    <div class="message">
-                                                        <span class="arrow"></span>
-                                                        <a href="#" class="name">Richard Doe</a>
-                                                        <span class="datetime">at Jul 25, 2012 11:09</span>
-                                                        <span class="body">
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-                                                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                                        </span>
-                                                    </div>
-                                                </li>
+                                                <?php
+                                                foreach ($messages as $msg) {
+
+                                                    $MSGuserid = $msg->user_messaged;
+
+                                                    $msgtype = $msg->type;
+                                                    if (($sellerid == $MSGuserid) && ($msgtype == "NORMAL" )) {
+                                                        ?>
+
+                                                        <li class="in">
+                                                            <img class="avatar" alt="" src="<?php echo get_assets_path() . getprofilePic() ?>" />
+                                                            <div class="message">
+                                                                <span class="arrow"></span>
+                                                                <a href="#" class="name"><?php echo getUsername() ?></a>
+                                                                <span class="datetime"><?php echo $msg->created_date ?></span>
+                                                                <span class="body">
+                                                                    <?php echo $msg->message ?>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+
+
+                                                        <?php
+                                                    } else if ((($buyer->userid) == $MSGuserid) && ($msgtype == "NORMAL" )) {
+                                                        ?>
+
+                                                        <li class="out">
+                                                            <img class="avatar" alt="" src="<?php echo get_assets_path() . $buyer->profile_pic ?>" />
+                                                            <div class="message">
+                                                                <span class="arrow"></span>
+                                                                <a href="#" class="name"><?php echo get_assets_path() . $buyer->username ?></a>
+                                                                <span class="datetime"><?php echo $msg->created_date ?></span>
+                                                                <span class="body">
+                                                                    <?php echo $msg->message ?>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+
+                                                        <?php
+                                                    } else if ($msgtype == "SPECIAL") {
+                                                        ?>
+
+                                                        <li class="out" style="text-align: center; background-color: #6BA5E7; color: white; margin-top: 10px; border-bottom: 10px;">
+                                                            <h5><?php echo $msg->message ?></h5>
+                                                            <?php echo $msg->created_date ?>
+                                                        </li>      
+
+                                                        <?php
+                                                    }
+                                                    ?>
+
+
+
+
+
+                                                <?php } ?>
+
+
                                             </ul>
                                         </div>
-                                        <div class="chat-form">
-                                            <div class="input-cont">   
-                                                <input class="m-wrap" id="discuss" type="text" placeholder="Type a message here..." />
-                                            </div>
-                                            <div class="btn-cont"> 
-                                                <span class="arrow"></span>
-                                                <a href="javascript:;" id="postdiscuss" style="margin-top:12px; margin-left:5px;" class="btn blue icn-only"><i class="icon-ok icon-white"></i></a>
-                                            </div>
+                                        <div class="chat-form"> 
+                                            <form action="<?php echo site_url() . "Orders/addComment" ?>"  method="post">
+                                                <div class="input-cont">   
+                                                    <input class="m-wrap" id="discuss" type="text" name="comment" placeholder="Type a message here..." />
+                                                </div>
+                                                <div class="btn-cont"> 
+
+                                                    <input type="hidden" value="<?php echo $basic->orderid ?>" name="oderid" />
+                                                    <span class="arrow"></span>
+                                                    <button type="submit"  style="margin-top:12px; margin-left:5px;" class="btn blue icn-only"><i class="icon-ok icon-white"></i></button>
+
+                                                </div>
+                                            </form>
                                         </div>
                                         &nbsp;
                                     </div>

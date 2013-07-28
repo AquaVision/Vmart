@@ -1,7 +1,4 @@
-<?php
-
-
-if (!islogedUser()) {  ?>
+<?php if (!islogedUser()) { ?>
     <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
             <div class="container" >   <!-- style="width: 1260px;" -->
@@ -15,7 +12,7 @@ if (!islogedUser()) {  ?>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
-
+                        <li><a href="<?= site_url() . "/Web_cart/show"; ?>"><i class="icon-shopping-cart icon-white"></i> Cart <span id="itemcount" class="badge"><?php $countv =count($this->cart->contents());  if($countv !=0){ echo $countv; }   ?></span></a></li>
                         <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
                         <li id="usrLgdInLi" style="display:none; position: absolute">
 
@@ -72,33 +69,33 @@ if (!islogedUser()) {  ?>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
-                        <li><a href="setup-notes.html">Inbox<span class="badge">9</span></a></li>
-                        <li ><a href="navbar-examples.html">Orders<span class="badge" id="ordercount"></span></a></li>
+                        <li><a href="<?= site_url() . "/Web_cart/show"; ?>"><i class="icon-shopping-cart icon-white"></i> Cart <span id="itemcount" class="badge"><?php  $countv =count($this->cart->contents());  if($countv !=0){ echo $countv; }   ?></span></a></li>
+                        <li ><a href="<?php echo site_url()."Orders/AllOrders/IN_PROGRESS" ?>">Orders<span class="badge" id="ordercount"><?php  $ordercount = getUserOrderCount(); if($ordercount != -1){ echo $ordercount;  }  ?></span></a></li>
 
                         <li id="usrLgdInLi" >
-                            <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none">
+                            <div id="usrLgdInDiv" style="margin-top:10px; margin-left:10px" class="dropdown">
+                                <a href=""  class="dropdown-toggle" data-toggle="dropdown" style="font-weight:600; text-decoration: none; color: #BEBCBC;">
                                     <img class="img-rounded" src="<?php echo get_assets_path() . (getprofilePic()) ?>" style="width:24px;height:24px;">
-                                    <?php echo getUsername(); ?>
+    <?php echo getUsername(); ?>
                                 </a>
                                 <span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu" style="margin-top: 6px; margin-left:-40px">
 
                                     <li>
-                                        <a href=""><i class="icon-envelope"></i>&nbsp;&emsp;Inbox</a>
+                                        <a href="">&nbsp;&emsp;Shopping</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Orders</a>
+                                        <a href="<?php echo site_url()."Orders/AllOrders/IN_PROGRESS" ?>"></i>&nbsp;&emsp;Orders</a>
                                     </li>
 
                                     <li>
-                                        <a href="<?php echo site_url('settings/generalSettings'); ?>"><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>
+                                        <a href="<?php echo site_url('settings/generalSettings'); ?>">&nbsp;&emsp;Settings</a>
                                     </li>
-                                    <?php if(iswizardseller()){ ?>
-                                    <li style="background-color:#f9bc2a ">
-                                        <a href="<?php echo site_url("Wizardseller/seller"); ?>" style="text-align: center">Shop Wizard</a>
-                                    </li>
-                                    <?php } ?>
+    <?php if (iswizardseller()) { ?>
+                                        <li style="background-color:#f9bc2a ">
+                                            <a href="<?php echo site_url("Wizardseller/seller"); ?>" style="text-align: center">Shop Wizard</a>
+                                        </li>
+    <?php } ?>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="<?= site_url('Auth/SignOut'); ?>"><i class="icon-tag"></i>&nbsp;&emsp;Logout</a>
@@ -133,10 +130,10 @@ if (!islogedUser()) {  ?>
 
         </div>
         <div style="margin-bottom: -20px">
-            <?php
-            $form_attributes = array('class' => 'form-horizontal');
-            echo form_open('Auth/SignIn', $form_attributes);
-            ?>
+    <?php
+    $form_attributes = array('class' => 'form-horizontal');
+    echo form_open('Auth/SignIn', $form_attributes);
+    ?>
 
 
             <div style="margin-top: 10px">
@@ -169,9 +166,9 @@ if (!islogedUser()) {  ?>
 
 
 
-                <?php
-                echo form_close();
-                ?>
+    <?php
+    echo form_close();
+    ?>
             </div>
         </div>
     </div>
@@ -191,9 +188,9 @@ if (!islogedUser()) {  ?>
             </div>
         </div>
         <div style="margin-bottom: -20px">
-            <?php
-            echo form_open('Auth/SignUp', $form_attributes);
-            ?>
+    <?php
+    echo form_open('Auth/SignUp', $form_attributes);
+    ?>
             <div class="modal-body" style="text-align: center; width: 400px;">
 
 
@@ -250,12 +247,12 @@ if (!islogedUser()) {  ?>
                 </div>
 
 
-                <?php
-                echo form_close();
-                ?>
+    <?php
+    echo form_close();
+    ?>
             </div>
         </div>
     </div>
 
 
-<?php }  ?>
+<?php } ?>

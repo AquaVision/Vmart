@@ -46,14 +46,18 @@ function getprofilePic() {
     return getcurrentSession()->userdata('udata')->profile_pic;
 }
 
-function iswizardseller(){
-    
+function iswizardseller() {
+
     $wiz = getcurrentSession()->userdata('udata')->wizardseller;
-    if($wiz ==0){
+    if ($wiz == 0) {
         return true;
-    }else{
+    } else {
         return false;
     }
+}
+
+function getUserOrderCount() {
+    return getcurrentSession()->userdata("ourdercount");
 }
 
 function getUserFolder() {
@@ -64,5 +68,10 @@ function getUserFolder() {
 
 function getUserFolderName() {
     return (getcurrentSession()->userdata('udata')->userfolder);
+}
+
+
+function setValue($session_key,$session_value){
+    getcurrentSession()->set_userdata($session_key, $session_value);
 }
 

@@ -32,7 +32,7 @@
                         <ul class="thumbnails masonry" id="landingcontent" style="position: relative; height: 1230px;">
 
                             <?php foreach ($top_items as $item): ?>
-                            <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
+                                <li class="span3 masonry-brick" style="position: absolute; top: 0px; left: 0px; cursor:pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'">
 
                                     <div class="vmartthumb">
                                         <img alt=""   src="<?php echo get_assets_path() . $item->MainImageUrl; ?>">
@@ -64,9 +64,9 @@
 
                         </ul>
                         <div class="pagination">
-                           <div class="gig-load-more" style="display: block;">
-                               <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
-                                </div>
+                            <div class="gig-load-more" style="display: block;">
+                                <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
+                            </div>
                             <hr class="loadmore" />
                         </div>
                     </div>
@@ -80,36 +80,35 @@
                             <div class="span6" style="width: 50%; margin-left: auto; " >
 
                                 <h4 class="muted">Latest Items</h4>
-                                
-                                 
+
+
                                 <ul class="thumbnails masonry"  id="vertical-ticker" style="margin-top: 29px;">                       
-                                    <?php 
+                                    <?php
                                     foreach ($latestitems as $item):
-                                        
                                         ?>
-                                    <li style="cursor: pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'" >
-                                        <div class="thumbnail row" style="margin-left:0px;">
-                                            <div class="span3" style="margin-left:0px; width:140px; height:120px;">
-                                                <img alt="" style="height: 100%" src="<?php echo get_assets_path() . $item->MainImageUrl; ?>" >
-                                            </div>
-                                            <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
-                                                <div class="caption" style="padding-top:0px; padding-bottom:0px;">
-                                                    <h6 class="itemtitle"><?php echo $item->title; ?></h6>
-                                                    <span class="description"><?php echo $item->daysx; ?> days</span>
-                                                    <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
-                                                        <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
-                                                        <div class="span1 nuberofsales" style="margin-left:0px;">(<?php echo $item->rating; ?>)</div>
+                                        <li style="cursor: pointer" onclick="window.location='<?php echo site_url("Item/get_item/{$item->item_id}") ?>'" >
+                                            <div class="thumbnail row" style="margin-left:0px;">
+                                                <div class="span3" style="margin-left:0px; width:140px; height:120px;">
+                                                    <img alt="" style="height: 100%" src="<?php echo get_assets_path() . $item->MainImageUrl; ?>" >
+                                                </div>
+                                                <div class="span3" style="margin-left:0px; width:50% padding:0px; height:98px;">
+                                                    <div class="caption" style="padding-top:0px; padding-bottom:0px;">
+                                                        <h6 class="itemtitle"><?php echo $item->title; ?></h6>
+                                                        <span class="description"><?php echo $item->daysx; ?> days</span>
+                                                        <div class="row" style="margin-left:0px; margin-bottom:2px; margin-top:3px;">
+                                                            <div class="span6 ratex <?php echo get_formatted_rating($item->rating); ?>" style="margin-left:0px;"></div>
+                                                            <div class="span1 nuberofsales" style="margin-left:0px;">(<?php echo $item->rating; ?>)</div>
+                                                        </div>
+
+
+                                                        <p > <span class="label label-info price"><?php echo $item->price; ?>&nbsp;<?php echo $item->price_currancy; ?></span></p>
+
                                                     </div>
-
-                                                    
-                                                    <p > <span class="label label-info price"><?php echo $item->price; ?>&nbsp;<?php echo $item->price_currancy; ?></span></p>
-
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                   <?php endforeach; ?>
-                                   
+                                        </li>
+                                    <?php endforeach; ?>
+
                                 </ul>
                             </div>
                             <div class="span6" style="width: 50%; margin-left: auto;">
@@ -118,13 +117,13 @@
                                 <ul class="thumbnails " style="position: relative; " >
 
 
-                                    <?php  foreach ($topsellers as $seller): ?>
-                                    <li style="cursor: pointer" class="span3 masonry-brick topsellerx">
-                                        <img alt="user" class="thumbnail topsellerimg" width="100"  src="<?php echo get_assets_path()."/".$seller->shopname_pic ?>">
-                                        <div class="whoisseller" ><?php echo $seller->shopname ?></div>
-                                    </li>
+                                    <?php foreach ($topsellers as $seller): ?>
+                                        <li style="cursor: pointer" class="span3 masonry-brick topsellerx">
+                                            <img alt="user" class="thumbnail topsellerimg" width="100"  src="<?php echo get_assets_path() . "/" . $seller->shopname_pic ?>">
+                                            <div class="whoisseller" ><?php echo $seller->shopname ?></div>
+                                        </li>
 
-                                  <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
 
 
@@ -136,12 +135,12 @@
                         </div>
                     </div>
                 </div>
-                 <div class="pagination">
-                           <div class="gig-load-more" style="display: block;">
-                               <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
-                                </div>
-                            <hr class="loadmore"/>
-                        </div>
+                <div class="pagination">
+                    <div class="gig-load-more" style="display: block;">
+                        <a  class="btn-standard-lrg btn-white" style="cursor: pointer">See More</a>
+                    </div>
+                    <hr class="loadmore"/>
+                </div>
             </div>
 
 
@@ -170,6 +169,11 @@
             </div>
         </div>
         <!--End Modal for Item Magnifier-->
+        <input type="hidden" id="siteurl" value="<?php echo site_url() ?>" />
+        <div class="alert alert-danger notificationaiy">
+            <p></p>
+            
+        </div>
 
         <script src="jquerylib/jquery-1.10.1.min.js"></script>
         <script src="js/jquery.masonry.min.js"></script>
@@ -204,4 +208,6 @@
 
 
 
-    </body></html>
+    </body>
+
+</html>

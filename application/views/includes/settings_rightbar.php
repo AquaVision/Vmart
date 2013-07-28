@@ -24,7 +24,7 @@
                     <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>
                     <ul>
                         <li  class="rightbarx"><a href="<?php echo site_url('ShopSettings/shop') ?>"  >Shop front</a></li>
-                        <li  class="rightbarx"><a href="<?php echo site_url('My_items') ?>"  >Shop Items</a></li>
+                        <li  class="rightbarx"><a href="<?php echo site_url('My_items/myitems') ?>"  >Shop Items</a></li>
                     </ul>
                     <h5 class="muted" style="margin-left:0px; margin-top: 20px; margin-bottom: 4px;">Features and Upgrades</h5>
                     <hr style="margin-left:0px; margin-top: 1px; margin-bottom: 8px;"/>

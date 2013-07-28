@@ -30,17 +30,7 @@ class Vmart extends CI_Controller {
         echo $item['item']->breif_description;
     }
 
-    public function get_orders(){
-        if (!islogedUser()){
-            
-            echo 'not logged in';
-        } else {
-            $userid = getUserID();
-            $this->load->model('product_model');
-            $orders = $this->product_model->get_new_orders($userid);
-            echo $orders;
-        }
-    }
+    
 
 
 }
