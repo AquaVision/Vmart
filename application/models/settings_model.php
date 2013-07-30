@@ -96,8 +96,9 @@ class settings_model extends CI_Model {
         $bankcode = $this->input->post("bankcode");
         $branchcode = $this->input->post("branchcode");
         $accountnumber = $this->input->post("accountnuber");
+        $shopname = $this->input->post("shopname");
 
-        $this->db->query("UPDATE seller SET seller_id ='$identity'  WHERE userid = '$usrid' ");
+        $this->db->query("UPDATE seller SET seller_id ='$identity', shopname = '$shopname'  WHERE userid = '$usrid' ");
         $this->db->query("UPDATE user set is_seller ='1' where userid = '$usrid'");
         $selerbank = $this->db->query("SELECT userid FROM seller_bank WHERE userid = '$usrid'");
         if ($selerbank->num_rows() > 0) {
@@ -139,6 +140,7 @@ class settings_model extends CI_Model {
         $usrid = getUserID();
         $reciveemailsTo = $this->input->post("recivetoemail");
         $showingEmail = $this->input->post("recivetoemail");
+       
 
         $totphoneQuerypart = "";
         $phonenubers = $this->input->post("phonenubers");
@@ -167,7 +169,7 @@ class settings_model extends CI_Model {
             }
         }
 
-
+        $socialmediaplugin = $this->input->post("socialmediaplugin");
         $location = $this->input->post("locationyour");
         $contactUs = $this->input->post("contactus");
         $aboutUs = $this->input->post("editordataxy");
@@ -199,11 +201,12 @@ class settings_model extends CI_Model {
                         contactus, 
                         rating, 
                         companylogo, 
-                        STATUS
+                        STATUS,
+                        facebooksoicalme
                         )
                         VALUES
-                        (?,  ?, ?, ?,  ?, ?, ?, ?, ?)";
-            $this->db->query($qinsert, array($usrid, $reciveemailsTo, $showingEmail, $location, $aboutUs, $contactUs, '5', 'companylogo', 'ACTIVE'));
+                        (?,  ?, ?, ?,  ?, ?, ?, ?, ?,?)";
+            $this->db->query($qinsert, array($usrid, $reciveemailsTo, $showingEmail, $location, $aboutUs, $contactUs, '5', 'companylogo', 'ACTIVE',$socialmediaplugin));
         }
 
         //adding phonnubers 

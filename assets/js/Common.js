@@ -205,6 +205,18 @@ $(function(){
     });
     
     $("#continuexnextpage").on("click",function(e){
+       
+            $("#justandid").remove();
+        
+         
+        
+            $("#okimage11").remove();
+        
+        
+        
+            $("#wrongimage2").remove();
+        
+        
         var page = $(this).data("active");
         if(page == "page1"){
             $("#verifyyourslef1").show();

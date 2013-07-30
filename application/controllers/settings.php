@@ -203,6 +203,8 @@ class settings extends CI_Controller {
             } else {
                 echo "Wrong number format!!";
             }
+        }else{
+            echo "You are already verified";
         }
     }
 

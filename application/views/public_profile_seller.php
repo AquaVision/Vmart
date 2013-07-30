@@ -23,6 +23,7 @@
     </head>
 
     <body class="body-db" data-twttr-rendered="true">
+       
         <div id="header">
             <?php $this->load->view('includes/navbar'); ?>
         </div>
@@ -103,6 +104,12 @@
                                                                         </div>
                                                                     </div>
 
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="yourid">Your Shop Name</label>
+                                                                        <div class="controls" > 
+                                                                            <input type="text" name="shopname" value=""  />
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="yourid">Your identity (seller id)</label>
                                                                         <div class="controls" > 
@@ -333,7 +340,13 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                    Social Media Plugin <small>(Max width : 260 px ) </small>
+                                                                    <div class="control-group" style="margin-top:5px;">
+                                                                        <label class="control-label" for="location1"></label>
+                                                                        <div class="controls">
+                                                                            <textarea rows="3"  id="location1" name="socialmediaplugin" class="span8"></textarea>
+                                                                        </div>
+                                                                    </div>
 
                                                                     Add your location  <a href="#helptext" class="btn btn-link"  role="button" data-toggle="modal">(help me)</a>
                                                                     <div class="control-group" style="margin-top:5px;">
@@ -462,7 +475,7 @@
                                                             <div class="row span12" id="finishwizard" style="marin-bottom:30px; opacity : 0" >
                                                                 <div class="span1"><img src="images/fixed_images/success.jpg" style="margin-top:-18px; height:50px; " /></div>
                                                                 <div class="span8" style="margin-left:0px;">
-                                                                    <p style="font-size:20px; "  >Way to go <?php echo getUsername() ?>!!!, You just created your own store now lets  <a class="link" href="<?php echo site_url("my_items") ?> ">fill it up</a></p>
+                                                                    <p style="font-size:20px; "  >Way to go <?php echo getUsername() ?>!!!, You just created your own store now lets  <a class="link" href="<?php echo site_url("my_items/myitems") ?> ">fill it up</a></p>
                                                                 </div>
                                                             </div>
                                                         </div>                                            
