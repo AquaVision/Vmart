@@ -89,11 +89,11 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
             <div class="control-group">
                 <div class="controls" style="text-align: center">
-                    <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
+                    <a ><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
 
                 </div>
             </div>
-            <div style="text-align: center"><small>NOT A MEMBER YET? <a href="#" class="js-open-popup-join">REGISTER NOW</a> — IT'S FUN AND EASY!</small></div>
+            <div style="text-align: center"><small>NOT A MEMBER YET? <a href="../#signup_tag" class="js-open-popup-join">REGISTER NOW</a> — IT'S FUN AND EASY!</small></div>
 
         </div>
         <div style="margin-bottom: -20px">
@@ -126,7 +126,7 @@
             </div>
             <div class="modal-footer">
                 <div class="control-group">
-                    <a class="control-label" href="#" >Forgot Password?</a>
+                    <a class="control-label" >Forgot Password?</a>
                     <div class="controls"><button  type="submit" class="btn btn-primary" style="margin-right: 40px;" >SIGN IN</button></div>
 
                 </div>
@@ -147,10 +147,10 @@
 
             <div class="control-group">
                 <div class="controls" style="text-align: center">
-                    <a href=""><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
+                    <a ><img src="./images/uploaded/facebook-login-button.png" style="width: 50%;margin-bottom: 10px; margin-top: 10px"></a>
 
                 </div>
-                <div style="text-align: center"><small >ALREADY A MEMBER? <a href="#" class="js-open-popup-login">SIGN IN</a> »</small></div>
+                <div style="text-align: center"><small >ALREADY A MEMBER? <a  class="js-open-popup-login">SIGN IN</a> »</small></div>
 
             </div>
         </div>
@@ -208,7 +208,7 @@
                 <div class="control-group">
 
                     <div class="control-label" style="margin-left: 10px"><label class="checkbox">
-                            <input type="checkbox"> <p style="width: 255px;"> I AGREE TO THE <a href="#">TERMS OF SERVICE</a></p>
+                            <input type="checkbox"> <p style="width: 255px;"> I AGREE TO THE <a >TERMS OF SERVICE</a></p>
                         </label></div>
                     <div class="controls"><button type="submit" class="btn btn-primary" style="margin-right: 40px;">JOIN US</button></div>   
                 </div>

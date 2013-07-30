@@ -133,7 +133,16 @@
 
 
                                             echo '</tr>';
+                                        
+                                            
                                         }
+                                        $link = "";
+                                         $partx = "";
+                                        
+                                        if(islogedUser()) { $link = 'href="'.site_url().'Web_cart/checkout"'; }else{
+                                          $partx =  'rel="popover" data-content="You need to be logged in to Check out!! " data-original-title="Checkout Fail"'; 
+                                        }
+                                      
                                         echo '</tbody>
                                             <tfoot>
                                             <tr>
@@ -145,7 +154,7 @@
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td colspan="1" ><a href=' . base_url() . '   ><img href="' . base_url() . '" src="http://localhost/Vmart/assets/images/fixed_images/continue_shopping.png" style="height:"></a></td>
-                                                <td colspan="1" ><a style="cursor:pointer" class=\'' . $classthatchkeout . '\'  rel="popover" data-content="You need to be logged in to Check out!! " data-original-title="Checkout Fail" - See more at: http://www.w3resource.com/twitter-bootstrap/popover-tutorial.php#sthash.GTgDs5ev.dpuf><img href="' . base_url() . '" src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></a></td>
+                                                <td colspan="1" ><a  '.$link.' style="cursor:pointer" class=\'' . $classthatchkeout . '\'  '.$partx.' ><img href="' . base_url() . '" src="http://localhost/Vmart/assets/images/fixed_images/checkout_btn.png"></a></td>
                                             </tr>
 
                                         </tfoot>

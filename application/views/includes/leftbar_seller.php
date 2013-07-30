@@ -16,32 +16,32 @@
     <!--End USSD Activation-->
 
     <!--Start Accordion-->
-    <ul id="sidenav01" class="accordion nav nav-department  nav-tabs nav-stacked ulstyle">
-        <?php
+    
+  <ul id="sidenav01" class="accordion nav nav-department nav-tabs nav-stacked ulstyle">
+     <?php
         $catname = "";
         $counter = 0;
         foreach ($totalcate as $category1){   
             
             ?>
-        <li class="accordion-group">
-            <a  data-toggle="collapse" data-target="#subnav<?=$counter ?><?=$counter ?>" data-parent="#sidenav01" class="accordion-toggle  collapsed">
-                <i class="icon-chevron-right pull-right"></i><?=$category1 ?>
-            </a>
-            <ul id="subnav<?=$counter ?><?=$counter ?>" class="nav nav-list accordian-child collapse" style="height: auto;">
-                <?php foreach($category as $catego){
+    <li>
+        <a  data-toggle='collapse' data-target='#subnav<?=$counter ?><?=$counter ?>' data-parent='#sidenav01' class="accordion-toggle collapsed">
+             <i class="icon-chevron-right pull-right"></i><?=$category1 ?>
+        
+        </a>
+        
+          <ul id="subnav<?=$counter ?><?=$counter ?>" class="nav nav-list collapse">
+             <?php foreach($category as $catego){
                             if($category1 == $catego->cat_name){
                     ?>
                     <li><a style="cursor: pointer" ><?=$catego->title ?></a></li>
                    
                  <?php }} ?>
-            </ul>
-        </li>
-        <?php  ++$counter; } ?>
-
-
+          </ul>
+    </li>
        
-    </ul>
-
+     <?php  ++$counter; } ?>
+</ul>
 
 
     <!--End Accordion-->
@@ -68,6 +68,7 @@
     </div>  
     <br/>
     <div class="thumbnail">
+      
         <!--
         <div id="fb-root"></div>
         <script>(function(d, s, id) {

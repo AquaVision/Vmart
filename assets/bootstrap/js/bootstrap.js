@@ -2513,7 +2513,7 @@ function abimage(image,width,height,top,left,id,Parent){
     if($("#"+id).length == 0){
         $(Parent).append("<img id='"+id+"' src='images/assets/"+image+"' style='width:"+width+"; height:"+height+"; top:"+top+";  left:"+left+"; z-index:100000; position: absolute'  />");
     }else{
-        $(id).css({
+        $("#".id).css({
             'width' : width, 
             'height':height, 
             'top':top,  

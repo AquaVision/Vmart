@@ -78,6 +78,8 @@ class Web_cart extends CI_Controller {
             $this->load->model('product_model');
             $this->product_model->do_checkout($cart);
         }
+        
+        redirect("");
     }
 
     function remove($rowid) {

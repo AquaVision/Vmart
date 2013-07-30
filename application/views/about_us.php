@@ -92,7 +92,7 @@
               <div class="span12 sellerlandata container" >
                 <div style="display:table; width: 100%">
                     <div style="display:table-cell">
-                        <span>AccessoryFort </span>
+                        <span><?=$seller_shop ?> </span>
                     </div>
                     <div class="mymenyu" style="display:table-cell; vertical-align:bottom; float: right">
                         <a href="<?php echo site_url().'User_store/get_data/'.$seller_id;?>"><span class="navseller">Home</span></a>

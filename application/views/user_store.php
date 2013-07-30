@@ -93,7 +93,7 @@
               <div class="span12 sellerlandata container" >
                 <div style="display:table; width: 100%">
                     <div style="display:table-cell">
-                        <span>AccessoryFort </span>
+                        <span><?=$seller_shop ?></span>
                     </div>
                     <div class="mymenyu" style="display:table-cell; vertical-align:bottom; float: right">
                         <a href="<?php echo site_url().'User_store/get_data/'.$seller_id;?>"><span class="navseller">Home</span></a>
@@ -387,14 +387,17 @@
             
             <!-- Placed at the end of the document so the pages load faster ============================================= -->
             
-            <script src="jquerylib/jquery-1.10.1.min.js"></script>
- 
-            <script src="bootstrap/js/bootstrap.js"></script>
+            <script src="jquerylib/jquery-1.10.1.min.js" type="text/javascript"></script>
+            <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="js/prettify_base.js"></script>
+            <script src="js/bootshop_base.js"></script>
+            <script src="jquerylib/jquery.lightbox-0.5.js"></script>
+
+            <script src="http://code.jquery.com/jquery.js"></script>
+            <script src="js/accordianMenu.js"></script>
             <script src="js/sellerfront.js"></script>
-            <script type="text/javascript" src="js/jquery.totemticker.js"></script>
-            <script src="js/bootvalidate/assets/js/jquery.validate.min.js"></script>
-            <script type="text/javascript" src="js/Common.js"></script>
             
+            <script type="text/javascript" src="js/Common.js"></script>
             
             
             <script type="text/javascript">

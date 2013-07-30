@@ -37,23 +37,21 @@ $(function(){
         //starting request
         userchekst = false;
         if(typed.match(/^[a-zA-Z0-9]*$/)){
-            adjT(3);
-            adjL(140);
-            showLoading("#usernamex", "20px");
+            abimage("load.gif", "16px", "16px","188px", "423px", "loadimage","#signup_tag");
             $.post("../Auth/CheckUserName", {
                 "username" : typed
             },
             function(data){
-                hideLoading();
+                $("#loadimage").remove();
                 if(data == "true"){
                     $("#okimage1").remove();
                     $("#wrongimage").remove();
-                    abimage("right.png", "16px", "16px","109px", "250px", "okimage1","#signup_tag");
+                    abimage("right.png", "16px", "16px","188px", "423px", "okimage1","#signup_tag");
                     userchekst = true;
                 }else{
                     $("#okimage1").remove();
                     $("#wrongimage").remove();
-                    abimage("wrong.png", "16px", "16px", "109px", "250px", "wrongimage","#signup_tag");
+                    abimage("wrong.png", "16px", "16px", "188px", "423px", "wrongimage","#signup_tag");
                 }
             
             });
