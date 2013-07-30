@@ -87,45 +87,71 @@
         <!--End Modal for Sign IN-->
 
         <!-- Header End====================================================================== -->
-        <div id="carouselBlk" class="container" >
-            <div id="myCarousel" class="carousel slide" style="margin-top:23px;">
+       <div id="carouselBlk" class="container" >
+           
+              <div class="span12 sellerlandata container" >
+                <div style="display:table; width: 100%">
+                    <div style="display:table-cell">
+                        <span>AccessoryFort </span>
+                    </div>
+                    <div class="mymenyu" style="display:table-cell; vertical-align:bottom; float: right">
+                        <a href="<?php echo site_url().'User_store/get_data/'.$seller_id;?>"><span class="navseller">Home</span></a>
+                                            <a href="<?php echo site_url().'About_us/get_data/'.$seller_id;?>"><span class="navseller">About Us</span></a>
+                                            <a href="<?php echo site_url().'Contact_us/get_data/'.$seller_id;?>"><span class="navseller">Contact Us</span></a>
+                    </div>
+                   
+              
+                </div>
+                
+                <hr/>
+            </div>
+            <div class="container" >
+            <div id="myCarousel" class="carousel slide" >
+                
+                <?php 
+                if(count($cover_images) >0){
+                
+                ?>
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1" ></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <?php 
+                    $active = "active";
+                    for($i=0; $i< count($cover_images); ++$i){  
+                    ?>
+                    <li data-target="#myCarousel" data-slide-to="<?=$i ?>" class="<?=$active ?>"></li>
+                   
+                    <?php  
+                    $active = "";
+                    }  
+                    ?>
                 </ol>
                 <!-- Carousel items -->
                 <div class="carousel-inner">
-                    <div class="active item"><img style="width:100%" src="images/fixed_images/1.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
+
+                    <?php 
+                    $active = "active";
+                    foreach ($cover_images as $cover_image): 
+                        
+                        ?>
+                    <div class="item <?=$active ?>">
+                        <img style="width:1170px; height: 300px;" src="<?php echo get_assets_path().$cover_image->cover_image; ?>" alt="">
                     </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/2.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
-                    </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/3.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
-                    </div>
-                    <div class="item"><img style="width:100%" src="images/fixed_images/4.jpg" alt="">
-                        <div class="carousel-caption">
-                            <h4>Second Thumbnail label</h4>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </div>
-                    </div>
+                    <?php
+                    $active = "";
+                    endforeach;
+                    ?>
+                    
+                    
+
                 </div>
                 <!-- Carousel nav -->
                 <a class="left carousel-control" href="http://bootstrapshoppingcart.com/preview/bootstrapshop/#myCarousel" data-slide="prev">‹</a>
                 <a class="right carousel-control" href="http://bootstrapshoppingcart.com/preview/bootstrapshop/#myCarousel" data-slide="next">›</a>
+                 <?php 
+                }
+                
+                ?>
             </div>
+                </div>
         </div>
 
         <div id="mainBody">
@@ -134,34 +160,13 @@
 
 
                     <!-- Sidebar ================================================== -->
-                    <?php include_once "includes/leftbar_seller.php" ?>
+                     <?php $this->load->view("includes/leftbar_seller",loadNavBar($seller_id,$seller_shop,$sellerunique)) ?>
 
                     <!-- Sidebar end=============================================== -->
                     <div class="span9"> 
                         
-                        <div class="navbar navbar-inverse" style="position: static;">
-                            <div class="navbar-inner ">
-                                <div class="container ">
-                                    <div class="brand"></div>
-                                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </a>
-                                    <div class="nav-collapse collapse navbar-inverse-collapse">
-                                        <ul class="nav pull-right">
-
-                                            <li class="active"><a href="<?php echo site_url().'User_store/get_data/'.$seller_id;?>"><i class="icon-home icon-white"></i> Home</a></li>
-                                            <li><a href="<?php echo site_url().'About_us/get_data/'.$seller_id;?>">About us</a></li>
-                                            <li><a href="<?php echo site_url().'Contact_us/get_data/'.$seller_id;?>">Contact us</a></li>
-                                            
-                                        </ul>
-                                        <form class="navbar-search pull-right" >
-                                            <input type="text" class="search-query" placeholder="Search">
-                                        </form>
-                                    </div><!-- /.nav-collapse -->
-                                </div>
-                            </div><!-- /navbar-inner -->
+                          <div class="navbar navbar-inverse" style="position: static; border: #ffffff !important;">
+                           
                         </div>
                         
                         <!--About us Content-->

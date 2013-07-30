@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/style.css">
         <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/jquery.fileupload-ui.css">
         <link href="bootstrap/MetronicExtracted/css/style.css" rel="stylesheet">
+        
     </head>
 
     <body class="body-db" data-twttr-rendered="true">
@@ -166,7 +167,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="control-group">
-                                                        
+
                                                         <div class="controls" style="margin-left: 150px;" >
                                                             <ul class="nav nav-list" id="socialmedai" style="width: 297px;" >
 
@@ -258,9 +259,9 @@
                                             </div>
                                             <input type="hidden" value="" name="editordataxy" id="editordataxy" /> 
                                             <!--  <input type="submit" class="btn" /> -->
-                                              <div class="form-actions">
-                                                    <button type="submit" class="btn btn-success" class="savechanges" id="mysdfdfd"  style="float:right">Save changes</button>
-                                                </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-success" class="savechanges" id="mysdfdfd"  style="float:right">Save changes</button>
+                                            </div>
                                         </form>
                                     </div>
                                     <div class="form-divi"></div>
@@ -295,7 +296,7 @@
             </div>
         </div>
 
-         <input type="hidden" id="userfold" value="<?php echo getUserFolderName() ?>" />
+        <input type="hidden" id="userfold" value="<?php echo getUserFolderName() ?>" />
         <footer class="footer ">
             <?php $this->load->view('includes/footer.php'); ?>
         </footer>

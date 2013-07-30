@@ -30,7 +30,7 @@
                                 <div class="db-content-inner">
                                     <header class="db-header cf">
                                         <h3>
-                                            My Shopping
+                                            Orders
                                         </h3>
                                     </header>
                                     <div class="profile-form">
@@ -44,7 +44,7 @@
 
                                         <table class="table  table-hover table-bordered table-condensed" id="inboxcontent" style="width:100% font-size:11px;" >
                                             <thead>
-                                            <th width="18%" height="29"><strong>Seller</strong></th>
+                                            <th width="18%" height="29"><strong>Buyer</strong></th>
                                             <th width="37%"><strong>Sales Item</strong></th>
                                             <th width="6%"><strong>Quantity</strong></th>
                                             <th width="9%"><strong>Price</strong></th>

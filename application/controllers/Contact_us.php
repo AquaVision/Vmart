@@ -4,6 +4,7 @@ class Contact_us extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('User_store_model');
     }
     
     private $seller_data = array();
@@ -70,7 +71,9 @@ class Contact_us extends CI_Controller {
         }
         $this->seller_data['seller_phones'] = $seller_phone_data;
         $this->seller_data['seller_id'] = $seller_id;
-        
+        $this->seller_data['cover_images'] = $this->User_store_model->get_store_covers($seller_id);
+        $this->seller_data['sellerunique'] = $this->User_store_model->_getselleruniqe($seller_id);
+        $this->seller_data["seller_shop"] = $this->User_store_model->_getsellerShopname($seller_id);
         $this->load->view('contact_us',$this->seller_data);  
     }
     

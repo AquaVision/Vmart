@@ -14,6 +14,10 @@ class ShopSettings extends CI_Controller {
         $rightbar["rightbar"] = "SHOPSETTINGS";
         $this->load->view("seller_store", $rightbar);
     }
+    
+    
+    
+    
 
 }
 

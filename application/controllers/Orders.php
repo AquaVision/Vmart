@@ -43,12 +43,83 @@ class Orders extends CI_Controller {
         $this->Ordersdata->_addComment();
     }
     
+    function addUsercomment(){
+        $this->Ordersdata->_addCommentUser();
+    }
+
+
     function chnageState(){
         $this->Ordersdata->_changeState();
     }
     
-   
+    
+    function completeorder(){
+        $this->Ordersdata->_Compltetorder();
+    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function shopped($type = NULL){
+        
+        $typearray = array("IN_PROGRESS", "ON_DELIVERY", "COMPLETED", "REJECTED");
+
+        if (in_array($type, $typearray)) {
+        
+            $data = $this->Ordersdata->getAllOrdersofUser($type);
+            $ordercount = $this->Ordersdata->countShoppings();
+            $newar["data"] = $data;
+            $newar["type"] = "current_orders";
+            $newar["ordercount"] = $ordercount;
+            
+        } else {
+            redirect("");
+        }
+        $this->load->view("user_shopped",$newar);
+    }
+    
+    
+    function UserOrderDiscussion($orderid){
+        
+        if ($this->Ordersdata->_isUserOwns($orderid)) {
+            $data = $this->Ordersdata->_getBasicOrderDataUserPers($orderid);
+            $seller = $this->Ordersdata->_getUserdata($data->selleruserid);
+            $messages = $this->Ordersdata->_getUsermessages($orderid);
+            $newdata["basic"] = $data;
+            $newdata["seller"] = $seller;
+            $newdata["messages"] = $messages;
+            
+            $this->load->view("UserOrderDiscussion",$newdata);
+        } else {
+            redirect("");
+        }
+        
+    }
+
+     
+    
 }
 
 ?>

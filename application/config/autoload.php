@@ -67,7 +67,7 @@ $autoload['libraries'] = array('database','session','form_validation','NexmoMess
   |	$autoload['helper'] = array('url', 'file');
  */
 
-$autoload['helper'] = array('url','form','utility','sessionuser','landing_helper');
+$autoload['helper'] = array('url','form','utility','sessionuser','landing_helper','nav');
 
 
 /*

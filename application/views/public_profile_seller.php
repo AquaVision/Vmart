@@ -15,6 +15,11 @@
         <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/style.css">
         <link rel="stylesheet" href="bootstrap/jqfileuploadRealtime/css/jquery.fileupload-ui.css">
         <link href="bootstrap/MetronicExtracted/css/style.css" rel="stylesheet">
+        <style type="text/css">
+            .done {
+                background-color: white !important;
+            }
+        </style>
     </head>
 
     <body class="body-db" data-twttr-rendered="true">

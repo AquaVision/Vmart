@@ -98,6 +98,7 @@ class settings_model extends CI_Model {
         $accountnumber = $this->input->post("accountnuber");
 
         $this->db->query("UPDATE seller SET seller_id ='$identity'  WHERE userid = '$usrid' ");
+        $this->db->query("UPDATE user set is_seller ='1' where userid = '$usrid'");
         $selerbank = $this->db->query("SELECT userid FROM seller_bank WHERE userid = '$usrid'");
         if ($selerbank->num_rows() > 0) {
             $this->db->query("UPDATE seller_bank 

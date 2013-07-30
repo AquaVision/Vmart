@@ -36,78 +36,70 @@
                                     <div class="profile-form">
 
                                         <div class="db-summary db-order-stats">
-                                            <a href="#/new">0<small>InProgress</small></a>
-                                            <a href="#/active">0<small>Purchased</small></a>
-                                            <a href="#/completed">3<small>Completed</small></a>
-                                            <a href="#/delivered">0<small>Cancelled</small></a>
+                                            <a href="<?php echo site_url() . "Orders/shopped/IN_PROGRESS"; ?>"><?php echo $ordercount["progress"] ?><small>MY NEW SHOPPING</small></a>
+                                            <a href="<?php echo site_url() . "Orders/shopped/ON_DELIVERY"; ?>"><?php echo $ordercount["delivery"] ?><small>ON DELIVERY</small></a>
+                                            <a href="<?php echo site_url() . "Orders/shopped/COMPLETED"; ?>"><?php echo $ordercount["complete"] ?><small>COMPLETED</small></a>
+                                            <a href="<?php echo site_url() . "Orders/shopped/REJECTED"; ?>"><?php echo $ordercount["rejected"] ?><small>I DID NO LIKE</small></a>
                                         </div>
 
-                                        <table class="table table-striped table-hover table-bordered table-condensed" id="sales_data_tbl" >
+                                        <table class="table  table-hover table-bordered table-condensed" id="inboxcontent" style="width:100% font-size:11px;" >
                                             <thead>
-                                            <th>Seller</th>
-                                            <th>Sales Item</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Due In</th>
-                                            <th>Status</th>
-                                            </thead>
+                                            <th width="18%" height="29"><strong>Seller</strong></th>
+                                            <th width="37%"><strong>Sales Item</strong></th>
+                                            <th width="6%"><strong>Quantity</strong></th>
+                                            <th width="9%"><strong>Price</strong></th>
+                                            <th width="14%"><strong>Due In</strong></th>
+                                            <th width="15%"><strong>Status</strong></th>
+
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            
-                                                            <img class="avatar"  style="height: 32px; width: 32px; padding: 2px;" alt="" src="images/uploaded/users/avatar1.jpg">
-                                                            Lakmal55
-                                                        </div>
-                                                    </td>
-                                                    <td>Necklace</td>
-                                                    <td>2</td>
-                                                    <td>2500</td>
-                                                    <td>05<sup>th</sup>July 2013</td>
-                                                    <td style="background-color: #468847;">Delivered&nbsp;<i class=" icon-thumbs-up"></i></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Imaa95
-                                                        </div>
-                                                    </td>
-                                                    <td>Dongle</td>
-                                                    <td>1</td>
-                                                    <td>3500</td>
-                                                    <td>02<sup>th</sup>June 2013</td>
-                                                    <td style="background-color: #468847;">Delivered&nbsp;<i class=" icon-thumbs-up"></i></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Vat69
-                                                        </div>
-                                                    </td>
-                                                    <td>Cocunet</td>
-                                                    <td>2</td>
-                                                    <td>1500</td>
-                                                    <td>20<sup>th</sup>August 2013</td>
-                                                    <td style="background-color: #468847;">Delivered&nbsp;<i class=" icon-thumbs-up"></i></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <img src="" height="32" width="32">
-                                                            <i class="icon-user"></i>
-                                                            Anu89
-                                                        </div>
-                                                    </td>
-                                                    <td>Bangle</td>
-                                                    <td>4</td>
-                                                    <td>5500</td>
-                                                    <td>15<sup>th</sup>Sep 2013</td>
-                                                    <td style="background-color: #b94a48;">Not Delivered&nbsp;<i class=" icon-thumbs-down"></i></td>
-                                                </tr>
+
+                                                <?php
+                                                if ($type == "current_orders") {
+                                                    $count = 0;
+                                                    foreach ($data as $shopsalles) {
+                                                        ++$count;
+                                                        ?>
+
+
+                                                <tr onclick="window.location='<?php echo site_url()."Orders/UserOrderDiscussion/{$shopsalles->orderid}" ?>'">
+                                                            <td align="left" valign="middle">
+                                                                <div>
+                                                                    <img class="avatar" alt="" src="<?php echo get_assets_path() . "/$shopsalles->profile_pic" ?>">
+                                                                    &nbsp; <?php echo $shopsalles->username ?>
+                                                                </div>
+                                                            </td>
+                                                            <td valign="middle"><?php echo $shopsalles->title ?></td>
+                                                            <td align="right" valign="middle"><?php echo $shopsalles->Qty ?></td>
+                                                            <td align="right" valign="middle"><?php echo $shopsalles->total_amount ?></td>
+                                                            <td align="center" valign="middle"><?php echo $shopsalles->date_int ?></td>
+                                                            <?php
+                                                            $status = $shopsalles->status;
+                                                            $thumbs = "";
+                                                            $word = "";
+                                                            if ($status == "IN_PROGRESS") {
+                                                                $status = "justgot";
+                                                                $word = "New Order";
+                                                            } else if ($status == "ON_DELIVERY") {
+                                                                $status = "working";
+                                                                $word = "Delivery";
+                                                            } else if ($status == "COMPLETED") {
+                                                                $status = "done";
+                                                                $word = "Completed";
+                                                                $thumbs = "icon-thumbs-up";
+                                                            } else if ($status == "REJECTED") {
+                                                                $status = "rejected";
+                                                                $word = "Rejected";
+                                                                $thumbs = "icon-thumbs-down";
+                                                            }
+                                                            ?>
+
+
+                                                            <td valign="middle" class="statusofproduct <?php echo $status ?>"  ><?php echo $word ?>&nbsp;<i class="<?php echo $thumbs ?>"></i></td>
+                                                        </tr>
+
+                                                    <?php }
+                                                } ?>
+
 
                                             </tbody>
                                         </table>
@@ -120,6 +112,7 @@
 
 
                                         <div class="pagination" style="text-align:center">
+                                            <?php if($count > 20){ ?>
                                             <ul>
                                                 <li><a href="#">Prev</a></li>
                                                 <li><a href="#">1</a></li>
@@ -129,6 +122,7 @@
                                                 <li><a href="#">5</a></li>
                                                 <li><a href="#">Next</a></li>
                                             </ul>
+                                            <?php } ?>
                                         </div>
 
                                     </div>

@@ -13,40 +13,7 @@
                     <ul class="nav pull-right">
                         <li><a href="<?= site_url(); ?>"><i class="icon-home icon-white"></i> Home</a></li>
                         <li><a href="<?= site_url() . "/Web_cart/show"; ?>"><i class="icon-shopping-cart icon-white"></i> Cart <span id="itemcount" class="badge"><?php $countv =count($this->cart->contents());  if($countv !=0){ echo $countv; }   ?></span></a></li>
-                        <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>
-                        <li id="usrLgdInLi" style="display:none; position: absolute">
-
-
-
-                            <div id="usrLgdInDiv" style="margin-top:10px;margin-right:20px;" class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-rounded" src="./images/uploaded/users/avatar1.jpg" style="width:24px;height:24px;">
-                                    username
-                                </a>
-                                <span class="caret"></span>
-                                <ul class="dropdown-menu" role="menu" style="margin-top: 6px;">
-                                    <li>
-                                        <a href=""><i class="icon-user"></i>&nbsp;&emsp;User</a>
-                                    </li>
-                                    <li>
-                                        <a href=""><i class="icon-envelope"></i>&nbsp;&emsp;Inbox</a>
-                                    </li>
-                                    <li>
-                                        <a href=""><i class="icon-briefcase"></i>&nbsp;&emsp;Sales</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= site_url('settings/generalSettings'); ?>"><i class="icon-wrench"></i>&nbsp;&emsp;Settings</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href=""><i class="icon-tag"></i>&nbsp;&emsp;Logout</a>
-                                    </li> 
-                                </ul>
-                            </div>
-
-
-
-                        </li>            
+                        <li id="usrSignInLi"><a id="btnSignIn pull-right" href="#modalSignIn" data-toggle="modal">Sign In</a></li>                        
                         <li id="join_with_us"><a href="#signup_tag" data-toggle="modal">Join Us</a></li>
                         <li id="logout"><a href="" style="display:none;">logout</a></li>
                     </ul>
@@ -82,7 +49,7 @@
                                 <ul class="dropdown-menu" role="menu" style="margin-top: 6px; margin-left:-40px">
 
                                     <li>
-                                        <a href="">&nbsp;&emsp;Shopping</a>
+                                        <a href="<?php echo site_url() ?>Orders/shopped/IN_PROGRESS">&nbsp;&emsp;Shopping</a>
                                     </li>
                                     <li>
                                         <a href="<?php echo site_url()."Orders/AllOrders/IN_PROGRESS" ?>"></i>&nbsp;&emsp;Orders</a>

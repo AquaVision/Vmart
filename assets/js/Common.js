@@ -268,7 +268,10 @@ $(function(){
 
 
 
-
+    $(".completeorder").on("click",function(e){
+        
+        $("#compleorder").css("opacity",0).show().animate({opacity:1});
+    });
 
 
 

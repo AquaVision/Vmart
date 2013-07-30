@@ -66,7 +66,7 @@
                                                 $status = $basic->status;
                                                 $progressbar = "progress-success";
                                                 $buttonmssage = "Mark this As On Delivery";
-                                                
+
                                                 $statuspresntage = 0;
                                                 $whichis = array("", "", "");
                                                 if ($status == "IN_PROGRESS") {
@@ -85,14 +85,8 @@
                                                     $progressbar = "progress-danger";
                                                     $whichis[2] = "active";
                                                     $statuspresntage = 100;
-                                                     $buttonmssage = "";
+                                                    $buttonmssage = "";
                                                 }
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
                                                 ?>
 
 
@@ -126,13 +120,13 @@
                                         <div class="bar" style="width: <?php echo $statuspresntage; ?>%;"></div>
                                     </div>
                                 </div>
-                                
-                                <?php if( $buttonmssage != ""){ ?>
-                                <form class="form-horizontal" action="<?php echo site_url() ?>Orders/chnageState" method="post">
-                                    <input type="hidden" value="<?php echo $basic->orderid ?>" name="oderid" />
-                                    <button type="submit" class="btn" style="margin-left: 25px;"><?php echo $buttonmssage ?></button>
-                                    
-                                </form>
+
+                                <?php if (($buttonmssage != "") && ($basic->status != "COMPLETED")) { ?>
+                                    <form class="form-horizontal" action="<?php echo site_url() ?>Orders/chnageState" method="post">
+                                        <input type="hidden" value="<?php echo $basic->orderid ?>" name="oderid" />
+                                        <button type="submit" class="btn" style="margin-left: 25px;"><?php echo $buttonmssage ?></button>
+
+                                    </form>
                                 <?php } ?>
                                 <!--End Order Status Viewer-->
 
@@ -155,7 +149,7 @@
                                                             <img class="avatar" alt="" src="<?php echo get_assets_path() . getprofilePic() ?>" />
                                                             <div class="message">
                                                                 <span class="arrow"></span>
-                                                                <a href="#" class="name"><?php echo getUsername() ?></a>
+                                                                <a  class="name"><?php echo getUsername() ?></a>
                                                                 <span class="datetime"><?php echo $msg->created_date ?></span>
                                                                 <span class="body">
                                                                     <?php echo $msg->message ?>
@@ -172,7 +166,7 @@
                                                             <img class="avatar" alt="" src="<?php echo get_assets_path() . $buyer->profile_pic ?>" />
                                                             <div class="message">
                                                                 <span class="arrow"></span>
-                                                                <a href="#" class="name"><?php echo get_assets_path() . $buyer->username ?></a>
+                                                                <a  class="name"><?php echo $buyer->username ?></a>
                                                                 <span class="datetime"><?php echo $msg->created_date ?></span>
                                                                 <span class="body">
                                                                     <?php echo $msg->message ?>
@@ -182,9 +176,17 @@
 
                                                         <?php
                                                     } else if ($msgtype == "SPECIAL") {
+                                                        
+                                                        
+                                                        $coloer = "#6BA5E7";
+                                                        if ($msg->user_messaged == -2) {
+                                                            $coloer = "#35aa47";
+                                                        }else if($msg->user_messaged == -3){
+                                                            $coloer = "#C56423";      
+                                                        }
                                                         ?>
 
-                                                        <li class="out" style="text-align: center; background-color: #6BA5E7; color: white; margin-top: 10px; border-bottom: 10px;">
+                                                        <li class="out" style="text-align: center; background-color: <?=$coloer ?>; color: white; margin-top: 10px; border-bottom: 10px;">
                                                             <h5><?php echo $msg->message ?></h5>
                                                             <?php echo $msg->created_date ?>
                                                         </li>      
